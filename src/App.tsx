@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import Homepage from "./Homepage";
+import Navbar from "./Navbar";
+import ProjectIndex from "./ProjectIndex";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(): JSX.Element {
+    return (
+        <>
+            <Navbar/>
+            <main>
+                <Route>
+                    <Switch>
+                        <Route exact path="/"><Homepage/></Route>
+                        <Route exact path="/home"><Homepage/></Route>
+                        <Route exact path="/projects"><ProjectIndex/></Route>
+                    </Switch>
+                </Route>
+            </main>
+        </>
+    );
 }
 
 export default App;

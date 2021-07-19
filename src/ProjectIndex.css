@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@200;300;400;500;600&family=Raleway:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;500;600&display=swap');
+
+
+h1 {
+	font-family: "Poppins";
+	color: white;
+	font-size: 3em;
+	text-align: center;
+}
+
+.title-seperator {
+	background: #ffc800;
+	width: 40px;
+	height: 5px;
+	border-radius: 5px;
+}
+
+.title-container p {
+	color: white;
+	font-family: 'Baloo Tammudu 2', cursive;
+	font-size: 1.3em;
+	max-width: 35%;
+	text-align: center;
+}
+
+.project-card.hover {
+	background:rgb(26, 26, 26);
+	transform: scale(1.1)
+}
+
+.project-card img {
+	margin: 2em 0
+}
+
+.project-card h2 {
+	color: white;
+	font-family: 'Poppins';
+	font-size: 1.5em;
+	font-weight: 500;
+	text-align: center
+}
+
+.project-card .project-title {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start
+}
+
+.project-card .project-meta {
+	display: flex;
+	width: 100%;
+	justify-content: flex-start;
+	align-items: center
+}
+
+.desc {
+	text-overflow:ellipsis;
+	overflow: hidden;
+	display: -webkit-box !important;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	white-space: normal
+}
+
+.project-card .meta span {
+	width: .8em;
+	height: .8em;
+	display: block;
+	border-radius: .8em;
+	margin-right: .5em
+}
+
+.project-card .repo-link {
+	display: flex;
+	align-items: center;
+	justify-content: center
+}
+
+.rank-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 4.8rem;
+	margin-bottom: 6rem
+}
+
+.project-card.place {
+	max-width: 300px;
+}
+
+.project-card.place:not(.first-place) {
+}
+
+.project-card.first-place {
+	background: #ffc800;
+	overflow: hidden
+}
+
+.project-card.first-place * {
+	color: #141414;
+}
+
+.project-card.first-place .project-title {
+	margin-top: 2.4em
+}
+
+.project-card.first-place .description {
+	margin-top: 1em
+}
+
+.project-card .card-cover {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0
+}
+
+.first-place-banner {
+	position: absolute;
+	transform: rotate(45deg) translateY(-100%) translateX(30%);
+	box-shadow: 0px 0px 4px #000000;
+	font-family: "Poppins";
+	font-size: 1.5em;
+	background: #141414;
+	color: #ffc800 !important;
+	font-weight: 600;
+	padding: .2em 0;
+	width: 100%;
+	text-align: center;
+	right: 0;
+	top: 0
+}
+
+.filter-container {
+	padding: 0 3em;
+	margin: 2em 0
+}
+
+.filter-container h2 {
+	color: white;
+	font-family: 'Poppins';
+	margin-bottom: 1em;
+	font-size: 1.4em
+}
+
+.filter-container div {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.filter-container a {
+	color: #ffc800 !important;
+	font-family: "Baloo Tammudu 2";
+	border: 2px solid #ffc800;
+	padding: 0 2em;
+	padding-top: .5em;
+	border-radius: 40px;
+	margin-right: .5em;
+	margin-bottom: .6em;
+	text-decoration: none;
+	cursor: pointer
+}
+
+.filter-container a.selected {
+	background: #ffc800;
+	color: #141414 !important
+}
+
+.details-background {
+	width: 100%;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.7);
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+	opacity: 0;
+	justify-content: center;
+	align-items: center;
+}
+
+.details-background.active {
+	display: flex;
+	animation: details-background-fade-in .5s forwards;
+}
+
+@keyframes details-background-fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.details-container {
+	background: #141414;
+	width: 70vw;
+	height: 70vh;
+	box-shadow: 4px 4px 8px 4px #000000;
+	border-radius: 10px;
+	padding: 2em;
+	display: grid;
+	grid-template-columns: 35% 65%;
+	transform: translateY(150%)
+}
+
+.details-background.active .details-container {
+	animation: details-container-slide-in .5s forwards;
+}
+
+@keyframes details-container-slide-in {
+	0% {
+		transform: translateY(150%);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.details-container img {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	object-fit: cover;
+	object-position: 0% 0%;
+}
+
+.details-container > div {
+	padding: 0 2em
+}
+
+.details-container .categories {
+	color: #ffc800;
+	font-family: "Poppins";
+	font-size: 1.2em;
+	font-weight: 500;
+	margin-bottom: 0
+}
+
+.details-container .title {
+	color: white;
+	font-family: 'Poppins';
+	font-size: 3em;
+	font-weight: 500;
+	text-align: left;
+}
+
+.details-container .subtitle {
+	color: white;
+	font-family: 'Baloo Tammudu 2', cursive;
+	font-size: 1.4em;
+	font-weight: 400;
+	margin-top: 1.2em;
+	margin-bottom: 2em;
+	line-height: 125%
+}
+
+.details-container .scrollbar-track {
+	background: rgba(255, 255, 255, 0.1);
+	width: 6px;
+	border-radius: 6px
+}
+
+.details-container .scrollbar-thumb {
+	background: #ffc800;
+	width: 6px
+}
+
+.details-container .small-title {
+	color: white;
+	font-family: 'Poppins';
+	font-size: 1.6em;
+	font-weight: 500;
+	border-left: 4px solid #ffc800;
+	padding-left: .3em
+}
+
+.details-container .content {
+	color: #CBCBCB;
+	font-family: "Baloo Tammudu 2";
+	font-size: 1.3em;
+	font-weight: 400;
+	margin-top: .5em;
+	margin-bottom: 1em
+}

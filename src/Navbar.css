@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&family=Lato:wght@500;700&family=Roboto:wght@300;500&Montserrat:wght@400;500;600&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.cb-nav {
+	background: #141414;
+	transition: background-color 0.5s ease 0s, width 0.5s ease 0s, height 0.5s ease 0s;
+	height: 100px;
+	width: 100%;
+}
+
+.nav {
+	display: flex;
+	flex-wrap: wrap;
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+}
+
+.light.cb-nav *{
+	color: rgb(20, 20, 20)
+}
+
+.light.cb-nav .homenav-item:hover {
+	color: rgb(20, 20, 20)
+}
+
+.light.cb-nav .homenav-item::after {
+	background-color: rgb(20, 20, 20);
+}
+
+.light.cb-nav .login-link:hover {
+	color: rgb(20, 20, 20)
+}
+
+.fixed-top {
+    position: sticky !important;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.navbrand-wrapper {
+	height: 100px;
+	width: 100%;
+	display: grid;
+	grid-template-columns: auto auto;
+	justify-content: left;
+	align-items: center;
+}
+
+.navbar-brand {
+	color: white;
+	font-family: 'Poppins', sans-serif;
+	font-size: 2.2vw !important;
+	font-weight: 600 !important;
+	transition: color 0.5s ease 0s, margin-top 0.5s ease 0s, margin-bottom 0.5s ease 0s;
+	position: relative;
+	display: inline-block;
+	padding: 0 !important;
+	margin-left: 40px;
+	text-decoration: none;
+	float: none;
+    height: auto;
+    line-height: auto;
+}
+
+.navbar-brand:hover {
+	color: white;
+}
+
+.collapse-btn {
+	background: none;
+	border-style: none;
+	position: relative;
+	display: none;
+	height: 32px;
+	margin-left: 20px
+}
+
+.collapse-btn:focus {
+	border-style: none;
+	outline-style: none;
+}
+
+.collapse-icon {
+	color: white;
+	width: 32px;
+	height: 32px
+}
+
+.navbar-right {
+	margin-right: 4em;
+	margin-top: 0.4em;
+	transition: margin-top 0.5s ease 0s
+}
+
+.nav-signup-btn {
+	text-decoration: none;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 20px;
+	font-weight: 700;
+	margin-left: 20px;
+	background-color: rgba(255, 255, 255, 0);
+	padding: 15px 30px;
+	border-radius: 5px;
+	border: 2px solid white;
+	padding-bottom: 16px;
+	transition: background-color 0.5s ease 0s, color 0.5s ease 0s;
+}
+
+.nav-signup-btn:hover {
+	background: white;
+	color: rgb(20, 20, 20);
+	transition: 0.2s;
+}
+
+.homenav-item {
+	color: white;
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 500 !important;
+	font-family: 'Poppins', sans-serif;
+	position: relative;
+	transition: 0.2s;
+}
+
+.homenav-item-container li {
+	margin: 0 20px;
+}
+
+li::marker {
+	color: #141414
+}
+
+.homenav-item-container {
+	transition: margin-top 0.5s ease 0s;
+	display: flex;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	margin: 0;
+	list-style: none
+}
+
+.homenav-item:after {
+	content:'';
+	position: absolute;
+	width: 100%;
+	height: 2.5px;
+	bottom: -5px;
+	left: 0;
+	background-color: rgb(255, 200, 0);
+	transform: scaleX(0);
+	transform-origin: bottom right;
+	transition: transform 0.3s;
+}
+.homenav-item:hover {
+  color: white;
+  text-decoration: none;
+}
+.homenav-item:hover::after, .homenav-item.active::after {
+	transform-origin: bottom left;
+	transform: scaleX(1);
+}
+
+.login-link {
+	font-family: 'Montserrat', sans-serif;
+	color: white;
+	text-decoration: none;
+	font-size: 20px;
+	transition: color 0.5s ease 0s;
+	display: block !important;
+	font-weight: 600 !important;
+	position: absolute !important;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 60px
+}
+
+.login-link:hover {
+	color: #DDDDDD;
+	transition: 0.2s;
+}
+
+@media all and (max-width: 1441px) {
+	.homenav-item-container {
+		display: none !important
+	}
+	.nav-expand.homenav-item-container {
+		display: initial !important;
+	}
+	.nav-expand.cb-nav {
+		height: 100vh;
+		width: 100%;
+		overflow: hidden;
+		background: #141414;
+	}
+	.collapse-btn {
+		display: inline-block;
+	}
+	.nav-expand.homenav-item-container li {
+		margin-top: 30px;
+	}
+	.navbar-brand {
+		margin-left: 20px;
+	}
+}
+
+@media all and (max-width: 901px) {
+	.login-link,.nav-signup-btn {
+		display: none !important;
+		visibility: hidden
+	}
+	.navbar-brand {
+		font-size: 4vw !important;
+	}
+	.collapse-icon {
+		width: 28px;
+		height: 28px
+	}
+}
+
+@media all and (max-width: 641px) {
+	.navbar-brand {
+		font-size: 180% !important;
+	}
+}
+
+@media all and (max-width: 501px) {
+	.navbar-brand {
+		font-size: 180% !important;
+	}
+}
+
+@media all and (max-width: 400px) {
+	.navbar-brand {
+		font-size: 150% !important;
+	}
+}
+
+.loading-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-column: 1/3
+}
+
+.loading-icon {
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	align-items: center;
+	justify-content: center;
+	grid-gap: 3px;
+	margin-right: 20px
+}
+
+.loading-icon > div {
+	width: 10px;
+	height: 10px;
+	background: #141414;
+	border: 2px solid #141414
+}
+
+.loading-icon > div:nth-child(1) {
+	animation: loading 1s cubic-bezier( 0.79, 0.33, 0.14, 0.53 ) -0.3s infinite;
+	animation-fill-mode: forwards;
+}
+
+.loading-icon > div:nth-child(2) {
+	animation: loading 1s cubic-bezier( 0.79, 0.33, 0.14, 0.53 ) -0.2s infinite;
+	animation-fill-mode: forwards;
+}
+
+.loading-icon > div:nth-child(3) {
+	animation: loading 1s cubic-bezier( 0.79, 0.33, 0.14, 0.53 ) 0s infinite;
+	animation-fill-mode: forwards;
+}
+
+.loading-icon > div:nth-child(4) {
+	animation: loading 1s cubic-bezier( 0.79, 0.33, 0.14, 0.53 ) -0.1s infinite;
+	animation-fill-mode: forwards;
+}
+
+.loading-text {
+	font-weight: 400 !important;
+	font-size: 20px;
+	font-family: 'Poppins'
+}
+
+@keyframes loading {
+	0% {
+		background: #141414
+	}
+	100% {
+		background: none
+	}
+}
