@@ -1,30 +1,40 @@
 import React from "react";
 import "./Navbar.css";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import ReactAnime from "react-animejs";
 
 const Navbar = ():JSX.Element => {
-    return <nav className='cb-nav fixed-top'>
+    const {Anime, stagger} = ReactAnime;
+    
+    return <nav className='cb-nav'>
         <div className='navbrand-wrapper'>
             <button className='collapse-btn'><span className='collapse-icon' data-feather='menu'></span></button>
-            <a className='navbar-brand' href="/">&#60;/&#62; CODEBLOG</a>
+            <a className='navbar-brand' href="/">{"{...}"}</a>
         </div>
-        <ul className="nav homenav-item-container">
-            <li>
-                <a href="/home" className='homenav-item {% ifequal title "Home" %}active{% endifequal %}'>HOME</a>
-            </li>
-            <li>
-                <a href="#" className='homenav-item {% ifequal title "Share" %}active{% endifequal %}'>SHARE</a>
-            </li>
-            <li>
-                <a href="/ideas" className='homenav-item {% ifequal title "Ideas" %}active{% endifequal %}'>IDEAS</a>
-            </li>
-            <li>
-                <a href="/projects" className='homenav-item {% ifequal title "Projects" %}active{% endifequal %}'>PROJECTS</a>
-            </li>
-            <li>
-                <a href='#' className='homenav-item {% ifequal title "About" %}active{% endifequal %}'>ABOUT</a>
-            </li>
-        </ul>
-        <a href='/login' className='login-link {% ifequal title "Signin" %}active{% endifequal %}'>SIGN IN</a>
+        <Anime initial={[
+            {
+                targets: ".nav li",
+                translateY: 90,
+                delay: stagger(200, {start: 500}),
+                easing: "spring(1, 80, 100, 0)"
+            }
+        ]}>
+            <ul className="nav homenav-item-container">
+                <li>
+                    <a href="/home" className='homenav-item active'>HOME</a>
+                </li>
+                <li>
+                    <a href="#" className='homenav-item'>PROJECTS</a>
+                </li>
+                <li>
+                    <a href="/ideas" className='homenav-item'>BLOG</a>
+                </li>
+                <li>
+                    <a href="/projects" className='homenav-item'>ABOUT</a>
+                </li>
+            </ul>
+        </Anime>
     </nav>;
 };
 

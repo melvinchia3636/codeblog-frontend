@@ -6,34 +6,20 @@ body {
 }
 
 .cb-nav {
-	background: #141414;
 	transition: background-color 0.5s ease 0s, width 0.5s ease 0s, height 0.5s ease 0s;
-	height: 100px;
-	width: 100%;
+	width: calc(100% - 40px);
+	display: flex;
+	margin: 0 20px;
+	justify-content: space-between;
+	position: relative;
+	z-index: 9999
 }
 
 .nav {
 	display: flex;
-	flex-wrap: wrap;
 	padding-left: 0;
 	margin-bottom: 0;
 	list-style: none;
-}
-
-.light.cb-nav *{
-	color: rgb(20, 20, 20)
-}
-
-.light.cb-nav .homenav-item:hover {
-	color: rgb(20, 20, 20)
-}
-
-.light.cb-nav .homenav-item::after {
-	background-color: rgb(20, 20, 20);
-}
-
-.light.cb-nav .login-link:hover {
-	color: rgb(20, 20, 20)
 }
 
 .fixed-top {
@@ -45,7 +31,7 @@ body {
 }
 
 .navbrand-wrapper {
-	height: 100px;
+	height: 120px;
 	width: 100%;
 	display: grid;
 	grid-template-columns: auto auto;
@@ -54,7 +40,7 @@ body {
 }
 
 .navbar-brand {
-	color: white;
+	color: #716fff;
 	font-family: 'Poppins', sans-serif;
 	font-size: 2.2vw !important;
 	font-weight: 600 !important;
@@ -99,29 +85,8 @@ body {
 	transition: margin-top 0.5s ease 0s
 }
 
-.nav-signup-btn {
-	text-decoration: none;
-	color: white;
-	font-family: 'Montserrat', sans-serif;
-	font-size: 20px;
-	font-weight: 700;
-	margin-left: 20px;
-	background-color: rgba(255, 255, 255, 0);
-	padding: 15px 30px;
-	border-radius: 5px;
-	border: 2px solid white;
-	padding-bottom: 16px;
-	transition: background-color 0.5s ease 0s, color 0.5s ease 0s;
-}
-
-.nav-signup-btn:hover {
-	background: white;
-	color: rgb(20, 20, 20);
-	transition: 0.2s;
-}
-
 .homenav-item {
-	color: white;
+	color: #474759;
 	text-decoration: none;
 	font-size: 20px;
 	font-weight: 500 !important;
@@ -131,20 +96,13 @@ body {
 }
 
 .homenav-item-container li {
-	margin: 0 20px;
-}
-
-li::marker {
-	color: #141414
+	margin: 0 40px;
+	margin-top: -50px;
 }
 
 .homenav-item-container {
 	transition: margin-top 0.5s ease 0s;
 	display: flex;
-	position: absolute;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	top: 50%;
 	margin: 0;
 	list-style: none
 }
@@ -152,22 +110,22 @@ li::marker {
 .homenav-item:after {
 	content:'';
 	position: absolute;
-	width: 100%;
+	width: 80%;
 	height: 2.5px;
 	bottom: -5px;
-	left: 0;
-	background-color: rgb(255, 200, 0);
-	transform: scaleX(0);
+	left: 50%;
+	background-color: #716fff;
+	transform: scaleX(0) ;
 	transform-origin: bottom right;
 	transition: transform 0.3s;
 }
 .homenav-item:hover {
-  color: white;
+  color: #716fff;
   text-decoration: none;
 }
 .homenav-item:hover::after, .homenav-item.active::after {
 	transform-origin: bottom left;
-	transform: scaleX(1);
+	transform: scaleX(1) translateX(-50%);
 }
 
 .login-link {
