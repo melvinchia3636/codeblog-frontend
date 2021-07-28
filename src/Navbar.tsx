@@ -16,7 +16,7 @@ const Navbar = ():JSX.Element => {
             {
                 targets: ".nav li",
                 translateY: 90,
-                delay: stagger(200, {start: 500}),
+                delay: stagger(200, {start: 1500}),
                 easing: "spring(1, 80, 100, 0)"
             }
         ]}>

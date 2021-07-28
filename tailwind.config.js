@@ -14,7 +14,7 @@ module.exports = {
                 }
             },
             lineHeight: {
-                "129": "129.9%"
+                "129": "129.9% !important"
             }
         },
         fontFamily: {

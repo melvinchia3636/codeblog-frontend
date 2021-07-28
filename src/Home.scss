@@ -9,22 +9,22 @@ html, body {
 	background-color: $c-main;
 	width: 100%;
 	height: 100vh;
-	overflow-x: hidden
-}
-
-html {
-	overflow: hidden
+	overflow-x: hidden;
+    scroll-behavior: smooth;
+    overflow: hidden
 }
 
 * {
 	font-family: 'Poppins';
 	color: $c-third;
-	-webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 .hex {
@@ -158,7 +158,6 @@ button.active {
 $letters: 10;
 
 .btn-anim2 {
-  background: white;
   padding: 20px;
   width: 250px;
   text-align: center;
@@ -212,4 +211,78 @@ $letters: 10;
 		  }
 	}
   }
+}
+
+.c-nav li {
+    overflow: hidden;
+    position: relative;
+    display: block;
+    width: min-content;
+    padding-bottom: 5px;
+    
+    & a {
+        white-space: nowrap;
+        position: relative;
+        z-index: 20;
+        transition: .3s ease-out;
+    }
+
+    &:before {
+        content: "";
+        background: $c-second;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: translateX(-105%);
+        transition: .3s ease-out;
+        cursor: pointer;
+    }
+
+    &:after {
+        content: "";
+        background: $c-second;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 4px;
+        width: 100%;
+        transform: translateX(105%);
+        transition: .3s .3s ease-out;
+    }
+
+    &:hover {
+        & a {
+            mix-blend-mode: difference;
+        }
+
+        &:before {
+            transform: translateX(105%);
+        }
+
+        &:after {
+            transform: translateX(0);
+        }
+    }
+}
+
+.chart {
+    width: 70vw
+}
+
+#root {
+    overflow: hidden;
+    height: 100vh;
+
+    & main{
+        overflow: scroll;
+        overflow-x: hidden;
+        height: 100%;
+        scroll-snap-type: y mandatory;
+
+        & > * {
+            scroll-snap-align: start;
+        }
+    }
 }
