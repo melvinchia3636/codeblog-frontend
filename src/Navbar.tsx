@@ -10,7 +10,7 @@ const Navbar = ():JSX.Element => {
     return <nav className='cb-nav'>
         <div className='navbrand-wrapper'>
             <button className='collapse-btn'><span className='collapse-icon' data-feather='menu'></span></button>
-            <a className='navbar-brand' href="/">{"{...}"}</a>
+            <a className='navbar-brand' href="/">{"<CB/>"}</a>
         </div>
         <Anime initial={[
             {

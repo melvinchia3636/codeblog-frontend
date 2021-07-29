@@ -16,6 +16,12 @@ html, body {
 * {
 	font-family: 'Poppins';
 	color: $c-third;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 input,
@@ -34,7 +40,7 @@ a {
 	&-bottom {
 		position: absolute;
 		right: 40%;
-		top: -65%
+		top: -50%
 	}
 }
 
@@ -49,17 +55,6 @@ li.active {
 button.active {
 	color: $c-main;
 	background: $c-second
-}
-
-.btn:link,
-.btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 15px 40px;
-    display: inline-block;
-    border-radius: 100px;
-    transition: all .2s;
-    position: absolute;
 }
 
 .btn:hover {
@@ -154,7 +149,7 @@ button.active {
 	}
 }
 
-$letters: 10;
+$letters: 20;
 
 .btn-anim2 {
   padding: 20px;
@@ -201,7 +196,7 @@ $letters: 10;
   
     span {
 		opacity: 1;
-		transform: translate(0, 2px)
+		transform: translate(0, 0px)
 	}
    
     @for $i from 1 through $letters {
@@ -267,5 +262,26 @@ $letters: 10;
 }
 
 .chart {
-    width: 60vw
+    width: 80vw
+}
+
+@media all and (max-width: 1300px) {
+    .hex {
+        position: absolute;
+        left: -10vw;
+    }
+}
+
+@media all and (max-width: 1160px) {
+    .hex {
+        position: absolute;
+        left: -14vw;
+    }
+}
+
+@media all and (max-width: 450px) {
+    .illu {
+        margin-top: -4em;
+        margin-bottom: -4em
+    }
 }

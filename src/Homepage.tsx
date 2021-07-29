@@ -19,13 +19,14 @@ import Illu1 from "./illu1";
 import Illu2 from "./illu2";
 import { useIntersection } from "./useIntersection";
   
-const options = {
+const chartOptions = {
     responsive: true, 
     maintainAspectRatio: true,
     scale: {
         ticks: {
             beginAtZero: true,
             min: 0,
+            step: 10
         },
         angleLines: {
             display: false
@@ -84,28 +85,32 @@ const Service: React.FC<ServiceProps> = ({inViewPort, bottom}: ServiceProps): JS
 
 const Landing = (): JSX.Element => {
     const {Anime, stagger} = ReactAnime;
-    const ref1 = useRef(null);
-    const ref6 = useRef(null);
-    const ref7 = useRef(null);
-    const ref12 = useRef(null);
-    const ref16 = useRef(null);
-    const ref19 = useRef(null);
-    const ref20 = useRef(null);
-    const ref21 = useRef(null);
-    const ref22 = useRef(null);
+    const refAbout = useRef(null);
+    const refSkillsHeader = useRef(null);
+    const refSkillsFrontend = useRef(null);
+    const refSkillsBackend = useRef(null);
+    const refServices = useRef(null);
+    const refServicesFooter = useRef(null);
     
-    const inViewport1 = useIntersection(ref1, "0px");
-    const inViewport6 = useIntersection(ref6, "0px");
-    const inViewport7 = useIntersection(ref7, "0px");
-    const inViewport12 = useIntersection(ref12, "0px");
-    const inViewport16 = useIntersection(ref16, "0px");
-    const inViewport19 = useIntersection(ref19, "0px");
-    const inViewport20 = useIntersection(ref20, "0px");
-    const inViewport21 = useIntersection(ref21, "0px");
-    const inViewport22 = useIntersection(ref22, "0px");
+    const aboutInViewport = useIntersection(refAbout, "0px");
+    const skillsHeaderInViewport = useIntersection(refSkillsHeader, "0px");
+    const skillsFrontendInViewport = useIntersection(refSkillsFrontend, "0px");
+    const skillsBackendInViewport = useIntersection(refSkillsBackend, "0px");
+    const servicesInViewport = useIntersection(refServices, "0px");
+    const servicesFooterInViewport = useIntersection(refServicesFooter, "0px");
+
+    const projectsList = [
+        {
+            name: "Cruisegator",
+            subtitle: "Introducing cruiseships in a fancy way.",
+            description: "Cruisegator is a website containing interesting data of over 1000 cruiseship. It is my first ever React JS, Express JS, Typescript and React Redux project. It's by far the largest project I've ever built.",
+            image: project1,
+            link: "https://cruisegator.thecodeblog.net"
+        }
+    ];
 
     return <>
-        <div className="h-screen flex justify-between items-center xl:pl-48">
+        <div className="h-screen flex justify-between items-center lg:pl-48">
             <div className="flex-shrink">
                 <Anime initial={[
                     {
@@ -115,7 +120,7 @@ const Landing = (): JSX.Element => {
                         easing: "spring(1, 80, 100, 0)"
                     }
                 ]}>
-                    <ul className="text-2xl font-semibold -mt-10 c-nav hidden xl:block">
+                    <ul className="text-2xl font-semibold -mt-10 c-nav hidden lg:block">
                         <li className="my-10 -ml-96 mr-96 active"><a href="#aboutme">ABOUT ME</a></li>
                         <li className="my-10 -ml-96 mr-96"><a href="#skills">MY SKILLS</a></li>
                         <li className="my-10 -ml-96 mr-96"><a href="#services">SERVICES</a></li>
@@ -125,14 +130,14 @@ const Landing = (): JSX.Element => {
                     </ul>
                 </Anime>
             </div>
-            <div className="relative w-full h-screen flex-grow flex justify-center xl:justify-end items-center">
+            <div className="relative w-full h-screen flex-grow flex justify-center lg:justify-end items-center">
                 <svg width="1540" height="1670" viewBox="0 0 1436 1574" fill="none" xmlns="http://www.w3.org/2000/svg" className="hex">
                     <path d="M468.352 202.984C483.857 183.269 509.196 174.046 533.746 179.183L1066.72 290.691C1089.07 295.367 1107.41 311.262 1115.22 332.719L1314.48 880.178C1322.29 901.634 1318.46 925.603 1304.34 943.551L967.736 1371.56C952.231 1391.27 926.891 1400.5 902.342 1395.36L369.368 1283.85C347.019 1279.18 328.674 1263.28 320.865 1241.83L121.606 694.366C113.796 672.909 117.632 648.941 131.747 630.993L468.352 202.984Z" fill="#E8E8FF"/>
                 </svg>
-                <div className="relative w-full xl:w-3/5 -mt-56 mx-8 xl:mx-0 xl:mr-24">
-                    <h3 className="font-semibold text-purple-300 text-xl xl:text-2xl">Web Developer</h3>
-                    <h1 className="text-left text-6xl xl:text-8xl leading-129 font-semibold my-2 xl:my-6 md:whitespace-nowrap">Melvin Chia</h1>
-                    <p className="text-lg mt-4 xl:text-xl leading-7">A guy with 2 years experiences in web development and UI designing related fields who knows a litte bit of everything and makes lots of cool projects.</p>
+                <div className="relative w-full lg:w-3/5 -mt-56 md:-mt-24 mx-8 lg:mx-0 lg:mr-24">
+                    <h3 className="font-semibold text-purple-300 text-xl xl:text-2xl">Fullstack Web Developer</h3>
+                    <h1 className="text-left text-6xl md:text-7xl 2xl:text-8xl leading-129 font-semibold my-2 xl:my-3 2xl:my-6 md:whitespace-nowrap">Melvin Chia</h1>
+                    <p className="text-lg mt-4 xl:leading-8 xl:text-xl">I have 2 years experiences in web development and UI designing. I always love making lots of cool projects, and enjoy learning new skills as time goes by.</p>
                     <a className="font-semibold text-xl text-purple-300 flex items-center mt-8">GET IN TOUCH 
                         <svg className="ml-4" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4 12H20" stroke="#716FFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
@@ -149,28 +154,28 @@ const Landing = (): JSX.Element => {
                 </a>
             </div>
         </div>
-        <div className="px-8 sm:px-24 md:px-32 pt-4 mt-28 xl:mb-32" id="aboutme" ref={ref1}>
+        <div className="px-8 sm:px-24 md:px-32 pt-4 xl:mb-24" id="aboutme" ref={refAbout}>
             <div className="flex flex-col xl:flex-row items-center justify-between">
                 <div style={{flexShrink: 9999}}>
-                    <h2 className={"text-purple-300 font-semibold text-xl opacity-0 " + (inViewport1 ? "animate__animated animate__fadeInRight" : "")}>ABOUT ME</h2>
-                    <h3 className={"text-4xl xl:text-5xl font-semibold my-6 leading-129 whitespace-nowrap opacity-0 " + (inViewport1 ? "animate__animated animate__fadeInLeft" : "")}>Don&#39;t judge a<br/>book by it&#39;s cover</h3>
-                    <p className={"text-xl font-normal w-full 2xl:w-8/12 leading-8 text-gray-400 opacity-0 " + (inViewport1 ? "animate__animated animate__fadeInRight" : "")}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    <a className={"bg-purple-300 rounded-full py-4 px-12 inline-block mt-10 font-medium btn-white btn btn-animated relative " + (inViewport1 ? "animate__animated animate__fadeInUp" : "")}><span className="relative z-20 text-white">EXPLORE PROJECTS</span></a>
+                    <h2 className={"text-purple-300 font-semibold text-xl opacity-0 " + (aboutInViewport ? "animate__animated animate__fadeInRight" : "")}>ABOUT ME</h2>
+                    <h3 className={"text-4xl xl:text-5xl font-semibold my-6 leading-129 whitespace-nowrap opacity-0 " + (aboutInViewport ? "animate__animated animate__fadeInLeft" : "")}>A guy who loves<br/>grinding projects</h3>
+                    <p className={"text-xl font-normal w-full leading-8 text-gray-400 opacity-0 " + (aboutInViewport ? "animate__animated animate__fadeInRight" : "")}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <a className={"bg-purple-300 rounded-full py-4 px-12 inline-block mt-10 font-medium btn-white btn btn-animated relative " + (aboutInViewport ? "animate__animated animate__fadeInUp" : "")}><span className="relative z-20 text-white">EXPLORE PROJECTS</span></a>
                 </div>
-                <div className={"animate__animated opacity-0 " + (inViewport1 ? "fadeInRight" : "")}>
-                    <Tilt className="relative z-50 flex justify-center xl:justify-end -mt-24 md:mt-0">
+                <div className={"animate__animated opacity-0 " + (aboutInViewport ? "fadeInRight" : "")} style={{width: "100vw"}}>
+                    <Tilt className="relative z-50 flex justify-center xl:justify-end illu">
                         <Illu1/>
                     </Tilt>
                 </div>
             </div>
         </div>
-        <div className="flex flex-col items-center mb-24" id="skills" ref={ref6}>
-            <h2 className={"text-4xl md:text-5xl font-semibold my-4 leading-129 text-cente opacity-0 " + (inViewport6 ? "animate__animated animate__fadeInLeft" : "")}>My Skills</h2>
-            <p className={"text-lg md:text-xl ml-2 font-normal leading-7 md:leading-8 text-gray-400 text-center w-10/12 xl:w-5/12 opacity-0 " + (inViewport6 ? "animate__animated animate__fadeInUp" : "")}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+        <div className="flex flex-col items-center mb-24" id="skills" ref={refSkillsHeader}>
+            <h2 className={"text-4xl md:text-5xl font-semibold my-4 leading-129 text-cente opacity-0 " + (skillsHeaderInViewport ? "animate__animated animate__fadeInLeft" : "")}>My Skills</h2>
+            <p className={"text-lg md:text-xl ml-2 font-normal leading-7 md:leading-8 text-gray-400 text-center w-10/12 xl:w-7/12 opacity-0 " + (skillsHeaderInViewport ? "animate__animated animate__fadeInUp" : "")}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
         </div>
-        <div className="px-8 sm:px-24 md:px-32 mb-32" ref={ref7}>
+        <div className="px-8 sm:px-24 md:px-32 mb-24" ref={refSkillsFrontend}>
             <div className="flex flex-col xl:flex-row items-center justify-center w-full">
-                <div className={"animate__animated opacity-0 mb-8 chart " + (inViewport7 ? "animate__fadeInLeft" : "")}>
+                <div className={"animate__animated opacity-0 mb-8 chart " + (skillsFrontendInViewport ? "animate__fadeInLeft" : "")}>
                     <Radar redraw={false} data={{
                         labels: ["HTML", "CSS", "SCSS", "Javascript", "Jinja", "React", "Jquery"],
                         datasets: [
@@ -182,22 +187,28 @@ const Landing = (): JSX.Element => {
                                 borderWidth: 2,
                             },
                         ],
-                    }} options={options}/>
+                    }} options={chartOptions}/>
                 </div>
                 <div className="w-full ml-0 xl:ml-24 2xl:ml-48">
                     <h2 className="text-3xl md:text-4xl font-semibold mb-6 leading-129 whitespace-nowrap flex items-center">
-                        <svg className={"mr-4 w-16 h-16 opacity-0 " + (inViewport7 ? "animate__animated animate__fadeInLeft" : "")} viewBox="0 0 84 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg className={"mr-4 w-16 h-16 opacity-0 " + (skillsFrontendInViewport ? "animate__animated animate__fadeInLeft" : "")} viewBox="0 0 84 84" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M72.1875 9.1875H11.8125C10.3605 9.1875 9.1875 10.3605 9.1875 11.8125V72.1875C9.1875 73.6395 10.3605 74.8125 11.8125 74.8125H72.1875C73.6395 74.8125 74.8125 73.6395 74.8125 72.1875V11.8125C74.8125 10.3605 73.6395 9.1875 72.1875 9.1875ZM15.0938 15.0938H26.25V68.9062H15.0938V15.0938ZM68.9062 68.9062H31.5V31.5H68.9062V68.9062ZM31.5 26.25V15.0938H68.9062V26.25H31.5Z" fill="#716FFF"/>
                         </svg>
-                        <span className={"animate__animated opacity-0 " + (inViewport7 ? "animate__fadeInRight" : "")}>Frontend<br/>Development</span>
+                        <span className={"animate__animated opacity-0 " + (skillsFrontendInViewport ? "animate__fadeInRight" : "")}>Frontend<br/>Development</span>
                     </h2>
-                    <p className={"text-lg md:text-xl ml-2 font-normal leading-7 md:leading-8 text-gray-400 opacity-0 " + (inViewport7 ? "animate__animated animate__fadeInUp" : "")}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <p className={"text-lg md:text-xl ml-2 font-normal leading-7 md:leading-8 text-gray-400 opacity-0 " + (skillsFrontendInViewport ? "animate__animated animate__fadeInUp" : "")}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <a className="font-semibold text-xl text-purple-300 flex items-center mt-8 ml-2">SEE MY WORKS
+                        <svg className="ml-4" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 12H20" stroke="#716FFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                            <path d="M13 5L20 12L13 19" stroke="#716FFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                    </a>
                 </div> 
             </div>
         </div>
-        <div className="px-8 sm:px-24 md:px-32 mb-32" ref={ref12}>
+        <div className="px-8 sm:px-24 md:px-32 mb-24" ref={refSkillsBackend}>
             <div className="flex flex-col xl:flex-row items-center justify-between">
-                <div className={"animate__animated opacity-0 block xl:hidden mb-8 chart " + (inViewport12 ? "animate__fadeInRight" : "")}>
+                <div className={"animate__animated opacity-0 block xl:hidden mb-8 chart " + (skillsBackendInViewport ? "animate__fadeInRight" : "")}>
                     <Radar redraw={false} data={{
                         labels: ["Django", "Flask", "Node JS","Express", "SQL"],
                         datasets: [
@@ -209,11 +220,11 @@ const Landing = (): JSX.Element => {
                                 borderWidth: 2,
                             },
                         ],
-                    }} options={options}/>
+                    }} options={chartOptions}/>
                 </div>
                 <div className="w-full mr-0 xl:mr-24 2xl:mr-48">
                     <h2 className="text-3xl md:text-4xl font-semibold mb-6 leading-129 whitespace-nowrap flex items-center">
-                        <svg className={"mr-4 opacity-0 w-16 h-16 " + (inViewport12 ? "animate__animated animate__fadeInLeft" : "")} viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg className={"mr-4 opacity-0 w-16 h-16 " + (skillsBackendInViewport ? "animate__animated animate__fadeInLeft" : "")} viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21.9375 17.0625C23.2837 17.0625 24.375 15.9712 24.375 14.625C24.375 13.2788 23.2837 12.1875 21.9375 12.1875C20.5913 12.1875 19.5 13.2788 19.5 14.625C19.5 15.9712 20.5913 17.0625 21.9375 17.0625Z" fill="#716FFF"/>
                             <path d="M63.375 24.375H14.625C13.3325 24.3737 12.0932 23.8597 11.1793 22.9457C10.2653 22.0318 9.75129 20.7925 9.75 19.5V9.75C9.75129 8.45747 10.2653 7.21824 11.1793 6.30428C12.0932 5.39032 13.3325 4.87629 14.625 4.875H63.375C64.6675 4.87629 65.9068 5.39032 66.8207 6.30428C67.7347 7.21824 68.2487 8.45747 68.25 9.75V19.5C68.2487 20.7925 67.7347 22.0318 66.8207 22.9457C65.9068 23.8597 64.6675 24.3737 63.375 24.375ZM14.625 9.75V19.5H63.375V9.75H14.625Z" fill="#716FFF"/>
                             <path d="M21.9375 41.4375C23.2837 41.4375 24.375 40.3462 24.375 39C24.375 37.6538 23.2837 36.5625 21.9375 36.5625C20.5913 36.5625 19.5 37.6538 19.5 39C19.5 40.3462 20.5913 41.4375 21.9375 41.4375Z" fill="#716FFF"/>
@@ -222,11 +233,17 @@ const Landing = (): JSX.Element => {
                             <path d="M63.375 73.125H14.625C13.3325 73.1237 12.0932 72.6097 11.1793 71.6957C10.2653 70.7818 9.75129 69.5425 9.75 68.25V58.5C9.75129 57.2075 10.2653 55.9682 11.1793 55.0543C12.0932 54.1403 13.3325 53.6263 14.625 53.625H63.375C64.6675 53.6263 65.9068 54.1403 66.8207 55.0543C67.7347 55.9682 68.2487 57.2075 68.25 58.5V68.25C68.2487 69.5425 67.7347 70.7818 66.8207 71.6957C65.9068 72.6097 64.6675 73.1237 63.375 73.125ZM14.625 58.5V68.25H63.375V58.5H14.625Z" fill="#716FFF"/>
                         </svg>
 
-                        <span className={"animate__animated opacity-0 " + (inViewport12 ? "animate__fadeInRight" : "")}>Backend<br/>Development</span>
+                        <span className={"animate__animated opacity-0 " + (skillsBackendInViewport ? "animate__fadeInRight" : "")}>Backend<br/>Development</span>
                     </h2>
-                    <p className={"text-lg md:text-xl ml-2 font-normal leading-7 md:leading-8 text-gray-400 w-full opacity-0 " + (inViewport12 ? "animate__animated animate__fadeInUp" : "")}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <p className={"text-lg md:text-xl ml-2 font-normal leading-7 md:leading-8 text-gray-400 w-full opacity-0 " + (skillsBackendInViewport ? "animate__animated animate__fadeInUp" : "")}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <a className="font-semibold text-xl text-purple-300 flex items-center mt-8 ml-2">SEE MY WORKS
+                        <svg className="ml-4" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 12H20" stroke="#716FFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                            <path d="M13 5L20 12L13 19" stroke="#716FFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                    </a>
                 </div> 
-                <div className={"animate__animated opacity-0 hidden xl:block chart " + (inViewport12 ? "animate__fadeInRight" : "")}>
+                <div className={"animate__animated opacity-0 hidden xl:block chart " + (skillsBackendInViewport ? "animate__fadeInRight" : "")}>
                     <Radar redraw={false} data={{
                         labels: ["Django", "Flask", "Node JS","Express", "SQL"],
                         datasets: [
@@ -238,29 +255,29 @@ const Landing = (): JSX.Element => {
                                 borderWidth: 2,
                             },
                         ],
-                    }} options={options}/>
+                    }} options={chartOptions}/>
                 </div>
             </div>
         </div>
-        <div className="px-8 sm:px-24 md:px-32 mb-16" id="services" ref={ref16}>
+        <div className="px-8 sm:px-24 md:px-32 mb-16" id="services" ref={refServices}>
             <div className="flex flex-col xl:flex-row items-center justify-between">
-                <Service inViewPort={inViewport16} bottom={true}/>
+                <Service inViewPort={servicesInViewport} bottom={true}/>
                 <div>
-                    <h2 className={"text-purple-300 font-semibold text-xl opacity-0 " + (inViewport16 ? "animate__animated animate__fadeInDown" : "")}>SERVICES</h2>
-                    <h3 className={"text-4xl xl:text-5xl font-semibold my-4 leading-129 opacity-0 " + (inViewport16 ? "animate__animated animate__fadeInRight" : "")}>Service for others<br/>leads to greatness</h3>
-                    <p className={"text-xl font-normal leading-8 text-gray-400 " + (inViewport16 ? "animate__animated animate__fadeInUp" : "")}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <h2 className={"text-purple-300 font-semibold text-xl opacity-0 " + (servicesInViewport ? "animate__animated animate__fadeInDown" : "")}>SERVICES</h2>
+                    <h3 className={"text-4xl xl:text-5xl font-semibold my-4 leading-129 opacity-0 " + (servicesInViewport ? "animate__animated animate__fadeInRight" : "")}>Service for others<br/>leads to greatness</h3>
+                    <p className={"text-xl font-normal leading-8 text-gray-400 " + (servicesInViewport ? "animate__animated animate__fadeInUp" : "")}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <a className={"bg-purple-300 rounded-full text-white py-4 px-12 inline-block mt-8 font-medium btn-white btn btn-animated relative " + (servicesInViewport ? "animate__animated animate__fadeInUp" : "")} ref={refServices} href="#contact"><span className="relative z-20 text-white">GET IN TOUCH</span></a>
                 </div>
-                <Service inViewPort={inViewport16} bottom={false}/>
+                <Service inViewPort={servicesInViewport} bottom={false}/>
             </div>
         </div>
-        <div className="px-8 sm:px-24 md:px-32 -mb-32 xl:mb-32 pt-16">
-            <div className="flex flex-col xl:flex-row items-center justify-between">
-                <div style={{flexShrink: 9999}}>
-                    <h3 className={"text-4xl md:text-5xl font-semibold my-6 leading-129 -mt-6 opacity-0 md:whitespace-nowrap " + (inViewport19 ? "animate__animated animate__fadeInDown" : "")} ref={ref19}>I provide the <span className="text-purple-300">best</span><br/>services with<br/><span className="text-purple-300">affortable</span> price</h3>
-                    <p className={"text-lg md:text-xl font-normal w-full leading-7 md:leading-8 text-gray-400 opacity-0 " + (inViewport20 ? "animate__animated animate__fadeInLeft" : "")} ref={ref20}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    <a className={"bg-purple-300 rounded-full text-white py-4 px-12 inline-block mt-8 font-medium btn-white btn btn-animated relative " + (inViewport21 ? "animate__animated animate__fadeInUp" : "")} ref={ref21}><span className="relative z-20 text-white">GET IN TOUCH</span></a>
+        <div className="px-8 sm:px-24 md:px-32 -mb-32 xl:mb-8 pt-16 xl:pt-0" ref={refServicesFooter}>
+            <div className="flex flex-col xl:flex-row items-center justify-center lg:justify-between">
+                <div style={{flexShrink: 9999}} className="flex flex-col items-center lg:block">
+                    <h3 className={"text-4xl md:text-5xl font-semibold my-6 leading-129 -mt-6 opacity-0 md:whitespace-nowrap text-center lg:text-left " + (servicesFooterInViewport ? "animate__animated animate__fadeInDown" : "")}>I provide the <span className="text-purple-300">best</span><br/>services with<br/><span className="text-purple-300">affordable</span> price</h3>
+                    <a className={"bg-purple-300 rounded-full text-white py-4 px-12 inline-block mt-8 font-medium btn-white btn btn-animated z-40 relative w-min whitespace-nowrap " + (servicesFooterInViewport ? "animate__animated animate__fadeInUp" : "")} href="#contact"><span className="relative z-20 text-white">MAKE AN ORDER</span></a>
                 </div>
-                <div ref={ref22} className={"animate__animated opacity-0 " + (inViewport22 ? "animate__fadeInRight" : "")}>
+                <div className={"animate__animated opacity-0 xl:w-full w-screen relative z-10 " + (servicesFooterInViewport ? "animate__fadeInRight" : "")}>
                     <Tilt className="relative z-50 flex justify-center xl:justify-end -mt-32 xl:mt-0">
                         <Illu2/>
                     </Tilt>
@@ -271,41 +288,29 @@ const Landing = (): JSX.Element => {
             <div className="flex flex-col xl:flex-row items-start xl:items-center justify-between">
                 <div>
                     <h2 className='text-purple-300 font-semibold text-xl mb-3 block xl:hidden'>PROJECTS</h2>
-                    <h3 className="text-4xl md:text-5xl font-semibold leading-129 md:whitespace-nowrap mr-48 w-full my-4 xl:my-0">Check out some of<br/>the <span className="text-purple-300">best</span> projects<br/>that I’ve created.</h3>
+                    <h3 className="leading-129 md:leading-129 text-4xl md:text-5xl font-semibold md:whitespace-nowrap mr-48 w-full my-4 xl:my-0">Check out some of<br/>the <span className="text-purple-300">best</span> projects<br/>that I’ve created.</h3>
                 </div>
                 <div>
                     <h2 className='text-purple-300 font-semibold text-xl mb-3 hidden xl:block'>PROJECTS</h2>
-                    <p className="text-lg md:text-xl font-normal w-full leading-7 md:leading-8 text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque viverra mauris in aliquam sem fringilla.</p>
+                    <p className="text-lg md:text-xl font-normal w-full leading-7 md:leading-8 text-gray-400">{"I've made done uite a lot of projects over the year. Below are some of my favourite projects, and I'm sure you'll like them too."}</p>
                 </div>
             </div>
         </div>
-        <div className="px-8 sm:px-24 md:px-32 flex flex-col items-center mt-32">
-            <h2 className='text-purple-300 font-semibold text-5xl md:text-6xl'>Cruisegator</h2>
-            <h3 className="text-2xl md:text-3xl font-medium mt-6 mb-9 text-center md:text-left">Introducing cruiseships in a fancy way.</h3>
-            <p className="text-lg font-normal leading-7 md:leading-8 text-gray-400 w-full xl:w-7/12 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a className='bg-purple-300 rounded-full py-4 px-12 inline-block mt-12 font-medium btn-goto' data-hover="LET'S GO"><div className="text-white whitespace-nowrap">GO TO WEBSITE</div></a>
-            <img src={project1} className="mt-16 md:mt-24"/>
-        </div>
-        <div className="px-8 sm:px-24 md:px-32 flex flex-col items-center mt-32">
-            <h2 className='text-purple-300 font-semibold text-5xl md:text-6xl'>McWiki</h2>
-            <h3 className="text-2xl md:text-3xl font-medium mt-6 mb-9 text-center md:text-left">Minecraft wiki in form of a mobile app.</h3>
-            <p className="text-lg font-normal leading-7 md:leading-8 text-gray-400 w-full xl:w-7/12 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a className='bg-purple-300 rounded-full py-4 px-12 inline-block mt-12 font-medium btn-goto' data-hover="LET'S GO"><div className="text-white whitespace-nowrap">DOWNLOAD APP</div></a>
-            <img src={project2} className="mt-16 md:mt-24"/>
-        </div>
-        <div className="px-8 sm:px-24 md:px-32 flex flex-col items-center mt-32">
-            <h2 className='text-purple-300 font-semibold text-5xl md:text-6xl'>Juicy Inc.</h2>
-            <h3 className="text-2xl md:text-3xl font-medium mt-6 mb-9 text-center md:text-left">Introducing some delicious juicy juices.</h3>
-            <p className="text-lg font-normal leading-7 md:leading-8 text-gray-400 w-full xl:w-7/12 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a className='bg-purple-300 rounded-full py-4 px-12 inline-block mt-12 font-medium btn-goto' data-hover="LET'S GO"><div className="text-white whitespace-nowrap">GO TO WEBSITE</div></a>
-            <img src={project3} className="mt-16 md:mt-24"/>
-        </div>
-        <div className="px-8 sm:px-24 md:px-32 mb-96 pt-32" id="collab">
+        {projectsList.map(({name, subtitle, description, image, link}) => 
+            <div className="px-8 sm:px-24 md:px-32 flex flex-col items-center mt-24" key={name}>
+                <h2 className='text-purple-300 font-semibold text-5xl md:text-6xl'>{name}</h2>
+                <h3 className="text-2xl md:text-3xl font-medium mt-6 mb-9 text-center">{subtitle}</h3>
+                <p className="text-lg font-normal leading-7 md:leading-8 text-gray-400 w-full xl:w-9/12 text-center">{description}</p>
+                <a className='bg-purple-300 rounded-full py-4 px-12 inline-block mt-12 font-medium btn-goto' data-hover="LET'S GO" href={link}><div className="text-white whitespace-nowrap">GO TO WEBSITE</div></a>
+                <img src={image} className="mt-16 md:mt-24"/>
+            </div>
+        )}
+        <div className="px-8 sm:px-24 md:px-32 mb-24 pt-32" id="collab">
             <div className="flex flex-col items-center">
                 <h2 className='text-purple-300 font-semibold text-xl mb-3'>COLLABORATION</h2>
                 <h3 className="text-4xl md:text-5xl font-semibold leading-129 md:whitespace-nowrap text-center mb-4">Let’s make some<br/>cool projects <span className="text-purple-300">together</span>.</h3>
-                <p className="text-lg md:text-xl font-normal leading-7 md:leading-8 text-gray-400 text-center w-full md:w-8/12 my-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque viverra mauris.</p>
-                <a className='bg-purple-300 rounded-full text-white py-4 px-12 inline-block mt-6 font-medium btn-anim2' data-text="GET IN TOUCH">{"CONTACT ME".split("").map(e => <span className="text-white" key={e}>{e}</span>)}</a>
+                <p className="text-lg md:text-xl font-normal leading-7 md:leading-8 text-gray-400 text-center w-full md:w-8/12 my-6">{"If you have a crazy project idea and trying to find a partner to work with, you've come the the right place."}</p>
+                <a className='bg-purple-300 rounded-full text-white py-4 px-12 inline-block mt-6 font-medium btn-anim2 whitespace-nowrap w-max' data-text="GET IN TOUCH" href="#contact">{"CONTACT ME".split("").map(e => <span className="text-white" key={e}>{e}</span>)}</a>
             </div>
         </div>
         <div className="px-16 sm:px-24 md:px-32 mb-8 relative" id="contact">
@@ -315,7 +320,7 @@ const Landing = (): JSX.Element => {
             <div className="flex items-center justify-between relative">
                 <div>
                     <h3 className="text-6xl font-semibold leading-129 whitespace-nowrap mr-48 mb-10">I would like to<br/>hear from you.</h3>
-                    <p className="text-2xl font-normal w-7/12 leading-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                    <p className="text-xl font-normal w-9/12 leading-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
                     <div className="grid mt-12 gap-y-8 gap-x-4 items-center" style={{gridTemplateColumns: "32px auto"}}>
                         <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16.0003 2.59961C8.64033 2.59961 2.66699 8.57294 2.66699 15.9329C2.66699 23.2929 8.64033 29.2663 16.0003 29.2663H22.667V26.5996H16.0003C10.2137 26.5996 5.33366 21.7196 5.33366 15.9329C5.33366 10.1463 10.2137 5.26628 16.0003 5.26628C21.787 5.26628 26.667 10.1463 26.667 15.9329V17.8396C26.667 18.8929 25.7203 19.9329 24.667 19.9329C23.6137 19.9329 22.667 18.8929 22.667 17.8396V15.9329C22.667 12.2529 19.6803 9.26628 16.0003 9.26628C12.3203 9.26628 9.33366 12.2529 9.33366 15.9329C9.33366 19.6129 12.3203 22.5996 16.0003 22.5996C17.8403 22.5996 19.5203 21.8529 20.7203 20.6396C21.587 21.8263 23.0803 22.5996 24.667 22.5996C27.2937 22.5996 29.3337 20.4663 29.3337 17.8396V15.9329C29.3337 8.57294 23.3603 2.59961 16.0003 2.59961ZM16.0003 19.9329C13.787 19.9329 12.0003 18.1463 12.0003 15.9329C12.0003 13.7196 13.787 11.9329 16.0003 11.9329C18.2137 11.9329 20.0003 13.7196 20.0003 15.9329C20.0003 18.1463 18.2137 19.9329 16.0003 19.9329Z" fill="#716FFF"/>
@@ -340,19 +345,19 @@ const Landing = (): JSX.Element => {
                     <div className="grid grid-cols-2 ml-12">
                         <div className="mx-4 my-5">
                             <label className="block w-full text-purple-300 font-semibold text-sm" htmlFor="firstname">First Name</label>
-                            <input className="block px-4 py-2 mt-2 bg-gray-100 w-72 placeholder-gray-300 text-lg" style={{borderRadius: 5}} type="text" name="firstname" id="firstname" placeholder="John"/>
+                            <input className="block px-4 py-2 mt-2 bg-gray-100 placeholder-gray-300 text-lg" style={{borderRadius: 5}} type="text" name="firstname" id="firstname" placeholder="John"/>
                         </div>
                         <div className="mx-4 my-5">
                             <label className="block w-full text-purple-300 font-semibold text-sm" htmlFor="lastname">Last Name</label>
-                            <input className="block px-4 py-2 mt-2 bg-gray-100 w-72 placeholder-gray-300 text-lg" style={{borderRadius: 5}} type="text" name="lastname" id="lastname" placeholder="Doe"/>
+                            <input className="block px-4 py-2 mt-2 bg-gray-100 placeholder-gray-300 text-lg" style={{borderRadius: 5}} type="text" name="lastname" id="lastname" placeholder="Doe"/>
                         </div>
                         <div className="mx-4 my-5">
                             <label className="block w-full text-purple-300 font-semibold text-sm" htmlFor="email">Email</label>
-                            <input className="block px-4 py-2 mt-2 bg-gray-100 w-72 placeholder-gray-300 text-lg" style={{borderRadius: 5}} type="email" name="email" id="email" placeholder="johndoe@company.com"/>
+                            <input className="block px-4 py-2 mt-2 bg-gray-100 placeholder-gray-300 text-lg" style={{borderRadius: 5}} type="email" name="email" id="email" placeholder="johndoe@company.com"/>
                         </div>
                         <div className="mx-4 my-5">
                             <label className="block w-full text-purple-300 font-semibold text-sm" htmlFor="phonenum">Phone Number</label>
-                            <input className="block px-4 py-2 mt-2 bg-gray-100 w-72 placeholder-gray-300 text-lg" style={{borderRadius: 5}} type="text" name="phonenum" id="phonenum"/>
+                            <input className="block px-4 py-2 mt-2 bg-gray-100 placeholder-gray-300 text-lg" style={{borderRadius: 5}} type="text" name="phonenum" id="phonenum" placeholder="+6(012) 345 6789"/>
                         </div>
                         <div className="col-span-2 my-5 mx-4">
                             <p className="block w-full text-purple-300 text-sm font-semibold">Requirements</p>
@@ -376,7 +381,7 @@ const Landing = (): JSX.Element => {
                 </form>
             </div>
         </div>
-        <p className="relative text-center mt-56 mb-4 px-8">Copyright &copy; TheCodeblog.net. All rights reserved.</p>
+        <p className="relative text-center mt-72 mb-4 px-8">Copyright &copy; TheCodeblog.net. All rights reserved.</p>
     </>;
 };
 

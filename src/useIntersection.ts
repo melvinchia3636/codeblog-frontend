@@ -1,5 +1,5 @@
 
-import { useState, useEffect, MutableRefObject } from "react";
+import { useState, useEffect } from "react";
 
 const useIntersection = (element: any, rootMargin: string): boolean => {
     const [isVisible, setState] = useState(false);
