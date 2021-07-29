@@ -7,8 +7,8 @@ import ProjectIndex from "./ProjectIndex";
 function App(): JSX.Element {
     return (
         <>
+            <Navbar/>
             <main>
-                <Navbar/>
                 <Route>
                     <Switch>
                         <Route exact path="/"><Landing/></Route>

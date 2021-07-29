@@ -11,7 +11,6 @@ html, body {
 	height: 100vh;
 	overflow-x: hidden;
     scroll-behavior: smooth;
-    overflow: hidden
 }
 
 * {
@@ -268,21 +267,5 @@ $letters: 10;
 }
 
 .chart {
-    width: 70vw
-}
-
-#root {
-    overflow: hidden;
-    height: 100vh;
-
-    & main{
-        overflow: scroll;
-        overflow-x: hidden;
-        height: 100%;
-        scroll-snap-type: y mandatory;
-
-        & > * {
-            scroll-snap-align: start;
-        }
-    }
+    width: 60vw
 }
