@@ -83,23 +83,34 @@ const Service: React.FC<ServiceProps> = ({inViewPort, bottom}: ServiceProps): JS
     </div>;
 };
 
-const Landing = (): JSX.Element => {
+const TOC  = (): JSX.Element => {
     const {Anime, stagger} = ReactAnime;
-    const refAbout = useRef(null);
-    const refSkillsHeader = useRef(null);
-    const refSkillsFrontend = useRef(null);
-    const refSkillsBackend = useRef(null);
-    const refServices = useRef(null);
-    const refServicesFooter = useRef(null);
-    
-    const aboutInViewport = useIntersection(refAbout, "0px");
-    const skillsHeaderInViewport = useIntersection(refSkillsHeader, "0px");
-    const skillsFrontendInViewport = useIntersection(refSkillsFrontend, "0px");
-    const skillsBackendInViewport = useIntersection(refSkillsBackend, "0px");
-    const servicesInViewport = useIntersection(refServices, "0px");
-    const servicesFooterInViewport = useIntersection(refServicesFooter, "0px");
 
-    const projectsList = [
+    const content = [
+        ["#aboutme", "about me"],
+        ["#skills", "my skills"],
+        ["#services", "services"],
+        ["#projects", "projects"],
+        ["#collab", "collaborate"],
+        ["#contact", "get in touch"]
+    ];
+
+    return <Anime initial={[
+        {
+            targets: ".c-nav li",
+            translateX: 350,
+            delay: stagger(200, {start: 1000}),
+            easing: "spring(1, 80, 100, 0)"
+        }
+    ]}>
+        <ul className="text-2xl font-semibold -mt-10 c-nav hidden lg:block">
+            {content.map(([id, text], i) => <li className={"my-10 -ml-96 mr-96 uppercase " + (!i ? "active" : "")} key={id}><a href={id}>{text}</a></li>)}
+        </ul>
+    </Anime>;
+};
+
+const ProjectList = ():JSX.Element => {
+    const projects = [
         {
             name: "Cruisegator",
             subtitle: "Introducing cruiseships in a fancy way.",
@@ -110,42 +121,56 @@ const Landing = (): JSX.Element => {
     ];
 
     return <>
-        <div className="h-screen flex justify-between items-center lg:pl-48">
+        {projects.map(({name, subtitle, description, image, link}) => 
+            <div className="px-8 sm:px-24 md:px-32 flex flex-col items-center mt-24" key={name}>
+                <h2 className='text-purple-300 font-semibold text-5xl md:text-6xl'>{name}</h2>
+                <h3 className="text-2xl md:text-3xl font-medium mt-6 mb-9 text-center">{subtitle}</h3>
+                <p className="text-lg font-normal leading-7 md:leading-8 text-gray-400 w-full xl:w-9/12 text-center">{description}</p>
+                <a className='bg-purple-300 rounded-full py-4 px-12 inline-block mt-12 font-medium btn-goto' data-hover="LET'S GO" href={link}><div className="text-white whitespace-nowrap">GO TO WEBSITE</div></a>
+                <img src={image} className="mt-16 md:mt-24"/>
+            </div>
+        )}
+    </>;
+};
+
+const Landing = (): JSX.Element => {
+    const refHeader = useRef(null);
+    const refAbout = useRef(null);
+    const refSkillsHeader = useRef(null);
+    const refSkillsFrontend = useRef(null);
+    const refSkillsBackend = useRef(null);
+    const refServices = useRef(null);
+    const refServicesFooter = useRef(null);
+    
+    const headerInViewport = useIntersection(refHeader, "0px");
+    const aboutInViewport = useIntersection(refAbout, "0px");
+    const skillsHeaderInViewport = useIntersection(refSkillsHeader, "0px");
+    const skillsFrontendInViewport = useIntersection(refSkillsFrontend, "0px");
+    const skillsBackendInViewport = useIntersection(refSkillsBackend, "0px");
+    const servicesInViewport = useIntersection(refServices, "0px");
+    const servicesFooterInViewport = useIntersection(refServicesFooter, "0px");
+
+    return <div className="home mt-24">
+        <div className="h-screen flex justify-between items-center lg:pl-48" ref={refHeader}>
             <div className="flex-shrink">
-                <Anime initial={[
-                    {
-                        targets: ".c-nav li",
-                        translateX: 350,
-                        delay: stagger(200, {start: 1000}),
-                        easing: "spring(1, 80, 100, 0)"
-                    }
-                ]}>
-                    <ul className="text-2xl font-semibold -mt-10 c-nav hidden lg:block">
-                        <li className="my-10 -ml-96 mr-96 active"><a href="#aboutme">ABOUT ME</a></li>
-                        <li className="my-10 -ml-96 mr-96"><a href="#skills">MY SKILLS</a></li>
-                        <li className="my-10 -ml-96 mr-96"><a href="#services">SERVICES</a></li>
-                        <li className="my-10 -ml-96 mr-96"><a href="#projects">PROJECTS</a></li>
-                        <li className="my-10 -ml-96 mr-96"><a href="#collab">COLLABORATE</a></li>
-                        <li className="my-10 -ml-96 mr-96"><a href="#contact">GET IN TOUCH</a></li>
-                    </ul>
-                </Anime>
+                <TOC/>
             </div>
             <div className="relative w-full h-screen flex-grow flex justify-center lg:justify-end items-center">
                 <svg width="1540" height="1670" viewBox="0 0 1436 1574" fill="none" xmlns="http://www.w3.org/2000/svg" className="hex">
                     <path d="M468.352 202.984C483.857 183.269 509.196 174.046 533.746 179.183L1066.72 290.691C1089.07 295.367 1107.41 311.262 1115.22 332.719L1314.48 880.178C1322.29 901.634 1318.46 925.603 1304.34 943.551L967.736 1371.56C952.231 1391.27 926.891 1400.5 902.342 1395.36L369.368 1283.85C347.019 1279.18 328.674 1263.28 320.865 1241.83L121.606 694.366C113.796 672.909 117.632 648.941 131.747 630.993L468.352 202.984Z" fill="#E8E8FF"/>
                 </svg>
                 <div className="relative w-full lg:w-3/5 -mt-56 md:-mt-24 mx-8 lg:mx-0 lg:mr-24">
-                    <h3 className="font-semibold text-purple-300 text-xl xl:text-2xl">Fullstack Web Developer</h3>
-                    <h1 className="text-left text-6xl md:text-7xl 2xl:text-8xl leading-129 font-semibold my-2 xl:my-3 2xl:my-6 md:whitespace-nowrap">Melvin Chia</h1>
-                    <p className="text-lg mt-4 xl:leading-8 xl:text-xl">I have 2 years experiences in web development and UI designing. I always love making lots of cool projects, and enjoy learning new skills as time goes by.</p>
-                    <a className="font-semibold text-xl text-purple-300 flex items-center mt-8">GET IN TOUCH 
+                    <h3 className={"font-semibold text-purple-300 text-xl xl:text-2xl opacity-0 " + (headerInViewport ? "animate__animated animate__fadeInDown" : "")}>Fullstack Web Developer</h3>
+                    <h1 className={"text-left text-6xl md:text-7xl 2xl:text-8xl leading-129 font-semibold my-2 xl:my-3 2xl:my-6 md:whitespace-nowrap opacity-0 " + (headerInViewport ? "animate__animated animate__fadeInRight" : "")}>Melvin Chia</h1>
+                    <p className={"text-lg mt-4 xl:leading-8 xl:text-xl opacity-0 " + (headerInViewport ? "animate__animated animate__fadeInUp" : "")}>I have 2 years experiences in web development and UI designing. I always love making lots of cool projects, and enjoy learning new skills as time goes by.</p>
+                    <a className={"font-semibold text-xl text-purple-300 flex items-center mt-8 opacity-0 " + (headerInViewport ? "animate__animated animate__fadeInLeft" : "")}>GET IN TOUCH 
                         <svg className="ml-4" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4 12H20" stroke="#716FFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                             <path d="M13 5L20 12L13 19" stroke="#716FFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                     </a>
                 </div>
-                <a className="absolute bottom-24 xl:bottom-10 right-10 flex font-semibold" href="#aboutme">
+                <a className={"absolute bottom-24 xl:bottom-10 right-10 flex font-semibold opacity-0 " + (headerInViewport ? "animate__animated animate__fadeInDown" : "")}href="#aboutme">
                     SCROLL DOWN
                     <svg className="ml-4 transform rotate-90" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4 12H20" stroke="#716FFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
@@ -296,15 +321,7 @@ const Landing = (): JSX.Element => {
                 </div>
             </div>
         </div>
-        {projectsList.map(({name, subtitle, description, image, link}) => 
-            <div className="px-8 sm:px-24 md:px-32 flex flex-col items-center mt-24" key={name}>
-                <h2 className='text-purple-300 font-semibold text-5xl md:text-6xl'>{name}</h2>
-                <h3 className="text-2xl md:text-3xl font-medium mt-6 mb-9 text-center">{subtitle}</h3>
-                <p className="text-lg font-normal leading-7 md:leading-8 text-gray-400 w-full xl:w-9/12 text-center">{description}</p>
-                <a className='bg-purple-300 rounded-full py-4 px-12 inline-block mt-12 font-medium btn-goto' data-hover="LET'S GO" href={link}><div className="text-white whitespace-nowrap">GO TO WEBSITE</div></a>
-                <img src={image} className="mt-16 md:mt-24"/>
-            </div>
-        )}
+        <ProjectList/>
         <div className="px-8 sm:px-24 md:px-32 mb-24 pt-32" id="collab">
             <div className="flex flex-col items-center">
                 <h2 className='text-purple-300 font-semibold text-xl mb-3'>COLLABORATION</h2>
@@ -314,7 +331,7 @@ const Landing = (): JSX.Element => {
             </div>
         </div>
         <div className="px-16 sm:px-24 md:px-32 mb-8 relative" id="contact">
-            <svg width="1340" height="1340" viewBox="0 0 1436 1574" fill="none" xmlns="http://www.w3.org/2000/svg" className="hex-bottom">
+            <svg width="1340" height="1240" viewBox="0 0 1436 1574" fill="none" xmlns="http://www.w3.org/2000/svg" className="hex-bottom">
                 <path d="M468.352 202.984C483.857 183.269 509.196 174.046 533.746 179.183L1066.72 290.691C1089.07 295.367 1107.41 311.262 1115.22 332.719L1314.48 880.178C1322.29 901.634 1318.46 925.603 1304.34 943.551L967.736 1371.56C952.231 1391.27 926.891 1400.5 902.342 1395.36L369.368 1283.85C347.019 1279.18 328.674 1263.28 320.865 1241.83L121.606 694.366C113.796 672.909 117.632 648.941 131.747 630.993L468.352 202.984Z" fill="#E8E8FF"/>
             </svg>
             <div className="flex items-center justify-between relative">
@@ -382,7 +399,7 @@ const Landing = (): JSX.Element => {
             </div>
         </div>
         <p className="relative text-center mt-72 mb-4 px-8">Copyright &copy; TheCodeblog.net. All rights reserved.</p>
-    </>;
+    </div>;
 };
 
 export default Landing;

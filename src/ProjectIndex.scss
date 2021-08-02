@@ -1,0 +1,27 @@
+.project-index {
+	& .top {
+		background-image: url(/bg.svg);
+		background-repeat: no-repeat;
+	}
+
+	& .showcase {
+		max-width: 45vw;
+
+		& > div > * {
+			box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+		}
+
+		& .scrollbar-track-y {
+			display: none !important
+		}
+
+		& .scrollbar-track-x {
+			bottom: 30px;
+		}
+	}
+}
+
+.ps__rail-x {
+	margin-right: 50px;
+	height: 3px
+}

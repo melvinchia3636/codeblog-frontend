@@ -11,8 +11,8 @@ body {
 	display: flex;
 	margin: 0;
 	justify-content: space-between;
-	position: relative;
-	z-index: 9999
+	z-index: 9999;
+	background: none
 }
 
 .nav {
