@@ -15,8 +15,8 @@ import Tilt from "react-tilt";
 // @ts-ignore
 import ReactAnime from "react-animejs";
 
-import Illu1 from "./illu1";
-import Illu2 from "./illu2";
+import Illu1 from "./assets/illu1";
+import Illu2 from "./assets/illu2";
 import { useIntersection } from "./useIntersection";
   
 const chartOptions = {

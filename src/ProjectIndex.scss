@@ -1,6 +1,6 @@
 .project-index {
 	& .top {
-		background-image: url(/bg.svg);
+		background-image: url(/assets/bg.svg);
 		background-repeat: no-repeat;
 	}
 
@@ -21,7 +21,14 @@
 	}
 }
 
-.ps__rail-x {
-	margin-right: 50px;
+.left .ps__rail-x {
+	margin-left: 200px;
+	margin-right: 80px;
+	height: 3px
+}
+
+.right .ps__rail-x {
+	margin-right: 200px;
+	margin-left: 80px;
 	height: 3px
 }
