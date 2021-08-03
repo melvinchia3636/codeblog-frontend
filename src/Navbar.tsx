@@ -1,5 +1,5 @@
 import React from "react";
-import "./Navbar.css";
+import "./style/Navbar.css";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import ReactAnime from "react-animejs";

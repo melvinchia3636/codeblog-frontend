@@ -55,10 +55,6 @@ body {
     line-height: auto;
 }
 
-.navbar-brand:hover {
-	color: white;
-}
-
 .collapse-btn {
 	background: none;
 	border-style: none;

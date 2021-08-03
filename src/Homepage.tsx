@@ -5,7 +5,7 @@ import project1 from "./assets/project images/cruisegator.png";
 import project2 from "./assets/project images/McWiki.png";
 import project3 from "./assets/project images/Fruits Inc..png";
 
-import "./Home.scss";
+import "./style/Home.scss";
 import "tailwindcss/tailwind.css";
 import "animate.css/animate.min.css";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment

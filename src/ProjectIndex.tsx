@@ -1,7 +1,7 @@
 import React from "react";
-import "./ProjectIndex.scss";
+import "./style/ProjectIndex.scss";
 import illu3 from "./assets/illu3.svg"; 
-import "./scrollbar.css";
+import "./style/scrollbar.css";
 
 import project1 from "./assets/project images/cruisegator.png";
 import project2 from "./assets/project images/McWiki.png";
@@ -36,7 +36,7 @@ const ProjectShowcase: React.FC<ShowcaseProps> = ({direction, id, projectData}: 
         document.querySelector(`#${id}.scrollbar-container`)?.scrollTo({ left: direction === "right" ? 9999 : 1, top: 0, behavior: "smooth" });
         setTimeout(() => {
             document.querySelector(`#${id}.scrollbar-container`)?.scrollTo({ left: direction === "right" ? 9999 : 1, top: 0, behavior: "smooth" });
-        }, 50);
+        }, 100);
     }, []);
 
     return <div className={"bg-purple-200 showcase overflow-visible rounded-xl p-12 " + (direction === "left" ? "pr-0" : "pl-0")}>
@@ -70,7 +70,7 @@ const ProjectIndex = (): JSX.Element => {
                     </svg>
                 </a>
             </div>
-            <img src={illu3}/>
+            <img src={illu3} className="w-5/12"/>
             
             <a className="absolute bottom-24 xl:bottom-10 right-10 flex font-semibold" href="#aboutme">
                     SCROLL DOWN
@@ -83,7 +83,8 @@ const ProjectIndex = (): JSX.Element => {
         <div className="flex justify-between items-center mb-48">
             <div className="p-32 pr-48">
                 <h2 className="font-semibold text-5xl text-purple-300">Highlights</h2>
-                <p className="text-xl mt-6 leading-8">Here are some of my favourite projects which I’m absolutely sure you’ll love them as well.</p>
+                <p className="text-xl mt-6 leading-8 text-gray-400">Here are some of my favourite and extremely large scale projects which I’m absolutely sure you’ll love them as well.</p>
+                <a className='bg-purple-300 rounded-full text-white py-4 px-16 inline-block mt-12 font-medium btn-anim2 whitespace-nowrap w-max' data-text="PICK RANDOM">{"LET'S GO".split("").map(e => <span className="text-white" key={e}>{e}</span>)}</a>
             </div>
             
             <ProjectShowcase direction="left" id="first" projectData={projectData}/>
@@ -93,19 +94,30 @@ const ProjectIndex = (): JSX.Element => {
 
             <div className="p-32 pl-48">
                 <h2 className="font-semibold text-5xl text-purple-300">Websites</h2>
-                <p className="text-xl mt-6 leading-8">You’ll be able to find a lot of websites with wierd topic here... Most of them are the products of casual ideas.</p>
+                <p className="text-xl mt-6 leading-8 text-gray-400">You’ll be able to find a lot of websites with wierd topic here... Most of them are the products of casual ideas.</p>
                 <div className="grid grid-flow-col grid-rows-2 gap-5 mt-12" style={{gridTemplateColumns: "repeat(auto-fill, 32px)"}}>
                     {Object.values(websiteIcon).map(e => <img key={e} src={e}/>)}
                 </div>
+                <a className='bg-purple-300 rounded-full text-white py-4 px-16 inline-block mt-12 font-medium btn-anim2 whitespace-nowrap w-max' data-text="PICK RANDOM">{"LET'S GO".split("").map(e => <span className="text-white" key={e}>{e}</span>)}</a>
             </div>
         </div>
         <div className="flex justify-between items-center mb-48">
             <div className="p-32 pr-48">
                 <h2 className="font-semibold text-5xl text-purple-300">Mobile Apps</h2>
-                <p className="text-xl mt-6 leading-8">The journey truely began when my first client required me to build him a mobile app... It became unstoppable.</p>
+                <p className="text-xl mt-6 leading-8 text-gray-400">The journey truely began when my first client required me to build him a mobile app... It became unstoppable.</p>
+                <a className='bg-purple-300 rounded-full text-white py-4 px-16 inline-block mt-12 font-medium btn-anim2 whitespace-nowrap w-max' data-text="PICK RANDOM">{"LET'S GO".split("").map(e => <span className="text-white" key={e}>{e}</span>)}</a>
             </div>
             
             <ProjectShowcase direction="left" id="third" projectData={projectData}/>
+        </div>
+        <div className="flex justify-between items-center mb-32">
+            <ProjectShowcase direction="right" id="fourth" projectData={projectData}/>
+
+            <div className="p-32 pl-48">
+                <h2 className="font-semibold text-5xl text-purple-300">Miscellaneous</h2>
+                <p className="text-xl mt-6 leading-8 text-gray-400">Here are some other type of tiny scale projects that I&#39;ve created over the year including minigames, algorithms related stuff, etc.</p>
+                <a className='bg-purple-300 rounded-full text-white py-4 px-16 inline-block mt-12 font-medium btn-anim2 whitespace-nowrap w-max' data-text="PICK RANDOM">{"LET'S GO".split("").map(e => <span className="text-white" key={e}>{e}</span>)}</a>
+            </div>
         </div>
         <div className="px-8 sm:px-24 md:px-32 mb-24" id="collab">
             <div className="flex flex-col items-center">
