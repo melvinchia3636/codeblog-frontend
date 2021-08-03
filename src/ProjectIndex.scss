@@ -7,8 +7,9 @@
 	& .showcase {
 		max-width: 45vw;
 
-		& > div > * {
+		& > div > *:not(.ps__rail-x) {
 			box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+			background: #f6f5f7
 		}
 
 		& .scrollbar-track-y {

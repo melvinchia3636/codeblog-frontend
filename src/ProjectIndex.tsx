@@ -6,14 +6,28 @@ import "./scrollbar.css";
 import project1 from "./assets/project images/cruisegator.png";
 import project2 from "./assets/project images/McWiki.png";
 import project3 from "./assets/project images/Fruits Inc..png";
+import * as websiteIcon from "./assets/icons/website";
 
 import PerfectScrollbar from "react-perfect-scrollbar";
 
-interface ShowcaseProps extends React.ComponentProps<any> {
-    direction: "left" | "right"
+interface ShowcaseProps extends React.HTMLProps<HTMLButtonElement> {
+    direction: "left" | "right";
+    projectData: [string, string, string][]
 }
 
-const ProjectShowcase: React.FC<ShowcaseProps> = ({direction, id}: ShowcaseProps):JSX.Element => {
+const projectData: [string, string, string][] = [
+    ["Cruisegator", "https://www.thecodeblog.net", project1],
+    ["McWiki", "https://www.thecodeblog.net", project2],
+    ["Juicy Inc.", "https://www.thecodeblog.net", project3],
+    ["Cruisegator", "https://www.thecodeblog.net", project1],
+    ["McWiki", "https://www.thecodeblog.net", project2],
+    ["Juicy Inc.", "https://www.thecodeblog.net", project3],
+    ["Cruisegator", "https://www.thecodeblog.net", project1],
+    ["McWiki", "https://www.thecodeblog.net", project2],
+    ["Juicy Inc.", "https://www.thecodeblog.net", project3],
+];
+
+const ProjectShowcase: React.FC<ShowcaseProps> = ({direction, id, projectData}: ShowcaseProps):JSX.Element => {
 
     const scrollbarRef = React.useRef<PerfectScrollbar>(null);
 
@@ -22,47 +36,22 @@ const ProjectShowcase: React.FC<ShowcaseProps> = ({direction, id}: ShowcaseProps
         document.querySelector(`#${id}.scrollbar-container`)?.scrollTo({ left: direction === "right" ? 9999 : 1, top: 0, behavior: "smooth" });
         setTimeout(() => {
             document.querySelector(`#${id}.scrollbar-container`)?.scrollTo({ left: direction === "right" ? 9999 : 1, top: 0, behavior: "smooth" });
-        }, 100);
+        }, 50);
     }, []);
 
     return <div className={"bg-purple-200 showcase overflow-visible rounded-xl p-12 " + (direction === "left" ? "pr-0" : "pl-0")}>
         <PerfectScrollbar id={id} className={`flex overflow-x-scroll py-12 ${direction} ` + (direction === "left" ? "-ml-32" : "-mr-32")} ref={scrollbarRef} options={{swipeEasing: false}}>
-            <div className="flex flex-col justify-center items-center bg-gray-100 mx-2 px-8 py-16 flex-shrink-0 rounded-xl">
-                <img src={project1} className="h-64"/>
-                <h3 className="font-semibold text-2xl mt-4">Cruisegator</h3>
-            </div>
-            <div className="flex flex-col justify-center items-center bg-gray-100 mx-2 px-8 py-16 flex-shrink-0 rounded-xl">
-                <img src={project2} className="h-64"/>
-                <h3 className="font-semibold text-2xl mt-4">Mc Wiki</h3>
-            </div>
-            <div className="flex flex-col justify-center items-center bg-gray-100 mx-2 px-8 py-16 flex-shrink-0 rounded-xl">
-                <img src={project3} className="h-64"/>
-                <h3 className="font-semibold text-2xl mt-4">Juicy Inc.</h3>
-            </div>
-            <div className="flex flex-col justify-center items-center bg-gray-100 mx-2 px-8 py-16 flex-shrink-0 rounded-xl">
-                <img src={project1} className="h-64"/>
-                <h3 className="font-semibold text-2xl mt-4">Cruisegator</h3>
-            </div>
-            <div className="flex flex-col justify-center items-center bg-gray-100 mx-2 px-8 py-16 flex-shrink-0 rounded-lg">
-                <img src={project2} className="h-64"/>
-                <h3 className="font-semibold text-2xl mt-4">Mc Wiki</h3>
-            </div>
-            <div className="flex flex-col justify-center items-center bg-gray-100 mx-2 px-8 py-16 flex-shrink-0 rounded-lg">
-                <img src={project3} className="h-64"/>
-                <h3 className="font-semibold text-2xl mt-4">Juicy Inc.</h3>
-            </div>
-            <div className="flex flex-col justify-center items-center bg-gray-100 mx-2 px-8 py-16 flex-shrink-0 rounded-lg">
-                <img src={project1} className="h-64"/>
-                <h3 className="font-semibold text-2xl mt-4">Cruisegator</h3>
-            </div>
-            <div className="flex flex-col justify-center items-center bg-gray-100 mx-2 px-8 py-16 flex-shrink-0 rounded-lg">
-                <img src={project2} className="h-64"/>
-                <h3 className="font-semibold text-2xl mt-4">Mc Wiki</h3>
-            </div>
-            <div className="flex flex-col justify-center items-center bg-gray-100 mx-2 px-8 py-16 flex-shrink-0 rounded-lg">
-                <img src={project3} className="h-64"/>
-                <h3 className="font-semibold text-2xl mt-4">Juicy Inc.</h3>
-            </div>
+            {projectData.map(([name, link, img]) => 
+                <div key="name" className="flex flex-col justify-center items-center mx-2 px-16 py-16 flex-shrink-0 rounded-xl">
+                    <img src={img} className="h-56"/>
+                    <h3 className="font-semibold text-3xl mt-4">{name}</h3>
+                    <a className="font-semibold text-lg text-purple-300 flex items-center mt-4" href={link}>DETAILS
+                        <svg className="ml-2" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 12H20" stroke="#716FFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                            <path d="M13 5L20 12L13 19" stroke="#716FFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                    </a>
+                </div>)}
         </PerfectScrollbar>
     </div>;
 };
@@ -97,14 +86,17 @@ const ProjectIndex = (): JSX.Element => {
                 <p className="text-xl mt-6 leading-8">Here are some of my favourite projects which I’m absolutely sure you’ll love them as well.</p>
             </div>
             
-            <ProjectShowcase direction="left" id="first"/>
+            <ProjectShowcase direction="left" id="first" projectData={projectData}/>
         </div>
         <div className="flex justify-between items-center mb-32">
-            <ProjectShowcase direction="right" id="second"/>
+            <ProjectShowcase direction="right" id="second" projectData={projectData}/>
 
             <div className="p-32 pl-48">
                 <h2 className="font-semibold text-5xl text-purple-300">Websites</h2>
                 <p className="text-xl mt-6 leading-8">You’ll be able to find a lot of websites with wierd topic here... Most of them are the products of casual ideas.</p>
+                <div className="grid grid-flow-col grid-rows-2 gap-5 mt-12" style={{gridTemplateColumns: "repeat(auto-fill, 32px)"}}>
+                    {Object.values(websiteIcon).map(e => <img key={e} src={e}/>)}
+                </div>
             </div>
         </div>
         <div className="flex justify-between items-center mb-48">
@@ -113,7 +105,7 @@ const ProjectIndex = (): JSX.Element => {
                 <p className="text-xl mt-6 leading-8">The journey truely began when my first client required me to build him a mobile app... It became unstoppable.</p>
             </div>
             
-            <ProjectShowcase direction="left" id="first"/>
+            <ProjectShowcase direction="left" id="third" projectData={projectData}/>
         </div>
         <div className="px-8 sm:px-24 md:px-32 mb-24" id="collab">
             <div className="flex flex-col items-center">

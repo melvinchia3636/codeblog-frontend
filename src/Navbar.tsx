@@ -9,8 +9,8 @@ import { useLocation } from "react-router-dom";
 const Navbar = ():JSX.Element => {
     const page = ["home", "projects", "blog", "about"];
     const location = useLocation();
-    const pathname = (location.pathname.match(/\/(.*?)(?:\/|$)/) || ["home"]);
-    const pagename = pathname[pathname.length-1];
+    const pathname = location.pathname.match(/\/(.*?)(?:\/|$)/) || [];
+    const pagename = pathname[pathname.length-1] || "home";
     const {Anime, stagger} = ReactAnime;
     
     return <nav className="cb-nav absolute top-0 left-0">
