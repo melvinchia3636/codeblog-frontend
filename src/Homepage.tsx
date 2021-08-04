@@ -116,17 +116,34 @@ const ProjectList = ():JSX.Element => {
             subtitle: "Introducing cruiseships in a fancy way.",
             description: "Cruisegator is a website containing interesting data of over 1000 cruiseship. It is my first ever React JS, Express JS, Typescript and React Redux project. It's by far the largest project I've ever built.",
             image: project1,
-            link: "https://cruisegator.thecodeblog.net"
-        }
+            link: "https://cruisegator.thecodeblog.net",
+            type: "website"
+        },
+        {
+            name: "Mc Wiki",
+            subtitle: "A mobile app for everything in Minecraft.",
+            description: "This project actually hasn't been done yet. One day when I was surfing around the Internet, I accidentally stumbled on the Minecraft officail wiki, so I just decided to make something similar.",
+            image: project2,
+            link: "https://cruisegator.thecodeblog.net",
+            type: "app"
+        },
+        {
+            name: "Juicy Inc.",
+            subtitle: "Give you a taste of juicy juice.",
+            description: "This is a really casual idea that has randomly pop out from nowhere. It's just a normal midnight when I opened a blank canvas in Figma without any idea on what I'm gonna do... And that's it!",
+            image: project3,
+            link: "https://cruisegator.thecodeblog.net",
+            type: "website"
+        },
     ];
 
     return <>
-        {projects.map(({name, subtitle, description, image, link}) => 
+        {projects.map(({name, subtitle, description, image, link, type}) => 
             <div className="px-8 sm:px-24 md:px-32 flex flex-col items-center mt-24" key={name}>
                 <h2 className='text-purple-300 font-semibold text-5xl md:text-6xl'>{name}</h2>
                 <h3 className="text-2xl md:text-3xl font-medium mt-6 mb-9 text-center">{subtitle}</h3>
                 <p className="text-lg font-normal leading-7 md:leading-8 text-gray-400 w-full xl:w-9/12 text-center">{description}</p>
-                <a className='bg-purple-300 rounded-full py-4 px-12 inline-block mt-12 font-medium btn-goto' data-hover="LET'S GO" href={link}><div className="text-white whitespace-nowrap">GO TO WEBSITE</div></a>
+                <a className='bg-purple-300 rounded-full py-4 px-12 inline-block mt-12 font-medium btn-goto' data-hover="LET'S GO" href={link}><div className="text-white whitespace-nowrap">{type === "website" ? "GO TO WEBSITE" : "DOWNLOAD APP"}</div></a>
                 <img src={image} className="mt-16 md:mt-24"/>
             </div>
         )}
