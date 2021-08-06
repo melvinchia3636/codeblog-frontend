@@ -26,6 +26,15 @@ module.exports = {
         rotate: {
             "-20": "-20deg",
             "90": "90deg",
+        },
+        screens: {
+            "1440": "1440px",
+            "1330": "1330px",
+            "sm": "640px",
+            "md": "768px",
+            "lg": "1024px",
+            "xl": "1280px",
+            "2xl": "1536px"
         }
     },
     variants: {

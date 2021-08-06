@@ -122,7 +122,7 @@ const ProjectList = ():JSX.Element => {
         {
             name: "Mc Wiki",
             subtitle: "A mobile app for everything in Minecraft.",
-            description: "This project actually hasn't been done yet. One day when I was surfing around the Internet, I accidentally stumbled on the Minecraft officail wiki, so I just decided to make something similar.",
+            description: "This project actually hasn't been done yet. One day when I was surfing around the Internet, I accidentally stumbled on the Minecraft official wiki, so I just decided to make something similar.",
             image: project2,
             link: "https://cruisegator.thecodeblog.net",
             type: "app"
@@ -334,7 +334,7 @@ const Landing = (): JSX.Element => {
                 </div>
                 <div>
                     <h2 className='text-purple-300 font-semibold text-xl mb-3 hidden xl:block'>PROJECTS</h2>
-                    <p className="text-lg md:text-xl font-normal w-full leading-7 md:leading-8 text-gray-400">{"I've made done uite a lot of projects over the year. Below are some of my favourite projects, and I'm sure you'll like them too."}</p>
+                    <p className="text-lg md:text-xl font-normal w-full leading-7 md:leading-8 text-gray-400">{"I've done quite a lot of projects over the year. Below are some of my favourite projects, and I'm sure you'll like them too."}</p>
                 </div>
             </div>
         </div>
@@ -347,14 +347,14 @@ const Landing = (): JSX.Element => {
                 <a className='bg-purple-300 rounded-full text-white py-4 px-12 inline-block mt-6 font-medium btn-anim2 whitespace-nowrap w-max' data-text="GET IN TOUCH" href="#contact">{"CONTACT ME".split("").map(e => <span className="text-white" key={e}>{e}</span>)}</a>
             </div>
         </div>
-        <div className="px-16 sm:px-24 md:px-32 mb-8 relative" id="contact">
-            <svg width="1340" height="1240" viewBox="0 0 1436 1574" fill="none" xmlns="http://www.w3.org/2000/svg" className="hex-bottom">
+        <div className="px-8 sm:px-24 md:px-32 mb-8 relative" id="contact">
+            <svg width="1340" height="1240" viewBox="0 0 1436 1574" fill="none" xmlns="http://www.w3.org/2000/svg" className="hex-bottom hidden 1440:block">
                 <path d="M468.352 202.984C483.857 183.269 509.196 174.046 533.746 179.183L1066.72 290.691C1089.07 295.367 1107.41 311.262 1115.22 332.719L1314.48 880.178C1322.29 901.634 1318.46 925.603 1304.34 943.551L967.736 1371.56C952.231 1391.27 926.891 1400.5 902.342 1395.36L369.368 1283.85C347.019 1279.18 328.674 1263.28 320.865 1241.83L121.606 694.366C113.796 672.909 117.632 648.941 131.747 630.993L468.352 202.984Z" fill="#E8E8FF"/>
             </svg>
-            <div className="flex items-center justify-between relative">
-                <div>
-                    <h3 className="text-6xl font-semibold leading-129 whitespace-nowrap mr-48 mb-10">I would like to<br/>hear from you.</h3>
-                    <p className="text-xl font-normal w-9/12 leading-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+            <div className="flex flex-col 1330:flex-row items-center justify-between relative">
+                <div className="mb-24 1330:mb-0 flex flex-col items-center 1330:items-start">
+                    <h3 className="text-5xl md:text-6xl font-semibold leading-129 whitespace-nowrap 1330:mr-48 mb-10 text-center 1330:text-left">I would like to<br/>hear from you.</h3>
+                    <p className="text-lg md:text-xl font-normal w-full md:w-9/12 leading-7 text-gray-400 text-center 1330:text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
                     <div className="grid mt-12 gap-y-8 gap-x-4 items-center" style={{gridTemplateColumns: "32px auto"}}>
                         <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16.0003 2.59961C8.64033 2.59961 2.66699 8.57294 2.66699 15.9329C2.66699 23.2929 8.64033 29.2663 16.0003 29.2663H22.667V26.5996H16.0003C10.2137 26.5996 5.33366 21.7196 5.33366 15.9329C5.33366 10.1463 10.2137 5.26628 16.0003 5.26628C21.787 5.26628 26.667 10.1463 26.667 15.9329V17.8396C26.667 18.8929 25.7203 19.9329 24.667 19.9329C23.6137 19.9329 22.667 18.8929 22.667 17.8396V15.9329C22.667 12.2529 19.6803 9.26628 16.0003 9.26628C12.3203 9.26628 9.33366 12.2529 9.33366 15.9329C9.33366 19.6129 12.3203 22.5996 16.0003 22.5996C17.8403 22.5996 19.5203 21.8529 20.7203 20.6396C21.587 21.8263 23.0803 22.5996 24.667 22.5996C27.2937 22.5996 29.3337 20.4663 29.3337 17.8396V15.9329C29.3337 8.57294 23.3603 2.59961 16.0003 2.59961ZM16.0003 19.9329C13.787 19.9329 12.0003 18.1463 12.0003 15.9329C12.0003 13.7196 13.787 11.9329 16.0003 11.9329C18.2137 11.9329 20.0003 13.7196 20.0003 15.9329C20.0003 18.1463 18.2137 19.9329 16.0003 19.9329Z" fill="#716FFF"/>
@@ -376,22 +376,22 @@ const Landing = (): JSX.Element => {
                     </div>
                 </div>
                 <form>
-                    <div className="grid grid-cols-2 ml-12">
+                    <div className="1330:grid 1330:grid-cols-2 1330:ml-12">
                         <div className="mx-4 my-5">
                             <label className="block w-full text-purple-300 font-semibold text-sm" htmlFor="firstname">First Name</label>
-                            <input className="block px-4 py-2 mt-2 bg-gray-100 placeholder-gray-300 text-lg" style={{borderRadius: 5}} type="text" name="firstname" id="firstname" placeholder="John"/>
+                            <input className="block px-4 py-2 mt-2 bg-gray-100 placeholder-gray-300 text-lg w-full" style={{borderRadius: 5}} type="text" name="firstname" id="firstname" placeholder="John"/>
                         </div>
                         <div className="mx-4 my-5">
                             <label className="block w-full text-purple-300 font-semibold text-sm" htmlFor="lastname">Last Name</label>
-                            <input className="block px-4 py-2 mt-2 bg-gray-100 placeholder-gray-300 text-lg" style={{borderRadius: 5}} type="text" name="lastname" id="lastname" placeholder="Doe"/>
+                            <input className="block px-4 py-2 mt-2 bg-gray-100 placeholder-gray-300 text-lg w-full" style={{borderRadius: 5}} type="text" name="lastname" id="lastname" placeholder="Doe"/>
                         </div>
                         <div className="mx-4 my-5">
                             <label className="block w-full text-purple-300 font-semibold text-sm" htmlFor="email">Email</label>
-                            <input className="block px-4 py-2 mt-2 bg-gray-100 placeholder-gray-300 text-lg" style={{borderRadius: 5}} type="email" name="email" id="email" placeholder="johndoe@company.com"/>
+                            <input className="block px-4 py-2 mt-2 bg-gray-100 placeholder-gray-300 text-lg w-full" style={{borderRadius: 5}} type="email" name="email" id="email" placeholder="johndoe@company.com"/>
                         </div>
                         <div className="mx-4 my-5">
                             <label className="block w-full text-purple-300 font-semibold text-sm" htmlFor="phonenum">Phone Number</label>
-                            <input className="block px-4 py-2 mt-2 bg-gray-100 placeholder-gray-300 text-lg" style={{borderRadius: 5}} type="text" name="phonenum" id="phonenum" placeholder="+6(012) 345 6789"/>
+                            <input className="block px-4 py-2 mt-2 bg-gray-100 placeholder-gray-300 text-lg w-full" style={{borderRadius: 5}} type="text" name="phonenum" id="phonenum" placeholder="+6(012) 345 6789"/>
                         </div>
                         <div className="col-span-2 my-5 mx-4">
                             <p className="block w-full text-purple-300 text-sm font-semibold">Requirements</p>
@@ -407,7 +407,7 @@ const Landing = (): JSX.Element => {
                         </div>
                         <div className="col-span-2 my-5 mx-4">
                             <label className="block w-full text-purple-300 font-semibold text-sm" htmlFor="messages">Messages</label>
-                            <input className="block px-4 py-2 mt-2 bg-gray-100 placeholder-gray-300 text-lg w-full" style={{borderRadius: 5}} type="text" name="messages" id="messages" placeholder="I want to say something"/>
+                            <textarea className="block px-4 py-2 mt-2 bg-gray-100 placeholder-gray-300 text-lg w-full resize-none h-36" style={{borderRadius: 5}} name="messages" id="messages" placeholder="I want to say something"/>
                             <p className='mt-2 text-right text-sm'>0/200</p>
                         </div>
                         <a className='bg-purple-300 rounded-full text-white py-4 px-12 inline-block mt-12 font-medium text-center text-xl col-span-2 w-full'>SUBMIT</a>
@@ -415,7 +415,7 @@ const Landing = (): JSX.Element => {
                 </form>
             </div>
         </div>
-        <p className="relative text-center mt-72 mb-4 px-8">Copyright &copy; TheCodeblog.net. All rights reserved.</p>
+        <p className="relative text-center mt-24 xl:mt-44 mb-4 px-8">Copyright &copy; TheCodeblog.net. All rights reserved.</p>
     </div>;
 };
 

@@ -61,7 +61,7 @@ const ProjectIndex = (): JSX.Element => {
     return <div className="project-index">
         <div className="w-full h-screen top flex items-center justify-center relative mb-32">
             <div className="w-5/12 mr-32">
-                <h1 className="text-6xl font-semibold leading-tight">What I&#39;ve done in my<br/><span className="text-purple-300">entire</span> coding<br/>journey</h1>
+                <h1 className="text-6xl font-semibold leading-tight whitespace-nowrap">What I&#39;ve done during<br/>my <span className="text-purple-300">entire</span> coding<br/>journey</h1>
                 <p className="text-xl w-full my-12 leading-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Posuere morbi leo urna molestie at.</p>
                 <a className="font-semibold text-xl text-purple-300 flex items-center mt-8">GET IN TOUCH 
                     <svg className="ml-4" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
