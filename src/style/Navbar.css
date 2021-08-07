@@ -7,7 +7,7 @@ body {
 
 .cb-nav {
 	transition: background-color 0.5s ease 0s, width 0.5s ease 0s, height 0.5s ease 0s;
-	width: calc(100% - 40px);
+	width: 100%;
 	display: flex;
 	margin: 0;
 	justify-content: space-between;
@@ -42,7 +42,7 @@ body {
 .navbar-brand {
 	color: #716fff;
 	font-family: 'Poppins', sans-serif;
-	font-size: 2.2vw !important;
+	font-size: 2.2rem !important;
 	font-weight: 600 !important;
 	transition: color 0.5s ease 0s, margin-top 0.5s ease 0s, margin-bottom 0.5s ease 0s;
 	position: relative;
@@ -56,23 +56,14 @@ body {
 }
 
 .collapse-btn {
-	background: none;
-	border-style: none;
-	position: relative;
-	display: none;
-	height: 32px;
-	margin-left: 20px
+	stroke: #716fff;
+	stroke-width: .2px;
+	display: none
 }
 
 .collapse-btn:focus {
 	border-style: none;
 	outline-style: none;
-}
-
-.collapse-icon {
-	color: white;
-	width: 32px;
-	height: 32px
 }
 
 .navbar-right {
@@ -157,7 +148,7 @@ body {
 		background: #141414;
 	}
 	.collapse-btn {
-		display: inline-block;
+		display: block;
 	}
 	.nav-expand.homenav-item-container li {
 		margin-top: 30px;
@@ -172,30 +163,9 @@ body {
 		display: none !important;
 		visibility: hidden
 	}
-	.navbar-brand {
-		font-size: 4vw !important;
-	}
 	.collapse-icon {
 		width: 28px;
 		height: 28px
-	}
-}
-
-@media all and (max-width: 641px) {
-	.navbar-brand {
-		font-size: 180% !important;
-	}
-}
-
-@media all and (max-width: 501px) {
-	.navbar-brand {
-		font-size: 180% !important;
-	}
-}
-
-@media all and (max-width: 400px) {
-	.navbar-brand {
-		font-size: 150% !important;
 	}
 }
 
@@ -254,5 +224,40 @@ body {
 	}
 	100% {
 		background: none
+	}
+}
+
+.rounded-animation-on {
+	animation: roundAnimationOn 1s cubic-bezier( 0.165, 0.84, 0.44, 1 )  0s forwards !important;
+}
+
+.rounded-animation-off {
+	animation: roundAnimationOff 1s cubic-bezier( 0.165, 0.84, 0.44, 1 )  0s forwards !important;
+}
+
+@keyframes roundAnimationOn {
+	0% {
+		border-bottom-right-radius: 9999px;
+		transform: translate(-50%, -100%)
+	}
+
+	50% {
+		border-bottom-right-radius: 0px;
+	}
+
+	100% {
+		transform: translate(0, 0)
+	}
+}
+
+@keyframes roundAnimationOff {
+	0% {
+		border-bottom-right-radius: 0px;
+		transform: translate(0, 0)
+	}
+
+	100% {
+		border-bottom-right-radius: 9999px;
+		transform: translate(-50%, -100%)
 	}
 }
