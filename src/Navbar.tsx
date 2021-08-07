@@ -1,9 +1,8 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./style/Navbar.css";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import ReactAnime from "react-animejs";
-import Background from "./bg.svg";
 import { useLocation } from "react-router-dom";
 
 const Navbar = ():JSX.Element => {
@@ -14,9 +13,36 @@ const Navbar = ():JSX.Element => {
     const {Anime, stagger} = ReactAnime;
     const [isNavToggle, setNavToggle] = useState(false);
     const [firstTime, setFirstTime] = useState(true);
+    const [isDown, setDown] = useState(false);
+
+    useEffect(() => {
+        document.querySelector("body")?.addEventListener("scroll", e => {
+            if ((document.querySelector("body")?.scrollTop || 0) > 100 && !isDown) {
+                setDown(true);
+            } else {
+                setDown(false);
+            }
+        });
+    }, []);
     
-    return <nav className="cb-nav absolute top-0 left-0">
-        <div className={"absolute top-0 left-0 w-screen h-screen transform bg-gray-200 " + (!firstTime ? (isNavToggle ? "rounded-animation-on" : "rounded-animation-off") : "-translate-x-1/2 -translate-y-full")}></div>
+    return <nav className={"cb-nav absolute top-0 left-0 " + (isDown ? "bg-gray-200 shadow-md py-6" : "py-6")}>
+        <div className={"absolute top-0 left-0 w-screen h-screen transform overflow-hidden bg-gray-200 " + (!firstTime ? (isNavToggle ? "rounded-animation-on" : "rounded-animation-off") : "-translate-x-1/2 -translate-y-full")}>
+            {isNavToggle ? <Anime initial={[
+                {
+                    targets: ".phone-nav li",
+                    translateX: ["-1000%", "0%"],
+                    delay: stagger(200, {start: 300}),
+                    easing: "spring(1, 80, 100, 0)"
+                }
+            ]} className="h-full">
+                <ul className="phone-nav flex flex-col justify-center items-center h-full gap-24">
+                    {page.map((e, i) => 
+                        <li key={e}>
+                            <a href={`/${e}`} className={`homenav-item ${page.indexOf(pagename) === i ? "active": ""}`}>{e.toUpperCase()}</a>
+                        </li>)}
+                </ul>
+            </Anime> : ""}
+        </div>
         <div className="navbrand-wrapper">
             <button className="collapse-btn"><span className="collapse-icon" data-feather="menu"></span></button>
             <a className="navbar-brand" href="/">{"<CB/>"}</a>
@@ -24,11 +50,11 @@ const Navbar = ():JSX.Element => {
         <Anime initial={[
             {
                 targets: ".nav li",
-                translateY: 90,
+                translateY: ["-1000%", "0%"],
                 delay: stagger(200, {start: 500}),
                 easing: "spring(1, 80, 100, 0)"
             }
-        ]} className="mr-5">
+        ]} className="mr-5 flex items-center">
             <ul className="nav homenav-item-container">
                 {page.map((e, i) => 
                     <li key={e}>

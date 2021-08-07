@@ -6,13 +6,12 @@ body {
 }
 
 .cb-nav {
-	transition: background-color 0.5s ease 0s, width 0.5s ease 0s, height 0.5s ease 0s;
+	transition: all .5s;
 	width: 100%;
 	display: flex;
 	margin: 0;
 	justify-content: space-between;
 	z-index: 9999;
-	background: none
 }
 
 .nav {
@@ -31,7 +30,6 @@ body {
 }
 
 .navbrand-wrapper {
-	height: 120px;
 	width: 100%;
 	display: grid;
 	grid-template-columns: auto auto;
@@ -84,7 +82,6 @@ body {
 
 .homenav-item-container li {
 	margin: 0 40px;
-	margin-top: -50px;
 }
 
 .homenav-item-container {

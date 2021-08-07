@@ -59,7 +59,7 @@ const Service: React.FC<ServiceProps> = ({inViewPort, bottom}: ServiceProps): JS
                 </svg>
                 Create Website
             </h3>
-            <p className="text-lg font-normal leading-7 text-gray-400">Et sollicitudin ac orci phasellus. Mi proin sed libero enim sed faucibus turpis in eu.</p>
+            <p className="text-lg font-normal leading-7 text-gray-400">If you want a nice looking and fully working website, I&#39;ll make one for you!</p>
         </div>
         <div className="py-5 border-b-2 px-6 border-gray-200">
             <h3 className="text-3xl font-medium mb-6 flex items-center whitespace-nowrap">
@@ -69,7 +69,7 @@ const Service: React.FC<ServiceProps> = ({inViewPort, bottom}: ServiceProps): JS
                 </svg>
                 UI/UX Design
             </h3>
-            <p className="text-lg font-normal leading-7 text-gray-400">Ut morbi tincidunt augue interdum velit euismod in. Lacus sed turpis tincidunt id.</p>
+            <p className="text-lg font-normal leading-7 text-gray-400">Want a pretty looking UI design to practice your coding skills and lazy to design yourself?</p>
         </div>
         <div className="py-5 border-b-2 px-6 border-gray-200">
             <h3 className="text-3xl font-medium mb-6 flex items-center whitespace-nowrap">
@@ -78,7 +78,7 @@ const Service: React.FC<ServiceProps> = ({inViewPort, bottom}: ServiceProps): JS
                 </svg>
                 Web Scraping
             </h3>
-            <p className="text-lg font-normal leading-7 text-gray-400">Consequat nisl vel pretium lectus. Blandit massa enim nec dui nunc mattis.</p>
+            <p className="text-lg font-normal leading-7 text-gray-400">Requring tons of data from various data source websites for researching or other usage?</p>
         </div>
     </div>;
 };
@@ -130,7 +130,7 @@ const ProjectList = ():JSX.Element => {
         {
             name: "Juicy Inc.",
             subtitle: "Give you a taste of juicy juice.",
-            description: "This is a really casual idea that has randomly pop out from nowhere. It's just a normal midnight when I opened a blank canvas in Figma without any idea on what I'm gonna do... And that's it!",
+            description: "This is the product of a really casual idea that has randomly pop out from nowhere. This website introduces you to different variety of juices and contains an option for you to purchase the juice delivery service.",
             image: project3,
             link: "https://cruisegator.thecodeblog.net",
             type: "website"
@@ -177,10 +177,10 @@ const Landing = (): JSX.Element => {
                     <path d="M468.352 202.984C483.857 183.269 509.196 174.046 533.746 179.183L1066.72 290.691C1089.07 295.367 1107.41 311.262 1115.22 332.719L1314.48 880.178C1322.29 901.634 1318.46 925.603 1304.34 943.551L967.736 1371.56C952.231 1391.27 926.891 1400.5 902.342 1395.36L369.368 1283.85C347.019 1279.18 328.674 1263.28 320.865 1241.83L121.606 694.366C113.796 672.909 117.632 648.941 131.747 630.993L468.352 202.984Z" fill="#E8E8FF"/>
                 </svg>
                 <div className="relative w-full lg:w-3/5 -mt-56 md:-mt-24 mx-8 lg:mx-0 lg:mr-24">
-                    <h3 className={"font-semibold text-purple-300 text-xl xl:text-2xl opacity-0 " + (headerInViewport ? "animate__animated animate__fadeInDown" : "")}>Fullstack Web Developer</h3>
-                    <h1 className={"text-left text-6xl md:text-7xl 2xl:text-8xl leading-129 font-semibold my-2 xl:my-3 2xl:my-6 md:whitespace-nowrap opacity-0 " + (headerInViewport ? "animate__animated animate__fadeInRight" : "")}>Melvin Chia</h1>
+                    <h3 className={"font-semibold text-purple-300 text-xl xl:text-2xl opacity-0 " + (headerInViewport ? "animate__animated animate__fadeInDown" : "")}>Full-stack Developer</h3>
+                    <h1 className={"text-left text-6xl md:text-7xl 2xl:text-8xl leading-129 font-semibold my-2 xl:my-3 2xl:my-6 md:whitespace-nowrap opacity-0 " + (headerInViewport ? "animate__animated animate__fadeInRight" : "")}>Melvin C.</h1>
                     <p className={"text-lg mt-4 xl:leading-8 xl:text-xl opacity-0 " + (headerInViewport ? "animate__animated animate__fadeInUp" : "")}>I have 2 years experiences in web development and UI designing. I always love making lots of cool projects, and enjoy learning new skills as time goes by.</p>
-                    <a className={"font-semibold text-xl text-purple-300 flex items-center mt-8 opacity-0 " + (headerInViewport ? "animate__animated animate__fadeInLeft" : "")}>GET IN TOUCH 
+                    <a href="#contact" className={"font-semibold text-xl text-purple-300 flex items-center mt-8 opacity-0 " + (headerInViewport ? "animate__animated animate__fadeInLeft" : "")}>GET IN TOUCH 
                         <svg className="ml-4" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4 12H20" stroke="#716FFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                             <path d="M13 5L20 12L13 19" stroke="#716FFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
@@ -196,12 +196,12 @@ const Landing = (): JSX.Element => {
                 </a>
             </div>
         </div>
-        <div className="px-8 sm:px-24 md:px-32 pt-4 xl:mb-24" id="aboutme" ref={refAbout}>
+        <div className="px-8 sm:px-24 md:px-32 pt-28 -mt-24 xl:mb-24" id="aboutme" ref={refAbout}>
             <div className="flex flex-col xl:flex-row items-center justify-between">
                 <div style={{flexShrink: 9999}}>
                     <h2 className={"text-purple-300 font-semibold text-xl opacity-0 " + (aboutInViewport ? "animate__animated animate__fadeInRight" : "")}>ABOUT ME</h2>
                     <h3 className={"text-4xl xl:text-5xl font-semibold my-6 leading-129 whitespace-nowrap opacity-0 " + (aboutInViewport ? "animate__animated animate__fadeInLeft" : "")}>A guy who loves<br/>grinding projects</h3>
-                    <p className={"text-xl font-normal w-full leading-8 text-gray-400 opacity-0 " + (aboutInViewport ? "animate__animated animate__fadeInRight" : "")}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <p className={"text-xl font-normal w-full leading-8 text-gray-400 opacity-0 " + (aboutInViewport ? "animate__animated animate__fadeInRight" : "")}>My name is Melvin Chia, aka The Silly Coder. I&#39;m a teenager full of passion for creating amazing and meaningful websites, mobile apps, and desktop apps, while getting my hands on different cool technologies at the mean time.</p>
                     <a className={"bg-purple-300 rounded-full py-4 px-12 inline-block mt-10 font-medium btn-white btn btn-animated relative " + (aboutInViewport ? "animate__animated animate__fadeInUp" : "")}><span className="relative z-20 text-white">EXPLORE PROJECTS</span></a>
                 </div>
                 <div className={"animate__animated opacity-0 " + (aboutInViewport ? "fadeInRight" : "")} style={{width: "100vw"}}>
@@ -213,7 +213,7 @@ const Landing = (): JSX.Element => {
         </div>
         <div className="flex flex-col items-center mb-24" id="skills" ref={refSkillsHeader}>
             <h2 className={"text-4xl md:text-5xl font-semibold my-4 leading-129 text-cente opacity-0 " + (skillsHeaderInViewport ? "animate__animated animate__fadeInLeft" : "")}>My Skills</h2>
-            <p className={"text-lg md:text-xl ml-2 font-normal leading-7 md:leading-8 text-gray-400 text-center w-10/12 xl:w-7/12 opacity-0 " + (skillsHeaderInViewport ? "animate__animated animate__fadeInUp" : "")}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <p className={"text-lg md:text-xl ml-2 font-normal leading-7 md:leading-8 text-gray-400 text-center w-10/12 xl:w-7/12 opacity-0 " + (skillsHeaderInViewport ? "animate__animated animate__fadeInUp" : "")}>As a project-based learner, I&#39;ve aqquired lots of knowledge for different techlonigies in the process of creating all kind of fancy projects.</p>
         </div>
         <div className="px-8 sm:px-24 md:px-32 mb-24" ref={refSkillsFrontend}>
             <div className="flex flex-col xl:flex-row items-center justify-center w-full">
@@ -238,7 +238,7 @@ const Landing = (): JSX.Element => {
                         </svg>
                         <span className={"animate__animated opacity-0 " + (skillsFrontendInViewport ? "animate__fadeInRight" : "")}>Frontend<br/>Development</span>
                     </h2>
-                    <p className={"text-lg md:text-xl ml-2 font-normal leading-7 md:leading-8 text-gray-400 opacity-0 " + (skillsFrontendInViewport ? "animate__animated animate__fadeInUp" : "")}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <p className={"text-lg md:text-xl ml-2 font-normal leading-7 md:leading-8 text-gray-400 opacity-0 " + (skillsFrontendInViewport ? "animate__animated animate__fadeInUp" : "")}>This iss my absolute favourite part in the whole world of full-stack development. Come out with a crazy idea, and make it come into life.</p>
                     <a className="font-semibold text-xl text-purple-300 flex items-center mt-8 ml-2">SEE MY WORKS
                         <svg className="ml-4" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4 12H20" stroke="#716FFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
@@ -277,7 +277,7 @@ const Landing = (): JSX.Element => {
 
                         <span className={"animate__animated opacity-0 " + (skillsBackendInViewport ? "animate__fadeInRight" : "")}>Backend<br/>Development</span>
                     </h2>
-                    <p className={"text-lg md:text-xl ml-2 font-normal leading-7 md:leading-8 text-gray-400 w-full opacity-0 " + (skillsBackendInViewport ? "animate__animated animate__fadeInUp" : "")}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <p className={"text-lg md:text-xl ml-2 font-normal leading-7 md:leading-8 text-gray-400 w-full opacity-0 " + (skillsBackendInViewport ? "animate__animated animate__fadeInUp" : "")}>I&#39;m a true fan of working with databases, apis, and all kind of fancy stuff. I have created a decent amount of related projects over the years.</p>
                     <a className="font-semibold text-xl text-purple-300 flex items-center mt-8 ml-2">SEE MY WORKS
                         <svg className="ml-4" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4 12H20" stroke="#716FFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
@@ -307,7 +307,7 @@ const Landing = (): JSX.Element => {
                 <div>
                     <h2 className={"text-purple-300 font-semibold text-xl opacity-0 " + (servicesInViewport ? "animate__animated animate__fadeInDown" : "")}>SERVICES</h2>
                     <h3 className={"text-4xl xl:text-5xl font-semibold my-4 leading-129 opacity-0 " + (servicesInViewport ? "animate__animated animate__fadeInRight" : "")}>Service for others<br/>leads to greatness</h3>
-                    <p className={"text-xl font-normal leading-8 text-gray-400 " + (servicesInViewport ? "animate__animated animate__fadeInUp" : "")}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <p className={"text-lg md:text-xl font-normal leading-7 md:leading-8 text-gray-400 " + (servicesInViewport ? "animate__animated animate__fadeInUp" : "")}>I&#39;m a guy who are a fan of creating amazing projects for both myself and others. Contact me today if you need something from me.</p>
                     <a className={"bg-purple-300 rounded-full text-white py-4 px-12 inline-block mt-8 font-medium btn-white btn btn-animated relative " + (servicesInViewport ? "animate__animated animate__fadeInUp" : "")} ref={refServices} href="#contact"><span className="relative z-20 text-white">GET IN TOUCH</span></a>
                 </div>
                 <Service inViewPort={servicesInViewport} bottom={false}/>
@@ -339,7 +339,7 @@ const Landing = (): JSX.Element => {
             </div>
         </div>
         <ProjectList/>
-        <div className="px-8 sm:px-24 md:px-32 mb-24 pt-32" id="collab">
+        <div className="px-8 sm:px-24 md:px-32 pt-32" id="collab">
             <div className="flex flex-col items-center">
                 <h2 className='text-purple-300 font-semibold text-xl mb-3'>COLLABORATION</h2>
                 <h3 className="text-4xl md:text-5xl font-semibold leading-129 md:whitespace-nowrap text-center mb-4">Let’s make some<br/>cool projects <span className="text-purple-300">together</span>.</h3>
@@ -347,14 +347,14 @@ const Landing = (): JSX.Element => {
                 <a className='bg-purple-300 rounded-full text-white py-4 px-12 inline-block mt-6 font-medium btn-anim2 whitespace-nowrap w-max' data-text="GET IN TOUCH" href="#contact">{"CONTACT ME".split("").map(e => <span className="text-white" key={e}>{e}</span>)}</a>
             </div>
         </div>
-        <div className="px-8 sm:px-24 md:px-32 mb-8 relative" id="contact">
+        <div className="px-8 sm:px-24 md:px-32 mb-8 relative pt-28" id="contact">
             <svg width="1340" height="1240" viewBox="0 0 1436 1574" fill="none" xmlns="http://www.w3.org/2000/svg" className="hex-bottom hidden 1440:block">
                 <path d="M468.352 202.984C483.857 183.269 509.196 174.046 533.746 179.183L1066.72 290.691C1089.07 295.367 1107.41 311.262 1115.22 332.719L1314.48 880.178C1322.29 901.634 1318.46 925.603 1304.34 943.551L967.736 1371.56C952.231 1391.27 926.891 1400.5 902.342 1395.36L369.368 1283.85C347.019 1279.18 328.674 1263.28 320.865 1241.83L121.606 694.366C113.796 672.909 117.632 648.941 131.747 630.993L468.352 202.984Z" fill="#E8E8FF"/>
             </svg>
             <div className="flex flex-col 1330:flex-row items-center justify-between relative">
-                <div className="mb-24 1330:mb-0 flex flex-col items-center 1330:items-start">
+                <div className="mb-16 1330:mb-0 flex flex-col items-center 1330:items-start">
                     <h3 className="text-5xl md:text-6xl font-semibold leading-129 whitespace-nowrap 1330:mr-48 mb-10 text-center 1330:text-left">I would like to<br/>hear from you.</h3>
-                    <p className="text-lg md:text-xl font-normal w-full md:w-9/12 leading-7 text-gray-400 text-center 1330:text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                    <p className="text-lg md:text-xl font-normal w-full md:w-9/12 leading-7 text-gray-400 text-center 1330:text-left">Are you willing to make friends with me or wanting me to build cool stuff for you? Fill the form! :D</p>
                     <div className="grid mt-12 gap-y-8 gap-x-4 items-center" style={{gridTemplateColumns: "32px auto"}}>
                         <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16.0003 2.59961C8.64033 2.59961 2.66699 8.57294 2.66699 15.9329C2.66699 23.2929 8.64033 29.2663 16.0003 29.2663H22.667V26.5996H16.0003C10.2137 26.5996 5.33366 21.7196 5.33366 15.9329C5.33366 10.1463 10.2137 5.26628 16.0003 5.26628C21.787 5.26628 26.667 10.1463 26.667 15.9329V17.8396C26.667 18.8929 25.7203 19.9329 24.667 19.9329C23.6137 19.9329 22.667 18.8929 22.667 17.8396V15.9329C22.667 12.2529 19.6803 9.26628 16.0003 9.26628C12.3203 9.26628 9.33366 12.2529 9.33366 15.9329C9.33366 19.6129 12.3203 22.5996 16.0003 22.5996C17.8403 22.5996 19.5203 21.8529 20.7203 20.6396C21.587 21.8263 23.0803 22.5996 24.667 22.5996C27.2937 22.5996 29.3337 20.4663 29.3337 17.8396V15.9329C29.3337 8.57294 23.3603 2.59961 16.0003 2.59961ZM16.0003 19.9329C13.787 19.9329 12.0003 18.1463 12.0003 15.9329C12.0003 13.7196 13.787 11.9329 16.0003 11.9329C18.2137 11.9329 20.0003 13.7196 20.0003 15.9329C20.0003 18.1463 18.2137 19.9329 16.0003 19.9329Z" fill="#716FFF"/>
@@ -372,7 +372,7 @@ const Landing = (): JSX.Element => {
                             <path d="M6.6439 9.59639C8.25509 9.59639 9.56123 8.29025 9.56123 6.67905C9.56123 5.06785 8.25509 3.76172 6.6439 3.76172C5.0327 3.76172 3.72656 5.06785 3.72656 6.67905C3.72656 8.29025 5.0327 9.59639 6.6439 9.59639Z" fill="#716FFF"/>
                             <path d="M12.3163 11.8062V27.9916H17.3416V19.9876C17.3416 17.8756 17.739 15.8302 20.3576 15.8302C22.9403 15.8302 22.9723 18.2449 22.9723 20.1209V27.9929H28.0003V19.1169C28.0003 14.7569 27.0616 11.4062 21.9656 11.4062C19.519 11.4062 17.879 12.7489 17.2083 14.0196H17.1403V11.8062H12.3163ZM4.12695 11.8062H9.16029V27.9916H4.12695V11.8062Z" fill="#716FFF"/>
                         </svg>
-                        <p className="text-xl pt-1">Not Yet Set Up</p>
+                        <p className="text-xl pt-1">N/A</p>
                     </div>
                 </div>
                 <form>
@@ -390,7 +390,7 @@ const Landing = (): JSX.Element => {
                             <input className="block px-4 py-2 mt-2 bg-gray-100 placeholder-gray-300 text-lg w-full" style={{borderRadius: 5}} type="email" name="email" id="email" placeholder="johndoe@company.com"/>
                         </div>
                         <div className="mx-4 my-5">
-                            <label className="block w-full text-purple-300 font-semibold text-sm" htmlFor="phonenum">Phone Number</label>
+                            <label className="block w-full text-purple-300 font-semibold text-sm" htmlFor="phonenum">Phone Number (optional)</label>
                             <input className="block px-4 py-2 mt-2 bg-gray-100 placeholder-gray-300 text-lg w-full" style={{borderRadius: 5}} type="text" name="phonenum" id="phonenum" placeholder="+6(012) 345 6789"/>
                         </div>
                         <div className="col-span-2 my-5 mx-4">
@@ -407,7 +407,7 @@ const Landing = (): JSX.Element => {
                         </div>
                         <div className="col-span-2 my-5 mx-4">
                             <label className="block w-full text-purple-300 font-semibold text-sm" htmlFor="messages">Messages</label>
-                            <textarea className="block px-4 py-2 mt-2 bg-gray-100 placeholder-gray-300 text-lg w-full resize-none h-36" style={{borderRadius: 5}} name="messages" id="messages" placeholder="I want to say something"/>
+                            <textarea className="block px-4 py-2 mt-2 bg-gray-100 placeholder-gray-300 text-lg w-full resize-none h-36" style={{borderRadius: 5}} name="messages" id="messages" placeholder="Your message here"/>
                             <p className='mt-2 text-right text-sm'>0/200</p>
                         </div>
                         <a className='bg-purple-300 rounded-full text-white py-4 px-12 inline-block mt-12 font-medium text-center text-xl col-span-2 w-full'>SUBMIT</a>
