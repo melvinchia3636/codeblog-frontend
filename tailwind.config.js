@@ -4,29 +4,40 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                purple: {
-                    200: "#E8E8FF",
-                    300: "#716fff"
+                yellow: {
+                    500: "#fece3c",
+                    a800: "rgba(206, 154, 0, 0.8)",
+                    900: "#A47C00"
                 },
-                gray: {
-                    100: "#F0F0F0",
-                    200: "#F6F5F7",
-                    300: "#B9B9B9",
-                    400: "#8B8B8B"
+                black: {
+                    dark: "#131313",
+                    light: "rgba(48, 48, 48, .3)"
                 }
+            },
+            letterSpacing: {
+                "widerr": "0.12em"
+            },
+            height: {
+                200: "200%"
+            },
+            fontFamily: {
+                "Chakra": ["Chakra Petch"]
+            },
+            fontSize: {
+                "huge": "12rem",
+                "enormous": "18rem"
             },
             lineHeight: {
                 "129": "129.9% !important"
+            },
+            rotate: {
+                27: "27deg"
             }
         },
         fontFamily: {
             "Baloo": ["\"Baloo Tammudu 2\"", "cursive"],
             "Poppins": ["Poppins"],
             "Consolas": ["Consolas", "monospace"],
-        },
-        rotate: {
-            "-20": "-20deg",
-            "90": "90deg",
         },
         screens: {
             "1440": "1440px",
@@ -36,7 +47,11 @@ module.exports = {
             "lg": "1024px",
             "xl": "1280px",
             "2xl": "1536px"
-        }
+        },
+        fill: theme => ({
+            "yellow": theme("colors.yellow.500"),
+            "black": theme("colors.black.dark")
+        })
     },
     variants: {
         extend: {},
