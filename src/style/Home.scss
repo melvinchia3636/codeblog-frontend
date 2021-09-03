@@ -190,3 +190,11 @@ html, body {
 .animate__delay-2s {
     animation-delay: 2s !important;
 }
+
+.wh-full {
+    @apply w-full h-full
+}
+
+.tl-0 {
+    @apply top-0 left-0
+}
