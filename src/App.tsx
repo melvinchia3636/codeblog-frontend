@@ -7,11 +7,11 @@ function App(): JSX.Element {
     const [ page, setPage ] = useState(0);
 
     
-    document.body.addEventListener("wheel", e => {
-        if (e.deltaY > 0) {
+    document.body.onkeyup = function(e){
+        if(e.code == "Space") {
             setPage(page + 1);
         }
-    });
+    };
 
     return (
         <>
