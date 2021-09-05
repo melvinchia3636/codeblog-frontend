@@ -38,6 +38,7 @@ module.exports = {
             "Baloo": ["\"Baloo Tammudu 2\"", "cursive"],
             "Poppins": ["Poppins"],
             "Consolas": ["Consolas", "monospace"],
+            "Montserrat": ["Montserrat"]
         },
         screens: {
             "1440": "1440px",
