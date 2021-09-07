@@ -15,7 +15,7 @@ const Navbar: React.FC<INavbar> = ({ page, setPage }: INavbar):JSX.Element => {
 
     const topNavItem = ["home", "projects", "blog", "about"];
     const sideNavItem = ["intro", "skills", "projects", "contact"];
-    const lightmode = [0, 1, 2, 3, 6, 11, 15, 21];
+    const lightmode = [0, 1, 2, 3, 6, 11, 15, 21, 23];
     
     return <nav>
         <div className="absolute z-10 top-6 left-6 flex justify-between" style={{width: "calc(100% - 4rem)"}}>
@@ -45,7 +45,7 @@ const Navbar: React.FC<INavbar> = ({ page, setPage }: INavbar):JSX.Element => {
             }
         ]} className="h-full">
             <div className="text-white z-10 font-Chakra flex gap-16 sidebar transform origin-top-left -rotate-90 absolute bottom-2 left-6">
-                {sideNavItem.map((e, i) => <button key={`sideNav-${i}`} className={`uppercase tracking-widerr text-lg transition-color font-bold ${[1, 2, 3, 6, 11, 15, 21].includes(page) ? (!i ? "text-black-dark" : "text-yellow-900") : (!i ? "text-yellow-500" : "")}`}>{e}</button>)}
+                {sideNavItem.map((e, i) => <button key={`sideNav-${i}`} className={`uppercase tracking-widerr text-lg transition-color font-bold ${[1, 2, 3, 6, 11, 15, 21, 23, 24].includes(page) ? (!i ? "text-black-dark" : "text-yellow-900") : (!i ? "text-yellow-500" : "")}`}>{e}</button>)}
             </div>
         </Anime>
         <Anime initial={[

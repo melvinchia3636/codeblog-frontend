@@ -123,7 +123,7 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
 
     return <>
         {/* Intro */}
-        <div className={page > 1 ? "hidden" : "flex items-center justify-center flex-col h-screen"}>
+        {[0, 1].includes(page) ? <div className={page > 1 ? "hidden" : "flex items-center justify-center flex-col h-screen"}>
             <div className="absolute top-24 left-32 flex gap-4">
                 <svg className={`${anim} animate__fadeInLeft animate__fast ${page === 0 ? "animate__delay-2s" : ""} ${page !== 0 ? "animate__fadeOutLeftBig" : ""}`} width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9.53511 16.2543C13.1595 12.3251 18.6439 10.3333 25.8334 10.3333H28.4167V17.6158L26.3397 18.0317C22.8005 18.7395 20.3386 20.1319 19.0211 22.1753C18.3337 23.2762 17.9438 24.5366 17.8896 25.8333H25.8334C26.5185 25.8333 27.1756 26.1055 27.6601 26.59C28.1445 27.0745 28.4167 27.7315 28.4167 28.4167V46.5C28.4167 49.3494 26.0994 51.6667 23.25 51.6667H7.75003C7.06489 51.6667 6.4078 51.3945 5.92334 50.91C5.43887 50.4256 5.1667 49.7685 5.1667 49.0833V36.1667L5.17445 28.6259C5.1512 28.3392 4.66036 21.545 9.53511 16.2543ZM51.6667 51.6667H36.1667C35.4816 51.6667 34.8245 51.3945 34.34 50.91C33.8555 50.4256 33.5834 49.7685 33.5834 49.0833V36.1667L33.5911 28.6259C33.5679 28.3392 33.077 21.545 37.9518 16.2543C41.5762 12.3251 47.0606 10.3333 54.25 10.3333H56.8334V17.6158L54.7564 18.0317C51.2172 18.7395 48.7553 20.1319 47.4378 22.1753C46.7503 23.2762 46.3605 24.5366 46.3063 25.8333H54.25C54.9352 25.8333 55.5923 26.1055 56.0767 26.59C56.5612 27.0745 56.8334 27.7315 56.8334 28.4167V46.5C56.8334 49.3494 54.5161 51.6667 51.6667 51.6667Z" fill="#FFC922"/>
@@ -135,14 +135,14 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                 <h1 className={`${anim} animate__slow animate__fadeIn uppercase text-huge leading-none relative z-60 font-Chakra font-bold tracking-widest mix-blend-difference text-yellow-500 ${page !== 0 ? "animate__fadeOutDownBig" : ""}`}>creativity</h1>
             </div>
             <button onClick={() => setPage(1)} className={`${anim} animate__fadeInDown animate__fast ${page === 0 ? "animate__delay-3s" : ""} ${page !== 0 ? "animate__fadeOutDownBig" : ""} uppercase font-Chakra text-3xl relative z-10 font-semibold border-4 text-yellow-500 border-yellow-500 mix-blend-difference tracking-widest py-5 px-16 mt-24`}>START HERE</button>
-        </div>
+        </div> : ""}
         
         {/* Intro.2 */}
         {[1, 2].includes(page) ? <div className="w-full h-screen tl-0 flex flex-col justify-center items-center absolute z-10">
             <div className={`${anim} ${page !== 0 ? "block animate__fadeInUp" : "hidden"}`}>
                 <h2 className={`text-9xl tracking-widerr font-bold text-yellow-a800 text-inner font-Chakra ${page !== 1 ? "titleFadeOut" : ""}`}>GET READY</h2>
             </div>
-            <p className={`font-Poppins text-center mt-4 text-xl tracking-widerr font-medium text-black-dark ${anim} ${page === 1 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>Use your mouse scroll to navigate between sections.<br/>Sit back, relax, and enjoy!</p>
+            <p className={`font-Poppins text-center mt-4 text-xl tracking-widerr font-medium text-black-dark ${anim} ${page === 1 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>Use your <span className="font-semibold uppercase">spacebar</span> to proceed to next sections.<br/>Sit back, relax, and enjoy!</p>
             <DownButton {...{page, setPage}} currentPage={1}/>
         </div> : ""}
 
@@ -159,7 +159,7 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
             <DownButton {...{page, setPage}} currentPage={3} delay={2}/>
         </div> : ""}
 
-        <div className={`bg-yellow-500 w-full h-200 absolute ${page <= 1 ? `-translate-x-28 anim-1 transform rotate-27 ${page !== 0 ? "anim-2" : ""}` : "tl-0 wh-full"} transition-all mix-blend-difference`}></div>
+        <div className={`bg-yellow-500 w-full h-200 absolute ${page <= 1 ? `-translate-x-28 anim-1 transform rotate-27 ${page !== 0 ? "anim-2" : ""}` : "tl-0 wh-full"} ${page === 24 ? "anim-3" : ""} transition-all mix-blend-difference`}></div>
 
         {Array(5).fill(0).map((_, i) => <div key={i} className={`layer layer-${i+1} wh-full left-0 -top-full absolute z-10 ${[4, 5, 7, 8, 9, 10, 12, 13, 14, 16, 17, 18, 19, 20, 22].includes(page) ? "active" : ""}`}></div>)}
         <div className={`${anim} animate__delay-1s animate__fadeIn wh-full left-0 top-0 bg-black-dark absolute ${[4, 5, 6].includes(page) ? "" : "hidden"} ${page === 6 ? "section-leave" : ""}`}>
@@ -193,7 +193,7 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
         </div>
 
         {/* 01B */}
-        <div className={`wh-full tl-0 flex flex-col justify-center items-center absolute z-10 ${[6, 7].includes(page) ? "" : "hidden"}`}>
+        <div className={`wh-full tl-0 flex flex-col justify-center items-center absolute z-10 ${[6, 7].includes(page) ? "" : "hidden"} ${page === 7 ? "section-leave" : ""}`}>
             <h2 className={`text-huge tracking-widerr font-bold text-yellow-a800 text-inner font-Chakra ${page !== 6 ? "titleFadeOut" : "titleNoIn animate__delay-2s"}`}>01B</h2>
             <p className={`font-Poppins text-center text-4xl tracking-widerr font-medium text-black-dark ${anim} ${page === 6 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>HOW I DO MY PROJECTS</p>
             <DownButton {...{page, setPage}} currentPage={6} delay={2}/>
@@ -222,7 +222,7 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
         </div>
 
         {/* 02A */}
-        <div className={`wh-full tl-0 flex flex-col justify-center items-center absolute z-10 ${[11, 12].includes(page) ? "" : "hidden"}`}>
+        <div className={`wh-full tl-0 flex flex-col justify-center items-center absolute z-10 ${[11, 12].includes(page) ? "" : "hidden"} ${page === 12 ? "section-leave" : ""}`}>
             <h2 className={`text-huge tracking-widerr font-bold text-yellow-a800 text-inner font-Chakra ${page !== 11 ? "titleFadeOut" : "titleNoIn animate__delay-2s"}`}>02A</h2>
             <p className={`font-Poppins text-center text-4xl tracking-widerr font-medium text-black-dark ${anim} ${page === 11 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>WHAT I’M CAPABLE OF DOING</p>
             <DownButton {...{page, setPage}} currentPage={11} delay={2}/>
@@ -256,7 +256,7 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
             <p className="${anim} absolute bottom-0 right-8 text-enormous leading-none font-bold font-Chakra tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>02A</p>
         </div>
 
-        <div className={`wh-full tl-0 flex flex-col justify-center items-center absolute z-10 ${[15, 16].includes(page) ? "" : "hidden"}`}>
+        <div className={`wh-full tl-0 flex flex-col justify-center items-center absolute z-10 ${[15, 16].includes(page) ? "" : "hidden"} ${page === 16 ? "section-leave" : ""}`}>
             <h2 className={`text-huge tracking-widerr font-bold text-yellow-a800 text-inner font-Chakra ${page !== 15 ? "titleFadeOut" : "titleNoIn animate__delay-2s"}`}>02B</h2>
             <p className={`font-Poppins text-center text-4xl tracking-widerr font-medium text-black-dark ${anim} ${page === 15 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>MY FAVOURITE PROJECTS</p>
             <DownButton {...{page, setPage}} currentPage={15} delay={2}/>
@@ -264,8 +264,8 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
 
         <div className={`${anim} animate__delay-1s animate__fadeIn wh-full flex flex-col left-0 top-0 bg-black-dark absolute overflow-hidden pb-20 ${[16, 17, 18, 19, 20, 21].includes(page) ? "" : "hidden"} ${page === 21 ? "section-leave" : ""}`}>
             <div className="flex px-32 pt-28 items-center gap-6">
-                <p className={`${anim} ${page === 7 ? "animate__fadeInDown animate__delay-2s" : ""} text-yellow-500 font-bold font-Chakra text-6xl tracking-widerr`}>02B</p>
-                <h1 className={`${anim} ${page === 7 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase font-Chakra text-4xl font-bold text-white tracking-widerr`}>MY FAVOURTIE PROJECTS</h1>
+                <p className={`${anim} ${page === 16 ? "animate__fadeInDown animate__delay-2s" : ""} text-yellow-500 font-bold font-Chakra text-6xl tracking-widerr`}>02B</p>
+                <h1 className={`${anim} ${page === 16 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase font-Chakra text-4xl font-bold text-white tracking-widerr`}>MY FAVOURTIE PROJECTS</h1>
             </div>
             {/* 02B.1.2.3.4.5 */}
             {projects.map(([i, serial, name, type, color, image], index) => <div key={i} className={`px-32 wh-full ${anim} ${page === i ? "overflow-hidden" : "section-hide"}`}>
@@ -294,10 +294,88 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
             <p className="${anim} absolute bottom-0 right-8 text-enormous leading-none font-bold font-Chakra tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>02B</p>
         </div>
 
-        <div className={`wh-full tl-0 flex flex-col justify-center items-center absolute z-10 ${[21, 22].includes(page) ? "" : "hidden"}`}>
+        <div className={`wh-full tl-0 flex flex-col justify-center items-center absolute z-10 ${[21, 22].includes(page) ? "" : "hidden"} ${page === 22 ? "section-leave" : ""}`}>
             <h2 className={`text-huge tracking-widerr font-bold text-yellow-a800 text-inner font-Chakra ${page !== 21 ? "titleFadeOut" : "titleNoIn animate__delay-2s"}`}>03</h2>
             <p className={`font-Poppins text-center text-4xl tracking-widerr font-medium text-black-dark ${anim} ${page === 21 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>WHAT CAN I DO FOR YOU</p>
             <DownButton {...{page, setPage}} currentPage={21} delay={2}/>
+        </div>
+
+        <div className={`${anim} animate__delay-1s animate__fadeIn wh-full flex flex-col left-0 top-0 bg-black-dark absolute overflow-hidden pb-12 ${[22, 23].includes(page) ? "" : "hidden"} ${page === 23 ? "section-leave" : ""}`}>
+            <div className="flex px-32 pt-28 items-center gap-6">
+                <p className={`${anim} ${page === 22 ? "animate__fadeInDown animate__delay-2s" : ""} text-yellow-500 font-bold font-Chakra text-6xl tracking-widerr`}>03</p>
+                <h1 className={`${anim} ${page === 22 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase font-Chakra text-4xl font-bold text-white tracking-widerr`}>MY SERVICES</h1>
+            </div>
+            {/* 02B.1.2.3.4.5 */}
+            <div className={`mt-6 ${anim} flex w-full h-full overflow-hidden justify-between p-12 px-32 pb-0 ${page === 22 ? "animate__delay-1s animate__fadeInDown" : "animate__fadeOut animate__fast"}`}>
+                <div className="pr-8 flex flex-col justify-between">
+                    <h1 className={`${anim} text-6xl text-white font-Chakra font-bold tracking-widerr uppercase ${page === 22 ? "animate__fadeInLeft animate__delay-2s" : ""}`}><span className="text-yellow-500">UI</span><br/>Design</h1>
+                    <div>
+                        <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-lg font-bold uppercase ${page === 22 ? "animate__fadeInLeft animate__delay-3s" : ""}`}>description</p>
+                        <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2 ${page === 22 ? "animate__fadeInLeft animate__delay-3s" : ""}`}>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.</p>
+                    </div>
+                    <div>
+                        <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-lg font-bold uppercase ${page === 22 ? "animate__fadeInLeft animate__delay-4s" : ""}`}>pricing</p>
+                        <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2 ${page === 22 ? "animate__fadeInLeft animate__delay-4s" : ""}`}><span className="font-semibold">50US$</span> per page</p>
+                    </div>
+                    <button className={`${anim} font-Chakra text-yellow-500 font-bold border-yellow-500 border-4 mt-2 py-4 w-full uppercase text-2xl tracking-widerr ${page === 22 ? "animate__fadeInLeft animate__delay-5s" : ""}`}>order now</button>
+                </div>
+                <div className={`${anim} h-full bg-gray-500 ${page === 22 ? "animate__fadeInDown animate__delay-1s" : ""}`} style={{width: "2px"}}></div>
+                <div className="px-8 flex flex-col justify-between">
+                    <h1 className={`${anim} text-6xl text-white font-Chakra font-bold tracking-widerr uppercase ${page === 22 ? "animate__fadeInDown animate__delay-2s" : ""}`}><span className="text-yellow-500">WEBSITE</span><br/>Developing</h1>
+                    <div>
+                        <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-lg font-bold uppercase ${page === 22 ? "animate__fadeInUp animate__delay-3s" : ""}`}>description</p>
+                        <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2 ${page === 22 ? "animate__fadeInUp animate__delay-3s" : ""}`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                    </div>
+                    <div>
+                        <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-lg font-bold uppercase ${page === 22 ? "animate__fadeInUp animate__delay-4s" : ""}`}>pricing</p>
+                        <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2 ${page === 22 ? "animate__fadeInUp animate__delay-4s" : ""}`}><span className="font-semibold">1,200US$</span> per project</p>
+                    </div>
+                    <button className={`${anim} font-Chakra text-black-dark font-bold bg-yellow-500 border-yellow-500 border-4 mt-2 py-4 w-full uppercase text-2xl tracking-widerr ${page === 22 ? "animate__fadeInDown animate__delay-5s" : ""}`}>order now</button>
+                </div>
+                <div className={`${anim} h-full bg-gray-500 ${page === 22 ? "animate__fadeInDown animate__delay-1s" : ""}`} style={{width: "2px"}}></div>
+                <div className="pl-8 flex flex-col justify-between">
+                    <h1 className={`${anim} text-6xl text-white font-Chakra font-bold tracking-widerr uppercase ${page === 22 ? "animate__fadeInRight animate__delay-2s" : ""}`}><span className="text-yellow-500">DATA</span><br/>Scraping</h1>
+                    <div>
+                        <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-lg font-bold uppercase ${page === 22 ? "animate__fadeInRight animate__delay-3s" : ""}`}>description</p>
+                        <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2 ${page === 22 ? "animate__fadeInRight animate__delay-3s" : ""}`}>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum incididunt ut labore et dolore.</p>
+                    </div>
+                    <div>
+                        <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-lg font-bold uppercase ${page === 22 ? "animate__fadeInRight animate__delay-4s" : ""}`}>pricing</p>
+                        <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2 ${page === 22 ? "animate__fadeInRight animate__delay-4s" : ""}`}><span className="font-semibold">30US$</span> per script</p>
+                    </div>
+                    <button className={`${anim} font-Chakra text-yellow-500 font-bold border-yellow-500 border-4 mt-2 py-4 w-full uppercase text-2xl tracking-widerr ${page === 22 ? "animate__fadeInRight animate__delay-5s" : ""}`}>order now</button>
+                </div>
+            </div>
+            <p className="${anim} absolute bottom-0 right-8 text-enormous leading-none font-bold font-Chakra tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>03</p>
+        </div>
+
+        <div className={`wh-full tl-0 flex flex-col justify-center items-center absolute z-10 ${[23, 24].includes(page) ? "" : "hidden"} ${page === 24 ? "section-leave" : ""}`}>
+            <h2 className={`text-huge tracking-widerr font-bold text-yellow-a800 text-inner font-Chakra ${page !== 23 ? "titleFadeOut" : "titleNoIn animate__delay-2s"}`}>04</h2>
+            <p className={`font-Poppins text-center text-4xl tracking-widerr font-medium text-black-dark ${anim} ${page === 23 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>GET IN TOUCH WITH ME</p>
+            <DownButton {...{page, setPage}} currentPage={23} delay={2}/>
+        </div>
+
+        <div className={`${anim} animate__delay-1s animate__fadeIn wh-full flex flex-col left-0 top-0 absolute overflow-hidden pb-12 ${[24, 25].includes(page) ? "" : "hidden"} ${page === 23 ? "section-leave" : ""}`}>
+            <div className="flex px-32 pt-28 items-center gap-6">
+                <p className={`${anim} ${page === 24 ? "animate__fadeInDown animate__delay-2s" : ""} text-black-dark font-bold font-Chakra text-6xl tracking-widerr`}>04</p>
+                <h1 className={`${anim} ${page === 24 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase font-Chakra text-4xl font-bold text-black-dark tracking-widerr`}>CONTACT ME</h1>
+            </div>
+            <div className={`${anim} flex w-full h-full justify-between px-32 pb-0 ${page === 24 ? "animate__delay-1s animate__fadeInDown" : "animate__fadeOut animate__fast"}`}>
+                <div className="mb-12">
+                    <form style={{width: "32rem"}} className="flex flex-col gap-8 mt-12 h-full">
+                        <input type='text' placeholder="NAME" className="uppercase w-full bg-yellow-a800 px-6 py-4 placeholder-yellow-1000 font-Poppins font-semibold text-lg tracking-widerr box-inner"/>
+                        <input type='text' placeholder="EMAIL" className="uppercase w-full bg-yellow-a800 px-6 py-4 placeholder-yellow-1000 font-Poppins font-semibold text-lg tracking-widerr box-inner"/>
+                        <textarea placeholder="MESSAGES" className="uppercase w-full h-full bg-yellow-a800 px-6 py-4 placeholder-yellow-1000 font-Poppins font-semibold text-lg tracking-widerr box-inner"/>
+                        <button className={`${anim} ${page === 24 ? "animate__fadeInUp animate__delay-4s" : "animate__fadeOut"} font-Chakra text-yellow-900 font-bold border-4 border-yellow-900 text-inner py-4 px-16 uppercase text-2xl tracking-widerr`}>SUBMIT</button>
+                    </form>
+                </div>
+                <div className="w-min -mt-12">
+                    <h1 className={`${anim} text-6xl whitespace-nowrap text-white font-Chakra font-bold tracking-widerr uppercase mr-24 ${page === 22 ? "animate__fadeInDown animate__delay-2s" : ""}`}>LET’S<br/>HAVE A <span className="text-yellow-500">TALK</span></h1>
+                    <p className={`${anim} ${page === 24 ? "animate__fadeInUp animate__delay-3s" : "animate__fadeOutDown"} text-white font-Poppins text-xl tracking-widerr font-light leading-7 mt-8 mb-12`}>Are you willing to make friends with me? Or considering a collaboration with me? Fill up the form on the left or contact me directly, and I’ll get in touch with you as soon as possible.</p>
+                    <button className={`${anim} ${page === 24 ? "animate__fadeInUp animate__delay-4s" : "animate__fadeOut"} font-Chakra text-yellow-500 font-bold border-4 border-yellow-500 py-4 px-16 uppercase text-2xl tracking-widerr`}>contact me</button>
+                </div>
+            </div>
+            <p className="${anim} absolute bottom-0 right-8 text-enormous leading-none font-bold font-Chakra tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>04</p>
         </div>
     </>;
 };
