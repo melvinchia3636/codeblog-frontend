@@ -102,6 +102,107 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
         [20, "WA-004", "projtracker", "web app", "#005CE6", Project5],
     ];
 
+    const credits: [number, string, string[], string, string, ReactElement, ReactElement][] = [
+        [28, "VS Code", ["Code editing.", "Redefined."], "An integrated development environment made by Microsoft for Windows, Linux and macOS.", "https://code.visualstudio.com/", <svg key="vs-code-icon" width="43" height="42" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M41.5148 4.42367L32.8658 0.259674C32.3774 0.0241716 31.8278 -0.0535444 31.2932 0.0372994C30.7586 0.128143 30.2655 0.383047 29.8823 0.766674L1.5698 26.5787C1.22629 26.8904 1.02066 27.3257 0.998155 27.7891C0.975651 28.2524 1.13811 28.7056 1.4498 29.0492C1.4873 29.0897 1.5248 29.1287 1.5653 29.1647L3.8768 31.2647C4.17885 31.5395 4.56764 31.7 4.97565 31.7181C5.38366 31.7361 5.78512 31.6107 6.1103 31.3636L40.2128 5.50367C40.4704 5.30821 40.7774 5.18853 41.0994 5.15809C41.4213 5.12766 41.7453 5.1877 42.0349 5.33143C42.3246 5.47516 42.5684 5.69689 42.7388 5.97166C42.9093 6.24642 42.9997 6.56332 42.9998 6.88667V6.78617C42.9998 6.29252 42.8604 5.80891 42.5977 5.39097C42.335 4.97303 41.9596 4.63774 41.5148 4.42367Z" fill="#0065A9"/>
+            <path d="M41.5148 37.3338L32.8658 41.4993C32.3772 41.7341 31.8278 41.8114 31.2934 41.7206C30.7589 41.6298 30.2659 41.3753 29.8823 40.9923L1.5698 15.1788C1.22629 14.8671 1.02066 14.4317 0.998155 13.9684C0.975651 13.5051 1.13811 13.0518 1.4498 12.7083C1.4873 12.6678 1.5248 12.6288 1.5653 12.5928L3.8768 10.4928C4.17915 10.2167 4.56883 10.0556 4.97785 10.0375C5.38687 10.0194 5.78926 10.1455 6.1148 10.3938L40.2128 36.2538C40.4704 36.4492 40.7774 36.5689 41.0994 36.5993C41.4213 36.6298 41.7453 36.5697 42.0349 36.426C42.3246 36.2823 42.5684 36.0605 42.7388 35.7858C42.9093 35.511 42.9997 35.1941 42.9998 34.8708V34.9788C42.9982 35.4711 42.8581 35.953 42.5955 36.3695C42.3329 36.7859 41.9584 37.1201 41.5148 37.3338Z" fill="#007ACC"/>
+            <path d="M32.8655 41.4992C32.3769 41.734 31.8275 41.8114 31.293 41.7206C30.7586 41.6297 30.2656 41.3752 29.882 40.9922C30.0974 41.2048 30.3707 41.3491 30.6678 41.407C30.9649 41.4649 31.2724 41.4338 31.5519 41.3177C31.8314 41.2016 32.0704 41.0056 32.239 40.7542C32.4075 40.5029 32.4981 40.2073 32.4995 39.9047V1.85269C32.4997 1.54863 32.4097 1.25133 32.2409 0.998453C32.072 0.74558 31.8319 0.548512 31.551 0.432214C31.27 0.315915 30.9609 0.285619 30.6627 0.345163C30.3645 0.404708 30.0907 0.551413 29.876 0.766695C30.2593 0.383206 30.7522 0.128286 31.2867 0.03719C31.8212 -0.0539063 32.3708 0.0233221 32.8595 0.258195L41.507 4.41619C41.9532 4.62919 42.3301 4.96402 42.5942 5.38205C42.8583 5.80007 42.9988 6.28424 42.9995 6.77869V34.9787C42.9996 35.4728 42.8601 35.9568 42.5971 36.375C42.3341 36.7933 41.9583 37.1287 41.513 37.3427L32.8655 41.4992Z" fill="#1F9CF0"/>
+        </svg>,
+        <svg key="vs-code" width="602" height="481" viewBox="0 0 602 481" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_i)">
+                <path d="M656.924 72.143L516.699 4.23488C508.78 0.394209 499.869 -0.873215 491.202 0.608302C482.535 2.08982 474.541 6.24689 468.328 12.5032L9.3014 433.455C3.73206 438.539 0.398283 445.639 0.0334252 453.195C-0.331433 460.751 2.30251 468.143 7.35586 473.745C7.96384 474.406 8.57182 475.042 9.22844 475.629L46.7045 509.876C51.6015 514.36 57.9049 516.976 64.5199 517.271C71.1349 517.566 77.6437 515.521 82.9159 511.491L635.815 89.7561C639.991 86.5684 644.969 84.6165 650.188 84.1203C655.407 83.624 660.66 84.603 665.356 86.9471C670.052 89.2911 674.005 92.9072 676.769 97.3882C679.532 101.869 680.998 107.037 681 112.311V110.672C680.999 102.621 678.74 94.734 674.48 87.918C670.221 81.1021 664.136 75.6341 656.924 72.143Z" fill="#1A1A1A"/>
+                <path d="M656.924 608.854L516.699 676.786C508.778 680.616 499.87 681.878 491.205 680.397C482.54 678.916 474.547 674.765 468.328 668.518L9.3014 247.541C3.73206 242.458 0.398283 235.357 0.0334252 227.802C-0.331433 220.246 2.30251 212.854 7.35586 207.251C7.96384 206.591 8.57182 205.955 9.22844 205.368L46.7045 171.12C51.6064 166.618 57.9243 163.99 64.5556 163.695C71.187 163.4 77.7108 165.456 82.9888 169.506L635.815 591.241C639.991 594.428 644.969 596.38 650.188 596.876C655.407 597.373 660.66 596.394 665.356 594.05C670.052 591.706 674.005 588.09 676.769 583.609C679.532 579.128 680.998 573.96 681 568.686V570.448C680.974 578.477 678.702 586.336 674.444 593.128C670.187 599.92 664.115 605.369 656.924 608.854Z" fill="#1A1A1A"/>
+                <path d="M516.692 676.785C508.771 680.615 499.863 681.877 491.198 680.396C482.534 678.914 474.54 674.764 468.321 668.517C471.813 671.984 476.245 674.337 481.061 675.282C485.878 676.226 490.864 675.72 495.395 673.826C499.926 671.932 503.801 668.735 506.534 664.636C509.267 660.537 510.736 655.717 510.758 650.782V30.2145C510.762 25.2556 509.303 20.4071 506.565 16.2832C503.828 12.1592 499.935 8.94535 495.38 7.04871C490.825 5.15207 485.813 4.65799 480.979 5.62906C476.144 6.60013 471.705 8.99266 468.224 12.5036C474.438 6.24948 482.43 2.09214 491.096 0.606509C499.761 -0.879126 508.672 0.380346 516.595 4.21074L656.796 72.0211C664.03 75.4947 670.141 80.9553 674.422 87.7725C678.704 94.5898 680.982 102.486 680.993 110.55V570.446C680.995 578.504 678.734 586.398 674.47 593.219C670.206 600.04 664.113 605.51 656.893 609L516.692 676.785Z" fill="#1A1A1A"/>
+            </g>
+            <defs>
+                <filter id="filter0_i" x="0" y="0" width="681" height="685" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feOffset dy="4"/>
+                    <feGaussianBlur stdDeviation="4"/>
+                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6 0"/>
+                    <feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
+                </filter>
+            </defs>
+        </svg>        
+        ],
+        [29, "Figma", ["Creative tools", "meet the internet."], "The first design tool that combined the accessibility of the web with the functionality of a native app. It is free for anyone to get started.", "https://figma.com/", <svg key="figma-icon" width="32" height="48" viewBox="0 0 32 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 32C28.4183 32 32 28.4183 32 24C32 19.5817 28.4183 16 24 16C19.5817 16 16 19.5817 16 24C16 28.4183 19.5817 32 24 32Z" fill="#19BCFE"/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M8.00001 48C10.1217 48 12.1566 47.1572 13.6569 45.6569C15.1572 44.1566 16 42.1218 16 40V32H8.00001C5.87827 32 3.84344 32.8429 2.34315 34.3432C0.842856 35.8434 0 37.8783 0 40C0 42.1218 0.842856 44.1566 2.34315 45.6569C3.84344 47.1572 5.87827 48 8.00001 48Z" fill="#09CF83"/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M8.00001 32H16V16H8.00001C5.87827 16 3.84344 16.8429 2.34315 18.3431C0.842856 19.8434 0 21.8783 0 24C0 26.1217 0.842856 28.1566 2.34315 29.6569C3.84344 31.1572 5.87827 32 8.00001 32Z" fill="#A259FF"/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M8.00001 16H16V0H8.00001C5.87827 0 3.84344 0.842855 2.34315 2.34315C0.842856 3.84344 0 5.87827 0 8C0 10.1217 0.842856 12.1566 2.34315 13.6569C3.84344 15.1571 5.87827 16 8.00001 16Z" fill="#F24E1E"/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M24 16H16V0H24C26.1217 0 28.1566 0.842855 29.6569 2.34315C31.1571 3.84344 32 5.87827 32 8C32 10.1217 31.1571 12.1566 29.6569 13.6569C28.1566 15.1571 26.1217 16 24 16Z" fill="#FF7262"/>
+        </svg>,
+        <svg key="figma" width="561" height="509" viewBox="0 0 561 509" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clipPath="url(#clip0)" filter="url(#filter0_i)">
+                <path d="M422.667 422.667C481.025 422.667 528.333 375.358 528.333 317C528.333 258.642 481.025 211.333 422.667 211.333C364.309 211.333 317 258.642 317 317C317 375.358 364.309 422.667 422.667 422.667Z" fill="#1A1A1A"/>
+                <path fillRule="evenodd" clipRule="evenodd" d="M211.334 634C239.358 634 266.235 622.867 286.051 603.051C305.868 583.235 317 556.358 317 528.333V422.667H211.334C183.309 422.667 156.432 433.799 136.616 453.616C116.8 473.432 105.667 500.309 105.667 528.333C105.667 556.358 116.8 583.235 136.616 603.051C156.432 622.867 183.309 634 211.334 634Z" fill="#1A1A1A"/>
+                <path fillRule="evenodd" clipRule="evenodd" d="M211.334 422.667H317V211.333H211.334C183.309 211.333 156.432 222.466 136.616 242.282C116.8 262.099 105.667 288.975 105.667 317C105.667 345.024 116.8 371.901 136.616 391.718C156.432 411.534 183.309 422.667 211.334 422.667Z" fill="#1A1A1A"/>
+                <path fillRule="evenodd" clipRule="evenodd" d="M211.334 211.333H317V0H211.334C183.309 0 156.432 11.1327 136.616 30.9491C116.8 50.7654 105.667 77.6421 105.667 105.667C105.667 133.691 116.8 160.568 136.616 180.384C156.432 200.201 183.309 211.333 211.334 211.333Z" fill="#1A1A1A"/>
+                <path fillRule="evenodd" clipRule="evenodd" d="M422.667 211.333H317V0H422.667C450.691 0 477.568 11.1327 497.384 30.9491C517.201 50.7654 528.333 77.6421 528.333 105.667C528.333 133.691 517.201 160.568 497.384 180.384C477.568 200.201 450.691 211.333 422.667 211.333Z" fill="#1A1A1A"/>
+            </g>
+            <defs>
+                <filter id="filter0_i" x="0" y="0" width="634" height="638" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feOffset dy="4"/>
+                    <feGaussianBlur stdDeviation="4"/>
+                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6 0"/>
+                    <feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
+                </filter>
+                <clipPath id="clip0">
+                    <rect width="634" height="634" fill="white"/>
+                </clipPath>
+            </defs>
+        </svg>
+        ],
+        [30, "Storyset", ["Awesome free illustrations", "for your next project"], "Customize, animate and download our illustrations to make incredible landing pages, app or presentations!", "https://storyset.com/", <svg key="storyset-icon" width="56" height="57" viewBox="0 0 56 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clipPath="url(#clip0)" filter="url(#filter0_d)">
+                <path d="M35.5371 19.1589C33.1209 17.9781 30.486 17.3084 27.7979 17.1918C25.3199 17.1918 24.0772 18.0603 24.0772 19.4187C24.0772 20.7771 25.8259 21.1631 28.0286 21.4897L30.1866 21.8163C35.4403 22.6106 38.3723 24.9563 38.3723 29.0538C38.3723 34.0496 34.2646 37.2712 27.2101 37.2712C23.8986 37.2712 19.5677 36.6476 16.4199 34.4207L18.9947 29.477C21.4358 31.1011 24.3215 31.931 27.2547 31.8523C30.2834 31.8523 31.7196 31.0061 31.7196 29.5809C31.7196 28.408 30.4992 27.7548 27.6938 27.354L25.7143 27.0793C20.1035 26.337 17.3278 23.8577 17.3278 19.7379C17.3278 14.7718 21.1825 11.8249 27.5672 11.8249C31.0845 11.7589 34.5651 12.546 37.71 14.1186L35.5371 19.1589Z" fill="#F8FAFB"/>
+                <path d="M9.53657 16.0338H4.17871C4.18462 11.8029 5.87213 7.74693 8.87128 4.75519C11.8704 1.76345 15.9364 0.0801104 20.1778 0.0742188V5.41882C17.3592 5.43054 14.6594 6.55268 12.6664 8.54083C10.6732 10.529 9.54832 13.2222 9.53657 16.0338Z" fill="#1273EB"/>
+                <path d="M46.6413 32.1421H51.9991C51.9932 36.373 50.3055 40.429 47.3066 43.4207C44.3069 46.4124 40.2409 48.0958 36 48.1017V42.7571C37.4005 42.77 38.7906 42.5042 40.0869 41.9753C41.3839 41.4464 42.5619 40.665 43.5531 39.6767C44.5435 38.6885 45.3271 37.5131 45.857 36.2194C46.3875 34.9258 46.654 33.5396 46.6413 32.1421Z" fill="#1273EB"/>
+            </g>
+            <defs>
+                <filter id="filter0_d" x="0" y="0" width="56" height="56.25" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feOffset dy="4"/>
+                    <feGaussianBlur stdDeviation="2"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                </filter>
+                <clipPath id="clip0">
+                    <rect width="48" height="48.25" fill="white" transform="translate(4)"/>
+                </clipPath>
+            </defs>
+        </svg>, 
+        <svg key="storyset" width="634" height="549" viewBox="0 0 634 549" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_i)">
+                <path d="M416.552 253.057C384.639 237.461 349.836 228.615 314.331 227.075C281.601 227.075 265.187 238.546 265.187 256.489C265.187 274.431 288.285 279.53 317.378 283.844L345.882 288.158C415.275 298.649 454.001 329.631 454.001 383.753C454.001 449.738 399.745 492.29 306.567 492.29C262.828 492.29 205.623 484.055 164.047 454.641L198.055 389.342C230.299 410.794 268.414 421.756 307.156 420.717C347.16 420.717 366.13 409.539 366.13 390.714C366.13 375.223 350.01 366.595 312.955 361.3L286.81 357.673C212.7 347.868 176.038 315.12 176.038 260.705C176.038 195.112 226.952 156.187 311.284 156.187C357.741 155.315 403.715 165.712 445.253 186.483L416.552 253.057Z" fill="#1A1A1A"/>
+                <path d="M73.1288 211.78H2.36035C2.43836 155.897 24.7276 102.324 64.3413 62.8081C103.955 23.2922 157.66 1.05804 213.682 0.980225V71.5735C176.453 71.7284 140.793 86.55 114.468 112.81C88.1421 139.071 73.284 174.643 73.1288 211.78Z" fill="#1A1A1A"/>
+                <path d="M563.221 424.543H633.989C633.91 480.427 611.618 533.999 572.008 573.515C532.387 613.031 478.682 635.266 422.667 635.343V564.75C441.165 564.92 459.526 561.409 476.648 554.423C493.779 547.438 509.338 537.117 522.431 524.063C535.513 511.01 545.863 495.486 552.861 478.398C559.869 461.312 563.388 443.002 563.221 424.543Z" fill="#1A1A1A"/>
+            </g>
+            <defs>
+                <filter id="filter0_i" x="0" y="0" width="634" height="641.302" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feOffset dy="4"/>
+                    <feGaussianBlur stdDeviation="4"/>
+                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6 0"/>
+                    <feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
+                </filter>
+            </defs>
+        </svg>                 
+        ],
+    ];
+
     useEffect(() => {
         const options = {
             strings: [
@@ -128,53 +229,53 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                 <svg className={`${anim} animate__fadeInLeft animate__fast ${page === 0 ? "animate__delay-2s" : ""} ${page !== 0 ? "animate__fadeOutLeftBig" : ""}`} width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9.53511 16.2543C13.1595 12.3251 18.6439 10.3333 25.8334 10.3333H28.4167V17.6158L26.3397 18.0317C22.8005 18.7395 20.3386 20.1319 19.0211 22.1753C18.3337 23.2762 17.9438 24.5366 17.8896 25.8333H25.8334C26.5185 25.8333 27.1756 26.1055 27.6601 26.59C28.1445 27.0745 28.4167 27.7315 28.4167 28.4167V46.5C28.4167 49.3494 26.0994 51.6667 23.25 51.6667H7.75003C7.06489 51.6667 6.4078 51.3945 5.92334 50.91C5.43887 50.4256 5.1667 49.7685 5.1667 49.0833V36.1667L5.17445 28.6259C5.1512 28.3392 4.66036 21.545 9.53511 16.2543ZM51.6667 51.6667H36.1667C35.4816 51.6667 34.8245 51.3945 34.34 50.91C33.8555 50.4256 33.5834 49.7685 33.5834 49.0833V36.1667L33.5911 28.6259C33.5679 28.3392 33.077 21.545 37.9518 16.2543C41.5762 12.3251 47.0606 10.3333 54.25 10.3333H56.8334V17.6158L54.7564 18.0317C51.2172 18.7395 48.7553 20.1319 47.4378 22.1753C46.7503 23.2762 46.3605 24.5366 46.3063 25.8333H54.25C54.9352 25.8333 55.5923 26.1055 56.0767 26.59C56.5612 27.0745 56.8334 27.7315 56.8334 28.4167V46.5C56.8334 49.3494 54.5161 51.6667 51.6667 51.6667Z" fill="#FFC922"/>
                 </svg>
-                <p className={`${anim} animate__fadeInDown animate__fast ${page === 0 ? "animate__delay-2s" : ""} ${page !== 0 ? "animate__fadeOutLeftBig" : ""} text-white font-Chakra tracking-widerr text-3xl z-10 text-wider`}>You can never use up creativity. The more<br/>you use, the more you have.</p>
+                <p className={`${anim} animate__fadeInDown animate__fast ${page === 0 ? "animate__delay-2s" : ""} ${page !== 0 ? "animate__fadeOutLeftBig" : ""} text-white tracking-widerr text-3xl z-10 text-wider`}>You can never use up creativity. The more<br/>you use, the more you have.</p>
             </div>
             <div className='mt-48'>
-                <p className={`${anim} ${page === 0 ? "animate__delay-2s" : ""} animate__fast animate__fadeInLeft uppercase font-Chakra ml-2 text-white text-4xl font-bold tracking-widest ${page !== 0 ? " animate__fadeOutDownBig" : ""}`}>VISION OF</p>
-                <h1 className={`${anim} animate__slow animate__fadeIn uppercase text-huge leading-none relative z-60 font-Chakra font-bold tracking-widest mix-blend-difference text-yellow-500 ${page !== 0 ? "animate__fadeOutDownBig" : ""}`}>creativity</h1>
+                <p className={`${anim} ${page === 0 ? "animate__delay-2s" : ""} animate__fast animate__fadeInLeft uppercase ml-2 text-white text-4xl font-bold tracking-widest ${page !== 0 ? " animate__fadeOutDownBig" : ""}`}>VISION OF</p>
+                <h1 className={`${anim} animate__slow animate__fadeIn uppercase text-huge leading-none relative z-60 font-bold tracking-widest mix-blend-difference text-yellow-500 ${page !== 0 ? "animate__fadeOutDownBig" : ""}`}>creativity</h1>
             </div>
-            <button onClick={() => setPage(1)} className={`${anim} animate__fadeInDown animate__fast ${page === 0 ? "animate__delay-3s" : ""} ${page !== 0 ? "animate__fadeOutDownBig" : ""} uppercase font-Chakra text-3xl relative z-10 font-semibold border-4 text-yellow-500 border-yellow-500 mix-blend-difference tracking-widest py-5 px-16 mt-24`}>START HERE</button>
+            <button onClick={() => setPage(1)} className={`${anim} animate__fadeInDown animate__fast ${page === 0 ? "animate__delay-3s" : ""} ${page !== 0 ? "animate__fadeOutDownBig" : ""} uppercase text-3xl relative z-10 font-semibold border-4 text-yellow-500 border-yellow-500 mix-blend-difference tracking-widest py-5 px-16 mt-24`}>START HERE</button>
         </div> : ""}
         
         {/* Intro.2 */}
         {[1, 2].includes(page) ? <div className="w-full h-screen tl-0 flex flex-col justify-center items-center absolute z-10">
             <div className={`${anim} ${page !== 0 ? "block animate__fadeInUp" : "hidden"}`}>
-                <h2 className={`text-9xl tracking-widerr font-bold text-yellow-a800 text-inner font-Chakra ${page !== 1 ? "titleFadeOut" : ""}`}>GET READY</h2>
+                <h2 className={`text-9xl tracking-widerr font-bold text-yellow-a800 text-inner ${page !== 1 ? "titleFadeOut" : ""}`}>GET READY</h2>
             </div>
-            <p className={`font-Poppins text-center mt-4 text-xl tracking-widerr font-medium text-black-dark ${anim} ${page === 1 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>Use your <span className="font-semibold uppercase">spacebar</span> to proceed to next sections.<br/>Sit back, relax, and enjoy!</p>
+            <p className={`font-Poppins text-center mt-4 text-xl tracking-widerr font-medium text-black-dark ${anim} ${page === 1 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>Use your <span className="font-Poppins font-semibold uppercase">spacebar</span> to proceed to next sections.<br/>Sit back, relax, and enjoy!</p>
             <DownButton {...{page, setPage}} currentPage={1}/>
         </div> : ""}
 
         {/* Intro.3 */}
         {[2, 3].includes(page) ? <div className="w-full h-screen tl-0 flex flex-col justify-center items-center absolute z-10">
-            <h2 className={`${anim} font-Poppins text-center mt-4 text-2xl tracking-widerr font-medium text-black-dark ${page === 2 ? "animate__fadeIn animate__delay-1s" : "animate__fadeOutDown animate__faster"}`}>The portfolio of <span className="font-Chakra font-bold text-4xl">Melvin Chia</span></h2>
+            <h2 className={`${anim} font-Poppins text-center mt-4 text-2xl tracking-widerr font-medium text-black-dark ${page === 2 ? "animate__fadeIn animate__delay-1s" : "animate__fadeOutDown animate__faster"}`}>The portfolio of <span className="font-bold text-4xl">Melvin Chia</span></h2>
             <DownButton {...{page, setPage}} currentPage={2}/>
         </div> : ""}
 
         {/* 01A */}
         {[3, 4].includes(page) ? <div className="w-full h-screen tl-0 flex flex-col justify-center items-center absolute z-10">
-            <h2 className={`text-huge tracking-widerr font-bold text-yellow-a800 text-inner font-Chakra ${page !== 3 ? "titleFadeOut" : "titleNoIn"}`}>01A</h2>
+            <h2 className={`text-huge tracking-widerr font-bold text-yellow-a800 text-inner ${page !== 3 ? "titleFadeOut" : "titleNoIn"}`}>01A</h2>
             <p className={`font-Poppins text-center text-4xl tracking-widerr font-medium text-black-dark ${anim} ${page === 3 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>Who Am I</p>
             <DownButton {...{page, setPage}} currentPage={3} delay={2}/>
         </div> : ""}
 
-        <div className={`bg-yellow-500 w-full h-200 absolute ${page <= 1 ? `-translate-x-28 anim-1 transform rotate-27 ${page !== 0 ? "anim-2" : ""}` : "tl-0 wh-full"} ${page === 24 ? "anim-3" : ""} transition-all mix-blend-difference`}></div>
+        <div className={`bg-yellow-500 w-full h-200 absolute ${page <= 1 ? `-translate-x-28 anim-1 transform rotate-27 ${page !== 0 ? "anim-2" : ""}` : "tl-0 wh-full"} ${page === 24 ? "anim-3" : ""} ${page === 25 ? "anim-4" : ""} transition-all mix-blend-difference`}></div>
 
-        {Array(5).fill(0).map((_, i) => <div key={i} className={`layer layer-${i+1} wh-full left-0 -top-full absolute z-10 ${[4, 5, 7, 8, 9, 10, 12, 13, 14, 16, 17, 18, 19, 20, 22].includes(page) ? "active" : ""}`}></div>)}
+        {Array(5).fill(0).map((_, i) => <div key={i} className={`layer layer-${i+1} wh-full left-0 -top-full absolute z-10 ${[4, 5, 7, 8, 9, 10, 12, 13, 14, 16, 17, 18, 19, 20, 22, 28, 29, 30].includes(page) ? "active" : ""}`}></div>)}
         <div className={`${anim} animate__delay-1s animate__fadeIn wh-full left-0 top-0 bg-black-dark absolute ${[4, 5, 6].includes(page) ? "" : "hidden"} ${page === 6 ? "section-leave" : ""}`}>
             <div className="flex px-32 pt-28 items-center gap-6">
-                <p className={`${anim} ${page === 4 ? "animate__fadeInDown animate__delay-2s" : ""} text-yellow-500 font-bold font-Chakra text-6xl tracking-widerr`}>01A</p>
-                <h1 className={`${anim} ${page === 4 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase font-Chakra text-4xl font-bold text-white tracking-widerr`}>self introduction</h1>
+                <p className={`${anim} ${page === 4 ? "animate__fadeInDown animate__delay-2s" : ""} text-yellow-500 font-bold text-6xl tracking-widerr`}>01A</p>
+                <h1 className={`${anim} ${page === 4 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase text-4xl font-bold text-white tracking-widerr`}>self introduction</h1>
             </div>
             {/* 01A.1 */}
             <div className={`px-32 pb-8 wh-full ${anim} ${page === 4 ? "" : "section-hide"}`}>
                 <div className="mt-16 flex gap-32">
-                    <img src={Illu1} className={`${anim} -mt-4 ${page === 4 ? "animate__fadeIn animate__delay-2s" : "animate__fadeOutDown"}`}/>
+                    <img src={Illu1} style={{width: "28rem"}} className={`${anim} -mt-4 ${page === 4 ? "animate__fadeIn animate__delay-2s" : "animate__fadeOutDown"}`}/>
                     <div className="relative z-10">
-                        <h1 className={`${anim} text-6xl text-white font-Chakra font-bold tracking-widerr uppercase ${page === 4 ? "animate__fadeInRight animate__delay-3s" : "animate__fadeOutRight"}`}>Hello,<br/>I’m <span className="text-yellow-500" ref={el}></span></h1>
+                        <h1 className={`${anim} text-6xl text-white font-bold tracking-widerr uppercase ${page === 4 ? "animate__fadeInRight animate__delay-3s" : "animate__fadeOutRight"}`}>Hello,<br/>I’m <span className="text-yellow-500" ref={el}></span></h1>
                         <p className={`${anim} ${page === 4 ? "animate__fadeInUp animate__delay-3s" : "animate__fadeOutDown"} text-white font-Poppins text-xl tracking-widerr font-light leading-7 mt-8 mb-12`}>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <button className={`${anim} ${page === 4 ? "animate__fadeInUp animate__delay-4s" : "animate__fadeOut"} font-Chakra text-yellow-500 font-bold border-4 border-yellow-500 py-4 px-16 uppercase text-2xl tracking-widerr`}>download CV</button>
+                        <button className={`${anim} ${page === 4 ? "animate__fadeInUp animate__delay-4s" : "animate__fadeOut"} text-yellow-500 font-bold border-4 border-yellow-500 py-4 px-16 uppercase text-2xl tracking-widerr`}>download CV</button>
                     </div>
                 </div>
             </div>
@@ -183,26 +284,26 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                 <div className="flex gap-32" style={{height: "140%"}}>
                     <img src={Img1} className={`${anim} ${page === 5 ? "animate__delay-2s animate__fadeInUp" : "animate__fadeOutDown"}`}/>
                     <div className="relative z-10">
-                        <h1 className={`${anim} text-6xl -mt-2 text-white font-Chakra font-bold tracking-widerr uppercase ${page === 5 ? "animate__fadeInRight animate__delay-2s" : "animate__fadeOutRight"}`}><span className="text-yellow-500">practice</span> skills<br/>make <span className="text-yellow-500">projects</span></h1>
+                        <h1 className={`${anim} text-6xl -mt-2 text-white font-bold tracking-widerr uppercase ${page === 5 ? "animate__fadeInRight animate__delay-2s" : "animate__fadeOutRight"}`}><span className="text-yellow-500">practice</span> skills<br/>make <span className="text-yellow-500">projects</span></h1>
                         <p className={`${anim} ${page === 5 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown"} text-white font-Poppins text-xl tracking-widerr font-light leading-7 mt-8 mb-12`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <button className={`${anim} relative z-10 ${page === 5 ? "animate__fadeInUp animate__delay-3s" : "animate__fadeOut"} font-Chakra text-yellow-500 font-bold border-4 border-yellow-500 py-4 px-16 uppercase text-2xl tracking-widerr`}>see my works</button>
+                        <button className={`${anim} relative z-10 ${page === 5 ? "animate__fadeInUp animate__delay-3s" : "animate__fadeOut"} text-yellow-500 font-bold border-4 border-yellow-500 py-4 px-16 uppercase text-2xl tracking-widerr`}>see my works</button>
                     </div>
                 </div>
             </div>
-            <p className="${anim} absolute z-0 bottom-0 right-8 text-enormous leading-none font-bold font-Chakra tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>01A</p>
+            <p className="${anim} absolute z-0 bottom-0 right-8 text-enormous leading-none font-bold tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>01A</p>
         </div>
 
         {/* 01B */}
         <div className={`wh-full tl-0 flex flex-col justify-center items-center absolute z-10 ${[6, 7].includes(page) ? "" : "hidden"} ${page === 7 ? "section-leave" : ""}`}>
-            <h2 className={`text-huge tracking-widerr font-bold text-yellow-a800 text-inner font-Chakra ${page !== 6 ? "titleFadeOut" : "titleNoIn animate__delay-2s"}`}>01B</h2>
+            <h2 className={`text-huge tracking-widerr font-bold text-yellow-a800 text-inner ${page !== 6 ? "titleFadeOut" : "titleNoIn animate__delay-2s"}`}>01B</h2>
             <p className={`font-Poppins text-center text-4xl tracking-widerr font-medium text-black-dark ${anim} ${page === 6 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>HOW I DO MY PROJECTS</p>
             <DownButton {...{page, setPage}} currentPage={6} delay={2}/>
         </div>
 
         <div className={`${anim} animate__delay-1s animate__fadeIn wh-full left-0 top-0 bg-black-dark absolute ${[7, 8, 9, 10, 11].includes(page) ? "" : "hidden"} ${page === 11 ? "section-leave" : ""}`}>
             <div className="flex px-32 pt-28 items-center gap-6">
-                <p className={`${anim} ${page === 7 ? "animate__fadeInDown animate__delay-2s" : ""} text-yellow-500 font-bold font-Chakra text-6xl tracking-widerr`}>01B</p>
-                <h1 className={`${anim} ${page === 7 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase font-Chakra text-4xl font-bold text-white tracking-widerr`}>project workflow</h1>
+                <p className={`${anim} ${page === 7 ? "animate__fadeInDown animate__delay-2s" : ""} text-yellow-500 font-bold text-6xl tracking-widerr`}>01B</p>
+                <h1 className={`${anim} ${page === 7 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase text-4xl font-bold text-white tracking-widerr`}>project workflow</h1>
             </div>
             {/* 01B.1.2.3.4 */}
             {workFlow.map(([i, illu, title, subtitle, desc], index) => <div key={i} className={`px-32 pb-8 wh-full ${anim} ${page === i ? "" : "section-hide"}`}>
@@ -210,68 +311,68 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                     <img src={illu} className={`${anim} -mt-4 ${page === i ? "animate__fadeInUp animate__delay-1s" : "animate__fadeOutDown"}`}/>
                     <div className="relative z-10">
                         <div className={`${anim} workflow-title relative pl-6 ${page === i ? "animate__fadeInDown animate__delay-2s" : "animate__fadeOutUp"}`} style={{borderLeft: "10px solid rgba(254, 206, 60)"}}>
-                            <h1 className={`${anim} text-6xl text-white font-Chakra font-bold tracking-widerr uppercase ${page === i ? "animate__fadeInDown animate__delay-3s" : "animate__fadeOutRight"}`}>{title}</h1>
+                            <h1 className={`${anim} text-6xl text-white font-bold tracking-widerr uppercase ${page === i ? "animate__fadeInDown animate__delay-3s" : "animate__fadeOutRight"}`}>{title}</h1>
                             <p className={`${anim} text-3xl mt-2 text-white font-Poppins tracking-widerr uppercase ${page === i ? "animate__fadeInRight animate__delay-3s" : "animate__fadeOutRight"}`}>{subtitle}</p>
                         </div>
                         <p className={`${anim} ${page === i ? "animate__fadeInUp animate__delay-3s" : "animate__fadeOutDown"} text-white font-Poppins text-xl tracking-widerr font-light leading-7 mt-8 mb-12`}>{desc}</p>
-                        <button className={`${anim} ${page === i ? "animate__fadeInUp animate__delay-4s" : "animate__fadeOut"} font-Chakra text-yellow-500 font-bold border-4 border-yellow-500 py-4 px-16 uppercase text-2xl tracking-widerr`}>read more</button>
+                        <button className={`${anim} ${page === i ? "animate__fadeInUp animate__delay-4s" : "animate__fadeOut"} text-yellow-500 font-bold border-4 border-yellow-500 py-4 px-16 uppercase text-2xl tracking-widerr`}>read more</button>
                     </div>
                 </div>
             </div>)}
-            <p className="${anim} absolute bottom-0 right-8 text-enormous leading-none font-bold font-Chakra tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner">01B</p>
+            <p className="${anim} absolute bottom-0 right-8 text-enormous leading-none font-bold tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner">01B</p>
         </div>
 
         {/* 02A */}
         <div className={`wh-full tl-0 flex flex-col justify-center items-center absolute z-10 ${[11, 12].includes(page) ? "" : "hidden"} ${page === 12 ? "section-leave" : ""}`}>
-            <h2 className={`text-huge tracking-widerr font-bold text-yellow-a800 text-inner font-Chakra ${page !== 11 ? "titleFadeOut" : "titleNoIn animate__delay-2s"}`}>02A</h2>
+            <h2 className={`text-huge tracking-widerr font-bold text-yellow-a800 text-inner ${page !== 11 ? "titleFadeOut" : "titleNoIn animate__delay-2s"}`}>02A</h2>
             <p className={`font-Poppins text-center text-4xl tracking-widerr font-medium text-black-dark ${anim} ${page === 11 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>WHAT I’M CAPABLE OF DOING</p>
             <DownButton {...{page, setPage}} currentPage={11} delay={2}/>
         </div>
 
         <div className={`${anim} animate__delay-1s animate__fadeIn wh-full left-0 top-0 bg-black-dark absolute ${[12, 13, 14, 15].includes(page) ? "" : "hidden"} ${page === 15 ? "section-leave" : ""}`}>
             <div className="flex px-32 pt-28 items-center gap-6">
-                <p className={`${anim} ${page === 7 ? "animate__fadeInDown animate__delay-2s" : ""} text-yellow-500 font-bold font-Chakra text-6xl tracking-widerr`}>02A</p>
-                <h1 className={`${anim} ${page === 7 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase font-Chakra text-4xl font-bold text-white tracking-widerr`}>my skills</h1>
+                <p className={`${anim} ${page === 7 ? "animate__fadeInDown animate__delay-2s" : ""} text-yellow-500 font-bold text-6xl tracking-widerr`}>02A</p>
+                <h1 className={`${anim} ${page === 7 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase text-4xl font-bold text-white tracking-widerr`}>my skills</h1>
             </div>
             {/* 02A.1.2.3 */}
             {skills.map(([i, title, subtitle, desc, item], index) => <div key={i} className={`px-32 pb-8 wh-full ${anim} ${page === i ? "" : "section-hide"}`}>
-                <div className={`${!index ? "mt-24" : ""} flex gap-32`}>
+                <div className={`${!index ? "mt-16" : ""} flex gap-32`}>
                     <div className="relative z-10">
                         <p className={`${anim} text-xl mb-2 text-yellow-500 font-Poppins font-medium tracking-widerr uppercase ${page === i ? "animate__fadeInRight animate__delay-2s" : "animate__fadeOutUp"}`}>{subtitle}</p>
-                        <h1 className={`${anim} text-6xl text-white font-Chakra font-bold tracking-widerr uppercase ${page === i ? "animate__fadeInDown animate__delay-2s" : "animate__fadeOutRight"}`}>{title}</h1>
+                        <h1 className={`${anim} text-6xl text-white font-bold tracking-widerr uppercase ${page === i ? "animate__fadeInDown animate__delay-2s" : "animate__fadeOutRight"}`}>{title}</h1>
                         <p className={`${anim} ${page === i ? "animate__fadeInUp animate__delay-3s" : "animate__fadeOutDown"} text-white font-Poppins text-xl tracking-widerr font-light leading-7 mt-8 mb-12`}>{desc}</p>
-                        <button className={`${anim} ${page === i ? "animate__fadeInUp animate__delay-4s" : "animate__fadeOut"} font-Chakra text-yellow-500 font-bold border-4 border-yellow-500 py-4 px-16 uppercase text-2xl tracking-widerr`}>know more</button>
+                        <button className={`${anim} ${page === i ? "animate__fadeInUp animate__delay-4s" : "animate__fadeOut"} text-yellow-500 font-bold border-4 border-yellow-500 py-4 px-16 uppercase text-2xl tracking-widerr`}>know more</button>
                     </div>
                     <div className={`${anim} ${page === i ? "animate__fadeInUp animate__delay-1s" : "animate__fadeOut"} flex flex-col gap-16 mx-16`}>
                         {item.map(([icon, name, level]) => <div key={`item-${name}`} className="flex gap-8 items-center">
                             {icon}
                             <div >
-                                <h2 className={`${anim} text-4xl text-white font-Chakra font-bold tracking-widerr uppercase whitespace-nowrap`}>{name}</h2>
+                                <h2 className={`${anim} text-4xl text-white font-bold tracking-widerr uppercase whitespace-nowrap`}>{name}</h2>
                                 <p className={`${anim} text-xl mb-2 text-yellow-500 font-Poppins font-medium tracking-widerr uppercase whitespace-nowrap`}>{level}</p>
                             </div>
                         </div>)}
                     </div>
                 </div>
             </div>)}
-            <p className="${anim} absolute bottom-0 right-8 text-enormous leading-none font-bold font-Chakra tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>02A</p>
+            <p className="${anim} absolute bottom-0 right-8 text-enormous leading-none font-bold tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>02A</p>
         </div>
 
         <div className={`wh-full tl-0 flex flex-col justify-center items-center absolute z-10 ${[15, 16].includes(page) ? "" : "hidden"} ${page === 16 ? "section-leave" : ""}`}>
-            <h2 className={`text-huge tracking-widerr font-bold text-yellow-a800 text-inner font-Chakra ${page !== 15 ? "titleFadeOut" : "titleNoIn animate__delay-2s"}`}>02B</h2>
+            <h2 className={`text-huge tracking-widerr font-bold text-yellow-a800 text-inner ${page !== 15 ? "titleFadeOut" : "titleNoIn animate__delay-2s"}`}>02B</h2>
             <p className={`font-Poppins text-center text-4xl tracking-widerr font-medium text-black-dark ${anim} ${page === 15 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>MY FAVOURITE PROJECTS</p>
             <DownButton {...{page, setPage}} currentPage={15} delay={2}/>
         </div>
 
         <div className={`${anim} animate__delay-1s animate__fadeIn wh-full flex flex-col left-0 top-0 bg-black-dark absolute overflow-hidden pb-20 ${[16, 17, 18, 19, 20, 21].includes(page) ? "" : "hidden"} ${page === 21 ? "section-leave" : ""}`}>
             <div className="flex px-32 pt-28 items-center gap-6">
-                <p className={`${anim} ${page === 16 ? "animate__fadeInDown animate__delay-2s" : ""} text-yellow-500 font-bold font-Chakra text-6xl tracking-widerr`}>02B</p>
-                <h1 className={`${anim} ${page === 16 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase font-Chakra text-4xl font-bold text-white tracking-widerr`}>MY FAVOURTIE PROJECTS</h1>
+                <p className={`${anim} ${page === 16 ? "animate__fadeInDown animate__delay-2s" : ""} text-yellow-500 font-bold text-6xl tracking-widerr`}>02B</p>
+                <h1 className={`${anim} ${page === 16 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase text-4xl font-bold text-white tracking-widerr`}>MY FAVOURTIE PROJECTS</h1>
             </div>
             {/* 02B.1.2.3.4.5 */}
             {projects.map(([i, serial, name, type, color, image], index) => <div key={i} className={`px-32 wh-full ${anim} ${page === i ? "overflow-hidden" : "section-hide"}`}>
                 <div style={{backgroundColor: color}} className={`mt-12 ${anim} flex gap-32 w-full h-full overflow-hidden justify-between p-12 pb-0 ${page === i ? "animate__delay-1s animate__fadeInDown" : "animate__fadeOutDown animate__fast"}`}>
                     <div className="w-full">
-                        <svg className={`${anim} ${page == i ? "animate__fadeInDown animate__delay-2s" : ""}`} width="135" height="24" viewBox="0 0 135 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg className={"-mt-4 " + `${anim} ${page == i ? "animate__fadeInDown animate__delay-2s" : ""}`} width="135" height="24" viewBox="0 0 135 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0 12V24H24V0H0V12ZM19.3395 11.043C19.9149 11.1785 20.4377 11.4799 20.8433 11.91C21.0623 12.144 21.39 12.5738 21.4177 12.6795C21.4252 12.711 20.3827 13.41 19.7498 13.8007C19.7265 13.8165 19.6327 13.719 19.5308 13.566C19.2225 13.1167 18.8977 12.9217 18.402 12.8865C17.6752 12.8392 17.2065 13.2188 17.2103 13.8555C17.2064 14.0113 17.2412 14.1656 17.3115 14.3048C17.472 14.637 17.7728 14.8358 18.702 15.2385C20.421 15.9765 21.1553 16.4648 21.612 17.1562C22.1235 17.9295 22.2367 19.164 21.8932 20.0858C21.5107 21.0818 20.565 21.7612 19.2367 21.984C18.8265 22.0583 17.85 22.0462 17.4083 21.9645C16.4438 21.7927 15.5295 21.3158 14.967 20.691C14.7442 20.4487 14.3145 19.812 14.3422 19.7692C14.3542 19.7535 14.4518 19.6912 14.5613 19.6283L15.4523 19.1122L16.1437 18.7103L16.2885 18.9247C16.4918 19.233 16.9327 19.6552 17.199 19.7955C17.9648 20.202 19.0155 20.1435 19.5353 19.6785C19.746 19.503 19.8638 19.233 19.848 18.96C19.848 18.6825 19.8127 18.558 19.668 18.3503C19.4805 18.0847 19.1017 17.8582 18.0195 17.3895C16.7812 16.854 16.2458 16.5263 15.762 15.999C15.4575 15.652 15.2322 15.2427 15.102 14.7997C15.012 14.46 14.9888 13.608 15.0592 13.2682C15.3135 12.069 16.2195 11.2372 17.52 10.9913C17.9423 10.9095 18.9263 10.9402 19.3403 11.0422L19.3395 11.043ZM13.707 12.0472L13.7145 13.0275H10.5893V21.9067H8.37825V13.0275H5.2575V12.0668C5.2575 11.5313 5.2695 11.0865 5.2845 11.0745C5.2965 11.0588 7.19475 11.0512 9.4995 11.055L13.695 11.067L13.707 12.0472Z" fill="white"/>
                             <path d="M61 11.689C61 10.099 59.009 8.592 55.956 7.658C56.661 4.547 56.348 2.071 54.968 1.278C54.6336 1.09072 54.2552 0.996452 53.872 1.005V2.095C54.097 2.095 54.278 2.14 54.43 2.223C55.095 2.605 55.384 4.057 55.159 5.926C55.105 6.386 55.017 6.87 54.909 7.364C53.8866 7.11764 52.849 6.93958 51.803 6.831C51.1799 5.97129 50.5 5.15414 49.768 4.385C51.363 2.903 52.86 2.091 53.878 2.091V1C52.532 1 50.771 1.959 48.99 3.622C47.21 1.97 45.448 1.02 44.103 1.02V2.11C45.116 2.11 46.618 2.918 48.213 4.39C47.528 5.11 46.843 5.926 46.192 6.831C45.1438 6.93837 44.1044 7.11814 43.081 7.369C42.968 6.88 42.885 6.406 42.826 5.951C42.596 4.081 42.88 2.629 43.541 2.243C43.687 2.155 43.878 2.115 44.103 2.115V1.025C43.693 1.025 43.32 1.113 42.998 1.298C41.623 2.091 41.315 4.561 42.024 7.663C38.981 8.603 37 10.104 37 11.689C37 13.279 38.991 14.786 42.044 15.719C41.339 18.831 41.652 21.307 43.032 22.099C43.35 22.285 43.722 22.373 44.132 22.373C45.478 22.373 47.239 21.414 49.02 19.751C50.8 21.404 52.561 22.353 53.907 22.353C54.2931 22.3612 54.6744 22.2666 55.012 22.079C56.387 21.287 56.695 18.817 55.986 15.715C59.019 14.781 61 13.274 61 11.689ZM54.63 8.426C54.44 9.07986 54.2197 9.72455 53.97 10.358C53.5612 9.56276 53.1123 8.78876 52.625 8.039C53.32 8.142 53.99 8.269 54.631 8.426H54.63ZM52.39 13.636C52.009 14.296 51.617 14.923 51.211 15.505C49.7433 15.6344 48.267 15.636 46.799 15.51C45.9569 14.3072 45.2205 13.0338 44.598 11.704C45.2196 10.3711 45.9529 9.09321 46.79 7.884C48.2574 7.75437 49.7333 7.75236 51.201 7.878C51.607 8.46 52.004 9.082 52.385 9.738C52.757 10.378 53.095 11.028 53.403 11.684C53.0916 12.348 52.7536 12.9991 52.39 13.636ZM53.97 13C54.234 13.655 54.46 14.311 54.645 14.947C54.005 15.104 53.329 15.236 52.63 15.338C53.1152 14.5814 53.5625 13.8011 53.97 13ZM49.01 18.22C48.555 17.75 48.1 17.227 47.65 16.654C48.09 16.674 48.54 16.689 48.995 16.689C49.455 16.689 49.91 16.679 50.355 16.654C49.915 17.227 49.46 17.75 49.01 18.22ZM45.37 15.338C44.6957 15.2403 44.0264 15.1115 43.364 14.952C43.545 14.321 43.77 13.67 44.024 13.02C44.225 13.41 44.436 13.802 44.666 14.194C44.896 14.585 45.13 14.967 45.37 15.338ZM48.985 5.158C49.44 5.628 49.895 6.151 50.345 6.724C49.905 6.704 49.455 6.689 49 6.689C48.54 6.689 48.085 6.699 47.64 6.724C48.08 6.151 48.535 5.628 48.985 5.158ZM45.365 8.04C44.8799 8.79493 44.4326 9.57356 44.025 10.373C43.7682 9.73546 43.5429 9.08567 43.35 8.426C43.99 8.274 44.666 8.142 45.365 8.04ZM40.938 14.164C39.206 13.426 38.086 12.457 38.086 11.689C38.086 10.921 39.206 9.947 40.938 9.214C41.358 9.033 41.818 8.871 42.293 8.72C42.572 9.678 42.939 10.676 43.393 11.699C42.9644 12.6612 42.6019 13.6515 42.308 14.663C41.8435 14.5192 41.3862 14.3526 40.938 14.164ZM43.57 21.154C42.905 20.774 42.616 19.32 42.841 17.452C42.895 16.992 42.983 16.507 43.091 16.013C44.049 16.248 45.096 16.429 46.197 16.547C46.8202 17.4067 47.5 18.2238 48.232 18.993C46.637 20.475 45.14 21.287 44.122 21.287C43.9299 21.2891 43.7403 21.2438 43.57 21.155V21.154ZM55.174 17.427C55.404 19.296 55.12 20.749 54.459 21.135C54.313 21.223 54.122 21.262 53.897 21.262C52.884 21.262 51.382 20.455 49.787 18.982C50.472 18.264 51.157 17.447 51.808 16.542C52.8562 16.4346 53.8956 16.2549 54.919 16.004C55.032 16.498 55.119 16.972 55.174 17.427ZM57.057 14.164C56.637 14.345 56.177 14.507 55.702 14.658C55.403 13.6413 55.0355 12.646 54.602 11.679C55.052 10.662 55.413 9.669 55.687 8.715C56.172 8.866 56.631 9.033 57.062 9.214C58.794 9.952 59.914 10.921 59.914 11.689C59.909 12.457 58.789 13.431 57.057 14.164Z" fill="white"/>
                             <path d="M48.9948 13.925C49.5878 13.925 50.1565 13.6894 50.5759 13.2701C50.9952 12.8508 51.2308 12.282 51.2308 11.689C51.2308 11.096 50.9952 10.5272 50.5759 10.1079C50.1565 9.68858 49.5878 9.453 48.9948 9.453C48.4018 9.453 47.833 9.68858 47.4137 10.1079C46.9944 10.5272 46.7588 11.096 46.7588 11.689C46.7588 12.282 46.9944 12.8508 47.4137 13.2701C47.833 13.6894 48.4018 13.925 48.9948 13.925Z" fill="white"/>
@@ -283,7 +384,7 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                         <div className={`${anim} w-full h-2 bg-white my-2 mt-4 ${page == i ? "animate__fadeInLeft animate__delay-2s" : ""}`}></div>
                         <h1 className={`${anim} text-5xl text-white font-Montserrat font-extrabold tracking-wide uppercase ${page == i ? "animate__fadeInUp animate__delay-2s" : ""}`}>{name}</h1>
                         <p className={`${anim} text-2xl text-white font-Poppins font-medium tracking-wider uppercase -mt-1 ${page == i ? "animate__fadeInLeft animate__delay-2s" : ""}`}>{type}</p>
-                        <h1 className={`${anim} text-7xl text-white font-Chakra font-bold tracking-wider uppercase mt-8 ${page == i ? "animate__fadeInDown animate__delay-2s" : ""}`}>{serial}</h1>
+                        <h1 className={`${anim} text-7xl text-white font-bold tracking-wider uppercase mt-8 ${page == i ? "animate__fadeInDown animate__delay-2s" : ""}`}>{serial}</h1>
                         <div className={`${anim} w-full h-2 bg-white my-2 ${page == i ? "animate__fadeInRight animate__delay-2s" : ""}`}></div>
                         <button style={{color: color}} className={`${anim} font-Poppins font-semibold border-white border-4 bg-white py-4 mt-5 w-full uppercase text-xl tracking-widerr ${page == i ? "animate__fadeInLeft animate__delay-3s" : ""}`}>VISIT WEBSITE</button>
                         <button style={{backgroundColor: color}} className={`${anim} font-Poppins text-white font-semibold border-white border-4 mt-2 py-4 w-full uppercase text-xl tracking-widerr ${page == i ? "animate__fadeInRight animate__delay-3s" : ""}`}>CASE STUDY</button>
@@ -291,24 +392,24 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                     <img src={image} className={`${anim} object-cover w-7/12 object-top ${page == i ? "animate__fadeInUp animate__delay-2s" : ""}`} />
                 </div>
             </div>)}
-            <p className="${anim} absolute bottom-0 right-8 text-enormous leading-none font-bold font-Chakra tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>02B</p>
+            <p className="${anim} absolute bottom-0 right-8 text-enormous leading-none font-bold tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>02B</p>
         </div>
 
         <div className={`wh-full tl-0 flex flex-col justify-center items-center absolute z-10 ${[21, 22].includes(page) ? "" : "hidden"} ${page === 22 ? "section-leave" : ""}`}>
-            <h2 className={`text-huge tracking-widerr font-bold text-yellow-a800 text-inner font-Chakra ${page !== 21 ? "titleFadeOut" : "titleNoIn animate__delay-2s"}`}>03</h2>
+            <h2 className={`text-huge tracking-widerr font-bold text-yellow-a800 text-inner ${page !== 21 ? "titleFadeOut" : "titleNoIn animate__delay-2s"}`}>03</h2>
             <p className={`font-Poppins text-center text-4xl tracking-widerr font-medium text-black-dark ${anim} ${page === 21 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>WHAT CAN I DO FOR YOU</p>
             <DownButton {...{page, setPage}} currentPage={21} delay={2}/>
         </div>
 
         <div className={`${anim} animate__delay-1s animate__fadeIn wh-full flex flex-col left-0 top-0 bg-black-dark absolute overflow-hidden pb-12 ${[22, 23].includes(page) ? "" : "hidden"} ${page === 23 ? "section-leave" : ""}`}>
             <div className="flex px-32 pt-28 items-center gap-6">
-                <p className={`${anim} ${page === 22 ? "animate__fadeInDown animate__delay-2s" : ""} text-yellow-500 font-bold font-Chakra text-6xl tracking-widerr`}>03</p>
-                <h1 className={`${anim} ${page === 22 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase font-Chakra text-4xl font-bold text-white tracking-widerr`}>MY SERVICES</h1>
+                <p className={`${anim} ${page === 22 ? "animate__fadeInDown animate__delay-2s" : ""} text-yellow-500 font-bold text-6xl tracking-widerr`}>03</p>
+                <h1 className={`${anim} ${page === 22 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase text-4xl font-bold text-white tracking-widerr`}>MY SERVICES</h1>
             </div>
             {/* 02B.1.2.3.4.5 */}
             <div className={`mt-6 ${anim} flex w-full h-full overflow-hidden justify-between p-12 px-32 pb-0 ${page === 22 ? "animate__delay-1s animate__fadeInDown" : "animate__fadeOut animate__fast"}`}>
                 <div className="pr-8 flex flex-col justify-between">
-                    <h1 className={`${anim} text-6xl text-white font-Chakra font-bold tracking-widerr uppercase ${page === 22 ? "animate__fadeInLeft animate__delay-2s" : ""}`}><span className="text-yellow-500">UI</span><br/>Design</h1>
+                    <h1 className={`${anim} text-6xl text-white font-bold tracking-widerr uppercase ${page === 22 ? "animate__fadeInLeft animate__delay-2s" : ""}`}><span className="text-yellow-500">UI</span><br/>Design</h1>
                     <div>
                         <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-lg font-bold uppercase ${page === 22 ? "animate__fadeInLeft animate__delay-3s" : ""}`}>description</p>
                         <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2 ${page === 22 ? "animate__fadeInLeft animate__delay-3s" : ""}`}>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.</p>
@@ -317,11 +418,11 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                         <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-lg font-bold uppercase ${page === 22 ? "animate__fadeInLeft animate__delay-4s" : ""}`}>pricing</p>
                         <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2 ${page === 22 ? "animate__fadeInLeft animate__delay-4s" : ""}`}><span className="font-semibold">50US$</span> per page</p>
                     </div>
-                    <button className={`${anim} font-Chakra text-yellow-500 font-bold border-yellow-500 border-4 mt-2 py-4 w-full uppercase text-2xl tracking-widerr ${page === 22 ? "animate__fadeInLeft animate__delay-5s" : ""}`}>order now</button>
+                    <button className={`${anim} text-yellow-500 font-bold border-yellow-500 border-4 mt-2 py-4 w-full uppercase text-2xl tracking-widerr ${page === 22 ? "animate__fadeInLeft animate__delay-5s" : ""}`}>order now</button>
                 </div>
                 <div className={`${anim} h-full bg-gray-500 ${page === 22 ? "animate__fadeInDown animate__delay-1s" : ""}`} style={{width: "2px"}}></div>
                 <div className="px-8 flex flex-col justify-between">
-                    <h1 className={`${anim} text-6xl text-white font-Chakra font-bold tracking-widerr uppercase ${page === 22 ? "animate__fadeInDown animate__delay-2s" : ""}`}><span className="text-yellow-500">WEBSITE</span><br/>Developing</h1>
+                    <h1 className={`${anim} text-6xl text-white font-bold tracking-widerr uppercase ${page === 22 ? "animate__fadeInDown animate__delay-2s" : ""}`}><span className="text-yellow-500">WEBSITE</span><br/>Developing</h1>
                     <div>
                         <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-lg font-bold uppercase ${page === 22 ? "animate__fadeInUp animate__delay-3s" : ""}`}>description</p>
                         <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2 ${page === 22 ? "animate__fadeInUp animate__delay-3s" : ""}`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
@@ -330,11 +431,11 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                         <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-lg font-bold uppercase ${page === 22 ? "animate__fadeInUp animate__delay-4s" : ""}`}>pricing</p>
                         <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2 ${page === 22 ? "animate__fadeInUp animate__delay-4s" : ""}`}><span className="font-semibold">1,200US$</span> per project</p>
                     </div>
-                    <button className={`${anim} font-Chakra text-black-dark font-bold bg-yellow-500 border-yellow-500 border-4 mt-2 py-4 w-full uppercase text-2xl tracking-widerr ${page === 22 ? "animate__fadeInDown animate__delay-5s" : ""}`}>order now</button>
+                    <button className={`${anim} text-black-dark font-bold bg-yellow-500 border-yellow-500 border-4 mt-2 py-4 w-full uppercase text-2xl tracking-widerr ${page === 22 ? "animate__fadeInDown animate__delay-5s" : ""}`}>order now</button>
                 </div>
                 <div className={`${anim} h-full bg-gray-500 ${page === 22 ? "animate__fadeInDown animate__delay-1s" : ""}`} style={{width: "2px"}}></div>
                 <div className="pl-8 flex flex-col justify-between">
-                    <h1 className={`${anim} text-6xl text-white font-Chakra font-bold tracking-widerr uppercase ${page === 22 ? "animate__fadeInRight animate__delay-2s" : ""}`}><span className="text-yellow-500">DATA</span><br/>Scraping</h1>
+                    <h1 className={`${anim} text-6xl text-white font-bold tracking-widerr uppercase ${page === 22 ? "animate__fadeInRight animate__delay-2s" : ""}`}><span className="text-yellow-500">DATA</span><br/>Scraping</h1>
                     <div>
                         <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-lg font-bold uppercase ${page === 22 ? "animate__fadeInRight animate__delay-3s" : ""}`}>description</p>
                         <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2 ${page === 22 ? "animate__fadeInRight animate__delay-3s" : ""}`}>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum incididunt ut labore et dolore.</p>
@@ -343,22 +444,22 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                         <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-lg font-bold uppercase ${page === 22 ? "animate__fadeInRight animate__delay-4s" : ""}`}>pricing</p>
                         <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2 ${page === 22 ? "animate__fadeInRight animate__delay-4s" : ""}`}><span className="font-semibold">30US$</span> per script</p>
                     </div>
-                    <button className={`${anim} font-Chakra text-yellow-500 font-bold border-yellow-500 border-4 mt-2 py-4 w-full uppercase text-2xl tracking-widerr ${page === 22 ? "animate__fadeInRight animate__delay-5s" : ""}`}>order now</button>
+                    <button className={`${anim} text-yellow-500 font-bold border-yellow-500 border-4 mt-2 py-4 w-full uppercase text-2xl tracking-widerr ${page === 22 ? "animate__fadeInRight animate__delay-5s" : ""}`}>order now</button>
                 </div>
             </div>
-            <p className="${anim} absolute bottom-0 right-8 text-enormous leading-none font-bold font-Chakra tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>03</p>
+            <p className="${anim} absolute bottom-0 right-8 text-enormous leading-none font-bold tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>03</p>
         </div>
 
         <div className={`wh-full tl-0 flex flex-col justify-center items-center absolute z-10 ${[23, 24].includes(page) ? "" : "hidden"} ${page === 24 ? "section-leave" : ""}`}>
-            <h2 className={`text-huge tracking-widerr font-bold text-yellow-a800 text-inner font-Chakra ${page !== 23 ? "titleFadeOut" : "titleNoIn animate__delay-2s"}`}>04</h2>
+            <h2 className={`text-huge tracking-widerr font-bold text-yellow-a800 text-inner ${page !== 23 ? "titleFadeOut" : "titleNoIn animate__delay-2s"}`}>04</h2>
             <p className={`font-Poppins text-center text-4xl tracking-widerr font-medium text-black-dark ${anim} ${page === 23 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>GET IN TOUCH WITH ME</p>
             <DownButton {...{page, setPage}} currentPage={23} delay={2}/>
         </div>
 
-        <div className={`${anim} animate__delay-1s animate__fadeIn wh-full flex flex-col left-0 top-0 absolute overflow-hidden pb-12 ${[24, 25].includes(page) ? "" : "hidden"} ${page === 23 ? "section-leave" : ""}`}>
+        <div className={`${anim} animate__delay-1s animate__fadeIn wh-full flex flex-col left-0 top-0 absolute overflow-hidden pb-12 ${[24, 25].includes(page) ? "" : "hidden"} ${page === 25 ? "section-leave-no-delay" : ""}`}>
             <div className="flex px-32 pt-28 items-center gap-6">
-                <p className={`${anim} ${page === 24 ? "animate__fadeInDown animate__delay-2s" : ""} text-black-dark font-bold font-Chakra text-6xl tracking-widerr`}>04</p>
-                <h1 className={`${anim} ${page === 24 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase font-Chakra text-4xl font-bold text-black-dark tracking-widerr`}>CONTACT ME</h1>
+                <p className={`${anim} ${page === 24 ? "animate__fadeInDown animate__delay-2s" : ""} text-black-dark font-bold text-6xl tracking-widerr`}>04</p>
+                <h1 className={`${anim} ${page === 24 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase text-4xl font-bold text-black-dark tracking-widerr`}>CONTACT ME</h1>
             </div>
             <div className={`${anim} flex w-full h-full justify-between px-32 pb-0 ${page === 24 ? "animate__delay-1s animate__fadeInDown" : "animate__fadeOut animate__fast"}`}>
                 <div className="mb-12">
@@ -366,16 +467,102 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                         <input type='text' placeholder="NAME" className="uppercase w-full bg-yellow-a800 px-6 py-4 placeholder-yellow-1000 font-Poppins font-semibold text-lg tracking-widerr box-inner"/>
                         <input type='text' placeholder="EMAIL" className="uppercase w-full bg-yellow-a800 px-6 py-4 placeholder-yellow-1000 font-Poppins font-semibold text-lg tracking-widerr box-inner"/>
                         <textarea placeholder="MESSAGES" className="uppercase w-full h-full bg-yellow-a800 px-6 py-4 placeholder-yellow-1000 font-Poppins font-semibold text-lg tracking-widerr box-inner"/>
-                        <button className={`${anim} ${page === 24 ? "animate__fadeInUp animate__delay-4s" : "animate__fadeOut"} font-Chakra text-yellow-900 font-bold border-4 border-yellow-900 text-inner py-4 px-16 uppercase text-2xl tracking-widerr`}>SUBMIT</button>
+                        <button className={`${anim} ${page === 24 ? "animate__fadeInUp animate__delay-4s" : "animate__fadeOut"} text-yellow-900 font-bold border-4 border-yellow-900 text-inner py-4 px-16 uppercase text-2xl tracking-widerr`}>SUBMIT</button>
                     </form>
                 </div>
-                <div className="w-min -mt-12">
-                    <h1 className={`${anim} text-6xl whitespace-nowrap text-white font-Chakra font-bold tracking-widerr uppercase mr-24 ${page === 22 ? "animate__fadeInDown animate__delay-2s" : ""}`}>LET’S<br/>HAVE A <span className="text-yellow-500">TALK</span></h1>
+                <div className="w-min -mt-12 -mr-8">
+                    <h1 className={`${anim} text-6xl whitespace-nowrap text-white font-bold tracking-widerr uppercase mr-24 ${page === 24 ? "animate__fadeInDown animate__delay-2s" : ""}`}>LET’S<br/>HAVE A <span className="text-yellow-500">TALK</span></h1>
                     <p className={`${anim} ${page === 24 ? "animate__fadeInUp animate__delay-3s" : "animate__fadeOutDown"} text-white font-Poppins text-xl tracking-widerr font-light leading-7 mt-8 mb-12`}>Are you willing to make friends with me? Or considering a collaboration with me? Fill up the form on the left or contact me directly, and I’ll get in touch with you as soon as possible.</p>
-                    <button className={`${anim} ${page === 24 ? "animate__fadeInUp animate__delay-4s" : "animate__fadeOut"} font-Chakra text-yellow-500 font-bold border-4 border-yellow-500 py-4 px-16 uppercase text-2xl tracking-widerr`}>contact me</button>
+                    <button className={`${anim} ${page === 24 ? "animate__fadeInUp animate__delay-4s" : "animate__fadeOut"} text-yellow-500 font-bold border-4 border-yellow-500 py-4 px-16 uppercase text-2xl tracking-widerr`}>contact me</button>
                 </div>
             </div>
-            <p className="${anim} absolute bottom-0 right-8 text-enormous leading-none font-bold font-Chakra tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>04</p>
+            <p className="${anim} absolute bottom-0 right-8 text-enormous leading-none font-bold tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>04</p>
+        </div>
+
+        {[25, 26].includes(page) ? <div className="w-full h-screen tl-0 flex flex-col justify-center items-center absolute z-10">
+            <div className={`${anim} ${page === 25 ? "block animate__fadeInUp" : "hidden"}`}>
+                <h2 className={`text-9xl tracking-widerr font-bold text-yellow-a800 text-inner ${page !== 25 ? "titleFadeOut" : ""}`}>ALMOST DONE</h2>
+            </div>
+            <p className={`font-Poppins text-center mt-4 text-xl tracking-widerr font-medium text-black-dark ${anim} ${page === 25 ? "animate__fadeInUp animate__delay-1s" : "animate__fadeOutDown animate__faster"}`}>Why not keep pressing the <span className="font-Poppins font-semibold uppercase">spacebar</span> and check out what&#39;s below?</p>
+            <DownButton {...{page, setPage}} currentPage={25}/>
+        </div> : ""}
+        
+        {[26, 27].includes(page) ? <div>
+            <div className="relative z-10 px-32 py-24">
+                <div className={`${anim} ${page === 26 ? "block animate__fadeInDown" : "animate__fadeOutUp"}`}>
+                    <p className={`${anim} text-xl mb-2 text-yellow-a800 text-inner font-bold tracking-widerr uppercase ${page === 26 ? "" : "animate__fadeOutUp"}`}>SUPPORT</p>
+                </div>
+                <h1 className={`${anim} text-6xl font-black tracking-widerr uppercase ${page === 26 ? "animate__fadeInDown" : "animate__fadeOutRight"} text-black-dark`}>BUY ME A COFFEE<br/>FOR MORE PROJECTS</h1>
+                <p className={`${anim} ${page === 26 ? "animate__fadeInUp" : "animate__fadeOutDown"} font-Poppins text-xl w-8/12 text-black-dark tracking-widerr font-medium leading-7 mt-8 mb-12`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                <button className={`${anim} ${page === 26 ? "animate__fadeInUp animate__delay-1s" : "animate__fadeOut"} border-black-dark text-black-dark font-bold border-4 py-4 px-16 uppercase text-2xl tracking-widerr`}>donate US$5</button>
+            </div>
+            <svg className={`absolute bottom-0 right-0 ${anim} ${page === 26 ? "animate__fadeInRight" : "hidden"}`} width="539" height="573" viewBox="0 0 539 573" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter0_di)">
+                    <path d="M197.458 620.583H479.542C486.33 620.584 492.89 618.137 498.02 613.692C503.15 609.246 506.504 603.1 507.468 596.381L560.415 225.667H592.375V169.25H553.391L504.76 72.0159C502.424 67.3269 498.826 63.3827 494.371 60.6269C489.916 57.8711 484.78 56.413 479.542 56.4167H197.458C186.767 56.4167 177.007 62.4533 172.212 72.0159L123.609 169.25H84.625V225.667H116.585L169.532 596.381C170.496 603.1 173.85 609.246 178.98 613.692C184.11 618.137 190.67 620.584 197.458 620.583ZM491.333 310.292H185.667L173.566 225.667H503.406L491.333 310.292ZM221.915 564.167L209.814 479.542H467.158L455.057 564.167H221.915ZM214.891 112.833H462.109L490.317 169.25H186.683L214.891 112.833Z" fill="#DDA700"/>
+                </g>
+                <defs>
+                    <filter id="filter0_di" x="-12" y="-8" width="701" height="701" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                        <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                        <feOffset dy="4"/>
+                        <feGaussianBlur stdDeviation="6"/>
+                        <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.788235 0 0 0 0 0.133333 0 0 0 1 0"/>
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                        <feOffset dy="4"/>
+                        <feGaussianBlur stdDeviation="2"/>
+                        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                        <feBlend mode="normal" in2="shape" result="effect2_innerShadow"/>
+                    </filter>
+                </defs>
+            </svg>
+
+            <svg className={`absolute bottom-0 left-16 ${anim} ${page === 26 ? "animate__fadeInLeft" : "hidden"}`} width="323" height="249" viewBox="0 0 323 249" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter0_i)">
+                    <path d="M219.539 263.208C273.112 234.119 265.449 168.914 236.36 115.34C207.283 61.7721 156.764 19.8417 103.195 48.9194C49.622 78.008 57.2746 143.208 86.3632 196.782C115.452 250.355 165.965 292.296 219.539 263.208Z" stroke="#DDA700" strokeWidth="20"/>
+                    <path d="M114.826 70.3474C109.933 86.8842 111.767 141.377 150.654 161.883C189.524 182.394 207.438 228.161 207.895 241.78C218.161 222.337 210.955 170.75 172.068 150.245C133.197 129.734 115.278 83.9775 114.826 70.3474Z" fill="#DDA700"/>
+                </g>
+                <defs>
+                    <filter id="filter0_i" x="0.59082" y="0.591125" width="321.548" height="314.948" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                        <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                        <feOffset dy="4"/>
+                        <feGaussianBlur stdDeviation="2"/>
+                        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                        <feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
+                    </filter>
+                </defs>
+            </svg>
+        </div> : ""}
+        
+        {[27, 28].includes(page) ? <div className="w-full h-screen tl-0 flex flex-col justify-center items-center absolute z-10">
+            <div className={`${anim} ${page === 27 ? "block animate__fadeInUp" : "animate__fadeOutUp"}`}>
+                <h2 className={`text-9xl tracking-widerr font-bold text-yellow-a800 text-inner ${page !== 27 ? "titleFadeOut" : ""}`}>CREDITS</h2>
+            </div>
+            <p className={`font-Poppins text-center mt-4 text-xl tracking-widerr font-medium text-black-dark ${anim} ${page === 27 ? "animate__fadeInUp animate__delay-1s" : "animate__fadeOutDown animate__faster"}`}>This website will never be implemented without their help.<br/>Below are some credits for them.</p>
+            <DownButton {...{page, setPage}} currentPage={27}/>
+        </div> : ""}
+
+        <div className={`${anim} animate__delay-1s animate__fadeIn wh-full py-28 px-32 left-0 top-0 bg-black-dark absolute overflow-hidden pb-12 ${[28, 29, 30, 31].includes(page) ? "" : "hidden"} ${page === 31 ? "section-leave" : ""}`}>
+            <div className={`${anim} ${[28, 29, 30].includes(page) ? "block animate__fadeInDown animate__delay-2s" : "animate__fadeOutUp"}`}>
+                <p className={`${anim} text-xl mb-6 text-yellow-500 font-bold tracking-widerr uppercase ${[28, 29, 30].includes(page) ? "" : "animate__fadeOutUp"}`}>CREDITS</p>
+            </div>
+            {credits.map(([i, name, quote, desc, link, icon, image]) => <div key={i} className={`wh-full ${anim} ${page === i ? "overflow-hidden" : "section-hide"}`}>
+                <div className={`flex items-center gap-6 ${anim} ${page === i ? "block animate__fadeInDown animate__delay-2s" : "animate__fadeOutUp"}`}>
+                    {icon}
+                    <h1 className="uppercase text-4xl font-bold text-white tracking-widerr">{name}</h1>
+                </div>
+                <div className={`${anim} workflow-title relative z-20 pl-4 mt-8 ${page === i ? "animate__fadeInDown animate__delay-2s" : "animate__fadeOutUp"}`} style={{borderLeft: "10px solid rgba(254, 206, 60)"}}>
+                    <h1 className={`${anim} text-6xl text-white font-bold tracking-widerr uppercase ${page === i ? "animate__fadeInDown animate__delay-3s" : "animate__fadeOutRight"}`}>{quote[0]}<br/>{quote[1]}</h1>
+                </div>
+                <p className={`${anim} ${page === i ? "animate__fadeInUp animate__delay-3s" : "animate__fadeOutDown"} text-white font-Poppins text-xl tracking-widerr font-light leading-7 mt-8 mb-10 w-1/2`}>{desc}</p>
+                <a className={`${anim} ${page === i ? "animate__fadeInUp animate__delay-4s" : "animate__fadeOut"} text-yellow-500 font-bold border-4 border-yellow-500 py-4 px-16 uppercase text-2xl tracking-widerr w-auto`} href={link} target="_blank" rel="noreferrer">VISIT WEBSITE</a>
+                <div className={`${anim} ${page === i ? "block animate__fadeIn animate__delay-2s" : "animate__fadeOut"} z-0 absolute right-0 bottom-0`}>{image}</div>
+            </div>)}
         </div>
     </>;
 };

@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
 
-$dark-mode: 0, 4, 5, 7, 8, 9, 10, 12, 13, 14, 16, 17, 18, 19, 20, 22;
+$dark-mode: 0, 4, 5, 7, 8, 9, 10, 12, 13, 14, 16, 17, 18, 19, 20, 22, 28, 29, 30;
 $logo-colors: (1: (dark: #FFC922, light: #A47C00), 2: (dark: white, light: #131313));
 
 $c-main: #131313;
@@ -16,6 +16,15 @@ html, body {
 	height: 100vh;
 	overflow: hidden;
     scroll-behavior: smooth;
+}
+
+*{
+    font-family: Chakra Petch;
+    
+    &:focus {
+        outline: none;
+        border: none;
+    }
 }
 
 .anim-1 {
@@ -35,6 +44,15 @@ html, body {
 
 .anim-3 {
     animation: Anim3 .6s 1s forwards
+}
+
+.anim-4 {
+    width: 100%;
+    height: 200%;
+    top: -10%;
+    left: -45%;
+    transform: rotate(72deg);
+    animation: Anim4 .6s forwards
 }
 
 .text-inner {
@@ -172,6 +190,24 @@ html, body {
     }
 }
 
+@keyframes Anim4 {
+    0% {
+        width: 100%;
+        height: 200%;
+        top: -10%;
+        left: -45%;
+        transform: rotate(72deg);
+    }
+
+    100% {
+        width: 200vw;
+        height: 200vw;
+        top: 0;
+        left: 0;
+        transform: translateX(0) rotate(90deg);
+    }
+}
+
 @keyframes rotateAnim {
     0% {
         top: 0;
@@ -202,7 +238,11 @@ html, body {
 }
 
 .section-leave {
-    animation: sectionLeave .1s .9s forwards !important
+    animation: sectionLeave .1s .9s forwards !important;
+
+    &-no-delay {
+        animation: sectionLeave .1s forwards !important;
+    }
 }
 
 @keyframes sectionLeave {

@@ -5,7 +5,6 @@ import Navbar from "./Navbar";
 
 function App(): JSX.Element {
     const [ page, setPage ] = useState(0);
-
     
     document.body.onkeyup = function(e){
         if(e.code == "Space") {
