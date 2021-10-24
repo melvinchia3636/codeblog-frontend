@@ -7,17 +7,12 @@ import workflowIllu2 from "./assets/workflow-illu-2.svg";
 import workflowIllu3 from "./assets/workflow-illu-3.svg";
 import workflowIllu4 from "./assets/workflow-illu-4.svg";
 
-import Project1 from "./assets/project1.png";
-import Project2 from "./assets/project2.png";
-import Project3 from "./assets/project3.png";
-import Project4 from "./assets/project4.png";
-import Project5 from "./assets/project5.png";
-
 import "./style/Home.scss";
 import "tailwindcss/tailwind.css";
 import "animate.css/animate.min.css";
 import { useEffect } from "react";
 import Typed from "typed.js";
+import axios from "axios";
 
 const anim = "animate__animated";
   
@@ -44,6 +39,8 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
 
     const el = React.useRef<any>(null);
     const typed = React.useRef<any>(null);
+
+    const [projects, setProjects] = useState<[number, string, string, string, string, string][]>([]);
 
     const workFlow: [number, string, string, string, string][] = [
         [7, workflowIllu1, "A NEW IDEA", "LET’S GET CREATIVE", "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat."],
@@ -94,13 +91,9 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
         ]]        
     ];
 
-    const projects: [number, string, string, string, string, string][] = [
-        [16, "WA-9L2CI", "cruisegator", "web app", "#4189DD", Project1],
-        [17, "WA-KJ8XD", "kaler.info", "web app", "#FF6C7E", Project2],
-        [18, "SW-1JCCA", "juicy inc.", "web app", "#E89C48", Project3],
-        [19, "WA-OGH2U", "copychat", "web app", "#19192C", Project4],
-        [20, "WA-PF0M5", "codeblog", "web app", "#363636", Project5],
-    ];
+    axios({
+        url: "http://localhost:9595/projects/fetch"
+    }).then(res => setProjects(res.data));
 
     const credits: [number, string, string[], string, string, ReactElement, ReactElement][] = [
         [28, "VS Code", ["Code editing.", "Redefined."], "An integrated development environment made by Microsoft for Windows, Linux and macOS.", "https://code.visualstudio.com/", <svg key="vs-code-icon" width="43" height="42" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -241,22 +234,22 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
         {/* Intro.2 */}
         {[1, 2].includes(page) ? <div className="w-full h-screen tl-0 flex flex-col justify-center items-center absolute z-10">
             <div className={`${anim} ${page !== 0 ? "block animate__fadeInUp" : "hidden"}`}>
-                <h2 className={`text-9xl tracking-widerr font-bold text-yellow-a800 text-inner ${page !== 1 ? "titleFadeOut" : ""}`}>GET READY</h2>
+                <h2 className={`transition-all text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-widerr font-bold text-yellow-a800 text-inner ${page !== 1 ? "titleFadeOut" : ""}`}>GET READY</h2>
             </div>
-            <p className={`font-Poppins text-center mt-4 text-xl tracking-widerr font-medium text-black-dark ${anim} ${page === 1 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>Use your <span className="font-Poppins font-semibold uppercase">spacebar</span> to proceed to next sections.<br/>Sit back, relax, and enjoy!</p>
+            <p className={`font-Poppins text-center mt-4 transition-all text-sm sm:text-md md:text-lg lg:text-xl tracking-widerr font-medium text-black-dark ${anim} ${page === 1 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>Use your <span className="font-Poppins font-semibold uppercase">spacebar</span> to proceed to next sections.<br/>Sit back, relax, and enjoy!</p>
             <DownButton {...{page, setPage}} currentPage={1}/>
         </div> : ""}
 
         {/* Intro.3 */}
         {[2, 3].includes(page) ? <div className="w-full h-screen tl-0 flex flex-col justify-center items-center absolute z-10">
-            <h2 className={`${anim} font-Poppins text-center mt-4 text-2xl tracking-widerr font-medium text-black-dark ${page === 2 ? "animate__fadeIn animate__delay-1s" : "animate__fadeOutDown animate__faster"}`}>The portfolio of <span className="font-bold text-4xl">Melvin Chia</span></h2>
+            <h2 className={`${anim} font-Poppins text-center mt-4 text-md sm:text-lg md:text-xl lg:text-2xl tracking-widerr font-medium text-black-dark ${page === 2 ? "animate__fadeIn animate__delay-1s" : "animate__fadeOutDown animate__faster"}`}>The portfolio of <span className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-3xl">Melvin Chia</span></h2>
             <DownButton {...{page, setPage}} currentPage={2}/>
         </div> : ""}
 
         {/* 01A */}
         {[3, 4].includes(page) ? <div className="w-full h-screen tl-0 flex flex-col justify-center items-center absolute z-10">
-            <h2 className={`text-huge tracking-widerr font-bold text-yellow-a800 text-inner ${page !== 3 ? "titleFadeOut" : "titleNoIn"}`}>01A</h2>
-            <p className={`font-Poppins text-center text-4xl tracking-widerr font-medium text-black-dark ${anim} ${page === 3 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>Who Am I</p>
+            <h2 className={`text-8xl md:text-9xl lg:text-huge tracking-widerr font-bold text-yellow-a800 text-inner ${page !== 3 ? "titleFadeOut" : "titleNoIn"}`}>01A</h2>
+            <p className={`font-Poppins text-center text-2xl md:text-3xl lg:text-4xl tracking-widerr font-medium text-black-dark ${anim} ${page === 3 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>Who Am I</p>
             <DownButton {...{page, setPage}} currentPage={3} delay={2}/>
         </div> : ""}
 
@@ -390,7 +383,7 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                         <button style={{backgroundColor: color}} className={`${anim} font-Poppins text-white font-semibold border-white border-4 mt-2 py-4 w-full uppercase text-xl tracking-widerr ${page == i ? "animate__fadeInRight animate__delay-3s" : ""}`}>CASE STUDY</button>
                     </div>
                     <div className="w-full h-full">
-                        <img src={image} className={`${anim} object-cover object-top ${page == i ? "animate__fadeInUp animate__delay-2s" : ""}`} />
+                        <img src={"http://localhost:9595"+image} className={`${anim} object-cover object-top ${page == i ? "animate__fadeInUp animate__delay-2s" : ""}`} />
                     </div>
                 </div>
             </div>)}
@@ -566,6 +559,19 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                 <div className={`${anim} ${page === i ? "block animate__fadeIn animate__delay-2s" : "animate__fadeOut"} z-0 absolute right-0 bottom-0`}>{image}</div>
             </div>)}
         </div>
+
+        {[31, 32].includes(page) ? <div className="w-full h-screen tl-0 flex flex-col justify-center items-center absolute z-10">
+            <div className={`${anim} ${page === 31 ? "block animate__fadeInUp" : "hidden"}`}>
+                <h2 className={`text-9xl tracking-widerr font-bold text-yellow-a800 text-inner ${page !== 31 ? "titleFadeOut" : ""}`}>THE END</h2>
+            </div>
+            <p className={`font-Poppins text-center mt-4 text-xl tracking-widerr font-medium text-black-dark ${anim} ${page === 31 ? "animate__fadeInUp animate__delay-1s" : "animate__fadeOutDown animate__faster"}`}>Thanks for your time. Now it’s time to explore my projects.<br/>Click on the button in the navbar!</p>
+            <button onClick={() => setPage(0)} className={`${anim} absolute bottom-6 left-1/2 ${page === 31 ? "animate__fadeInDown animate__delay-1s" : "animate__fadeOutDown"}`}>
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 5.33334L16 26.6667" stroke="#131313" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M25.333 14.6667L15.9997 5.33334L6.66634 14.6667" stroke="#131313" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+            </button>
+        </div> : ""}
     </>;
 };
 
