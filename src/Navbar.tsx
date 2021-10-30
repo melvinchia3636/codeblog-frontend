@@ -30,23 +30,23 @@ const Navbar: React.FC<INavbar> = ({ page, setPage }: INavbar):JSX.Element => {
                     easing: "spring(1, 80, 100, 0)"
                 }
             ]} className="h-full">
-                <div className="text-white font-Chakra gap-16 navbar relative z-10 hidden 2xl:flex">
+                <div className="text-white font-Chakra gap-16 navbar relative z-10 hidden xl:flex">
                     {topNavItem.map((e, i) => 
                         <button key={`topNav-${i}`} className={`uppercase tracking-widerr text-lg transition-color font-bold ${lightmode.includes(page) ? (!i ? "text-black-dark" : "text-yellow-900") : (!i ? "text-yellow-500" : "")} relative z-10`}>{e}</button>
                     )}
                 </div>
             </Anime>
-            <button onClick={() => {setMobileNavOpen(!mobileNavOpen);}} className="block 2xl:hidden"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><g fill="none"><path className={mobileNavOpen || lightmode.includes(page) ? "fill-black" : "fill-white"} fillRule="evenodd" clipRule="evenodd" d="M3 7a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z" /><path className={mobileNavOpen || lightmode.includes(page) ? "fill-black" : "fill-white"} fillRule="evenodd" clipRule="evenodd" d="M3 13a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z"/></g></svg></button>
+            <button onClick={() => {setMobileNavOpen(!mobileNavOpen);}} className="block xl:hidden"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><g fill="none"><path className={mobileNavOpen || lightmode.includes(page) ? "fill-black" : "fill-white"} fillRule="evenodd" clipRule="evenodd" d="M3 7a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z" /><path className={mobileNavOpen || lightmode.includes(page) ? "fill-black" : "fill-white"} fillRule="evenodd" clipRule="evenodd" d="M3 13a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z"/></g></svg></button>
         </div>
         <Anime initial={[
             {
                 targets: ".sidebar button",
                 translateY: ["-1000%", "0%"],
-                delay: stagger(200, {start: 4000}),
+                delay: stagger(200, {start: 2000}),
                 easing: "spring(1, 80, 100, 0)"
             }
         ]} className="h-full">
-            <div className="text-white font-Chakra gap-16 sidebar transform origin-top-left -rotate-90 absolute z-30 bottom-2 left-6 hidden 2xl:flex">
+            <div className="text-white font-Chakra gap-16 sidebar transform origin-top-left -rotate-90 absolute z-30 bottom-2 left-6 hidden xl:flex">
                 {sideNavItem.map(([e, t], i) => <button key={`sideNav-${i}`} className={`uppercase tracking-widerr text-lg transition-color font-bold ${[1, 2, 3, 6, 11, 15, 21, 23, 24, 25, 26, 27, 31].includes(page) ? (section === i ? "text-black-dark" : "text-yellow-900") : (section === i ? "text-yellow-500" : "")}`} onClick={() => {setPage(t); setSection(i); (document.activeElement as HTMLElement).blur();}}>{e}</button>)}
             </div>
         </Anime>
@@ -58,7 +58,7 @@ const Navbar: React.FC<INavbar> = ({ page, setPage }: INavbar):JSX.Element => {
                 easing: "spring(1, 80, 100, 0)"
             }
         ]} className="h-full">
-            <div className="text-white font-Chakra gap-12 hidden 2xl:flex flex-col items-end absolute bottom-6 right-6  z-30 sidebar2">
+            <div className="text-white font-Chakra gap-12 hidden xl:flex flex-col items-end absolute bottom-6 right-6  z-30 sidebar2">
                 <a href="https://www.facebook.com/TheSillyCoder" target="_blank" rel="noreferrer">
                     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path className={lightmode.includes(page) ? "fill-black" : "fill-yellow"} d="M15.6298 24.4965V14.9345H18.8556L19.3351 11.1907H15.6298V8.806C15.6298 7.72567 15.9308 6.986 17.4813 6.986H19.446V3.64817C18.49 3.54572 17.5292 3.49626 16.5678 3.5C13.7165 3.5 11.7588 5.24067 11.7588 8.43617V11.1837H8.55396V14.9275H11.7658V24.4965H15.6298Z"/>
@@ -81,7 +81,7 @@ const Navbar: React.FC<INavbar> = ({ page, setPage }: INavbar):JSX.Element => {
                         <path className={lightmode.includes(page) ? "fill-black" : "fill-yellow"} fillRule="evenodd" clipRule="evenodd" d="M14.0303 2.33333C7.60315 2.33333 2.39398 7.54249 2.39398 13.9697C2.39398 19.11 5.72715 23.4722 10.3518 25.0122C10.934 25.1172 11.144 24.759 11.144 24.451C11.144 24.1745 11.1346 23.4418 11.1311 22.4723C7.89365 23.1747 7.20998 20.9113 7.20998 20.9113C6.68265 19.5673 5.91848 19.2092 5.91848 19.2092C4.86265 18.487 5.99898 18.5033 5.99898 18.5033C7.16798 18.585 7.78048 19.7027 7.78048 19.7027C8.81882 21.4807 10.5058 20.9673 11.1661 20.6698C11.2723 19.9173 11.5756 19.404 11.907 19.1135C9.32398 18.8207 6.60798 17.822 6.60798 13.3618C6.60798 12.0937 7.06182 11.053 7.80265 10.241C7.68482 9.94583 7.28232 8.76166 7.91815 7.16099C7.91815 7.16099 8.89465 6.84716 11.1171 8.35216C12.0663 8.09394 13.0455 7.96214 14.0291 7.96016C15.0129 7.96176 15.992 8.09357 16.9411 8.35216C19.1648 6.84599 20.1401 7.16099 20.1401 7.16099C20.776 8.76166 20.377 9.94583 20.2556 10.241C21.0023 11.053 21.4503 12.0925 21.4503 13.3618C21.4503 17.8337 18.732 18.816 16.1396 19.1042C16.5538 19.4635 16.9271 20.1728 16.9271 21.2578C16.9271 22.8142 16.9131 24.0695 16.9131 24.451C16.9131 24.7625 17.1208 25.1242 17.7146 25.0098C22.337 23.4675 25.6666 19.1088 25.6666 13.9697C25.6666 7.54249 20.4575 2.33333 14.0303 2.33333Z"/>
                     </svg>
                 </a>
-                <p className={`font-bold ${lightmode.includes(page) ? "text-yellow-900" : "text-white"} tracking-widerr animate__animated animate__fadeInUp animate__delay-5s hidden 2xl:block`}>v7.0</p>
+                <p className={`font-bold ${lightmode.includes(page) ? "text-yellow-900" : "text-white"} tracking-widerr animate__animated animate__fadeInUp animate__delay-3s hidden xl:block`}>v7.0</p>
             </div>
         </Anime>
         <div className={`mobile-nav w-full h-screen bg-yellow-400 transition-all duration-300 absolute top-0 z-40 ${mobileNavOpen ? "left-0 top-0" : "left-full -top-1/2 rounded-bl-full"}`}>
@@ -93,9 +93,9 @@ const Navbar: React.FC<INavbar> = ({ page, setPage }: INavbar):JSX.Element => {
                     easing: "spring(1, 80, 100, 0)"
                 }
             ]} className="h-full">
-                <div className="text-white font-Chakra gap-16 navbar relative z-10 flex flex-col items-center justify-center h-full -mt-6">
+                <div className="text-white font-Chakra gap-16 navbar relative z-10 flex flex-col items-center justify-center h-full">
                     {topNavItem.map((e, i) => 
-                        <button key={`topNav-${i}`} className={`uppercase tracking-widerr text-lg transition-color font-bold ${lightmode.includes(page) ? (!i ? "text-black-dark" : "text-yellow-900") : (!i ? "text-yellow-500" : "")} relative z-10`}>{e}</button>
+                        <button key={`topNav-${i}`} className={`uppercase tracking-widerr text-lg transition-color font-bold ${(!i ? "text-black-dark" : "text-yellow-900")} relative z-10`}>{e}</button>
                     )}
                 </div>
             </Anime> : null}
