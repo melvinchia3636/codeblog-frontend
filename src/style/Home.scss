@@ -20,6 +20,7 @@ html, body {
 
 *{
     font-family: Chakra Petch;
+    -webkit-tap-highlight-color: transparent;
     
     &:focus {
         outline: none;

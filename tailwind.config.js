@@ -52,7 +52,8 @@ module.exports = {
         },
         fill: theme => ({
             "yellow": theme("colors.yellow.500"),
-            "black": theme("colors.black.dark")
+            "black": theme("colors.black.dark"),
+            "white": theme("colors.white")
         })
     },
     variants: {

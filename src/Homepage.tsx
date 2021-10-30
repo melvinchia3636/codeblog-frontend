@@ -1,4 +1,4 @@
-import React, { ReactElement, useRef, useState } from "react";
+import React, { ReactElement, useRef, useState, useEffect } from "react";
 import Illu1 from "./assets/illu1.svg";
 import Img1 from "./assets/img1.png";
 
@@ -10,7 +10,6 @@ import workflowIllu4 from "./assets/workflow-illu-4.svg";
 import "./style/Home.scss";
 import "tailwindcss/tailwind.css";
 import "animate.css/animate.min.css";
-import { useEffect } from "react";
 import Typed from "typed.js";
 import axios from "axios";
 
@@ -27,7 +26,7 @@ interface IDownButton extends ILanding {
 }
 
 const DownButton: React.FC<IDownButton> = ({page, setPage, currentPage, delay}: IDownButton):JSX.Element => {
-    return <button onClick={() => setPage(currentPage+1)} className={`${anim} absolute bottom-6 left-1/2 ${page === currentPage ? `animate__fadeInDown animate__delay-${delay || 1}s` : "animate__fadeOutDown"}`}>
+    return <button onClick={() => setPage(currentPage+1)} className={`${anim} absolute bottom-6 left-1/2 ${page === currentPage ? `animate__fadeInDown animate__delay-${delay || 1}s` : "animate__fadeOutDown"} -ml-1/2`}>
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16 26.6667V5.33337" stroke="#131313" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
             <path d="M6.66667 17.3334L16 26.6667L25.3333 17.3334" stroke="#131313" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
@@ -91,9 +90,9 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
         ]]        
     ];
 
-    axios({
+    useEffect(() => {axios({
         url: "http://localhost:9595/projects/fetch"
-    }).then(res => setProjects(res.data));
+    }).then(res => setProjects(res.data));}, []);
 
     const credits: [number, string, string[], string, string, ReactElement, ReactElement][] = [
         [28, "VS Code", ["Code editing.", "Redefined."], "An integrated development environment made by Microsoft for Windows, Linux and macOS.", "https://code.visualstudio.com/", <svg key="vs-code-icon" width="43" height="42" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -217,26 +216,26 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
 
     return <>
         {/* Intro */}
-        {[0, 1].includes(page) ? <div className={page > 1 ? "hidden" : "flex items-center justify-center flex-col h-screen"}>
-            <div className="absolute top-24 left-32 flex gap-4">
+        {[0, 1].includes(page) ? <div className={page > 1 ? "hidden" : "flex items-center justify-center flex-col h-full"}>
+            <div className="absolute top-36 2xl:top-24 left-6 2xl:left-32 flex gap-4">
                 <svg className={`${anim} animate__fadeInLeft animate__fast ${page === 0 ? "animate__delay-2s" : ""} ${page !== 0 ? "animate__fadeOutLeftBig" : ""}`} width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9.53511 16.2543C13.1595 12.3251 18.6439 10.3333 25.8334 10.3333H28.4167V17.6158L26.3397 18.0317C22.8005 18.7395 20.3386 20.1319 19.0211 22.1753C18.3337 23.2762 17.9438 24.5366 17.8896 25.8333H25.8334C26.5185 25.8333 27.1756 26.1055 27.6601 26.59C28.1445 27.0745 28.4167 27.7315 28.4167 28.4167V46.5C28.4167 49.3494 26.0994 51.6667 23.25 51.6667H7.75003C7.06489 51.6667 6.4078 51.3945 5.92334 50.91C5.43887 50.4256 5.1667 49.7685 5.1667 49.0833V36.1667L5.17445 28.6259C5.1512 28.3392 4.66036 21.545 9.53511 16.2543ZM51.6667 51.6667H36.1667C35.4816 51.6667 34.8245 51.3945 34.34 50.91C33.8555 50.4256 33.5834 49.7685 33.5834 49.0833V36.1667L33.5911 28.6259C33.5679 28.3392 33.077 21.545 37.9518 16.2543C41.5762 12.3251 47.0606 10.3333 54.25 10.3333H56.8334V17.6158L54.7564 18.0317C51.2172 18.7395 48.7553 20.1319 47.4378 22.1753C46.7503 23.2762 46.3605 24.5366 46.3063 25.8333H54.25C54.9352 25.8333 55.5923 26.1055 56.0767 26.59C56.5612 27.0745 56.8334 27.7315 56.8334 28.4167V46.5C56.8334 49.3494 54.5161 51.6667 51.6667 51.6667Z" fill="#FFC922"/>
                 </svg>
-                <p className={`${anim} animate__fadeInDown animate__fast ${page === 0 ? "animate__delay-2s" : ""} ${page !== 0 ? "animate__fadeOutLeftBig" : ""} text-white tracking-widerr text-3xl z-10 text-wider`}>You can never use up creativity. The more<br/>you use, the more you have.</p>
+                <p className={`${anim} animate__fadeInDown animate__fast ${page === 0 ? "animate__delay-2s" : ""} ${page !== 0 ? "animate__fadeOutLeftBig" : ""} text-white tracking-widerr text-lg 2xl:text-3xl z-10`}>You can never use up creativity. The more<br/>you use, the more you have.</p>
             </div>
-            <div className='mt-48'>
-                <p className={`${anim} ${page === 0 ? "animate__delay-2s" : ""} animate__fast animate__fadeInLeft uppercase ml-2 text-white text-4xl font-bold tracking-widest ${page !== 0 ? " animate__fadeOutDownBig" : ""}`}>VISION OF</p>
-                <h1 className={`${anim} animate__slow animate__fadeIn uppercase text-huge leading-none relative z-60 font-bold tracking-widest mix-blend-difference text-yellow-500 ${page !== 0 ? "animate__fadeOutDownBig" : ""}`}>creativity</h1>
+            <div className='mt-16 2xl:mt-48'>
+                <p className={`${anim} ${page === 0 ? "animate__delay-2s" : ""} animate__fast animate__fadeInLeft uppercase 2xl:ml-2 text-white text-xl 2xl:text-4xl font-bold tracking-widest ${page !== 0 ? " animate__fadeOutDownBig" : ""}`}>VISION OF</p>
+                <h1 className={`${anim} animate__slow animate__fadeIn uppercase text-6xl 2xl:text-huge leading-none relative z-60 font-bold tracking-wider 2xl:tracking-widest mix-blend-difference text-yellow-500 ${page !== 0 ? "animate__fadeOutDownBig" : ""}`}>creativity</h1>
             </div>
-            <button onClick={() => setPage(1)} className={`${anim} animate__fadeInDown animate__fast ${page === 0 ? "animate__delay-3s" : ""} ${page !== 0 ? "animate__fadeOutDownBig" : ""} uppercase text-3xl relative z-10 font-semibold border-4 text-yellow-500 border-yellow-500 mix-blend-difference tracking-widest py-5 px-16 mt-24`}>START HERE</button>
+            <button onClick={() => setPage(1)} className={`${anim} animate__fadeInDown animate__fast ${page === 0 ? "animate__delay-3s" : ""} ${page !== 0 ? "animate__fadeOutDownBig" : ""} uppercase text-xl 2xl:text-3xl relative z-10 font-bold 2xl:font-semibold border-4 text-yellow-500 border-yellow-500 mix-blend-difference tracking-widest py-5 px-16 mt-24`}>START HERE</button>
         </div> : ""}
         
         {/* Intro.2 */}
         {[1, 2].includes(page) ? <div className="w-full h-screen tl-0 flex flex-col justify-center items-center absolute z-10">
-            <div className={`${anim} ${page !== 0 ? "block animate__fadeInUp" : "hidden"}`}>
-                <h2 className={`transition-all text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-widerr font-bold text-yellow-a800 text-inner ${page !== 1 ? "titleFadeOut" : ""}`}>GET READY</h2>
+            <div className={`${anim} ${page !== 0 ? "block animate__fadeInUp" : "hidden"} -mt-8 2xl:mt-0`}>
+                <h2 className={`transition-all text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-widerr font-bold text-yellow-a800 text-inner ${page !== 1 ? "titleFadeOut" : ""}`}>GET READY</h2>
             </div>
-            <p className={`font-Poppins text-center mt-4 transition-all text-sm sm:text-md md:text-lg lg:text-xl tracking-widerr font-medium text-black-dark ${anim} ${page === 1 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>Use your <span className="font-Poppins font-semibold uppercase">spacebar</span> to proceed to next sections.<br/>Sit back, relax, and enjoy!</p>
+            <p className={`font-Poppins text-center mt-4 px-6 transition-all text-sm sm:text-md md:text-lg lg:text-xl tracking-widerr font-medium text-black-dark ${anim} ${page === 1 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>Use your <span className="font-Poppins font-semibold uppercase">spacebar</span> to proceed to next sections.<br/><br/>Sit back, relax, and enjoy!</p>
             <DownButton {...{page, setPage}} currentPage={1}/>
         </div> : ""}
 
@@ -253,7 +252,7 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
             <DownButton {...{page, setPage}} currentPage={3} delay={2}/>
         </div> : ""}
 
-        <div className={`bg-yellow-500 w-full h-200 absolute ${page <= 1 ? `-translate-x-28 anim-1 transform rotate-27 ${page !== 0 ? "anim-2" : ""}` : "tl-0 wh-full"} ${page === 24 ? "anim-3" : ""} ${page === 25 ? "anim-4" : ""} transition-all mix-blend-difference`}></div>
+        <div className={`bg-yellow-500 w-full h-200 absolute ${page <= 1 ? `-translate-x-36 2xl:-translate-x-28 anim-1 transform rotate-27 ${page !== 0 ? "anim-2" : ""}` : "tl-0 wh-full"} ${page === 24 ? "anim-3" : ""} ${page === 25 ? "anim-4" : ""} transition-all mix-blend-difference`}></div>
 
         {Array(5).fill(0).map((_, i) => <div key={i} className={`layer layer-${i+1} wh-full left-0 -top-full absolute z-10 ${[4, 5, 7, 8, 9, 10, 12, 13, 14, 16, 17, 18, 19, 20, 22, 28, 29, 30].includes(page) ? "active" : ""}`}></div>)}
         <div className={`${anim} animate__delay-1s animate__fadeIn wh-full left-0 top-0 bg-black-dark absolute ${[4, 5, 6].includes(page) ? "" : "hidden"} ${page === 6 ? "section-leave" : ""}`}>
@@ -362,7 +361,7 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                 <h1 className={`${anim} ${page === 16 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase text-4xl font-bold text-white tracking-widerr`}>MY FAVOURTIE PROJECTS</h1>
             </div>
             {/* 02B.1.2.3.4.5 */}
-            {projects.map(([i, serial, name, type, color, image], index) => <div key={i} className={`px-32 wh-full ${anim} ${page === i ? "overflow-hidden" : "section-hide"}`}>
+            {projects.map(([i, serial, name, type, color, image]) => <div key={i} className={`px-32 wh-full ${anim} ${page === i ? "overflow-hidden" : "section-hide"}`}>
                 <div style={{backgroundColor: color}} className={`mt-12 ${anim} gap-32 flex w-full h-full overflow-hidden justify-between p-12 pb-0 ${page === i ? "animate__delay-1s animate__fadeInDown" : "animate__fadeOutDown animate__fast"}`}>
                     <div className="w-5/12">
                         <svg className={"-mt-4 " + `${anim} ${page == i ? "animate__fadeInDown animate__delay-2s" : ""}`} width="135" height="24" viewBox="0 0 135 24" fill="none" xmlns="http://www.w3.org/2000/svg">

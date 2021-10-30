@@ -15,7 +15,7 @@ function App(): JSX.Element {
     return (
         <>
             <Navbar page={page} setPage={setPage}/>
-            <main>
+            <main className="h-full">
                 <Route>
                     <Switch>
                         <Route exact path="/"><Landing page={page} setPage={setPage}/></Route>
