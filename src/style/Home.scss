@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
 
-$dark-mode: 0, 4, 5, 7, 8, 9, 10, 12, 13, 14, 16, 17, 18, 19, 20, 22, 28, 29, 30;
+$dark-mode: 0, 4, 5, 7, 8, 9, 10, 12, 13, 14, 16, 17, 18, 19, 20, 22, 28, 29, 30, 31;
 $logo-colors: (1: (dark: #FFC922, light: #A47C00), 2: (dark: white, light: #131313));
 
 $c-main: #131313;
@@ -21,6 +21,11 @@ html, body {
 *{
     font-family: Chakra Petch;
     -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
     
     &:focus {
         outline: none;

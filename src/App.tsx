@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import React, { useState } from "react";
+import { Route, Switch, useLocation } from "react-router-dom";
 import Landing from "./Homepage";
+import Projects from "./Projects";
 import Navbar from "./Navbar";
 
 function App(): JSX.Element {
+    const location = useLocation();
     const [ page, setPage ] = useState(0);
     
-    document.body.onkeyup = function(e){
-        if(e.code == "Space") {
-            setPage(page + 1);
-        }
+    if (location.pathname == "/") document.body.onkeyup = function(e){
+        setPage(e.code == "Space" && page + 1 < 33 ? page + 1 : 0);
     };
 
     return (
@@ -20,6 +20,7 @@ function App(): JSX.Element {
                     <Switch>
                         <Route exact path="/"><Landing page={page} setPage={setPage}/></Route>
                         <Route exact path="/home"><Landing page={page} setPage={setPage}/></Route>
+                        <Route exact path="/projects"><Projects/></Route>
                     </Switch>
                 </Route>
             </main>

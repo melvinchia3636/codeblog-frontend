@@ -25,6 +25,7 @@ module.exports = {
                 "Chakra": ["Chakra Petch"]
             },
             fontSize: {
+                "big": "10rem",
                 "huge": "12rem",
                 "enormous": "18rem"
             },
