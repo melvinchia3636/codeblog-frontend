@@ -4,7 +4,6 @@ import React, { ReactElement, useState } from "react";
 import ReactAnime from "react-animejs";
 
 const anim = "animate__animated";
-const lol = 0;
 
 const Projects = (): JSX.Element => {
     const {Anime, stagger} = ReactAnime;
@@ -133,7 +132,7 @@ const Projects = (): JSX.Element => {
                     <div className={`${anim} workflow-title relative pl-6 ${show ? "animate__fadeInDown" : "animate__fadeOutUp"}`} style={{borderLeft: "10px solid rgba(254, 206, 60)"}}>
                         <h1 className={`${anim} text-7xl text-white font-bold tracking-widerr uppercase whitespace-nowrap ${show ? "animate__fadeInDown "+(first ? "animate__delay-1s" : "") : "animate__fadeOutRight"}`}>{(projectTypes[currentType-1][2]+"").split("<br>").map(e => <p key="hmm">{e}</p>)}</h1>
                     </div>
-                    <button className={`${anim} text-yellow-500 font-bold mt-16 border-yellow-500 border-4 py-5 px-20 uppercase text-2xl tracking-widerr whitespace-nowrap ${show ? "animate__fadeInUp animate__delay-1s" : "animate__fadeOutDown"}`}>BWORSE PROEJCTS</button>
+                    <a href={"projects/"+projectTypes[currentType-1][6] as string} className={`${anim} inline-block text-yellow-500 font-bold mt-16 border-yellow-500 border-4 py-5 px-20 uppercase text-2xl tracking-widerr whitespace-nowrap ${show ? "animate__fadeInUp animate__delay-1s" : "animate__fadeOutDown"}`}>BWORSE PROEJCTS</a>
                 </div>
                 <div className={`${anim} ${show ? "animate__fadeInUp "+(first ? "animate__delay-1s" : "") : "animate__fadeOutDown"}`}>
                     <p className="text-white uppercase tracking-widerr font-semibold text-2xl">projects count</p>

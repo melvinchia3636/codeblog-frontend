@@ -3,6 +3,7 @@ import { Route, Switch, useLocation } from "react-router-dom";
 import Landing from "./Homepage";
 import Projects from "./Projects";
 import Navbar from "./Navbar";
+import ProjectList from "./ProjectList";
 
 function App(): JSX.Element {
     const location = useLocation();
@@ -21,6 +22,7 @@ function App(): JSX.Element {
                         <Route exact path="/"><Landing page={page} setPage={setPage}/></Route>
                         <Route exact path="/home"><Landing page={page} setPage={setPage}/></Route>
                         <Route exact path="/projects"><Projects/></Route>
+                        <Route path="/projects/:id"><ProjectList/></Route>
                     </Switch>
                 </Route>
             </main>

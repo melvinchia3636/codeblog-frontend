@@ -20,6 +20,7 @@ const Navbar: React.FC<INavbar> = ({ page, setPage }: INavbar):JSX.Element => {
     const topNavItem = ["home", "projects", "blog", "FAQ"];
     const sideNavItem = [["intro", 0], ["skills", 11], ["projects", 15], ["outro", 24]];
     const lightmode = [0, 1, 2, 3, 6, 11, 15, 21, 23, 25, 26, 27, 32];
+    console.log();
     
     return <nav>
         <div className="absolute z-50 top-6 left-6 flex justify-between" style={{width: "calc(100% - 3rem)"}}>
@@ -34,7 +35,7 @@ const Navbar: React.FC<INavbar> = ({ page, setPage }: INavbar):JSX.Element => {
             ]} className="h-full">
                 <div className="text-white font-Chakra gap-16 navbar relative z-10 hidden xl:flex">
                     {topNavItem.map((e, i) => 
-                        <button key={`topNav-${i}`} onClick={() => history.push(e.replace("home", ""))} className={`uppercase tracking-widerr text-lg transition-color font-bold ${lightmode.includes(page) && location.pathname === "/" ? (location.pathname === "/"+e .replace("home", "")? "text-black-dark" : "text-yellow-900") : (location.pathname === "/"+e.replace("home", "") ? "text-yellow-500" : "")} relative z-10`}>{e}</button>
+                        <button key={`topNav-${i}`} onClick={() => history.push(e.replace("home", ""))} className={`uppercase tracking-widerr text-lg transition-color font-bold ${lightmode.includes(page) && location.pathname === "/" ? (location.pathname.split("/")[1] === e.replace("home", "")? "text-black-dark" : "text-yellow-900") : (location.pathname.split("/")[1] === e.replace("home", "") ? "text-yellow-500" : "")} relative z-10`}>{e}</button>
                     )}
                 </div>
             </Anime>
@@ -60,7 +61,7 @@ const Navbar: React.FC<INavbar> = ({ page, setPage }: INavbar):JSX.Element => {
                 easing: "spring(1, 80, 100, 0)"
             }
         ]} className="h-full">
-            <div className="text-white font-Chakra gap-12 hidden xl:flex flex-col items-end absolute bottom-6 right-6  z-30 sidebar2">
+            <div className="text-white font-Chakra gap-12 hidden xl:flex flex-col items-end absolute bottom-6 right-6 z-30 sidebar2">
                 <a href="https://www.facebook.com/TheSillyCoder" target="_blank" rel="noreferrer">
                     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path className={lightmode.includes(page) && location.pathname === "/" ? "fill-black" : "fill-yellow"} d="M15.6298 24.4965V14.9345H18.8556L19.3351 11.1907H15.6298V8.806C15.6298 7.72567 15.9308 6.986 17.4813 6.986H19.446V3.64817C18.49 3.54572 17.5292 3.49626 16.5678 3.5C13.7165 3.5 11.7588 5.24067 11.7588 8.43617V11.1837H8.55396V14.9275H11.7658V24.4965H15.6298Z"/>

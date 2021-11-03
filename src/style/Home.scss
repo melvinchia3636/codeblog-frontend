@@ -271,3 +271,11 @@ html, body {
 .tl-0 {
     @apply top-0 left-0
 }
+
+.proj-container {
+    scroll-snap-type: x mandatory;
+
+    & > div {
+        scroll-snap-align: center;
+    }
+}
