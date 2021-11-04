@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import ReactAnime from "react-animejs";
@@ -10,6 +10,13 @@ const Projects = (): JSX.Element => {
     const [currentType, changeCurrentType] = useState(1);
     const [show, setShow] = useState(true);
     const [first, setFirst] = useState(true);
+    const [catShow, setCatShow] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setCatShow(true);
+        }, 100);
+    }, []);
 
     const projectTypes: (string|number|ReactElement)[][] = [
         ["Websites", 56, "WEB APPS/<br>WEBSITES", "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.", "3 months / projects", "Available", "WA", <svg key="web" width="499" height="408" viewBox="0 0 499 408" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -106,35 +113,36 @@ const Projects = (): JSX.Element => {
         ],
     ];
 
-    return <div className="w-full h-full pt-32 px-16 overflow-scroll">
-        <div className="flex flex-col lg:flex-row justify-between gap-24 w-full h-full relative z-10">   
+    return <div className="w-full h-full pt-16 xl:pt-32 lg:px-16">
+        <div className="flex flex-col xl:flex-row justify-between gap-16 md:gap-24 px-6 w-full h-full relative z-10 overflow-x-hidden overflow-y-scroll">   
             <div className="h-full justify-between flex flex-col">
                 <Anime initial={[{
                     targets: ".sidebar p",
                     translateX: ["-1000%", "0%"],
                     delay: stagger(200),
                     easing: "spring(1, 80, 100, 0)"
-                }]}>
+                }]} className="hidden xl:block">
                     <div className="text-white sidebar font-Poppins text-3xl whitespace-nowrap">
-                        {projectTypes.map(([e], i)=> <p key="projTyes" onClick={() => {setShow(false); setFirst(false); setTimeout(() => {
+                        {projectTypes.map(([e], i) => <p key="projTyes" onClick={() => {setShow(false); setFirst(false); setTimeout(() => {
                             changeCurrentType(i+1);
                             setShow(true);
                         }, 1000);}} className={`font-Poppins tracking-widerr mb-8 cursor-pointer ${currentType === i+1 && "text-yellow-500 font-semibold"}`}>{e}</p>)}
                     </div>
                 </Anime>
-                <div className={`${anim} ${show ? "animate__fadeInUp "+(first ? "animate__delay-1s" : "") : "animate__fadeOutDown"}`}>
+                <div className={`${anim} ${show ? "animate__fadeInUp "+(first ? "animate__delay-1s" : "") : "animate__fadeOutDown"} hidden xl:block`}>
                     <p className="text-white uppercase tracking-widerr font-semibold text-2xl">category no.</p>
                     <p className={`${anim} animate__fadeInLeft animate__delay-1s text-yellow-500 text-big font-bold tracking-widerr -mt-6`}>{(currentType+"").padStart(2, "0")}<span className="text-white font-semibold text-4xl tracking-widerr whitespace-nowrap">/ 05</span></p>
                 </div>
             </div>
             <div className="h-full justify-between flex flex-col">
+                <button onClick={() => setCatShow(true)} className={`${anim} text-yellow-500 inline text-left xl:hidden font-Poppins tracking-widerr mb-8 text-md font-bold uppercase`}>&lt; browse categories</button>
                 <div>
-                    <div className={`${anim} workflow-title relative pl-6 ${show ? "animate__fadeInDown" : "animate__fadeOutUp"}`} style={{borderLeft: "10px solid rgba(254, 206, 60)"}}>
-                        <h1 className={`${anim} text-7xl text-white font-bold tracking-widerr uppercase whitespace-nowrap ${show ? "animate__fadeInDown "+(first ? "animate__delay-1s" : "") : "animate__fadeOutRight"}`}>{(projectTypes[currentType-1][2]+"").split("<br>").map(e => <p key="hmm">{e}</p>)}</h1>
+                    <div className={`${anim} workflow-title relative pl-4 md:pl-6 ${show ? "animate__fadeInDown" : "animate__fadeOutUp"}`} style={{borderLeft: "10px solid rgba(254, 206, 60)"}}>
+                        <h1 className={`${anim} text-5xl md:text-7xl text-white font-bold tracking-widerr uppercase whitespace-nowrap ${show ? "animate__fadeInDown "+(first ? "animate__delay-1s" : "") : "animate__fadeOutRight"}`}>{(projectTypes[currentType-1][2]+"").split("<br>").map(e => <p key="hmm">{e}</p>)}</h1>
                     </div>
-                    <a href={"projects/"+projectTypes[currentType-1][6] as string} className={`${anim} inline-block text-yellow-500 font-bold mt-16 border-yellow-500 border-4 py-5 px-20 uppercase text-2xl tracking-widerr whitespace-nowrap ${show ? "animate__fadeInUp animate__delay-1s" : "animate__fadeOutDown"}`}>BWORSE PROEJCTS</a>
+                    <a href={"projects/"+projectTypes[currentType-1][6] as string} className={`${anim} text-yellow-500 font-bold mt-8 md:mt-16 border-yellow-500 border-4 py-5 w-full xl:w-auto flex items-center justify-center xl:px-20 uppercase text-xl xl:text-2xl tracking-widerr whitespace-nowrap ${show ? "animate__fadeInUp animate__delay-1s" : "animate__fadeOutDown"}`}>BWORSE PROEJCTS</a>
                 </div>
-                <div className={`${anim} ${show ? "animate__fadeInUp "+(first ? "animate__delay-1s" : "") : "animate__fadeOutDown"}`}>
+                <div className={`${anim} ${show ? "animate__fadeInUp "+(first ? "animate__delay-1s" : "") : "animate__fadeOutDown"} hidden xl:block`}>
                     <p className="text-white uppercase tracking-widerr font-semibold text-2xl">projects count</p>
                     <p className={`${anim} animate__fadeInRight animate__delay-1s text-yellow-500 text-big font-bold tracking-widerr -mt-6`}>{(projectTypes[currentType-1][1]+"").padStart(2, "0")}<span className="text-white font-semibold text-4xl tracking-widerr">/ 78</span></p>
                 </div>
@@ -145,27 +153,50 @@ const Projects = (): JSX.Element => {
                 delay: stagger(200, {start: 1500}),
                 easing: "spring(1, 80, 100, 0)"
             }]} className={`${anim} ${show ? "animate__fadeInRight" : "animate__fadeOutRight"}`}>
-                <div className="flex meta flex-col gap-16">
+                <div className="flex meta flex-row flex-wrap gap-12 xl:gap-16 mb-32">
                     <div>
-                        <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-lg font-bold uppercase`}>description</p>
+                        <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-xl font-bold uppercase`}>description</p>
                         <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2`}>{projectTypes[currentType-1][3]}</p>
                     </div>
                     <div>
-                        <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-lg font-bold uppercase`}>average time spent</p>
+                        <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-xl font-bold uppercase`}>avg. time spent</p>
                         <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2`}>{projectTypes[currentType-1][4]}</p>
                     </div>
                     <div>
-                        <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-lg font-bold uppercase`}>case study</p>
+                        <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-xl font-bold uppercase`}>case study</p>
                         <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2`}>{projectTypes[currentType-1][5]}</p>
                     </div>
                     <div>
-                        <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-lg font-bold uppercase`}>project s.no</p>
-                        <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2`}>CB-<span className="font-semibold text-lg text-yellow-500">{projectTypes[currentType-1][6]}</span>-XXXXX</p>
+                        <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-xl font-bold uppercase`}>project s.no</p>
+                        <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2`}>CB-<span className="font-semibold text-xl text-yellow-500">{projectTypes[currentType-1][6]}</span>-XXXXX</p>
+                    </div>
+                    <div>
+                        <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-xl font-bold uppercase`}>project count</p>
+                        <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2`}>56 completed projects</p>
                     </div>
                 </div>
             </Anime>
         </div>
-        <div className={`${anim} absolute bottom-0 right-0 ${show ? "animate__fadeInRightBig" : "fadeOutRightBig"}`}>{projectTypes[currentType-1][7]}</div>
+        <div className={`${anim} absolute -bottom-10 xl:bottom-0 right-0 xl:right-0 w-9/12 xl:w-full flex ${show ? "animate__fadeInRightBig" : "fadeOutRightBig"}`}>{projectTypes[currentType-1][7]}</div>
+        <div className={`${catShow ? "w-full h-screen left-0 rounded-r-none" : "-left-full w-0 h-0 rounded-r-full"} ease-in-out absolute top-1/2 transform -translate-y-1/2 bg-yellow-500 z-50 transition-all duration-1000 xl:hidden`}>
+            {catShow ? <Anime initial={[
+                {
+                    targets: ".projTypes button",
+                    translateX: ["-1000%", "0%"],
+                    delay: stagger(200, {start: 500}),
+                    easing: "spring(1, 80, 100, 0)"
+                }
+            ]} className="h-full">
+                <div className="font-Chakra projTypes gap-16 navbar relative z-10 flex flex-col items-center justify-center h-full">
+                    {projectTypes.map(([e], i) => 
+                        <button onClick={() => {setShow(false); setCatShow(false); setFirst(false); setTimeout(() => {
+                            changeCurrentType(i+1);
+                            setShow(true);
+                        }, 1000);}} key={`projTypes-${i}`} className={`uppercase tracking-widerr text-lg transition-color font-bold ${(currentType - 1 === i ? "text-black-dark" : "text-yellow-900")} relative z-10`}>{e}</button>
+                    )}
+                </div>
+            </Anime> : null}
+        </div>
     </div>;
 };
 

@@ -86,7 +86,7 @@ const Navbar: React.FC<INavbar> = ({ page, setPage }: INavbar):JSX.Element => {
                 <p className={`font-bold ${lightmode.includes(page) && location.pathname === "/" ? "text-yellow-900" : "text-white"} tracking-widerr animate__animated animate__fadeInUp animate__delay-3s hidden xl:block`}>v7.0</p>
             </div>
         </Anime>
-        <div className={`mobile-nav w-full h-screen bg-yellow-400 transition-all duration-300 absolute top-0 z-40 ${mobileNavOpen ? "left-0 top-0" : "left-full -top-1/2 rounded-bl-full"}`}>
+        <div className={`mobile-nav bg-yellow-400 transition-all duration-700 absolute top-0 z-40 ${mobileNavOpen ? "left-0 top-0 w-full h-screen" : "left-full -top-1/2 rounded-bl-full w-96 h-96"}`}>
             {mobileNavOpen ? <Anime initial={[
                 {
                     targets: ".navbar button",
@@ -97,7 +97,7 @@ const Navbar: React.FC<INavbar> = ({ page, setPage }: INavbar):JSX.Element => {
             ]} className="h-full">
                 <div className="text-white font-Chakra gap-16 navbar relative z-10 flex flex-col items-center justify-center h-full">
                     {topNavItem.map((e, i) => 
-                        <button key={`topNav-${i}`} onClick={() => {"../../"+history.push(e.replace("home", "")); setMobileNavOpen(false);}} className={`uppercase tracking-widerr text-lg transition-color font-bold ${(location.pathname.split("/")[1] === e.replace("home", "")? "text-black-dark" : "text-yellow-900")} relative z-10`}>{e}</button>
+                        <button key={`topNav-${i}`} onClick={() => {history.push("/"+e.replace("home", "")); setMobileNavOpen(false);}} className={`uppercase tracking-widerr text-lg transition-color font-bold ${(location.pathname.split("/")[1] === e.replace("home", "")? "text-black-dark" : "text-yellow-900")} relative z-10`}>{e}</button>
                     )}
                 </div>
             </Anime> : null}
