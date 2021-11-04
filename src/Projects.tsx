@@ -114,7 +114,7 @@ const Projects = (): JSX.Element => {
     ];
 
     return <div className="w-full h-full pt-16 xl:pt-32 lg:px-16">
-        <div className="flex flex-col xl:flex-row justify-between gap-16 md:gap-24 px-6 w-full h-full relative z-10 overflow-x-hidden overflow-y-scroll">   
+        <div className="flex flex-col xl:flex-row justify-between gap-16 md:gap-24 px-6 w-full h-full relative z-10 overflow-x-hidden overflow-y-scroll xl:overflow-hidden">   
             <div className="h-full justify-between flex flex-col">
                 <Anime initial={[{
                     targets: ".sidebar p",
@@ -170,14 +170,14 @@ const Projects = (): JSX.Element => {
                         <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-xl font-bold uppercase`}>project s.no</p>
                         <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2`}>CB-<span className="font-semibold text-xl text-yellow-500">{projectTypes[currentType-1][6]}</span>-XXXXX</p>
                     </div>
-                    <div>
+                    <div className="xl:hidden">
                         <p className={`${anim} text-yellow-500 font-Poppins tracking-widerr text-xl font-bold uppercase`}>project count</p>
                         <p className={`${anim} text-white font-Poppins tracking-widerr leading-snug mt-2`}>56 completed projects</p>
                     </div>
                 </div>
             </Anime>
         </div>
-        <div className={`${anim} absolute -bottom-10 xl:bottom-0 right-0 xl:right-0 w-9/12 xl:w-full flex ${show ? "animate__fadeInRightBig" : "fadeOutRightBig"}`}>{projectTypes[currentType-1][7]}</div>
+        <div className={`${anim} absolute -bottom-10 xl:bottom-0 right-0 w-9/12 xl:w-auto flex ${show ? "animate__fadeInRightBig" : "fadeOutRightBig"}`}>{projectTypes[currentType-1][7]}</div>
         <div className={`${catShow ? "w-full h-screen left-0 rounded-r-none" : "-left-full w-0 h-0 rounded-r-full"} ease-in-out absolute top-1/2 transform -translate-y-1/2 bg-yellow-500 z-50 transition-all duration-1000 xl:hidden`}>
             {catShow ? <Anime initial={[
                 {
