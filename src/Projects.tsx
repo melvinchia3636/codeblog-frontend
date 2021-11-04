@@ -106,8 +106,8 @@ const Projects = (): JSX.Element => {
         ],
     ];
 
-    return <div className="w-full h-full pt-32 px-16">
-        <div className="flex justify-between gap-24 w-full h-full relative z-10">   
+    return <div className="w-full h-full pt-32 px-16 overflow-scroll">
+        <div className="flex flex-col lg:flex-row justify-between gap-24 w-full h-full relative z-10">   
             <div className="h-full justify-between flex flex-col">
                 <Anime initial={[{
                     targets: ".sidebar p",

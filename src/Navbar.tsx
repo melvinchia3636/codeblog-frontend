@@ -20,7 +20,6 @@ const Navbar: React.FC<INavbar> = ({ page, setPage }: INavbar):JSX.Element => {
     const topNavItem = ["home", "projects", "blog", "FAQ"];
     const sideNavItem = [["intro", 0], ["skills", 11], ["projects", 15], ["outro", 24]];
     const lightmode = [0, 1, 2, 3, 6, 11, 15, 21, 23, 25, 26, 27, 32];
-    console.log();
     
     return <nav>
         <div className="absolute z-50 top-6 left-6 flex justify-between" style={{width: "calc(100% - 3rem)"}}>
@@ -35,11 +34,11 @@ const Navbar: React.FC<INavbar> = ({ page, setPage }: INavbar):JSX.Element => {
             ]} className="h-full">
                 <div className="text-white font-Chakra gap-16 navbar relative z-10 hidden xl:flex">
                     {topNavItem.map((e, i) => 
-                        <button key={`topNav-${i}`} onClick={() => history.push(e.replace("home", ""))} className={`uppercase tracking-widerr text-lg transition-color font-bold ${lightmode.includes(page) && location.pathname === "/" ? (location.pathname.split("/")[1] === e.replace("home", "")? "text-black-dark" : "text-yellow-900") : (location.pathname.split("/")[1] === e.replace("home", "") ? "text-yellow-500" : "")} relative z-10`}>{e}</button>
+                        <button key={`topNav-${i}`} onClick={() => history.push("/"+e.replace("home", ""))} className={`uppercase tracking-widerr text-lg transition-color font-bold ${lightmode.includes(page) && location.pathname === "/" ? (location.pathname.split("/")[1] === e.replace("home", "")? "text-black-dark" : "text-yellow-900") : (location.pathname.split("/")[1] === e.replace("home", "") ? "text-yellow-500" : "")} relative z-10`}>{e}</button>
                     )}
                 </div>
             </Anime>
-            <button onClick={() => {setMobileNavOpen(!mobileNavOpen);}} className="block xl:hidden"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><g fill="none"><path className={mobileNavOpen || lightmode.includes(page) ? "fill-black" : "fill-white"} fillRule="evenodd" clipRule="evenodd" d="M3 7a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z" /><path className={mobileNavOpen || lightmode.includes(page) ? "fill-black" : "fill-white"} fillRule="evenodd" clipRule="evenodd" d="M3 13a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z"/></g></svg></button>
+            <button onClick={() => {setMobileNavOpen(!mobileNavOpen);}} className="block xl:hidden"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><g fill="none"><path className={mobileNavOpen || (location.pathname === "/" ? [1, 2, 3, 6, 11, 15, 21, 23, 24, 25, 26, 27, 32].includes(page) : false) ? "fill-black" : "fill-white"} fillRule="evenodd" clipRule="evenodd" d="M3 7a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z" /><path className={mobileNavOpen || (location.pathname === "/" ? [1, 2, 3, 6, 11, 15, 21, 23, 24, 25, 26, 27, 32].includes(page) : false) ? "fill-black" : "fill-white"} fillRule="evenodd" clipRule="evenodd" d="M3 13a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z"/></g></svg></button>
         </div>
         {location.pathname === "/" && <Anime initial={[
             {
@@ -98,7 +97,7 @@ const Navbar: React.FC<INavbar> = ({ page, setPage }: INavbar):JSX.Element => {
             ]} className="h-full">
                 <div className="text-white font-Chakra gap-16 navbar relative z-10 flex flex-col items-center justify-center h-full">
                     {topNavItem.map((e, i) => 
-                        <button key={`topNav-${i}`} className={`uppercase tracking-widerr text-lg transition-color font-bold ${(!i ? "text-black-dark" : "text-yellow-900")} relative z-10`}>{e}</button>
+                        <button key={`topNav-${i}`} onClick={() => {"../../"+history.push(e.replace("home", "")); setMobileNavOpen(false);}} className={`uppercase tracking-widerr text-lg transition-color font-bold ${(location.pathname.split("/")[1] === e.replace("home", "")? "text-black-dark" : "text-yellow-900")} relative z-10`}>{e}</button>
                     )}
                 </div>
             </Anime> : null}
