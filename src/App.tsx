@@ -10,13 +10,13 @@ function App(): JSX.Element {
     const [ page, setPage ] = useState(0);
     
     if (location.pathname == "/") document.body.onkeyup = function(e){
-        setPage(e.code == "Space" && page + 1 < 33 ? page + 1 : 0);
+        e.code == "Space" && setPage(page + 1 < 33 ? page + 1 : 0);
     };
 
     return (
         <>
             <Navbar page={page} setPage={setPage}/>
-            <main className="h-full">
+            <main className="h-full overflow-hidden relative">
                 <Route>
                     <Switch>
                         <Route exact path="/"><Landing page={page} setPage={setPage}/></Route>

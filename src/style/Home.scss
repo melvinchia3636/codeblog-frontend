@@ -279,3 +279,52 @@ html, body {
         scroll-snap-align: center;
     }
 }
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:900');
+$letters: 30;
+  
+.h-button {
+  text-align: center;
+  transition: all .3s;
+  
+  span {
+    display: inline-block;
+    min-width: 0.30em;
+    text-transform: uppercase;
+    transition: .25s cubic-bezier(0.5,-1, 0.5, 2);
+    opacity: 0;
+    transform: translate(0,-20px)
+  }
+    
+  &:before {
+    content: attr(data-text);
+    position: absolute;
+    width: 100%;
+    left: 0;
+    transition: .25s cubic-bezier(0.5,-1, 0.5, 2);
+    text-transform: uppercase;
+    letter-spacing: 3.5px;
+    opacity: 1;
+    transform: translate(0,0px)
+  }
+    
+  &:hover,&:focus {
+    background: rgb(254, 206, 60);
+    color: #131313;
+    &:before {
+      opacity: 0;
+      transform: translate(0, 20px) 
+    }
+  
+    span {
+      opacity: 1;
+      transform: translate(0, 0)
+    }
+   
+    @for $i from 1 through $letters {
+      span:nth-child(#{$i}) {
+        transition-delay: 0.025s * $i
+      }
+    }
+}
+}

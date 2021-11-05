@@ -16,6 +16,7 @@ module.exports = {
                 }
             },
             letterSpacing: {
+                "morewide": "0.08em",
                 "widerr": "0.12em"
             },
             height: {
@@ -25,9 +26,10 @@ module.exports = {
                 "Chakra": ["Chakra Petch"]
             },
             fontSize: {
-                "big": "10rem",
-                "huge": "12rem",
-                "enormous": "18rem"
+                "big": "10rem !important",
+                "huge": "12rem !important",
+                "enormous": "18rem !important",
+                "9xl": "7rem !important"
             },
             lineHeight: {
                 "129": "129.9% !important"
@@ -43,12 +45,20 @@ module.exports = {
             "Montserrat": ["Montserrat"]
         },
         screens: {
+            "380": "380px",
+            "440": "440px",
+            "481": "481px",
             "1440": "1440px",
             "1330": "1330px",
             "sm": "640px",
             "md": "768px",
+            "818": "818px",
+            "560": "560px",
             "lg": "1024px",
-            "xl": "1280px",
+            "1080": "1080px",
+            "1150": "1150px",
+            "1230": "1230px",
+            "xl": "1281px",
             "2xl": "1536px"
         },
         fill: theme => ({
