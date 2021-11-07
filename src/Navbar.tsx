@@ -24,7 +24,7 @@ const Navbar: React.FC<INavbar> = ({ page, setPage }: INavbar):JSX.Element => {
     
     return <nav>
         <div className="absolute z-50 top-6 left-6 flex justify-between items-center" style={{width: "calc(100% - 3rem)"}}>
-            {location.pathname === "/" ? <svg className="cursor-pointer 1230:hiddden" onClick={() => setSideNavOpen(!sideNavOpen)} xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM9 9H5V5h4v4zm11-6h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 6h-4V5h4v4zm-9 4H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1zm-1 6H5v-4h4v4zm8-6c-2.206 0-4 1.794-4 4s1.794 4 4 4s4-1.794 4-4s-1.794-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2s2 .897 2 2s-.897 2-2 2z" className={page || (mobileNavOpen || sideNavOpen) ? (mobileNavOpen || sideNavOpen || (location.pathname === "/" ? lightmode.includes(page) : false) ? "fill-black" : "fill-white") : "fill-white"}/></svg> : ""}
+            {location.pathname === "/" ? <svg className="cursor-pointer 1230:hidden" onClick={() => setSideNavOpen(!sideNavOpen)} xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM9 9H5V5h4v4zm11-6h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 6h-4V5h4v4zm-9 4H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1zm-1 6H5v-4h4v4zm8-6c-2.206 0-4 1.794-4 4s1.794 4 4 4s4-1.794 4-4s-1.794-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2s2 .897 2 2s-.897 2-2 2z" className={page || (mobileNavOpen || sideNavOpen) ? (mobileNavOpen || sideNavOpen || (location.pathname === "/" ? lightmode.includes(page) : false) ? "fill-black" : "fill-white") : "fill-white"}/></svg> : ""}
             <Logo page={mobileNavOpen || sideNavOpen ? 2 : (location.pathname == "/" ? page : 0)} setPage={setPage}/>
             <Anime initial={[
                 {
@@ -33,8 +33,8 @@ const Navbar: React.FC<INavbar> = ({ page, setPage }: INavbar):JSX.Element => {
                     delay: stagger(200),
                     easing: "spring(1, 80, 100, 0)"
                 }
-            ]} className="h-full hidden 1330:flex">
-                <div className="text-white font-Chakra gap-16 navbar relative z-10">
+            ]} className="h-full hidden 1330:block">
+                <div className="text-white font-Chakra gap-16 navbar relative z-10 flex">
                     {topNavItem.map((e, i) => 
                         <button key={`topNav-${i}`} onClick={() => {history.push("/"+e.replace("home", "")); setPage(0);}} className={`uppercase tracking-widerr text-lg transition-color font-bold ${lightmode.includes(page) && location.pathname === "/" ? (location.pathname.split("/")[1] === e.replace("home", "")? "text-black-dark" : "text-yellow-900") : (location.pathname.split("/")[1] === e.replace("home", "") ? "text-yellow-500" : "")} relative z-10`}>{e}</button>
                     )}

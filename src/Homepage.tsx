@@ -298,7 +298,7 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                     <img src={Illu1} className={`${anim} -mt-4 ${page === 4 ? "animate__fadeIn animate__delay-2s" : "animate__fadeOutDown"} w-80 xl:w-96 flex-shrink-0 hidden lg:block`}/>
                     <div className="relative z-10">
                         <h1 className={`${anim} text-4xl xl:text-6xl text-white font-bold tracking-widerr uppercase ${page === 4 ? "animate__fadeInRight animate__delay-3s" : "animate__fadeOutRight"}`}>Hello,<br/>I’m <span className="text-yellow-500" ref={el}></span></h1>
-                        <p className={`${anim} ${page === 4 ? "animate__fadeInUp animate__delay-3s" : "animate__fadeOutDown"} text-white font-Poppins text-base xl:text-xl tracking-widerr font-light leading-6 xl:leading-7 mt-8 mb-12`}>Hey! It&#39;s a true pleasant meet you. I love creating cool and nice looking websites, using the latest technologies. I do large scale projects most of the time, sometimes smaller scale projects as well.</p>
+                        <p className={`${anim} ${page === 4 ? "animate__fadeInUp animate__delay-3s" : "animate__fadeOutDown"} text-white font-Poppins text-base xl:text-xl tracking-widerr font-light leading-6 xl:leading-7 mt-8 mb-12`}>Hey! It&#39;s a true pleasant to meet you. I love creating cool and nice looking websites, using the latest technologies. I do large scale projects most of the time, sometimes smaller scale projects as well.</p>
                         <button className={`${anim} ${page === 4 ? "animate__fadeInUp animate__delay-4s" : "animate__fadeOut"} text-yellow-500 font-bold border-4 border-yellow-500 py-4 px-16 uppercase text-xl tracking-widerr`}>download CV</button>
                     </div>
                 </div>
@@ -508,7 +508,7 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                 </div>
                 <div className="w-min -mt-12 -mr-8">
                     <h1 className={`${anim} text-6xl whitespace-nowrap text-white font-bold tracking-widerr uppercase mr-24 ${page === 24 ? "animate__fadeInDown animate__delay-2s" : ""}`}>LET’S<br/>HAVE A <span className="text-yellow-500">TALK</span></h1>
-                    <p className={`${anim} ${page === 24 ? "animate__fadeInUp animate__delay-3s" : "animate__fadeOutDown"} text-white font-Poppins text-xl tracking-widerr font-light leading-7 mt-8 mb-12`}>Are you willing to make friends with me? Or considering a collaboration with me? Fill up the form on the left or contact me directly, and I’ll get in touch with you as soon as possible.</p>
+                    <p className={`${anim} ${page === 24 ? "animate__fadeInUp animate__delay-3s" : "animate__fadeOutDown"} text-white font-Poppins text-xl tracking-widerr font-light leading-7 mt-8 mb-12`}>Are you willing to make friends with me? Or considering a collaboration with me? Fill up the form on the left or contact me straight away, and I’ll get in touch with you as soon as possible.</p>
                     <button className={`${anim} ${page === 24 ? "animate__fadeInUp animate__delay-4s" : "animate__fadeOut"} text-yellow-500 font-bold border-4 border-yellow-500 py-4 px-16 uppercase text-xl tracking-widerr`}>contact me</button>
                 </div>
             </div>
