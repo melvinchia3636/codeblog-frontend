@@ -7,6 +7,7 @@ module.exports = {
                 yellow: {
                     500: "#fece3c",
                     a800: "rgba(206, 154, 0, 0.8)",
+                    800: "#d8a40e",
                     900: "#A47C00",
                     1000: "#886700"
                 },
@@ -23,11 +24,13 @@ module.exports = {
                 200: "200%"
             },
             fontFamily: {
-                "Chakra": ["Chakra Petch"]
+                "Chakra": ["Chakra Petch"],
+                "Dosis": ["Dosis"]
             },
             fontSize: {
                 "big": "10rem !important",
                 "huge": "12rem !important",
+                "massive": "14rem !important",
                 "enormous": "18rem !important",
                 "9xl": "7rem !important"
             },

@@ -27,7 +27,7 @@ interface IDownButton extends ILanding {
 }
 
 const DownButton: React.FC<IDownButton> = ({page, setPage, currentPage, delay, light}: IDownButton):JSX.Element => {
-    return <button onClick={() => setPage(currentPage+1)} className={`${anim} absolute bottom-4 z-50 left-1/2 -ml-4 ${page === currentPage ? `animate__fadeInDown animate__delay-${delay || 1}s` : "animate__fadeOutDown"} -ml-1/2`}>
+    return <button onClick={() => setPage(currentPage+1)} className={`${anim} absolute bottom-${light ? "24" : "24"} z-50 left-1/2 -ml-4 ${page === currentPage ? `animate__fadeInDown animate__delay-${delay || 1}s` : "animate__fadeOutDown"} -ml-1/2`}>
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16 26.6667V5.33337" stroke={light ? "white" : "#131313"} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
             <path d="M6.66667 17.3334L16 26.6667L25.3333 17.3334" stroke={light ? "white" : "#131313"} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
@@ -252,7 +252,7 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                 <svg className={`${anim} animate__fadeInLeft animate__fast flex-shrink-0 -mt-1 ${page === 0 ? "animate__delay-2s" : ""} ${page !== 0 ? "animate__fadeOutLeftBig" : ""}`} width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9.53511 16.2543C13.1595 12.3251 18.6439 10.3333 25.8334 10.3333H28.4167V17.6158L26.3397 18.0317C22.8005 18.7395 20.3386 20.1319 19.0211 22.1753C18.3337 23.2762 17.9438 24.5366 17.8896 25.8333H25.8334C26.5185 25.8333 27.1756 26.1055 27.6601 26.59C28.1445 27.0745 28.4167 27.7315 28.4167 28.4167V46.5C28.4167 49.3494 26.0994 51.6667 23.25 51.6667H7.75003C7.06489 51.6667 6.4078 51.3945 5.92334 50.91C5.43887 50.4256 5.1667 49.7685 5.1667 49.0833V36.1667L5.17445 28.6259C5.1512 28.3392 4.66036 21.545 9.53511 16.2543ZM51.6667 51.6667H36.1667C35.4816 51.6667 34.8245 51.3945 34.34 50.91C33.8555 50.4256 33.5834 49.7685 33.5834 49.0833V36.1667L33.5911 28.6259C33.5679 28.3392 33.077 21.545 37.9518 16.2543C41.5762 12.3251 47.0606 10.3333 54.25 10.3333H56.8334V17.6158L54.7564 18.0317C51.2172 18.7395 48.7553 20.1319 47.4378 22.1753C46.7503 23.2762 46.3605 24.5366 46.3063 25.8333H54.25C54.9352 25.8333 55.5923 26.1055 56.0767 26.59C56.5612 27.0745 56.8334 27.7315 56.8334 28.4167V46.5C56.8334 49.3494 54.5161 51.6667 51.6667 51.6667Z" fill="#FFC922"/>
                 </svg>
-                <p className={`${anim} animate__fadeInDown animate__fast ${page === 0 ? "animate__delay-2s" : ""} ${page !== 0 ? "animate__fadeOutLeftBig" : ""} text-white tracking-widerr text-xl md:text-2xl lg:text-3xl z-10 sm:w-8/12 md:w-full leading-tight pr-12`}>You can never use up creativity. The more <br className="hidden xl:inline"/>you use, the more you have.</p>
+                <p className={`${anim} animate__fadeInDown animate__fast ${page === 0 ? "animate__delay-2s" : ""} ${page !== 0 ? "animate__fadeOutLeftBig" : ""} text-white tracking-widerr text-xl md:text-2xl lg:text-2xl z-10 sm:w-8/12 md:w-full leading-tight pr-12 font-Poppins`}>You can never use up creativity. The more <br className="hidden xl:inline"/>you use, the more you have.</p>
             </div>
             <div className='mt-16 xl:mt-48'>
                 <p className={`${anim} ${page === 0 ? "animate__delay-2s" : ""} animate__fast animate__fadeInLeft uppercase xl:ml-2 text-white text-xl lg:text-3xl xl:text-4xl font-bold tracking-widest ${page !== 0 ? " animate__fadeOutDownBig" : ""}`}>VISION OF</p>
@@ -284,7 +284,7 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
             <DownButton {...{page, setPage}} currentPage={3} delay={2}/>
         </div> : ""}
 
-        <div className={`bg-yellow-500 w-full h-200 absolute ${page <= 1 ? `-translate-x-36 xl:-translate-x-28 anim-1 transform rotate-27 ${page !== 0 ? "anim-2" : ""}` : "tl-0 wh-full"} ${page === 24 ? "anim-3" : ""} ${page === 25 ? "anim-4" : ""} transition-all mix-blend-difference`}></div>
+        <div className={`bg-yellow-500 w-full h-200 absolute ${page <= 1 ? `-translate-x-44 xl:-translate-x-28 anim-1 transform rotate-27 ${page !== 0 ? "anim-2" : ""}` : "tl-0 wh-full"} ${page === 24 ? "anim-3" : ""} ${page === 25 ? "anim-4" : ""} transition-all mix-blend-difference`}></div>
 
         {Array(5).fill(0).map((_, i) => <div key={i} className={`layer layer-${i+1} wh-full left-0 -top-full absolute z-20 ${[4, 5, 7, 8, 9, 10, 12, 13, 14, 16, 17, 18, 19, 20, 22, 28, 29, 30, 31].includes(page) ? "active" : ""}`}></div>)}
         <div className={`${anim} animate__delay-1s animate__fadeIn wh-full left-0 top-0 bg-black-dark absolute z-10 ${[4, 5, 6].includes(page) ? "" : "hidden"} ${page === 6 ? "section-leave z-0" : ""}`}>
@@ -318,7 +318,7 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                 </div>
                 <DownButton {...{page, setPage}} currentPage={5} delay={2} light/>
             </div>
-            <p className="${anim} absolute z-0 bottom-0 right-6 text-big 440:text-huge sm:text-enormous leading-none font-bold tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>01A</p>
+            <p className="${anim} absolute z-0 bottom-20 right-6 text-big 440:text-huge sm:text-enormous leading-none font-bold tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>01A</p>
         </div>
 
         {/* 01B */}
@@ -334,8 +334,8 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                 <h1 className={`${anim} ${page === 7 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase text-2xl 440:text-3xl sm:text-4xl font-bold text-white tracking-widerr`}>project workflow</h1>
             </div>
             {/* 01B.1.2.3.4 */}
-            {workFlow.map(([i, illu, title, subtitle, desc], index) => <div key={i} className={`px-6 sm:px-20 lg:px-32 pb-8 wh-full ${anim} ${page === i ? "" : "section-hide"}`}>
-                <div className={"mt-6 flex gap-32"}>
+            {workFlow.map(([i, illu, title, subtitle, desc], index) => <div key={i} className={`px-6 sm:px-20 lg:px-32 wh-full ${anim} ${page === i ? "pb-8 mt-12" : "section-hide pb-0"}`}>
+                <div className={"flex gap-32"}>
                     <img src={illu} className={`${anim} -mt-4 ${page === i ? "animate__fadeInUp animate__delay-1s" : "animate__fadeOutDown"} hidden lg:block`}/>
                     <div className="relative z-10">
                         <div className={`${anim} workflow-title relative pl-4 xl:pl-6 ${page === i ? "animate__fadeInDown animate__delay-2s" : "animate__fadeOutUp"}`} style={{borderLeft: "10px solid rgba(254, 206, 60)"}}>
@@ -350,7 +350,7 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                     <DownButton {...{page, setPage}} currentPage={i} delay={2} light/>
                 </div>
             </div>)}
-            <p className="${anim} absolute bottom-0 right-6 text-big 440:text-huge sm:text-enormous leading-none font-bold tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner">01B</p>
+            <p className="${anim} absolute bottom-20 right-6 text-big 440:text-huge sm:text-enormous leading-none font-bold tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner">01B</p>
         </div>
 
         {/* 02A */}

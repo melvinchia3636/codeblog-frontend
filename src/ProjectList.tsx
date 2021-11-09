@@ -35,7 +35,7 @@ const ProjectList: React.FC<IProjectList> = (props: IProjectList): JSX.Element =
                     <h1 className={`${anim} text-5xl lg:text-6xl xl:text-7xl text-white font-bold tracking-wider uppercase mt-8 whitespace-nowrap animate__fadeInDown animate__delay-1s`}>{serial}</h1>
                     <div className={`${anim} w-full h-2 bg-white my-2 animate__fadeInRight animate__delay-1s`}></div>
                     <button style={{color: color}} className={`${anim} font-Poppins font-semibold border-white border-4 bg-white py-4 mt-5 w-full uppercase text-xl tracking-widerr animate__fadeInLeft animate__delay-1s`}>{serial.split("-")[0] == "UI" ? "DOWNLOAD DESIGN" : "VISIT WEBSITE"}</button>
-                    <button style={{backgroundColor: color}} className={`${anim} font-Poppins text-white font-semibold border-white border-4 mt-2 py-4 w-full uppercase text-xl tracking-widerr animate__fadeInRight animate__delay-1s`}>CASE STUDY</button>
+                    <a style={{backgroundColor: color}} className={`${anim} font-Poppins text-white font-semibold border-white border-4 mt-2 py-4 w-full uppercase text-xl tracking-widerr animate__fadeInRight animate__delay-1s block text-center`} href={`./${props.match.params.id}/${serial}`}>CASE STUDY</a>
                 </div>
                 <div className="w-full h-full">
                     <img src={"http://192.168.1.8:9595"+image} className={`${anim} object-cover object-top animate__fadeInUp animate__delay-1s`} />
