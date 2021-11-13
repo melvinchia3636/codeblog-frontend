@@ -23,6 +23,9 @@ module.exports = {
             height: {
                 200: "200%"
             },
+            width: {
+                "alittlebitmore": "30rem"
+            },
             fontFamily: {
                 "Chakra": ["Chakra Petch"],
                 "Dosis": ["Dosis"]

@@ -17,7 +17,7 @@ const ProjectList: React.FC<IProjectList> = (props: IProjectList): JSX.Element =
     
     return <div className={"wh-full flex overflow-scroll proj-container bg-black-dark pb-20 px-12 lg:px-24 mb-12 lg:mb-20 mt-12 lg:mt-20"}>
         {/* 02B.1.2.3.4.5 */}
-        {projects.map(([i, serial, name, type, color, image]) => <div key={i} className={`flex-shrink-0 w-96 lg:w-full mb-20 px-4 relative z-10 ${anim} overflow-hidden`}>
+        {projects.map(([i, serial, name, type, color, image]) => <div key={i} className={`flex-shrink-0 w-96 560:w-alittlebitmore lg:w-full mb-20 px-4 relative z-10 ${anim} overflow-hidden`}>
             <div style={{backgroundColor: color}} className={`mt-12 ${anim} gap-8 lg:gap-16 xl:gap-24 flex flex-col lg:flex-row w-full h-full overflow-hidden justify-between p-6 sm:p-12 pb-0 animate__fadeIn${(i % 2 ? "Up" : "Down")}`}>
                 <div className="lg:w-5/12">
                     <svg className={`${anim} animate__fadeInDown animate__delay-1s`} width="135" height="24" viewBox="0 0 135 24" fill="none" xmlns="http://www.w3.org/2000/svg">
