@@ -14,10 +14,12 @@ $c-main: #131313;
 html, body {
 	background-color: $c-main;
 	width: 100%;
-	height: 100vh;
+    height: 100vh;
 	overflow: hidden;
     scroll-behavior: smooth;
 }
+
+body { position: fixed; height: 100% }
 
 *{
     font-family: Chakra Petch;
@@ -254,10 +256,13 @@ html, body {
 @keyframes sectionLeave {
     0% {
         z-index: 0;
+        height: 100%;
     }
 
     100% {
-        z-index: -1
+        z-index: -9999;
+        height: 0;
+        overflow:hidden;
     }
 }
 
