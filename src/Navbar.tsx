@@ -1,13 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, {Dispatch, useState} from "react";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import ReactAnime from "react-animejs";
 import { useLocation, useHistory } from "react-router-dom";
 import Logo from "./logo";
 
+
 interface INavbar {
     page: number;
-    setPage: any
+    setPage: Dispatch<number>;
 }
 
 const Navbar: React.FC<INavbar> = ({ page, setPage }: INavbar):JSX.Element => {
@@ -52,7 +53,7 @@ const Navbar: React.FC<INavbar> = ({ page, setPage }: INavbar):JSX.Element => {
             }
         ]} className="h-full">
             <div className="text-white font-Chakra gap-16 sidebar transform origin-top-left -rotate-90 absolute z-30 bottom-2 left-6 hidden 1230:flex">
-                {sideNavItem.map(([e, t], i) => <button key={`sideNav-${i}`} className={`uppercase tracking-widerr text-lg transition-color font-bold ${[1, 2, 3, 6, 11, 15, 21, 23, 24, 25, 26, 27, 32].includes(page) && location.pathname === "/" ? (section === i ? "text-black-dark" : "text-yellow-900") : (section === i ? "text-yellow-500" : "")}`} onClick={() => {setPage(t); setSection(i); (document.activeElement as HTMLElement).blur();}}>{e}</button>)}
+                {sideNavItem.map(([e, t], i) => <button key={`sideNav-${i}`} className={`uppercase tracking-widerr text-lg transition-color font-bold ${[1, 2, 3, 6, 11, 15, 21, 23, 24, 25, 26, 27, 32].includes(page) && location.pathname === "/" ? (section === i ? "text-black-dark" : "text-yellow-900") : (section === i ? "text-yellow-500" : "")}`} onClick={() => {setPage(t as number); setSection(i); (document.activeElement as HTMLElement).blur();}}>{e}</button>)}
             </div>
         </Anime>}
         {location.pathname.match(/projects\/[A-Z]{2}\/[A-Z]{2}-[A-Z0-9]{5}/) && <Anime initial={[
@@ -128,7 +129,7 @@ const Navbar: React.FC<INavbar> = ({ page, setPage }: INavbar):JSX.Element => {
             ]} className="h-full">
                 <div className="text-white font-Chakra gap-16 side-navbar relative z-10 flex flex-col items-center justify-center h-full">
                     {sideNavItem.map(([e, t], i) => 
-                        <button key={`topNav-${i}`} onClick={() => {setPage(t); setSection(i); setSideNavOpen(false);}} className={`uppercase tracking-widerr text-lg transition-color font-bold ${section === i ? "text-black-dark" : "text-yellow-900"} relative z-10`}>{e}</button>
+                        <button key={`topNav-${i}`} onClick={() => {setPage(t as number); setSection(i); setSideNavOpen(false);}} className={`uppercase tracking-widerr text-lg transition-color font-bold ${section === i ? "text-black-dark" : "text-yellow-900"} relative z-10`}>{e}</button>
                     )}
                 </div>
             </Anime> : null}

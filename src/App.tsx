@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 import Landing from "./Homepage";
 import Projects from "./Projects";
@@ -25,6 +25,10 @@ function App(): JSX.Element {
                         <Route exact path="/projects"><Projects/></Route>
                         <Route exact path="/projects/:id" component={ProjectList} />
                         <Route path="/projects/:id/:proj_id" component={CaseStudy} />
+                        <Route exact path="/blog" component={() => { 
+                            window.location.href = "https://blog.thecodeblog.net"; 
+                            return null;
+                        }} />
                     </Switch>
                 </Route>
             </main>

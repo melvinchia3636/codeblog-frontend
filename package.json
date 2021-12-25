@@ -18,19 +18,22 @@
     "@types/react-router-dom": "^5.1.8",
     "@types/react-smooth-scrollbar": "^8.0.3",
     "animate.css": "^4.1.1",
+    "autoprefixer": "^10.4.0",
     "axios": "^0.21.1",
+    "eslint-config-prettier": "^8.3.0",
     "react": "^17.0.2",
     "react-animejs": "^0.5.6",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^17.0.2",
     "react-perfect-scrollbar": "^1.5.8",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^5.0.0",
     "react-scrollbar-js": "^1.0.1",
     "react-smooth-scrollbar": "^8.0.6",
     "react-tilt": "^0.1.4",
     "sass": "^1.36.0",
     "smooth-scrollbar": "^8.6.3",
+    "tailwindcss": "^3.0.7",
     "typed.js": "^2.0.12",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
@@ -62,10 +65,9 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
-    "autoprefixer": "^9.8.6",
     "eslint": "^7.30.0",
     "eslint-plugin-react": "^7.24.0",
-    "postcss": "^7.0.36",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.4"
+    "eslint-plugin-react-hooks": "^4.2.1-rc.0-next-3dc41d8a2-20211223",
+    "postcss": "^8.4.5"
   }
 }

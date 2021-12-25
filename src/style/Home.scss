@@ -1,5 +1,8 @@
 @use "sass:list";
 @use "sass:map";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
@@ -235,10 +238,16 @@ body { position: fixed; height: 100% }
                 &#{$i}.page-#{$j} {
                     fill: map.get(map.get($logo-colors, $i), "dark")
                 }
+                &#{$i}.page-#{$j}.stroke {
+                    stroke: map.get(map.get($logo-colors, $i), "dark")
+                }
             }
             @else {
                 &#{$i}.page-#{$j} {
                     fill: map.get(map.get($logo-colors, $i), "light")
+                }
+                &#{$i}.page-#{$j}.stroke {
+                    stroke: map.get(map.get($logo-colors, $i), "light")
                 }
             }
         }

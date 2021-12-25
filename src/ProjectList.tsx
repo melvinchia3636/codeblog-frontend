@@ -11,9 +11,9 @@ const ProjectList: React.FC<IProjectList> = (props: IProjectList): JSX.Element =
 
     useEffect(() => {
         axios({
-            url: "http://192.168.1.8:9595/projects/fetch?item=all&cat="+props.match.params.id
+            url: "http://192.168.1.100:9595/projects/fetch?item=all&cat="+props.match.params.id
         }).then(res => setProjects(res.data)).catch(err => console.log(err));
-    }, []);
+    }, [props.match.params.id]);
     
     return <div className={"wh-full flex overflow-scroll proj-container bg-black-dark pb-20 px-12 lg:px-24 mb-12 lg:mb-20 mt-12 lg:mt-20"}>
         {/* 02B.1.2.3.4.5 */}
@@ -38,7 +38,7 @@ const ProjectList: React.FC<IProjectList> = (props: IProjectList): JSX.Element =
                     <a style={{backgroundColor: color}} className={`${anim} font-Poppins text-white font-semibold border-white border-4 mt-2 py-4 w-full uppercase text-xl tracking-widerr animate__fadeInRight animate__delay-1s block text-center`} href={`./${props.match.params.id}/${serial}`}>CASE STUDY</a>
                 </div>
                 <div className="w-full h-full">
-                    <img src={"http://192.168.1.8:9595"+image} className={`${anim} object-cover object-top animate__fadeInUp animate__delay-1s`} />
+                    <img src={"http://192.168.1.100:9595"+image} className={`${anim} object-cover object-top animate__fadeInUp animate__delay-1s`} />
                 </div>
             </div>
         </div>)}

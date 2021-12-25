@@ -1,4 +1,4 @@
-import React, { ReactElement, useRef, useState, useEffect } from "react";
+import React, { ReactElement, useState, useEffect, Dispatch } from "react";
 import Illu1 from "./assets/illu1.svg";
 import Img1 from "./assets/img1.png";
 
@@ -17,7 +17,7 @@ const anim = "animate__animated";
   
 interface ILanding {
     page: number;
-    setPage: any
+    setPage: Dispatch<number>;
 }
 
 interface IDownButton extends ILanding {
@@ -27,7 +27,7 @@ interface IDownButton extends ILanding {
 }
 
 const DownButton: React.FC<IDownButton> = ({page, setPage, currentPage, delay, light}: IDownButton):JSX.Element => {
-    return <button onClick={() => setPage(currentPage+1)} className={`${anim} absolute bottom-${light ? "8" : "8"} z-50 left-1/2 -ml-4 ${page === currentPage ? `animate__fadeInDown animate__delay-${delay || 1}s` : "animate__fadeOutDown"} -ml-1/2`}>
+    return <button onClick={() => setPage(currentPage+1)} className={`${anim} absolute bottom-8 z-50 left-1/2 -ml-4 ${page === currentPage ? `animate__fadeInDown animate__delay-${delay || 1}s` : "animate__fadeOutDown"} -ml-1/2`}>
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16 26.6667V5.33337" stroke={light ? "white" : "#131313"} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
             <path d="M6.66667 17.3334L16 26.6667L25.3333 17.3334" stroke={light ? "white" : "#131313"} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
@@ -37,8 +37,8 @@ const DownButton: React.FC<IDownButton> = ({page, setPage, currentPage, delay, l
 
 const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => {
 
-    const el = React.useRef<any>(null);
-    const typed = React.useRef<any>(null);
+    const el = React.useRef<HTMLSpanElement | null>(null);
+    const typed = React.useRef<Typed | null>(null);
 
     const [projects, setProjects] = useState<[number, string, string, string, string, string][]>([]);
 
@@ -51,7 +51,7 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
     ];
 
     const skills: [number, string, string, string, [ReactElement, string, string][]][] = [
-        [12, "ESSENTIAL SKILLS", "THE FUNDAMENTAL", "I do not think you can even be called a web developer without those skills. Although you have these skills, you are still far from becoming a qualified web developer in the modern age.", [
+        [12, "THE LANGUAGES", "INDISPENSABLE PART", "I do not think you can even be called a web developer without those skills. Although you have these skills, you are still far from becoming a qualified web developer in the modern age.", [
             [<svg key="html" width="98" height="98" viewBox="0 0 98 98" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.64844 0L14.5096 88.2L49.7871 98L85.1564 88.1878L93.0298 0H6.65456H6.64844ZM75.9176 28.8488H34.5422L35.5279 39.9289H74.938L71.9686 73.1386L49.7871 79.2881L27.6361 73.1386L26.1239 56.1479H36.979L37.7504 64.7841L49.7932 68.0304L49.8177 68.0242L61.8666 64.7719L63.1156 50.7456H25.6402L22.7259 18.032H76.8911L75.9237 28.8488H75.9176Z" fill="#FFC922"/>
             </svg>, "HTML", "advanced - 95%"],
@@ -61,21 +61,39 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
             [<svg key="js" width="92" height="92" viewBox="0 0 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0 0V91.875H91.875V0H0ZM49.9984 71.6564C49.9984 80.5989 44.7554 84.6659 37.1053 84.6659C30.2024 84.6659 26.1936 81.0889 24.157 76.7769L31.1885 72.52C32.5452 74.8965 33.7794 76.93 36.7378 76.93C39.5736 76.93 41.3621 75.8489 41.3621 71.5094V42.1706H49.9984V71.6564ZM70.413 84.6659C62.3954 84.6659 57.2136 80.8439 54.6871 75.8459L61.7155 71.7819C63.5653 74.7771 65.9724 77.0188 70.2292 77.0188C73.8032 77.0188 76.0572 75.2303 76.0572 72.7436C76.0572 69.7852 73.7113 68.7317 69.7668 67.032L67.6231 66.0826C61.3939 63.4336 57.2626 60.1016 57.2626 53.067C57.2626 46.5959 62.1749 41.6592 69.9046 41.6592C75.3926 41.6592 79.3371 43.5732 82.1791 48.5621L75.4722 52.8649C74.0023 50.2311 72.3914 49.1592 69.923 49.1592C67.3995 49.1592 65.7825 50.7579 65.7825 52.8649C65.7825 55.4741 67.375 56.5031 71.0806 58.1017L73.2336 59.0511C80.5744 62.1749 84.7087 65.3905 84.7087 72.618C84.7302 80.409 78.6266 84.6536 70.4222 84.6536L70.413 84.6659Z" fill="#FFC922"/>
             </svg>, "Javascript", "advanced - 80%"],
+            [<svg key="python" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="98" height="98" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                <g fill="none"><g clipPath="url(#clip0_950_629)" fill="#ffc922"><path d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.007 2.752h5.814v.826H3.9S0 5.789 0 11.969c0 6.18 3.403 5.96 3.403 5.96h2.03v-2.867s-.109-3.42 3.35-3.42h5.766s3.24.052 3.24-3.148V3.202S18.28 0 11.913 0zM8.708 1.85c.578 0 1.046.47 1.046 1.052c0 .581-.468 1.051-1.046 1.051c-.579 0-1.046-.47-1.046-1.051c0-.582.467-1.052 1.046-1.052z"/><path d="M12.087 24c6.092 0 5.712-2.656 5.712-2.656l-.007-2.752h-5.814v-.826h8.123s3.9.445 3.9-5.735c0-6.18-3.404-5.96-3.404-5.96h-2.03v2.867s.109 3.42-3.35 3.42H9.452s-3.24-.052-3.24 3.148v5.292S5.72 24 12.087 24zm3.206-1.85c-.579 0-1.046-.47-1.046-1.052c0-.581.467-1.051 1.046-1.051c.578 0 1.046.47 1.046 1.051c0 .582-.468 1.052-1.046 1.052z"/></g><defs><clipPath id="clip0_950_629"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath></defs></g>
+            </svg>, "Python", "advanced - 96%"],
+            [<svg key="dart" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="98" height="98" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                <path d="M4.105 4.105S9.158 1.58 11.684.316a3.079 3.079 0 0 1 1.481-.315c.766.047 1.677.788 1.677.788L24 9.948v9.789h-4.263V24H9.789l-9-9C.303 14.5 0 13.795 0 13.105c0-.319.18-.818.316-1.105l3.789-7.895zm.679.679v11.787c.002.543.021 1.024.498 1.508L10.204 23h8.533v-4.263L4.784 4.784zm12.055-.678c-.899-.896-1.809-1.78-2.74-2.643c-.302-.267-.567-.468-1.07-.462c-.37.014-.87.195-.87.195L6.341 4.105l10.498.001z" fill="#ffc922"/>
+            </svg>, "Dart", "queuing - 0%"],
+            [<svg key="cpp" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="98" height="98" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
+                <path d="M29.86 8c-.224-.385-.532-.724-.871-.921L17.234.292c-.677-.391-1.787-.391-2.464 0L3.015 7.079C2.338 7.47 1.78 8.432 1.78 9.214v13.573c0 .391.14.828.364 1.213c.219.385.532.724.871.917l11.749 6.791c.683.391 1.787.391 2.464 0l11.755-6.791c.339-.193.647-.532.871-.917s.359-.823.359-1.213V9.214c.005-.391-.135-.828-.353-1.213zM16 25.479c-5.229 0-9.479-4.249-9.479-9.479S10.77 6.521 16 6.521a9.513 9.513 0 0 1 8.208 4.733l-4.104 2.376A4.76 4.76 0 0 0 16 11.259c-2.615 0-4.74 2.125-4.74 4.74s2.125 4.74 4.74 4.74a4.759 4.759 0 0 0 4.104-2.371l4.104 2.376A9.513 9.513 0 0 1 16 25.477zm9.479-8.952h-1.052v1.052H23.37v-1.052h-1.052v-1.053h1.052v-1.052h1.057v1.052h1.052zm3.948 0h-1.052v1.052h-1.052v-1.052h-1.052v-1.053h1.052v-1.052h1.052v1.052h1.052z" fill="#ffc922"/>
+            </svg> , "C++", "queuing - 0%"],
         ]],
         [13, "EVERYTHING IN JAVASCRIPT", "THE FRONTEND", "With all these skills, we can take our UI /UX and website functionality to a new level. We should learn some of them as these skills are in high demand in the job market these days.", [
             [<svg key="react" width="98" height="98" viewBox="0 0 98 98" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M98 47.7301C98 41.2376 89.8701 35.084 77.4037 31.2702C80.2824 18.567 79.0043 8.45662 73.3693 5.21854C72.0039 4.45382 70.4586 4.06889 68.894 4.10379V8.55462C69.8128 8.55462 70.5518 8.73837 71.1725 9.07729C73.8879 10.6371 75.068 16.5661 74.1493 24.1979C73.9288 26.0762 73.5694 28.0525 73.1284 30.0697C68.9538 29.0637 64.7168 28.3366 60.4456 27.8933C57.9011 24.3828 55.125 21.0461 52.136 17.9055C58.6489 11.854 64.7617 8.53829 68.9185 8.53829V4.08337C63.4223 4.08337 56.2316 7.99929 48.9592 14.7899C41.6908 8.04421 34.496 4.16504 29.0039 4.16504V8.61587C33.1403 8.61587 39.2735 11.9152 45.7864 17.9259C42.9893 20.8659 40.1923 24.1979 37.534 27.8933C33.254 28.3317 29.0094 29.0658 24.8307 30.0901C24.3693 28.0934 24.0304 26.1579 23.7895 24.3C22.8503 16.6641 24.01 10.7351 26.7091 9.15896C27.3053 8.79962 28.0852 8.63629 29.0039 8.63629V4.18546C27.3298 4.18546 25.8067 4.54479 24.4918 5.30021C18.8773 8.53829 17.6196 18.6241 20.5147 31.2906C8.08908 35.129 0 41.258 0 47.7301C0 54.2226 8.12992 60.3762 20.5963 64.186C17.7176 76.8933 18.9957 87.0036 24.6307 90.2376C25.9292 90.9971 27.4482 91.3565 29.1223 91.3565C34.6185 91.3565 41.8093 87.4405 49.0817 80.65C56.35 87.3997 63.5408 91.2748 69.0369 91.2748C70.6135 91.3081 72.1706 90.922 73.549 90.156C79.1636 86.922 80.4213 76.8361 77.5262 64.1696C89.9109 60.3558 98 54.2022 98 47.7301ZM71.9892 34.4062C71.2133 37.0761 70.314 39.7086 69.2942 42.2952C67.6247 39.048 65.7917 35.8875 63.8021 32.826C66.64 33.2465 69.3758 33.7651 71.9933 34.4062H71.9892ZM62.8425 55.6804C61.2868 58.3754 59.6861 60.9356 58.0283 63.3121C52.0349 63.8404 46.0071 63.8472 40.0126 63.3325C36.5742 58.421 33.5672 53.2213 31.0252 47.7914C33.5633 42.3487 36.5575 37.1306 39.9758 32.193C45.9677 31.6637 51.9942 31.6555 57.9874 32.1685C59.6453 34.545 61.2663 37.0849 62.8221 39.7635C64.3411 42.3769 65.7213 45.031 66.9789 47.7097C65.7073 50.4209 64.3274 53.0799 62.8425 55.6804ZM69.2942 53.0834C70.3722 55.758 71.295 58.4366 72.0504 61.0336C69.4371 61.6747 66.6768 62.2137 63.8225 62.6302C65.8039 59.5408 67.6301 56.3546 69.2942 53.0834ZM49.0408 74.3984C47.1829 72.4792 45.325 70.3436 43.4875 68.0039C45.2842 68.0855 47.1217 68.1468 48.9796 68.1468C50.8579 68.1468 52.7158 68.106 54.5329 68.0039C52.7363 70.3436 50.8783 72.4792 49.0408 74.3984ZM34.1775 62.6302C31.4243 62.2313 28.691 61.7053 25.9863 61.054C26.7254 58.4775 27.6442 55.8192 28.6813 53.165C29.5021 54.7575 30.3637 56.3582 31.3028 57.9589C32.242 59.5555 33.1975 61.1153 34.1775 62.6302ZM48.9388 21.0619C50.7967 22.981 52.6546 25.1166 54.4921 27.4564C52.6954 27.3747 50.8579 27.3135 49 27.3135C47.1217 27.3135 45.2638 27.3543 43.4467 27.4564C45.2433 25.1166 47.1012 22.981 48.9388 21.0619ZM34.1571 32.83C32.1761 35.9127 30.35 39.0921 28.6854 42.3565C27.6369 39.7532 26.717 37.0999 25.9292 34.4062C28.5425 33.7855 31.3028 33.2465 34.1571 32.83ZM16.0802 57.8364C9.00783 54.8229 4.4345 50.8661 4.4345 47.7301C4.4345 44.5941 9.00783 40.617 16.0802 37.6239C17.7952 36.8848 19.6735 36.2233 21.6131 35.6067C22.7523 39.5185 24.2509 43.5937 26.1048 47.771C24.3545 51.6999 22.8743 55.7436 21.6743 59.874C19.7774 59.2866 17.9105 58.6066 16.0802 57.8364ZM26.8275 86.3789C24.1121 84.8272 22.932 78.89 23.8508 71.2624C24.0713 69.384 24.4306 67.4036 24.8716 65.3865C28.7834 66.346 33.0587 67.0851 37.5544 67.567C40.0991 71.0774 42.8751 74.414 45.864 77.5548C39.3511 83.6063 33.2383 86.922 29.0815 86.922C28.2973 86.9305 27.523 86.7454 26.8275 86.383V86.3789ZM74.2105 71.1603C75.1497 78.792 73.99 84.7251 71.2909 86.3013C70.6947 86.6606 69.9148 86.8199 68.9961 86.8199C64.8597 86.8199 58.7265 83.5246 52.2136 77.5099C55.0107 74.578 57.8078 71.242 60.466 67.5465C64.746 67.1081 68.9906 66.3741 73.1693 65.3497C73.6307 67.3669 73.9859 69.3024 74.2105 71.1603ZM81.8994 57.8364C80.1844 58.5755 78.3061 59.237 76.3665 59.8535C75.1455 55.7021 73.6448 51.638 71.8748 47.6893C73.7123 43.5365 75.1864 39.4818 76.3053 35.5863C78.2857 36.2029 80.1599 36.8848 81.9198 37.6239C88.9922 40.6374 93.5655 44.5941 93.5655 47.7301C93.5451 50.8661 88.9717 54.8433 81.8994 57.8364Z" fill="#FFC922"/>
                 <path d="M48.9795 56.8605C51.401 56.8605 53.7233 55.8986 55.4356 54.1863C57.1478 52.474 58.1098 50.1517 58.1098 47.7302C58.1098 45.3087 57.1478 42.9863 55.4356 41.2741C53.7233 39.5618 51.401 38.5999 48.9795 38.5999C46.5579 38.5999 44.2356 39.5618 42.5233 41.2741C40.8111 42.9863 39.8491 45.3087 39.8491 47.7302C39.8491 50.1517 40.8111 52.474 42.5233 54.1863C44.2356 55.8986 46.5579 56.8605 48.9795 56.8605Z" fill="#FFC922"/>
             </svg>
-            , "REACT js", "intermediate - 65%"],
+            , "REACT js", "Advanced - 85%"],
             [<svg key="angular" width="90" height="98" viewBox="0 0 90 98" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M45.619 98L6.958 76.587L0 16.268L45.619 0L91.238 16.268L84.28 76.587L45.619 98ZM45.619 10.829L17.101 74.774H27.734L33.467 60.466H57.673L63.406 74.774H74.039L45.619 10.829ZM53.949 51.646H37.289L45.619 31.605L53.949 51.646Z" fill="#FFC922"/>
-            </svg>, "angular js", "queuing - 0%"],
+            </svg>, "angular", "intermidiate - 50%"],
+            [<svg key="svelte" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="98" height="98" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
+                <path d="M27.573 4.229a9.733 9.733 0 0 0-13.068-2.802L7.041 6.172a8.483 8.483 0 0 0-3.854 5.734a8.886 8.886 0 0 0 .891 5.776a8.246 8.246 0 0 0-1.266 3.198a9.128 9.128 0 0 0 1.547 6.88a9.78 9.78 0 0 0 13.068 2.828l7.469-4.75a8.503 8.503 0 0 0 3.839-5.734a8.859 8.859 0 0 0-.896-5.755a9.043 9.043 0 0 0-.266-10.12zM13.76 28.172a5.91 5.91 0 0 1-6.349-2.359c-.865-1.198-1.182-2.677-.932-4.146l.146-.708l.135-.438l.401.266a9.317 9.317 0 0 0 2.917 1.469l.271.094l-.031.266c-.026.37.083.786.297 1.104c.438.63 1.198.932 1.932.734c.161-.052.318-.104.453-.188l7.438-4.745c.375-.24.615-.599.708-1.026a1.708 1.708 0 0 0-.266-1.255a1.82 1.82 0 0 0-1.932-.708c-.161.057-.333.12-.469.203l-2.813 1.786a5.902 5.902 0 0 1-7.865-1.708a5.463 5.463 0 0 1-.938-4.146a5.162 5.162 0 0 1 2.365-3.469l7.422-4.745a6.142 6.142 0 0 1 1.521-.667a5.924 5.924 0 0 1 6.349 2.349a5.504 5.504 0 0 1 .76 4.849l-.135.443l-.385-.266a9.88 9.88 0 0 0-2.932-1.469l-.266-.078l.026-.266a1.832 1.832 0 0 0-.297-1.12a1.785 1.785 0 0 0-1.932-.708a2.036 2.036 0 0 0-.453.188l-7.453 4.786c-.375.25-.615.599-.693 1.036c-.078.427.026.896.266 1.24c.427.63 1.203.896 1.922.708a1.86 1.86 0 0 0 .464-.188l2.844-1.813a5.291 5.291 0 0 1 1.516-.677a5.893 5.893 0 0 1 6.349 2.359a5.496 5.496 0 0 1 .958 4.13a5.124 5.124 0 0 1-2.333 3.469l-7.438 4.734a6.457 6.457 0 0 1-1.547.677z" fill="#FFC922"/>
+            </svg>, "Svelte.js", "intermidiate - 60%"],
             [<svg key="vue" width="98" height="98" viewBox="0 0 98 98" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M74.4371 12.3082H59.7188L49 29.2653L39.8125 12.3082H6.125L49 85.75L91.875 12.3082H74.4371ZM16.7856 18.4332H27.0847L49 56.3684L70.8969 18.4332H81.1961L49.0031 73.595L16.7856 18.4332Z" fill="#FFC922"/>
             </svg>, "Vue.js", "queuing - 0%"],
+            [<svg key="next" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="98" height="98" preserveAspectRatio="xMidYMid meet" viewBox="0 0 15 15">
+                <g fill="none"><path d="M4.5 4.5l.405-.293A.5.5 0 0 0 4 4.5h.5zm3 9.5A6.5 6.5 0 0 1 1 7.5H0A7.5 7.5 0 0 0 7.5 15v-1zM14 7.5A6.5 6.5 0 0 1 7.5 14v1A7.5 7.5 0 0 0 15 7.5h-1zM7.5 1A6.5 6.5 0 0 1 14 7.5h1A7.5 7.5 0 0 0 7.5 0v1zm0-1A7.5 7.5 0 0 0 0 7.5h1A6.5 6.5 0 0 1 7.5 1V0zM5 12V4.5H4V12h1zm-.905-7.207l6.5 9l.81-.586l-6.5-9l-.81.586zM10 4v6h1V4h-1z" fill="#FFC922"/></g>
+            </svg>, "Next.js", "queuing - 0%"],
+            [<svg key="nuxt" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="98" height="98" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
+                <path d="M26.297 27.031l.031-.063a.746.746 0 0 0 .073-.156v-.005c.099-.26.12-.536.073-.813v.01a2.368 2.368 0 0 0-.313-.828l.01.01l-7.094-12.474l-1.083-1.891l-8.156 14.365c-.141.25-.229.521-.276.802v.016c-.057.323-.021.651.109.953l-.005-.01c.016.047.042.089.068.135l-.005-.005c.214.365.667.802 1.667.802h13.198c.208 0 1.234-.042 1.708-.849zm-8.302-12.422l6.479 11.396H11.521zm13.666 10.579L22.307 8.709c-.099-.177-.635-1.052-1.578-1.052c-.422 0-1.026.182-1.521 1.047L18 10.824l1.073 1.896l1.667-2.953l9.255 16.245h-3.521c.047.271.021.547-.073.807v-.01c-.021.057-.042.115-.073.167v-.005l-.031.063c-.474.807-1.495.849-1.693.849h5.505c.203 0 1.219-.042 1.693-.849c.214-.37.359-.984-.141-1.844zM9.74 27.078l-.063-.125v-.005a1.668 1.668 0 0 1-.115-.953v.01H1.999l11.24-19.776l3.687 6.484l1.073-1.891l-3.219-5.667c-.089-.161-.63-1.036-1.568-1.036c-.422 0-1.031.182-1.521 1.052L.306 25.187c-.099.172-.568 1.078-.099 1.885c.214.37.667.802 1.667.802h9.531c-.99 0-1.453-.427-1.667-.802z" fill="#FFC922"/>
+            </svg>, "Nuxt.js", "queuing - 0%"],
         ]],
-        [14, "DATABASES & API", "THE BACKEND & THE MIDDLE", "Without a backend system, a place to process and store our website data, we can not call your website fully completed. We also need an API to transfer data between frontend and backend.", [
+        [14, "DATABASES & API", "THE BACKEND & THE MIDDLE", "Without a backend system, a place to process and store our website data, we cannot call our website fully completed. We also need an API to transfer data between frontend and backend.", [
             [<svg key="django" width="98" height="98" viewBox="0 0 98 98" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd" d="M61.9522 0H44.9002V24.2223C42.3563 23.6098 40.2452 23.4057 37.4848 23.4057C19.6652 23.4016 8.1665 33.9121 8.1665 50.1147C8.1665 66.9299 19.0078 75.6887 39.8328 75.7091C46.7867 75.7091 53.2179 75.0966 61.9522 73.5449V0ZM39.747 36.6561C41.854 36.6561 43.5037 36.8603 45.4963 37.4728V62.9854C43.0627 63.2917 41.5273 63.3937 39.6408 63.3937C30.9025 63.3937 26.1454 58.7306 26.1454 50.2863C26.1454 41.6092 31.1271 36.6561 39.747 36.6561Z" fill="#FFC922"/>
                 <path d="M89.8333 62.2017V25.3782H72.8058V56.7178C72.8058 70.548 72.0382 75.8033 69.6004 80.3439C67.2729 84.7825 63.6306 87.6939 56.105 90.9851L71.9279 98.0003C79.4535 94.4804 83.0958 91.2913 85.8602 86.2403C88.8247 80.9809 89.8333 74.8804 89.8333 62.2017Z" fill="#FFC922"/>
@@ -88,6 +106,19 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                 <path fillRule="evenodd" clipRule="evenodd" d="M51.4117 1.0589C51.1056 0.724163 50.7332 0.456833 50.3181 0.273936C49.903 0.0910384 49.4544 -0.00341797 49.0009 -0.00341797C48.5473 -0.00341797 48.0987 0.0910384 47.6836 0.273936C47.2686 0.456833 46.8961 0.724163 46.5901 1.0589L29.4074 19.8096C23.6488 26.0899 20.3093 34.2121 19.985 42.7267C19.6607 51.2413 22.3727 59.5941 27.6369 66.2942L45.7342 89.3308V98.0005H52.2675V89.3308L70.3649 66.2942C75.6282 59.5954 78.3402 51.2444 78.0171 42.7313C77.694 34.2182 74.3568 26.0968 68.6009 19.8161L51.4117 1.06543V1.0589ZM52.2675 19.6005C52.2675 18.7341 51.9234 17.9032 51.3107 17.2906C50.6981 16.678 49.8672 16.3338 49.0009 16.3338C48.1345 16.3338 47.3036 16.678 46.691 17.2906C46.0784 17.9032 45.7342 18.7341 45.7342 19.6005V68.6005C45.7342 69.4669 46.0784 70.2978 46.691 70.9104C47.3036 71.523 48.1345 71.8672 49.0009 71.8672C49.8672 71.8672 50.6981 71.523 51.3107 70.9104C51.9234 70.2978 52.2675 69.4669 52.2675 68.6005V19.6005Z" fill="#FFC922"/>
             </svg>
             , "mongo DB", "queuing - 0%"],
+            [<svg key="gql" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="98" height="98" preserveAspectRatio="xMidYMid meet" viewBox="0 0 15 15">
+                <g fill="none"><path d="M2.61 4.432l4.142-2.417l-.504-.864l-4.143 2.417l.504.864zM2 9.5v-4H1v4h1zm6.248-7.485l4.143 2.417l.504-.864l-4.143-2.417l-.504.864zM13 5.5v4h1v-4h-1zm-.252 4.86l-4.5 2.625l.504.864l4.5-2.625l-.504-.864zm-5.996 2.625l-4.143-2.417l-.504.864l4.143 2.417l.504-.864zM6.584 1.973l-5 7.5l.832.554l5-7.5l-.832-.554zm6.832 7.5l-5-7.5l-.832.554l5 7.5l.832-.554zM2.5 11h10v-1h-10v1zm5-9a.5.5 0 0 1-.5-.5H6A1.5 1.5 0 0 0 7.5 3V2zm.5-.5a.5.5 0 0 1-.5.5v1A1.5 1.5 0 0 0 9 1.5H8zM7.5 1a.5.5 0 0 1 .5.5h1A1.5 1.5 0 0 0 7.5 0v1zm0-1A1.5 1.5 0 0 0 6 1.5h1a.5.5 0 0 1 .5-.5V0zm6 5a.5.5 0 0 1-.5-.5h-1A1.5 1.5 0 0 0 13.5 6V5zm.5-.5a.5.5 0 0 1-.5.5v1A1.5 1.5 0 0 0 15 4.5h-1zm-.5-.5a.5.5 0 0 1 .5.5h1A1.5 1.5 0 0 0 13.5 3v1zm0-1A1.5 1.5 0 0 0 12 4.5h1a.5.5 0 0 1 .5-.5V3zm0 8a.5.5 0 0 1-.5-.5h-1a1.5 1.5 0 0 0 1.5 1.5v-1zm.5-.5a.5.5 0 0 1-.5.5v1a1.5 1.5 0 0 0 1.5-1.5h-1zm-.5-.5a.5.5 0 0 1 .5.5h1A1.5 1.5 0 0 0 13.5 9v1zm0-1a1.5 1.5 0 0 0-1.5 1.5h1a.5.5 0 0 1 .5-.5V9zm-6 5a.5.5 0 0 1-.5-.5H6A1.5 1.5 0 0 0 7.5 15v-1zm.5-.5a.5.5 0 0 1-.5.5v1A1.5 1.5 0 0 0 9 13.5H8zm-.5-.5a.5.5 0 0 1 .5.5h1A1.5 1.5 0 0 0 7.5 12v1zm0-1A1.5 1.5 0 0 0 6 13.5h1a.5.5 0 0 1 .5-.5v-1zm-6-1a.5.5 0 0 1-.5-.5H0A1.5 1.5 0 0 0 1.5 12v-1zm.5-.5a.5.5 0 0 1-.5.5v1A1.5 1.5 0 0 0 3 10.5H2zm-.5-.5a.5.5 0 0 1 .5.5h1A1.5 1.5 0 0 0 1.5 9v1zm0-1A1.5 1.5 0 0 0 0 10.5h1a.5.5 0 0 1 .5-.5V9zm0-4a.5.5 0 0 1-.5-.5H0A1.5 1.5 0 0 0 1.5 6V5zm.5-.5a.5.5 0 0 1-.5.5v1A1.5 1.5 0 0 0 3 4.5H2zM1.5 4a.5.5 0 0 1 .5.5h1A1.5 1.5 0 0 0 1.5 3v1zm0-1A1.5 1.5 0 0 0 0 4.5h1a.5.5 0 0 1 .5-.5V3z" fill="#FFC922"/></g>
+            </svg>
+            , "Graph QL", "queuing - 0%"],
+            [<svg key="php" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="98" height="98" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                <path d="M2.15 16.78h1.57a.14.14 0 0 0 .14-.12l.35-1.82h1.22a4.88 4.88 0 0 0 1.51-.2A2.79 2.79 0 0 0 8 14a3.18 3.18 0 0 0 .67-.85a3.43 3.43 0 0 0 .36-1a2.43 2.43 0 0 0-.41-2.16a2.64 2.64 0 0 0-2.09-.78h-3a.16.16 0 0 0-.15.13L2 16.6a.19.19 0 0 0 0 .13a.17.17 0 0 0 .15.05zM5 10.62h1a1.45 1.45 0 0 1 1.08.29c.17.18.2.52.11 1a1.81 1.81 0 0 1-.57 1.12a2.17 2.17 0 0 1-1.33.33h-.8zm9.8-.95a2.7 2.7 0 0 0-1.88-.51h-1.19l.33-1.76a.15.15 0 0 0 0-.13a.16.16 0 0 0-.11 0h-1.57a.14.14 0 0 0-.14.12l-1.38 7.27a.13.13 0 0 0 0 .12a.13.13 0 0 0 .11.06h1.54a.14.14 0 0 0 .14-.13l.77-4.07h1.11c.45 0 .61.1.66.16a.81.81 0 0 1 0 .62l-.61 3.24a.13.13 0 0 0 0 .12a.14.14 0 0 0 .11.06h1.56a.16.16 0 0 0 .15-.13l.64-3.4a1.7 1.7 0 0 0-.24-1.64zm4.52-.51h-3.13a.14.14 0 0 0-.15.13l-1.46 7.31a.16.16 0 0 0 0 .13a.14.14 0 0 0 .11.05h1.63a.14.14 0 0 0 .15-.12l.37-1.82h1.27a5.28 5.28 0 0 0 1.56-.2a3 3 0 0 0 1.18-.64a3.31 3.31 0 0 0 .7-.85a3.45 3.45 0 0 0 .37-1a2.38 2.38 0 0 0-.42-2.16a2.81 2.81 0 0 0-2.18-.83zm.62 2.77a1.83 1.83 0 0 1-.6 1.12a2.28 2.28 0 0 1-1.37.33h-.8l.54-2.76h1a1.6 1.6 0 0 1 1.13.29c.16.18.16.52.1 1.02z" fill="#FFC922"/>
+            </svg>
+            , "PHP", "queuing - 0%"],
+            [<svg key="mysql" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="98" height="98" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1025 1024">
+                <path d="M256.06 224q0-13 9.5-22.5t22.5-9.5t22.5 9.5t9.5 22.5t-9.5 22.5t-22.5 9.5t-22.5-9.5t-9.5-22.5zm768 800q-5-2-14.5-5.5t-36-15.5t-51.5-25.5t-55.5-36t-53.5-47.5q-20-14-59-56q21-14 64.5-23.5t76.5-12.5l33-2q0-16-28.5-33.5t-66.5-32t-82.5-40.5t-69.5-55q-19-22-35-48.5t-37-69t-24-48.5q-20-31-57.5-84t-47.5-69q-31-48-108.5-120t-115.5-72q-25 0-46 10q-102-74-114-74q-13 0-22.5 9.5T64.06 96q0 8 31 56t66 96q2 17 5 34t5.5 29t9 28.5t9.5 24t12.5 24.5t11.5 20.5t13 21.5t12 19q-9-1-15-1q-14 0-23 44.5t-9 115.5q0 16 26 62q31 54 37 18q1-6 1-16q0-82 50-94q59 117 101 191t83 125q-83-64-177-211q-9 34-24.5 59.5t-32.5 25.5q-30 0-61-35t-49-79.5t-18-77.5q0-31 8-74.5t21-74.5q-24-34-37.5-67.5t-19.5-89.5q-5-9-14-26q-86-157-86-180q0-26 19-45t45-19q21 0 78 22t89 44q14-2 25-2q48 0 132.5 69t123.5 123q1 1 23 31.5t27.5 38.5t24.5 35t27 41t21.5 36t22 40t14.5 34q18 44 61 82t91 64t94 51.5t76 56.5t30 66q-14 1-36.5 3t-70 11.5t-68.5 23.5q20 25 64.5 59.5t77.5 59.5t33 35z" fill="#ffc922"/>
+            </svg>
+            , "MYSQL", "intermidiate - 60%"],
+
         ]]        
     ];
 
@@ -238,21 +269,21 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
             cursorChar: "_",
         };
         
-        typed.current = new Typed(el.current, options);
+        typed.current = new Typed(el.current || "", options);
         
         return () => {
-            typed.current.destroy();
+            typed?.current?.destroy();
         };
     }, [page]);
 
     return <>
         {/* Intro */}
         {[0, 1].includes(page) ? <div className={page > 1 ? "hidden" : "flex items-center justify-center flex-col h-screen"}>
-            <div className="absolute top-36 lg:top-24 left-6 560:left-12 lg:left-24 xl:left-32 flex gap-4">
-                <svg className={`${anim} animate__fadeInLeft animate__fast flex-shrink-0 -mt-1 ${page === 0 ? "animate__delay-2s" : ""} ${page !== 0 ? "animate__fadeOutLeftBig" : ""}`} width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className="absolute top-36 left-6 560:left-12 lg:left-24 xl:left-32 flex gap-4">
+                <svg className={`${anim} animate__fadeInLeft animate__fast flex-shrink-0 -mt-1 w-12 ${page === 0 ? "animate__delay-2s" : ""} ${page !== 0 ? "animate__fadeOutLeftBig" : ""}`} width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9.53511 16.2543C13.1595 12.3251 18.6439 10.3333 25.8334 10.3333H28.4167V17.6158L26.3397 18.0317C22.8005 18.7395 20.3386 20.1319 19.0211 22.1753C18.3337 23.2762 17.9438 24.5366 17.8896 25.8333H25.8334C26.5185 25.8333 27.1756 26.1055 27.6601 26.59C28.1445 27.0745 28.4167 27.7315 28.4167 28.4167V46.5C28.4167 49.3494 26.0994 51.6667 23.25 51.6667H7.75003C7.06489 51.6667 6.4078 51.3945 5.92334 50.91C5.43887 50.4256 5.1667 49.7685 5.1667 49.0833V36.1667L5.17445 28.6259C5.1512 28.3392 4.66036 21.545 9.53511 16.2543ZM51.6667 51.6667H36.1667C35.4816 51.6667 34.8245 51.3945 34.34 50.91C33.8555 50.4256 33.5834 49.7685 33.5834 49.0833V36.1667L33.5911 28.6259C33.5679 28.3392 33.077 21.545 37.9518 16.2543C41.5762 12.3251 47.0606 10.3333 54.25 10.3333H56.8334V17.6158L54.7564 18.0317C51.2172 18.7395 48.7553 20.1319 47.4378 22.1753C46.7503 23.2762 46.3605 24.5366 46.3063 25.8333H54.25C54.9352 25.8333 55.5923 26.1055 56.0767 26.59C56.5612 27.0745 56.8334 27.7315 56.8334 28.4167V46.5C56.8334 49.3494 54.5161 51.6667 51.6667 51.6667Z" fill="#FFC922"/>
                 </svg>
-                <p className={`${anim} animate__fadeInDown animate__fast ${page === 0 ? "animate__delay-2s" : ""} ${page !== 0 ? "animate__fadeOutLeftBig" : ""} text-white tracking-widerr text-xl md:text-2xl lg:text-2xl z-10 sm:w-8/12 md:w-full leading-tight pr-12 font-Poppins`}>You can never use up creativity. The more <br className="hidden xl:inline"/>you use, the more you have.</p>
+                <p className={`${anim} animate__fadeInDown animate__fast ${page === 0 ? "animate__delay-2s" : ""} ${page !== 0 ? "animate__fadeOutLeftBig" : ""} text-white tracking-widerr text-lg md:text-2xl lg:text-2xl z-10 sm:w-8/12 md:w-full leading-tight pr-12 font-Poppins`}>You can never use up creativity. The more <br className="hidden xl:inline"/>you use, the more you have.</p>
             </div>
             <div className='mt-16 xl:mt-48'>
                 <p className={`${anim} ${page === 0 ? "animate__delay-2s" : ""} animate__fast animate__fadeInLeft uppercase xl:ml-2 text-white text-xl lg:text-3xl xl:text-4xl font-bold tracking-widest ${page !== 0 ? " animate__fadeOutDownBig" : ""}`}>VISION OF</p>
@@ -277,9 +308,9 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
             <DownButton {...{page, setPage}} currentPage={2}/>
         </div> : ""}
 
-        {/* 01A */}
+        {/* 01α */}
         {[3, 4].includes(page) ? <div className="w-full h-full tl-0 flex flex-col justify-center items-center absolute z-10">
-            <h2 className={`text-9xl md:text-huge tracking-widerr font-bold text-yellow-a800 text-inner -mt-12 ${page !== 3 ? "titleFadeOut" : "titleNoIn"}`}>01A</h2>
+            <h2 className={`text-9xl md:text-huge tracking-widerr font-bold text-yellow-a800 text-inner -mt-12 ${page !== 3 ? "titleFadeOut" : "titleNoIn"}`}>01α</h2>
             <p className={`font-Poppins text-center text-xl md:text-3xl lg:text-4xl tracking-widerr font-medium -mt-4 text-black-dark ${anim} ${page === 3 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>Who Am I</p>
             <DownButton {...{page, setPage}} currentPage={3} delay={2}/>
         </div> : ""}
@@ -289,28 +320,28 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
         {Array(5).fill(0).map((_, i) => <div key={i} className={`layer layer-${i+1} wh-full left-0 -top-full absolute z-20 ${[4, 5, 7, 8, 9, 10, 12, 13, 14, 16, 17, 18, 19, 20, 22, 28, 29, 30, 31].includes(page) ? "active" : ""}`}></div>)}
         <div className={`${anim} animate__delay-1s animate__fadeIn wh-full left-0 top-0 bg-black-dark absolute ${[4, 5, 6].includes(page) ? "" : "hidden"} ${page === 6 ? "section-leave z-0" : "z-10"}`}>
             <div className="flex px-6 sm:px-20 lg:px-32 pt-28 items-center gap-6">
-                <p className={`${anim} ${page === 4 ? "animate__fadeInDown animate__delay-2s" : ""} text-yellow-500 font-bold text-4xl 380:text-5xl sm:text-6xl tracking-widerr`}>01A</p>
+                <p className={`${anim} ${page === 4 ? "animate__fadeInDown animate__delay-2s" : ""} text-yellow-500 font-bold text-4xl 380:text-5xl sm:text-6xl tracking-widerr`}>01α</p>
                 <h1 className={`${anim} ${page === 4 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase text-2xl 440:text-3xl sm:text-4xl font-bold text-white tracking-widerr`}>self introduction</h1>
             </div>
-            {/* 01A.1 */}
+            {/* 01α.1 */}
             <div className={`px-6 sm:px-20 lg:px-32 pb-8 wh-full ${anim} ${page === 4 ? "" : "section-hide"}`}>
                 <div className="mt-8 sm:mt-24 flex gap-24">
                     <img src={Illu1} className={`${anim} -mt-4 ${page === 4 ? "animate__fadeIn animate__delay-2s" : "animate__fadeOutDown"} w-80 xl:w-96 flex-shrink-0 hidden lg:block`}/>
                     <div className="relative z-10">
                         <h1 className={`${anim} text-4xl xl:text-6xl text-white font-bold tracking-widerr uppercase ${page === 4 ? "animate__fadeInRight animate__delay-3s" : "animate__fadeOutRight"}`}>Hello,<br/>I’m <span className="text-yellow-500" ref={el}></span></h1>
-                        <p className={`${anim} ${page === 4 ? "animate__fadeInUp animate__delay-3s" : "animate__fadeOutDown"} text-white font-Poppins text-base xl:text-xl tracking-widerr font-light leading-6 xl:leading-7 mt-8 mb-12`}>Hi, it&#39;s really nice to meet you. I am a self-taught full-stack developer and UI /UX designer who loves to create cool and good-looking websites with the latest technologies and learns new technologies & skills from time to time.</p>
+                        <p className={`${anim} ${page === 4 ? "animate__fadeInUp animate__delay-3s" : "animate__fadeOutDown"} text-white font-Poppins text-base xl:text-xl tracking-widerr font-light leading-6 xl:leading-7 mt-8 mb-12`}>Nice to meet you. I am a self-taught full-stack developer and UI designer who loves learning new technologies & skills from time to time and create cool projects with them.</p>
                         <button className={`${anim} ${page === 4 ? "animate__fadeInUp animate__delay-4s" : "animate__fadeOut"} text-yellow-500 font-bold border-4 border-yellow-500 py-4 px-16 uppercase text-xl tracking-widerr`}>download CV</button>
                     </div>
                 </div>
                 <DownButton {...{page, setPage}} currentPage={4} delay={2} light/>
             </div>
-            {/* 01A.2 */}
+            {/* 01α.2 */}
             <div className={`px-6 sm:px-20 lg:px-32 wh-full ${anim} ${page === 5 ? "block" : "animate__delay-2 animate__fadeOut"}`}>
                 <div className="mt-8 sm:mt-0 flex gap-24" style={{height: "140%"}}>
                     <img src={Img1} className={`${anim} ${page === 5 ? "animate__delay-2s animate__fadeInUp" : "animate__fadeOutDown"} hidden lg:block`}/>
                     <div className="relative z-10">
                         <h1 className={`${anim} whitespace-nowrap text-4xl xl:text-6xl -mt-2 text-white font-bold tracking-widerr uppercase ${page === 5 ? "animate__fadeInRight animate__delay-2s" : "animate__fadeOutRight"}`}><span className="text-yellow-500">practice</span> skills<br/>make <span className="text-yellow-500">projects</span></h1>
-                        <p className={`${anim} ${page === 5 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown"} text-white font-Poppins xl:text-xl tracking-widerr font-light leading-6 xl:leading-7 mt-8 mb-12`}>If we never do projects ourselves, we will never truly understand the things we have learned. Without our portfolio, people will not know what we can do. So do projects, put them together into a portfolio to show people what we are capable of.</p>
+                        <p className={`${anim} ${page === 5 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown"} text-white font-Poppins xl:text-lg tracking-widerr font-light leading-6 xl:leading-7 mt-8 mb-12`}>If we never do projects ourselves, we will never truly understand the things we have learned. Without our portfolio, people will not know what we can do. So do projects, put them together into a portfolio to show people what we are capable of.</p>
                         <a aria-label='Thanks' className={`${anim} ${page === 5 ? "animate__fadeInUp animate__delay-3s" : "animate__fadeOut"} text-yellow-500 font-bold border-4 border-yellow-500 py-4 px-16 uppercase text-xl tracking-widerr h-button relative inline-flex items-center justify-center`} data-text='SEE MY WORKS' href='#'>
                             {"VIEW PROJECTS".split("").map(e => <span style={{padding: "0 .04em"}} key={e}>{e}</span>)}
                         </a>
@@ -318,23 +349,23 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                 </div>
                 <DownButton {...{page, setPage}} currentPage={5} delay={2} light/>
             </div>
-            <p className="${anim} absolute z-0 bottom-6 right-6 text-big 440:text-huge sm:text-enormous leading-none font-bold tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>01A</p>
+            <p className="${anim} absolute z-0 bottom-6 right-6 text-big 440:text-huge sm:text-enormous leading-none font-bold tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>01α</p>
         </div>
 
-        {/* 01B */}
+        {/* 01β */}
         <div className={`wh-full tl-0 flex flex-col justify-center items-center absolute z-10 ${[6, 7].includes(page) ? "" : "hidden"} ${page === 7 ? "section-leave" : ""}`}>
-            <h2 className={`text-9xl md:text-huge tracking-widerr font-bold text-yellow-a800 text-inner -mt-12 ${page !== 6 ? "titleFadeOut" : "titleNoIn"}`}>01B</h2>
+            <h2 className={`text-9xl md:text-huge tracking-widerr font-bold text-yellow-a800 text-inner -mt-12 ${page !== 6 ? "titleFadeOut" : "titleNoIn"}`}>01β</h2>
             <p className={`font-Poppins text-center text-xl md:text-3xl lg:text-4xl tracking-widerr font-medium -mt-4 text-black-dark ${anim} ${page === 6 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>How I do my projects</p>
             <DownButton {...{page, setPage}} currentPage={6} delay={2}/>
         </div>
 
         <div className={`${anim} animate__delay-1s animate__fadeIn wh-full left-0 top-0 bg-black-dark absolute z-10 ${[7, 8, 9, 10, 11].includes(page) ? "" : "hidden"} ${page === 11 ? "section-leave z-0" : ""}`}>
             <div className="flex px-6 sm:px-20 lg:px-32 pt-28 items-center gap-6">
-                <p className={`${anim} ${page === 7 ? "animate__fadeInDown animate__delay-2s" : ""} text-yellow-500 font-bold text-4xl 380:text-5xl sm:text-6xl tracking-widerr`}>01B</p>
+                <p className={`${anim} ${page === 7 ? "animate__fadeInDown animate__delay-2s" : ""} text-yellow-500 font-bold text-4xl 380:text-5xl sm:text-6xl tracking-widerr`}>01β</p>
                 <h1 className={`${anim} ${page === 7 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase text-2xl 440:text-3xl sm:text-4xl font-bold text-white tracking-widerr`}>project workflow</h1>
             </div>
-            {/* 01B.1.2.3.4 */}
-            {workFlow.map(([i, illu, title, subtitle, desc], index) => <div key={i} className={`px-6 sm:px-20 lg:px-32 wh-full ${anim} ${page === i ? "pb-8 mt-12" : "section-hide pb-0"}`}>
+            {/* 01β.1.2.3.4 */}
+            {workFlow.map(([i, illu, title, subtitle, desc]) => <div key={i} className={`px-6 sm:px-20 lg:px-32 wh-full ${anim} ${page === i ? "pb-8 mt-20" : "section-hide pb-0"}`}>
                 <div className={"flex gap-32"}>
                     <img src={illu} className={`${anim} -mt-4 ${page === i ? "animate__fadeInUp animate__delay-1s" : "animate__fadeOutDown"} hidden lg:block`}/>
                     <div className="relative z-10">
@@ -350,45 +381,47 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
                     <DownButton {...{page, setPage}} currentPage={i} delay={2} light/>
                 </div>
             </div>)}
-            <p className="${anim} absolute bottom-6 right-6 text-big 440:text-huge sm:text-enormous leading-none font-bold tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner">01B</p>
+            <p className="${anim} absolute bottom-6 right-6 text-big 440:text-huge sm:text-enormous leading-none font-bold tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner">01β</p>
         </div>
 
-        {/* 02A */}
+        {/* 02α */}
         <div className={`wh-full tl-0 flex flex-col justify-center items-center absolute z-10 ${[11, 12].includes(page) ? "" : "hidden"} ${page === 12 ? "section-leave" : ""}`}>
-            <h2 className={`text-9xl md:text-huge tracking-widerr font-bold text-yellow-a800 text-inner -mt-12 ${page !== 11 ? "titleFadeOut" : "titleNoIn"}`}>02A</h2>
+            <h2 className={`text-9xl md:text-huge tracking-widerr font-bold text-yellow-a800 text-inner -mt-12 ${page !== 11 ? "titleFadeOut" : "titleNoIn"}`}>02α</h2>
             <p className={`font-Poppins text-center text-xl md:text-3xl lg:text-4xl tracking-widerr font-medium -mt-4 text-black-dark ${anim} ${page === 11 ? "animate__fadeInUp animate__delay-2s" : "animate__fadeOutDown animate__faster"}`}>Technologies I&#39;m Using</p>
             <DownButton {...{page, setPage}} currentPage={11} delay={2}/>
         </div>
 
-        <div className={`${anim} animate__delay-1s animate__fadeIn wh-full left-0 top-0 bg-black-dark absolute ${[12, 13, 14, 15].includes(page) ? "" : "hidden"} ${page === 15 ? "section-leave" : ""}`}>
-            <div className="flex px-32 pt-28 items-center gap-6">
-                <p className={`${anim} ${page === 12 ? "animate__fadeInDown animate__delay-2s" : ""} text-yellow-500 font-bold text-4xl 380:text-5xl sm:text-6xl tracking-widerr`}>02A</p>
-                <h1 className={`${anim} ${page === 12 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase text-2xl 440:text-3xl sm:text-4xl font-bold text-white tracking-widerr`}>my skills</h1>
+        <div className={`${anim} animate__delay-1s animate__fadeIn wh-full flex flex-col left-0 top-0 bg-black-dark absolute ${[12, 13, 14, 15].includes(page) ? "" : "hidden"} ${page === 15 ? "section-leave" : ""}`}>
+            <div className="flex px-6 sm:px-20 lg:px-32 pt-28 items-center gap-6">
+                <p className={`${anim} ${page === 7 ? "animate__fadeInDown animate__delay-2s" : ""} text-yellow-500 font-bold text-4xl 380:text-5xl sm:text-6xl tracking-widerr`}>02α</p>
+                <h1 className={`${anim} ${page === 7 ? "animate__fadeInRight animate__delay-2s" : ""} uppercase text-2xl 440:text-3xl sm:text-4xl font-bold text-white tracking-widerr`}>Tech Stacks</h1>
             </div>
-            {/* 02A.1.2.3 */}
-            {skills.map(([i, title, subtitle, desc, item], index) => <div key={i} className={`px-32 pb-8 wh-full ${anim} ${page === i ? "" : "section-hide"}`}>
-                <div className={`${!index ? "mt-16" : ""} flex gap-32`}>
-                    <div className="relative z-10">
+            {/* 02α.1.2.3 */}
+            {skills.map(([i, title, subtitle, desc, item]) => <div key={i} className={`px-6 sm:px-20 lg:px-32 lg:pr-24 overflow-y-auto overflow-x-hidden xl:overflow-hidden wh-full flex ${anim} ${page === i ? "mb-24 mt-12 lg:mt-0 lg:mb-0" : "section-hide"}`}>
+                <div className={"lg:mt-12 flex flex-col lg:flex-row justify-between w-full h-full gap-24 xl:gap-24 relative"}>
+                    <div className="relative z-10 w-full">
                         <p className={`${anim} text-xl mb-2 text-yellow-500 font-Poppins font-medium tracking-widerr uppercase ${page === i ? "animate__fadeInRight animate__delay-2s" : "animate__fadeOutUp"}`}>{subtitle}</p>
-                        <h1 className={`${anim} text-6xl text-white font-bold tracking-widerr uppercase ${page === i ? "animate__fadeInDown animate__delay-2s" : "animate__fadeOutRight"}`}>{title}</h1>
-                        <p className={`${anim} ${page === i ? "animate__fadeInUp animate__delay-3s" : "animate__fadeOutDown"} text-white font-Poppins text-xl tracking-widerr font-light leading-7 mt-8 mb-12`}>{desc}</p>
-                        <a aria-label='Thanks' className={`${anim} ${page === i ? "animate__fadeInUp animate__delay-4s" : "animate__fadeOut"} text-yellow-500 font-bold border-4 border-yellow-500 py-4 px-16 uppercase text-xl tracking-widerr h-button relative inline-flex items-center justify-center`} data-text='KNOW MORE' href='#'>
+                        <h1 className={`${anim} text-4xl xl:text-6xl text-white font-bold tracking-widerr uppercase ${page === i ? "animate__fadeInDown animate__delay-2s" : "animate__fadeOutRight"}`}>{title}</h1>
+                        <p className={`${anim} ${page === i ? "animate__fadeInUp animate__delay-3s" : "animate__fadeOutDown"} text-white font-Poppins xl:text-lg tracking-widerr font-light leading-6 xl:leading-6 mt-8 mb-12`}>{desc}</p>
+                        <a aria-label='Thanks' className={`${anim} ${page === i ? "animate__fadeInUp animate__delay-4s" : "animate__fadeOut"} text-yellow-500 font-bold border-4 border-yellow-500 py-4 px-16 uppercase text-xl tracking-widerr w-full xl:w-auto h-button relative inline-flex items-center justify-center`} data-text='KNOW MORE' href='#'>
                             {"SEE ARTICLE".split("").map(e => <span style={{padding: "0 .04em"}} key={e}>{e}</span>)}
                         </a>
                     </div>
-                    <div className={`${anim} ${page === i ? "animate__fadeInUp animate__delay-1s" : "animate__fadeOut"} flex flex-col gap-16 mx-16`}>
-                        {item.map(([icon, name, level]) => <div key={`item-${name}`} className="flex gap-8 items-center">
-                            {icon}
-                            <div >
-                                <h2 className={`${anim} text-4xl text-white font-bold tracking-widerr uppercase whitespace-nowrap`}>{name}</h2>
-                                <p className={`${anim} text-xl mb-2 text-yellow-500 font-Poppins font-medium tracking-widerr uppercase whitespace-nowrap`}>{level}</p>
-                            </div>
-                        </div>)}
+                    <div className={`${anim} ${page === i ? "animate__fadeInUp animate__delay-1s" : "animate__fadeOut"} w-full flex`}>
+                        <div className="transform -translate-y-4 inline-grid grid-cols-2 gap-x-8 pr-4 w-full pb-24">
+                            {item.map(([icon, name, level]) => <div key={`item-${name}`}>
+                                <div className="flex-shrink-0 w-14 lg:w-12 flex -mt-3">{icon}</div>
+                                <div >
+                                    <h2 className={`${anim} text-3xl lg:text-2xl text-white font-bold tracking-widerr uppercase whitespace-nowrap`}>{name}</h2>
+                                    <p className={`${anim} text-lg lg:text-lg mb-2 text-yellow-500 font-Poppins font-medium tracking-widerr uppercase whitespace-nowrap`}>{level}</p>
+                                </div>
+                            </div>)}
+                        </div>
                     </div>
-                    <DownButton {...{page, setPage}} currentPage={i} delay={2} light />
                 </div>
+                <DownButton {...{page, setPage}} currentPage={i} delay={2} light />
             </div>)}
-            <p className="${anim} absolute bottom-0 right-8 text-enormous leading-none font-bold tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>02A</p>
+            <p className="${anim} absolute bottom-6 right-6 text-big 440:text-huge sm:text-enormous leading-none font-bold tracking-wider text-black-light animate__fadeInUp animate__delay-2s text-dark-inner" style={{zIndex: -1}}>02α</p>
         </div>
 
         <div className={`wh-full tl-0 flex flex-col justify-center items-center absolute z-10 ${[15, 16].includes(page) ? "" : "hidden"} ${page === 16 ? "section-leave" : ""}`}>
@@ -524,12 +557,12 @@ const Landing: React.FC<ILanding> = ({page, setPage}: ILanding): JSX.Element => 
         </div> : ""}
         
         {[26, 27].includes(page) ? <div>
-            <div className="relative z-10 px-32 py-24">
+            <div className="relative z-10 px-32 py-28">
                 <div className={`${anim} ${page === 26 ? "block animate__fadeInDown" : "animate__fadeOutUp"}`}>
                     <p className={`${anim} text-xl mb-2 text-yellow-a800 text-inner font-bold tracking-widerr uppercase ${page === 26 ? "" : "animate__fadeOutUp"}`}>SUPPORT</p>
                 </div>
                 <h1 className={`${anim} text-6xl font-black tracking-widerr uppercase ${page === 26 ? "animate__fadeInDown" : "animate__fadeOutRight"} text-black-dark`}>BUY ME A COFFEE<br/>FOR MORE PROJECTS</h1>
-                <p className={`${anim} ${page === 26 ? "animate__fadeInUp" : "animate__fadeOutDown"} font-Poppins text-xl w-8/12 text-black-dark tracking-widerr font-medium leading-7 mt-8 mb-12`}>Making projects is fun. However, these projects are all open source, and I am not able to make money from them. If you want to show your support and give me some motivation, consider buying me a coffee.</p>
+                <p className={`${anim} ${page === 26 ? "animate__fadeInUp" : "animate__fadeOutDown"} font-Poppins text-xl w-8/12 text-black-dark tracking-wider  leading-7 mt-8 mb-12`}>Making projects is fun. However, these projects are all open source, and I am not able to make money from them. If you want to show your support and give me some motivation, consider buying me a coffee.</p>
                 <button className={`${anim} ${page === 26 ? "animate__fadeInUp animate__delay-1s" : "animate__fadeOut"} border-black-dark text-black-dark font-bold border-4 py-4 px-16 uppercase text-xl tracking-widerr`}>donate me</button>
             </div>
             <svg className={`absolute bottom-0 right-0 ${anim} ${page === 26 ? "animate__fadeInRight" : "hidden"}`} width="539" height="573" viewBox="0 0 539 573" fill="none" xmlns="http://www.w3.org/2000/svg">

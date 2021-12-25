@@ -2,6 +2,8 @@ import React, { ReactElement, useEffect, useState } from "react";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import ReactAnime from "react-animejs";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 const anim = "animate__animated";
 
@@ -11,13 +13,9 @@ const Projects = (): JSX.Element => {
     const [show, setShow] = useState(true);
     const [first, setFirst] = useState(true);
     const [catShow, setCatShow] = useState(false);
-
-    useEffect(() => {
-        setTimeout(() => {
-            setCatShow(true);
-        }, 100);
-    }, []);
-
+    const [count, setCount] = useState(0);
+    const [total, setTotal] = useState(0);
+    
     const projectTypes: (string|number|ReactElement)[][] = [
         ["Websites", 56, "WEB APPS/<br>WEBSITES", "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.", "3 months / projects", "Available", "WA", <svg key="web" width="499" height="408" viewBox="0 0 499 408" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clipPath="url(#clip0_264:31)" filter="url(#filter0_i_264:31)">
@@ -113,6 +111,13 @@ const Projects = (): JSX.Element => {
         ],
     ];
 
+    useEffect(() => {
+        setTimeout(() => {
+            axios("http://192.168.1.100:9595/projects/fetch-count?cat="+projectTypes[currentType-1][6]).then(res => res.data).then(({total, count}: {[k: string]: number}) => {setCount(count); setTotal(total)});
+            setCatShow(true)
+        }, 100);
+    });
+
     return <div className="w-full h-full pt-16 xl:pt-32 lg:px-16">
         <div className="flex flex-col xl:flex-row justify-between gap-16 md:gap-24 px-6 w-full h-full relative z-10 overflow-x-hidden overflow-y-scroll xl:overflow-hidden">   
             <div className="h-full justify-between flex flex-col">
@@ -140,11 +145,11 @@ const Projects = (): JSX.Element => {
                     <div className={`${anim} workflow-title relative pl-4 md:pl-6 ${show ? "animate__fadeInDown" : "animate__fadeOutUp"}`} style={{borderLeft: "10px solid rgba(254, 206, 60)"}}>
                         <h1 className={`${anim} text-5xl md:text-7xl text-white font-bold tracking-widerr uppercase whitespace-nowrap ${show ? "animate__fadeInDown "+(first ? "animate__delay-1s" : "") : "animate__fadeOutRight"}`}>{(projectTypes[currentType-1][2]+"").split("<br>").map(e => <p key="hmm">{e}</p>)}</h1>
                     </div>
-                    <a href={"projects/"+projectTypes[currentType-1][6] as string} className={`${anim} text-yellow-500 font-bold mt-8 md:mt-16 border-yellow-500 border-4 py-5 w-full xl:w-auto flex items-center justify-center xl:px-20 uppercase text-xl xl:text-2xl tracking-widerr whitespace-nowrap ${show ? "animate__fadeInUp animate__delay-1s" : "animate__fadeOutDown"}`}>BWORSE PROEJCTS</a>
+                    <Link to={"projects/"+projectTypes[currentType-1][6] as string} className={`${anim} text-yellow-500 font-bold mt-8 md:mt-16 border-yellow-500 border-4 py-5 w-full xl:w-auto flex items-center justify-center xl:px-20 uppercase text-xl xl:text-2xl tracking-widerr whitespace-nowrap ${show ? "animate__fadeInUp animate__delay-1s" : "animate__fadeOutDown"}`}>BWORSE PROEJCTS</Link>
                 </div>
                 <div className={`${anim} ${show ? "animate__fadeInUp "+(first ? "animate__delay-1s" : "") : "animate__fadeOutDown"} hidden xl:block`}>
                     <p className="text-white uppercase tracking-widerr font-semibold text-2xl">projects count</p>
-                    <p className={`${anim} animate__fadeInRight animate__delay-1s text-yellow-500 text-big font-bold tracking-widerr -mt-6`}>{(projectTypes[currentType-1][1]+"").padStart(2, "0")}<span className="text-white font-semibold text-4xl tracking-widerr">/ 78</span></p>
+                    <p className={`${anim} animate__fadeInRight animate__delay-1s text-yellow-500 text-big font-bold tracking-widerr -mt-6`}>{count.toString().padStart(2, "0")}<span className="text-white font-semibold text-4xl tracking-widerr">/ {total.toString().padStart(2, "0")}</span></p>
                 </div>
             </div>
             <Anime initial={[{
