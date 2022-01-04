@@ -6,7 +6,7 @@
     "@craco/craco": "^6.2.0",
     "@iconify-icons/bx": "^1.1.1",
     "@iconify-icons/cil": "^1.1.0",
-    "@iconify/react": "^1.1.4",
+    "@lifarl/react-scroll-snap-slider": "^2.0.5",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -21,6 +21,7 @@
     "autoprefixer": "^10.4.0",
     "axios": "^0.21.1",
     "eslint-config-prettier": "^8.3.0",
+    "jquery": "^3.6.0",
     "react": "^17.0.2",
     "react-animejs": "^0.5.6",
     "react-custom-scrollbars": "^4.2.1",
@@ -33,6 +34,7 @@
     "react-tilt": "^0.1.4",
     "sass": "^1.36.0",
     "smooth-scrollbar": "^8.6.3",
+    "styled-components": "^5.3.3",
     "tailwindcss": "^3.0.7",
     "typed.js": "^2.0.12",
     "typescript": "^4.1.2",
@@ -43,12 +45,6 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -63,11 +59,11 @@
     ]
   },
   "devDependencies": {
+    "@iconify/icons-bx": "^1.1.4",
+    "@iconify/react": "^3.1.1",
+    "@types/jquery": "^3.5.11",
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
-    "eslint": "^7.30.0",
-    "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-react-hooks": "^4.2.1-rc.0-next-3dc41d8a2-20211223",
     "postcss": "^8.4.5"
   }
 }

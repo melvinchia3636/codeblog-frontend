@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 import Landing from "./Homepage";
 import Projects from "./Projects";
-import Navbar from "./Navbar";
 import ProjectList from "./ProjectList";
 import CaseStudy from "./CaseStudy";
 
@@ -16,12 +15,11 @@ function App(): JSX.Element {
 
     return (
         <>
-            <Navbar page={page} setPage={setPage}/>
             <main className="h-full overflow-hidden relative">
                 <Route>
                     <Switch>
-                        <Route exact path="/"><Landing page={page} setPage={setPage}/></Route>
-                        <Route exact path="/home"><Landing page={page} setPage={setPage}/></Route>
+                        <Route exact path="/"><Landing /></Route>
+                        <Route exact path="/home"><Landing /></Route>
                         <Route exact path="/projects"><Projects/></Route>
                         <Route exact path="/projects/:id" component={ProjectList} />
                         <Route path="/projects/:id/:proj_id" component={CaseStudy} />
