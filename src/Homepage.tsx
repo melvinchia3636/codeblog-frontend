@@ -52,7 +52,7 @@ const Landing = (): JSX.Element => {
                             <br/>
                             <div className="text-[12rem] text-white bg-zinc-800 inline-block px-3 tracking-wide h-[11rem]">CREATIVITY</div>
                         </h1>
-                        <p className="font-[Oswald] text-3xl tracking-widest leading-10"><span className="text-6xl font-normal">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p className="font-['Proxima_Nova'] text-2xl tracking-wider leading-10"><span className="text-6xl font-normal">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         <a className="px-16 pt-5 pb-4 border-2 btn relative bg-white border-zinc-800 block text-4xl tracking-wide w-min whitespace-nowrap mt-2">GET IN TOUCH</a>
                     </div>
                     <div className="relative img h-full w-[34rem] flex-shrink-0"><img className="h-full w-full filter grayscale object-cover" src="https://scontent.fmkz1-1.fna.fbcdn.net/v/t39.30808-6/266679050_756717568638260_4824059781043544069_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=YIIj6BIiwrkAX-pdiXk&tn=2xJeEtRJU1Kuj508&_nc_ht=scontent.fmkz1-1.fna&oh=00_AT8fsm9VV4WL7e-KZ8_Igy6mat89YDMssQ2uvBDFpB7XrQ&oe=61D981C4" /></div>
@@ -90,7 +90,7 @@ const Landing = (): JSX.Element => {
                         <div className="flex flex-col justify-between py-8">
                             <div>
                                 <h2 className="text-8xl tracking-wide">ABOUT ME</h2>
-                                <p className="font-[Oswald] text-3xl tracking-widest mt-4 leading-10"><span className="text-6xl font-normal">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit aliquam etiam erat velit. Pharetra massa massa ultricies mi quis hendrerit dolor. </p>
+                                <p className="font-['Proxima_Nova'] text-2xl tracking-wider mt-4 leading-10"><span className="text-6xl font-normal">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit aliquam etiam erat velit. Pharetra massa massa ultricies mi quis hendrerit dolor. </p>
                             </div>
                             <div className="self-end">
                                 <h2 className="text-[8rem] leading-none tracking-wide -mb-4">MELVIN CHIA</h2>
@@ -118,8 +118,61 @@ const Landing = (): JSX.Element => {
                     </div>
                 </div>
             </div>
-            <div className="section relative h-[100vh] bg-white">
-                <div className="flex flex-col w-[calc(100vw-5rem)] text-zinc-800 overflow-hidden  h-[100vh]">
+            <div className="section relative h-[100vh] bg-white border-b-2 border-b-zinc-800">
+                <div className="flex flex-col w-[calc(100vw-5rem)] p-8 text-zinc-800 overflow-hidden h-[100vh]">
+                    <div className="self-end flex flex-col items-end">
+                        <h2 className="text-8xl tracking-wide">SKILLS & TECH STACKS</h2>
+                        <p className="text-4xl tracking-widest">THE STACK NEVER STOPS GROWING</p>
+                    </div>
+                    <div className="font-['Proxima_Nova'] text-2xl mt-8 flex items-center">
+                        <div className="w-20 flex-shrink-0">2019</div>
+                        <div className="bg-zinc-800 w-2 h-2 rounded-full flex-shrink-0 relative dot-line"></div>
+                        <div className="ml-6 flex-shrink-0 flex-wrap w-11/12">HTML, CSS</div>
+                    </div>
+                    <div className="font-['Proxima_Nova'] text-2xl mt-4 flex items-center">
+                        <div className="w-20 flex-shrink-0">2020</div>
+                        <div className="bg-zinc-800 w-2 h-2 rounded-full flex-shrink-0"></div>
+                        <div className="ml-6 flex-shrink-0 flex-wrap w-11/12">Python, Tkinter, Flask, Django, Javascript, Jquery, Heroku, HTTP, REST API</div>
+                    </div>
+                    <div className="font-['Proxima_Nova'] text-2xl mt-4 flex mr-8 items-center">
+                        <div className="w-20 flex-shrink-0">2021</div>
+                        <div className="bg-zinc-800 w-2 h-2 rounded-full flex-shrink-0"></div>
+                        <div className="ml-6 flex-shrink-0 flex-wrap w-11/12">Typescript, SCSS, Tailwind CSS, Node JS, React JS, React Redux, Svelte, Angular JS, Express JS, Socket IO, Figma, SQL, CPanel</div>
+                    </div>
+                    <div className="font-['Proxima_Nova'] text-2xl mt-4 flex items-center">
+                        <div className="w-20 flex-shrink-0">2022</div>
+                        <div className="bg-zinc-800 w-2 h-2 rounded-full flex-shrink-0"></div>
+                        <div className="ml-6 flex-shrink-0 flex-wrap w-11/12">UIKit, Vue JS, Next JS, MongoDB, C++, Qt, GraphQL</div>
+                    </div>
+                </div>
+            </div>
+            <div className="section relative h-[100vh] bg-white flex">
+                <div className="flex justify-between w-[calc(100vw-5rem)] text-zinc-800 overflow-hidden h-[100vh]">
+                    <div className="flex flex-col justify-between h-full w-1/2 p-8">
+                        <div>
+                            <h2 className="text-[8rem] text-white bg-zinc-800 block w-min px-3 tracking-wide leading-none pt-2">FEATURED</h2>
+                            <h2 className="text-[8rem] text-white bg-zinc-800 block w-min px-3 tracking-wide leading-none -mt-2">WORK</h2>
+                        </div>
+                        <p className="font-['Proxima_Nova'] text-2xl tracking-wider leading-10"><span className="text-6xl font-normal">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div className="flex">
+                        <div className="flex flex-col justify-between items-center h-full w-32 p-8 border-l-2 border-slate-800">
+                            <h3 className="text-7xl transform whitespace-nowrap vert tracking-wide">04. ICONIFY</h3>
+                            <p className="text-2xl">2021</p>
+                        </div>
+                        <div className="flex flex-col justify-between items-center h-full w-32 p-8 border-l-2 border-slate-800">
+                            <h3 className="text-7xl transform whitespace-nowrap vert tracking-wide">03. Github Dev Info</h3>
+                            <p className="text-2xl">2022</p>
+                        </div>
+                        <div className="flex flex-col justify-between items-center h-full w-32 p-8 border-l-2 border-slate-800">
+                            <h3 className="text-7xl transform whitespace-nowrap vert tracking-wide">02. Cruisegator</h3>
+                            <p className="text-2xl">2021</p>
+                        </div>
+                        <div className="flex flex-col justify-between items-center h-full w-32 p-8 border-l-2 border-slate-800">
+                            <h3 className="text-7xl transform whitespace-nowrap vert tracking-wide">01. Minecraft Server List</h3>
+                            <p className="text-2xl">2022</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
