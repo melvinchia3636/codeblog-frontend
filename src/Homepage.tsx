@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Icon } from "@iconify/react";
 
 import "./style/Home.scss";
@@ -12,6 +12,7 @@ import './jquery.pagepiling.css';
 const anim = "animate__animated";
 
 const Landing = (): JSX.Element => {
+    const [navOpen, setNavOpen] = useState(false);
     useEffect(() => {
         ($('#pagepiling') as any).pagepiling({
             navigation: false,
@@ -20,17 +21,26 @@ const Landing = (): JSX.Element => {
             easing: 'linear'
         });
     }, []);
+
     return <div className="flex h-full font-['Bebas_Neue']">
-        <div className="h-full border-r-2 border-zinc-800 w-20 flex flex-col justify-between items-center py-8 px-5">
-            <button className="flex flex-col gap-1 w-full">
-                <span className="w-full border-b-[3px] rounded-full border-zinc-800"></span>
-                <span className="w-full border-b-[3px] rounded-full border-zinc-800"></span>
-            </button>
-            <button onClick={() => {Array(100).fill(0).forEach(() => {($.fn as any).pagepiling.moveSectionUp();})}} className="transform -rotate-90 text-3xl pt-2 tracking-wide">&lt;CODEBLOG/&gt;<span className="text-sm ml-2">v8</span></button>
-            <div className="flex flex-col gap-10">
-                <a><Icon icon="bx:bxl-facebook" className="w-7 h-7" /></a>
-                <a><Icon icon="bx:bxl-github" className="w-7 h-7" /></a>
-                <a><Icon icon="bx:bxl-youtube" className="w-7 h-7" /></a>
+        <div className={`w-${navOpen ? "full" : "20"} transition-all border-r-2 border-zinc-800 overflow-hidden duration-1000 h-full flex`}>
+            <div className="h-full w-20 flex flex-col justify-between items-center py-8 px-5">
+                <button onClick={() => setNavOpen(!navOpen)} className="flex flex-col gap-1 w-full">
+                    <span className="w-full border-b-[3px] rounded-full border-zinc-800"></span>
+                    <span className="w-full border-b-[3px] rounded-full border-zinc-800"></span>
+                </button>
+                <button onClick={() => {Array(100).fill(0).forEach(() => {($.fn as any).pagepiling.moveSectionUp();})}} className="transform -rotate-90 text-3xl pt-2 tracking-wide">&lt;CODEBLOG/&gt;<span className="text-sm ml-2">v8</span></button>
+                <div className="flex flex-col gap-10">
+                    <a><Icon icon="bx:bxl-facebook" className="w-7 h-7" /></a>
+                    <a><Icon icon="bx:bxl-github" className="w-7 h-7" /></a>
+                    <a><Icon icon="bx:bxl-youtube" className="w-7 h-7" /></a>
+                </div>
+            </div>
+            <div className="w-full h-full flex flex-col items-center justify-between text-3xl border-l-2 border-zinc-800 overflow-hidden text-zinc-800 tracking-wide py-12">
+                <a className="w-full h-full flex items-center justify-center text-3xl"><span className="block px-12 btn relative bg-white pt-4 pb-3 border-2 border-zinc-800">HOME</span></a>
+                <a className="w-full h-full flex items-center justify-center">BLOG</a>
+                <a className="w-full h-full flex items-center justify-center">WORKS</a>
+                <a className="w-full h-full flex items-center justify-center">CONTACT</a>
             </div>
         </div>
         <div className="h-full" id="pagepiling">
@@ -53,7 +63,8 @@ const Landing = (): JSX.Element => {
             </div>
             <div className="section relative h-[100vh] bg-white">
                 <div className="flex flex-col w-[calc(100vw-5rem)] text-zinc-800 overflow-hidden  h-[100vh]">
-                    <div className="w-full  p-8 border-b-2 border-zinc-800 text-zinc-800 flex gap-8 py-6">
+                    <div className="w-full  p-8
+                     border-b-2 border-zinc-800 text-zinc-800 flex gap-8 py-6">
                         <div className="w-full text-3xl gap-8 flex flex-col justify-between text-zinc-800 tracking-wide pt-2">
                             <div>
                                 EST. 2020<br/>

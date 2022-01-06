@@ -1,5 +1,4 @@
 import React, { ReactElement, useEffect, useState } from "react";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import ReactAnime from "react-animejs";
 import { Link } from "react-router-dom";
