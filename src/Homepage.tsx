@@ -13,6 +13,8 @@ const anim = "animate__animated";
 
 const Landing = (): JSX.Element => {
     const [navOpen, setNavOpen] = useState(false);
+    const [projectOpen, setProjectOpen] = useState(-1);
+
     useEffect(() => {
         ($('#pagepiling') as any).pagepiling({
             navigation: false,
@@ -148,29 +150,41 @@ const Landing = (): JSX.Element => {
             </div>
             <div className="section relative h-[100vh] bg-white flex">
                 <div className="flex justify-between w-[calc(100vw-5rem)] text-zinc-800 overflow-hidden h-[100vh]">
-                    <div className="flex flex-col justify-between h-full w-1/2 p-8">
-                        <div>
+                    <div className={`flex flex-col justify-between h-full w-${projectOpen === -1 ? "1/2 px-8" : "0 p-0"} overflow-hidden py-8 transition-all duration-500`}>
+                        <div className="overflow-hidden">
                             <h2 className="text-[8rem] text-white bg-zinc-800 block w-min px-3 tracking-wide leading-none pt-2">FEATURED</h2>
                             <h2 className="text-[8rem] text-white bg-zinc-800 block w-min px-3 tracking-wide leading-none -mt-2">WORK</h2>
                         </div>
-                        <p className="font-['Proxima_Nova'] text-2xl tracking-wider leading-10"><span className="text-6xl font-normal">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p className="font-['Proxima_Nova'] overflow-hidden w-96 text-2xl tracking-wider leading-10"><span className="text-6xl font-normal">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
-                    <div className="flex">
-                        <div className="flex flex-col justify-between items-center h-full w-32 p-8 border-l-2 border-slate-800">
-                            <h3 className="text-7xl transform whitespace-nowrap vert tracking-wide">04. ICONIFY</h3>
-                            <p className="text-2xl">2021</p>
+                    <div className={`flex ${!(projectOpen === -1) ? "w-full" : "w-[42rem]"} transition-all duration-500 justify-end`}>
+                        <div onClick={() => setProjectOpen(projectOpen === 1 ? -1 : 1)} className={`flex h-full w-${projectOpen === 1 ? "full border-l-0" : "36 flex-shrink-0"} ${projectOpen === -1 ? "border-l-2" : ""} justify-center transition-all duration-500 p-8 border-r-2 border-slate-800`}>
+                            <div className="flex h-full flex-col justify-between items-center">
+                                <h3 className="text-7xl transform whitespace-nowrap vert tracking-wide">01. CRUISEGATOR</h3>
+                                <p className="text-2xl">2021</p>
+                            </div>
+                            <div className="h-full w-full"></div>
                         </div>
-                        <div className="flex flex-col justify-between items-center h-full w-32 p-8 border-l-2 border-slate-800">
-                            <h3 className="text-7xl transform whitespace-nowrap vert tracking-wide">03. Github Dev Info</h3>
-                            <p className="text-2xl">2022</p>
+                        <div onClick={() => setProjectOpen(projectOpen === 2 ? -1 : 2)} className={`flex h-full w-${projectOpen === 2 ? "full border-l-0" : "36 flex-shrink-0"} justify-center transition-all duration-500 p-8 border-r-2 border-slate-800`}>
+                            <div className="flex h-full flex-col justify-between items-center">
+                                <h3 className="text-7xl transform whitespace-nowrap vert tracking-wide">01. CRUISEGATOR</h3>
+                                <p className="text-2xl">2021</p>
+                            </div>
+                            <div className="h-full w-full"></div>
                         </div>
-                        <div className="flex flex-col justify-between items-center h-full w-32 p-8 border-l-2 border-slate-800">
-                            <h3 className="text-7xl transform whitespace-nowrap vert tracking-wide">02. Cruisegator</h3>
-                            <p className="text-2xl">2021</p>
+                        <div onClick={() => setProjectOpen(projectOpen === 3 ? -1 : 3)} className={`flex h-full w-${projectOpen === 3 ? "full border-l-0" : "36 flex-shrink-0"} justify-center transition-all duration-500 p-8 border-r-2 border-slate-800`}>
+                            <div className="flex h-full flex-col justify-between items-center">
+                                <h3 className="text-7xl transform whitespace-nowrap vert tracking-wide">01. CRUISEGATOR</h3>
+                                <p className="text-2xl">2021</p>
+                            </div>
+                            <div className="h-full w-full"></div>
                         </div>
-                        <div className="flex flex-col justify-between items-center h-full w-32 p-8 border-l-2 border-slate-800">
-                            <h3 className="text-7xl transform whitespace-nowrap vert tracking-wide">01. Minecraft Server List</h3>
-                            <p className="text-2xl">2022</p>
+                        <div onClick={() => setProjectOpen(projectOpen === 4 ? -1 : 4)} className={`flex h-full w-${projectOpen === 4 ? "full border-l-0 border-r-2" : "36 flex-shrink-0"} justify-center transition-all duration-500 p-8 border-r-2 border-slate-800`}>
+                            <div className="flex h-full flex-col justify-between items-center">
+                                <h3 className="text-7xl transform whitespace-nowrap vert tracking-wide">01. CRUISEGATOR</h3>
+                                <p className="text-2xl">2021</p>
+                            </div>
+                            <div className="h-full w-full"></div>
                         </div>
                     </div>
                 </div>
