@@ -67,7 +67,7 @@ const Landing = (): JSX.Element => {
                         <h1 className="text-7xl leading-none tracking-wide">
                             WITH THE VISION OF
                             <br/>
-                            <div className="text-[10rem] text-yellow-400 font-semibold">CREATIVITY</div>
+                            <div className="text-[10rem] text-yellow-400 font-semibold neon">CREATIVITY</div>
                         </h1>
                         <p className="font-[Rajdhani] text-3xl tracking-wider leading-10 -mt-8 ml-1"><span className="text-6xl font-medium">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         <div className="relative mb-2 mt-2 m-1 cursor-pointer flex items-center bg-yellow-500 whitespace-nowrap w-96" style={{ clipPath: "polygon(100% 0px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0px 100%, 0px 0px)", border: "2px solid rgb(254 206 60)", height: "90px", minWidth: "128px", opacity: 1}}>
@@ -114,11 +114,11 @@ const Landing = (): JSX.Element => {
                     <div className="w-full h-full realtive pl-8 border-b-2 border-white text-white flex gap-8">
                         <div className="flex flex-col justify-between py-8">
                             <div>
-                                <h2 className="text-8xl tracking-wide">ABOUT ME</h2>
+                                <h2 className="text-8xl tracking-wide font-semibold text-yellow-400 neon">ABOUT ME</h2>
                                 <p className="font-[Rajdhani] text-2xl tracking-wider mt-4 leading-10"><span className="text-6xl font-normal">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit aliquam etiam erat velit. Pharetra massa massa ultricies mi quis hendrerit dolor. </p>
                             </div>
                             <div className="self-end">
-                                <h2 className="text-[8rem] leading-none tracking-wide -mb-4">MELVIN CHIA</h2>
+                                <h2 className="text-[8rem] leading-none tracking-wide -mb-4 font-semibold neon">MELVIN CHIA</h2>
                                 <p className="font-[Rajdhani] text-3xl text-yellow-400 tracking-wide leading-none text-right">FULL STACK DEVELOPER & UI DESIGNER</p>
                             </div>
                         </div>
@@ -146,7 +146,7 @@ const Landing = (): JSX.Element => {
             <div className="section relative h-[100vh] bg-[#1E1E1E] border-b-2 border-b-white">
                 <div className="flex flex-col w-[calc(100vw-5rem)] p-8 text-white overflow-hidden h-[100vh]">
                     <div className="self-end flex flex-col items-end">
-                        <h2 className="text-8xl tracking-wide">SKILLS & TECH STACKS</h2>
+                        <h2 className="text-8xl tracking-wide font-semibold neon">SKILLS & TECH STACKS</h2>
                         <p className="text-4xl tracking-widest text-yellow-400">THE STACK NEVER STOPS GROWING</p>
                     </div>
                     <div className="font-[Rajdhani] text-2xl mt-8 flex items-center">
@@ -174,7 +174,7 @@ const Landing = (): JSX.Element => {
             <div className="section relative h-[100vh] bg-[#1E1E1E] flex">
                 <div className="flex justify-between w-[calc(100vw-5rem)] text-white overflow-hidden h-[100vh]">
                     <div className={`flex flex-col justify-between h-full ${projectOpen === -1 ? "w-[99%] px-8" : "w-0 p-0"} overflow-hidden py-8 transition-all duration-500`}>
-                        <h1 className="text-[9rem] leading-none tracking-wide whitespace-nowrap font-medium text-yellow-500">
+                        <h1 className="text-[9rem] leading-none tracking-wide whitespace-nowrap font-medium text-yellow-500 neon">
                             FEATURED
                             <br/>WORK
                         </h1>
@@ -183,22 +183,31 @@ const Landing = (): JSX.Element => {
                     <div className={`flex ${!(projectOpen === -1) ? "w-full" : "w-[32rem]"} transition-all duration-500 justify-end`}>
                         <div className={`flex h-full ${projectOpen === 1 ? "w-full border-l-0" : "w-36 flex-shrink-0"} ${projectOpen === -1 ? "border-l-2" : ""} justify-center transition-all duration-500 border-r-2 border-white`}>
                             <div onClick={() => setProjectOpen(projectOpen === 1 ? -1 : 1)} className={`${projectOpen === 1 ? 'border-r-2 border-white' : ""} flex h-full flex-col justify-between items-center p-8`}>
-                                <h3 className="text-7xl transform whitespace-nowrap vert tracking-wide"><span className="text-yellow-400">01.</span> CRUISEGATOR</h3>
+                                <h3 className="text-7xl transform whitespace-nowrap vert tracking-wide font-semibold"><span className="text-yellow-400">01.</span> CRUISEGATOR</h3>
                                 <p className="text-2xl text-yellow-400">2021</p>
                             </div>
                             <div className={`h-full text-white flex flex-col items-center overflow-hidden py-8 transition-all duration-500 ${projectOpen === 1 ? "w-full" : "w-0"}`}>
                                 <div className={`pb-8 w-full flex flex-col items-center border-b-2 border-white ${projectOpen === 1 ? "px-8" : ""}`}>
-                                    <div className="bg-yellow-400 text-white inline-block w-min whitespace-nowrap px-2 pt-1 text-3xl tracking-wide">DATA ARCHIVE</div>
-                                    <h2 className="text-8xl tracking-wide mt-4">CRUISEGATOR</h2>
+                                    <a className="uppercase text-3xl font-medium" style={{color: "rgb(254 206 60)"}}>
+                                        <span className="px-4 pt-0.5 text-center w-full" style={{letterSpacing: "1.1px"}}>DATA ARCHIVE</span>
+                                    </a>
+                                    <h2 className="text-8xl tracking-wide font-semibold">CRUISEGATOR</h2>
                                     <p className="font-[Rajdhani] text-center text-2xl tracking-wide">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                                    <a href="https://cruisegator.thecodeblog.net" target="_blank" className="text-4xl tracking-wide border-2 border-white w-full pt-7 mt-8 pb-6 text-center hover:text-white hover:bg-yellow-400 hover:border-yellow-400 transition-all duration-500">GO TO WEBSITE</a>
+                                    <div className="relative mt-8 m-1 cursor-pointer flex items-center bg-yellow-500 whitespace-nowrap w-full" style={{ clipPath: "polygon(calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px),0 0)", border: "2px solid rgb(254 206 60)", height: "90px", minWidth: "128px", opacity: 1}}>
+                                        <div className="absolute top-0 left-0 right-0 bottom-0 " style={{backgroundColor: "rgb(30, 30, 30)", clipPath: "polygon(calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px),0 0)"}}></div>
+                                        <div className="flex-1 z-10 h-full" style={{clipPath: "polygon(calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px),0 0)"}}>
+                                            <a className="display-font uppercase text-3xl font-semibold w-full h-full flex flex-row justify-start items-center relative" style={{color: "rgb(254 206 60)"}}>
+                                                <span className="pr-4 pl-2 text-center w-full" style={{letterSpacing: "1.1px"}}>GO TO WEBSITE</span>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div><img className="p-8" src={Project1} /></div>
                             </div>
                         </div>
                         <div className={`flex h-full ${projectOpen === 2 ? "w-full border-l-0" : "w-36 flex-shrink-0"} justify-center transition-all duration-500 border-r-2 border-white`}>
                             <div onClick={() => setProjectOpen(projectOpen === 2 ? -1 : 2)} className={`${projectOpen === 2 ? 'border-r-2 border-white' : ""} flex h-full flex-col justify-between items-center p-8`}>
-                                <h3 className="text-7xl transform whitespace-nowrap vert tracking-wide"><span className="text-yellow-400">02.</span> ICONIFY</h3>
+                                <h3 className="text-7xl transform whitespace-nowrap vert tracking-wide font-semibold"><span className="text-yellow-400">02.</span> ICONIFY</h3>
                                 <p className="text-2xl text-yellow-400">2021</p>
                             </div>
                             <div className={`h-full text-white flex flex-col items-center overflow-hidden py-8 transition-all duration-500 ${projectOpen === 2 ? "w-full" : "w-0"}`}>
@@ -213,7 +222,7 @@ const Landing = (): JSX.Element => {
                         </div>
                         <div className={`flex h-full ${projectOpen === 3 ? "w-full border-l-0" : "w-36 flex-shrink-0"} justify-center transition-all duration-500 border-r-2 border-white`}>
                             <div onClick={() => setProjectOpen(projectOpen === 3 ? -1 : 3)} className={`${projectOpen === 3 ? 'border-r-2 border-white' : ""} flex h-full flex-col justify-between items-center p-8`}>
-                                <h3 className="text-7xl transform whitespace-nowrap vert tracking-wide"><span className="text-yellow-400">03.</span> AVATAR GENERATOR</h3>
+                                <h3 className="text-6xl transform whitespace-nowrap vert tracking-wide font-semibold"><span className="text-yellow-400">03.</span> AVATAR GENERATOR</h3>
                                 <p className="text-2xl text-yellow-400">2021</p>
                             </div>
                             <div className={`h-full text-white flex flex-col items-center overflow-hidden py-8 transition-all duration-500 ${projectOpen === 3 ? "w-full" : "w-0"}`}>
