@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 
 import "./style/Home.scss";
 import "tailwindcss/tailwind.css";
-import "animate.css/animate.min.css";
+import "animate.css";
 
 import $ from 'jquery';
 import './jquery.pagepiling.js';
@@ -13,11 +13,9 @@ import Avatar from "./assets/avatar.jpg";
 import Project1 from "./assets/project1.png"
 import Project2 from "./assets/project2.png"
 import Project3 from "./assets/project3.png"
-
-const anim = "animate__animated";
+import Navbar from './Navbar';
 
 const Landing = (): JSX.Element => {
-    const [navOpen, setNavOpen] = useState(false);
     const [projectOpen, setProjectOpen] = useState(-1);
 
     useEffect(() => {
@@ -25,52 +23,36 @@ const Landing = (): JSX.Element => {
             navigation: false,
             touchSensitivity: 5,
             scrollingSpeed: 200,
-            easing: 'linear'
+            easing: 'linear',
+            onLeave: (index: number, nextIndex: number, direction: 'up' | 'down') => {
+                console.log(nextIndex);
+            }
         });
     }, []);
 
     return <div className="flex h-full font-[Rajdhani]">
-        <div className={`w-${navOpen ? "full" : "20"} transition-all border-r-2 text-white border-white overflow-hidden duration-1000 h-full flex`}>
-            <div className="h-full w-20 flex flex-col justify-between items-center py-8 px-5">
-                <button onClick={() => setNavOpen(!navOpen)} className="flex flex-col gap-1 w-full">
-                    <span className="w-full border-b-[3px] rounded-full border-white"></span>
-                    <span className="w-full border-b-[3px] rounded-full border-white"></span>
-                </button>
-                <button onClick={() => {Array(100).fill(0).forEach(() => {($.fn as any).pagepiling.moveSectionUp();})}} className="transform -rotate-90 text-3xl pt-2 tracking-wide font-medium">&lt;<span className="text-yellow-500">CODEBLOG</span>/&gt;<span className="text-sm ml-2">v8</span></button>
-                <div className="flex flex-col gap-10">
-                    <a><Icon icon="bx:bxl-facebook" className="w-7 h-7" /></a>
-                    <a><Icon icon="bx:bxl-github" className="w-7 h-7" /></a>
-                    <a><Icon icon="bx:bxl-youtube" className="w-7 h-7" /></a>
-                </div>
-            </div>
-            <div className="w-full h-full flex flex-col items-center justify-between text-3xl border-l-2 border-white overflow-hidden text-white tracking-wide py-12">
-                <a className="w-full h-full flex items-center justify-center text-3xl"><span className="block px-12 btn relative bg-[#1E1E1E] pt-4 pb-3 border-2 border-yellow-500 font-semibold">HOME</span></a>
-                <a className="w-full h-full flex items-center justify-center">BLOG</a>
-                <a className="w-full h-full flex items-center justify-center">WORKS</a>
-                <a className="w-full h-full flex items-center justify-center">CONTACT</a>
-            </div>
-        </div>
+        <Navbar />
         <div className="h-full" id="pagepiling">
             <div className="section bg-[#1E1E1E] w-full border-b-2 border-white ">
                 <div className="flex gap-8 text-white overflow-hidden w-[calc(100vw-5rem)] h-[100vh] p-8">
                     <div className="flex flex-col gap-8">
                         <div className="flex flex-col gap-1 w-min whitespace-nowrap">
-                            <div className="bg-yellow-400 w-72 text-[#1E1E1E] font-medium tracking-wide text-lg flex justify-between head relative py-1 pt-1.5 px-3">
+                            <div className="bg-yellow-400 animate__animated animate__fadeInUp z-[-1] w-72 text-[#1E1E1E] font-medium tracking-wide text-lg flex justify-between head relative py-1 pt-1.5 px-3">
                                 MELVIN CHIA
                                 <span>[DEV]</span>
                             </div>
-                            <div className="border-2 border-yellow-500 text-3xl font-semibold tracking-wide w-[32rem] flex justify-between items-center">
-                                <div className="p-3 pt-4">WEB DEVELOPER & UI DESIGNER</div>
+                            <div className="font-[Barlow] font-normal animate__animated animate__fadeInLeft border-2 z-[2] relative border-yellow-500 text-2xl tracking-wide w-[32rem] flex justify-between items-center">
+                                <div className="p-4">WEB DEVELOPER & UI DESIGNER</div>
                                 <div className="h-full w-1 bg-yellow-500"></div>
                             </div>
                         </div>
-                        <h1 className="text-7xl leading-none tracking-wide">
+                        <h1 className="text-7xl leading-none tracking-wide animate__animated animate__fadeInUp">
                             WITH THE VISION OF
                             <br/>
-                            <div className="text-[10rem] text-yellow-400 font-semibold neon">CREATIVITY</div>
+                            <div className="text-[10rem] text-yellow-400 font-semibold neon animate__animated animate__fadeInLeft">CREATIVITY</div>
                         </h1>
-                        <p className="font-[Rajdhani] text-3xl tracking-wider leading-10 -mt-8 ml-1"><span className="text-6xl font-medium">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <div className="relative mb-2 mt-2 m-1 cursor-pointer flex items-center bg-yellow-500 whitespace-nowrap w-96" style={{ clipPath: "polygon(100% 0px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0px 100%, 0px 0px)", border: "2px solid rgb(254 206 60)", height: "90px", minWidth: "128px", opacity: 1}}>
+                        <p className="font-[Barlow] font-light animate__animated animate__fadeInUp text-2xl tracking-widest leading-10 -mt-8 ml-1"><span className="text-6xl font-medium">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div className="relative animate__animated animate__fadeInRight mb-2 mt-6 m-1 cursor-pointer flex items-center bg-yellow-500 whitespace-nowrap w-96" style={{ clipPath: "polygon(100% 0px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0px 100%, 0px 0px)", border: "2px solid rgb(254 206 60)", height: "90px", minWidth: "128px", opacity: 1}}>
                             <div className="absolute top-0 left-0 right-0 bottom-0 " style={{backgroundColor: "rgb(30, 30, 30)", clipPath: "polygon(100% 0px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0px 100%, 0px 0px)"}}></div>
                             <div className="flex-1 z-10 h-full" style={{clipPath: "polygon(100% 0px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0px 100%, 0px 0px)"}}>
                                 <a className="display-font uppercase text-3xl font-semibold w-full h-full flex flex-row justify-start items-center relative" style={{color: "rgb(254 206 60)"}}>
@@ -80,9 +62,9 @@ const Landing = (): JSX.Element => {
                             </div>
                         </div>
                     </div>
-                    <div className="relative img h-full w-[34rem] flex-shrink-0 pr-6"><img className="h-full w-full filter grayscale object-cover" src={Avatar} /></div>
-                    <div className="absolute top-0 right-64 w-56 h-full flex items-center justify-center border-l-2 border-r-2 border-yellow-500 z-[-1] px-4">
-                        <div className="w-full h-screen border-l-2 border-r-2 border-white" />
+                    <div className="relative animate__animated animate__fadeIn img h-full w-[34rem] flex-shrink-0 pr-6"><img className="h-full w-full filter grayscale object-cover" src={Avatar} /></div>
+                    <div className="absolute animate__animated animate__slideInUp top-0 right-64 w-56 h-full flex items-center justify-center border-l-2 border-r-2 border-yellow-500 z-[-1] px-4">
+                        <div className="w-full animate__animated animate__fadeIn h-screen border-l-2 border-r-2 border-white" />
                     </div>
                 </div>
             </div>
@@ -106,9 +88,9 @@ const Landing = (): JSX.Element => {
                             <a>WORKS</a>
                             <a>CONTACT</a>
                         </div>
-                        <div className="w-full text-5xl flex items-center text-center justify-center text-white tracking-wide pt-2">
-                            CREATIVITY. SIMPLICITY.<br/>
-                            VISIONARY.
+                        <div className="w-full text-4xl flex items-center text-center justify-center text-white tracking-wide pt-2 font-medium">
+                            <p><span className="text-yellow-500">CREATIVITY.</span> SIMPLICITY.<br/>
+                            VISIONARY.</p>
                         </div>
                     </div>
                     <div className="w-full h-full realtive pl-8 border-b-2 border-white text-white flex gap-8">

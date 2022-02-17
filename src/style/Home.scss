@@ -5,6 +5,7 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500&display=swap');
 
 $dark-mode: 0, 4, 5, 7, 8, 9, 10, 12, 13, 14, 16, 17, 18, 19, 20, 22, 28, 29, 30, 31;
 $logo-colors: (1: (dark: #FFC922, light: #A47C00), 2: (dark: white, light: #131313));
@@ -94,4 +95,9 @@ body {
 
 .neon {
     text-shadow: 0 0 6px #000,-6px -6px 6px
+}
+
+.animate__animated {
+    animation-delay: 0.5s !important;
+    animation-duration: 1s !important;
 }
