@@ -17,6 +17,7 @@ import Navbar from './Navbar';
 
 const Landing = (): JSX.Element => {
     const [projectOpen, setProjectOpen] = useState(-1);
+    const [page, setPage] = useState(1);
 
     useEffect(() => {
         ($('#pagepiling') as any).pagepiling({
@@ -25,7 +26,7 @@ const Landing = (): JSX.Element => {
             scrollingSpeed: 200,
             easing: 'linear',
             onLeave: (index: number, nextIndex: number, direction: 'up' | 'down') => {
-                console.log(nextIndex);
+                setPage(nextIndex);
             }
         });
     }, []);
@@ -34,25 +35,25 @@ const Landing = (): JSX.Element => {
         <Navbar />
         <div className="h-full" id="pagepiling">
             <div className="section bg-[#1E1E1E] w-full border-b-2 border-white ">
-                <div className="flex gap-8 text-white overflow-hidden w-[calc(100vw-5rem)] h-[100vh] p-8">
+                <div className="flex gap-8 text-white relative overflow-hidden w-[calc(100vw-5rem)] h-[100vh] p-8">
                     <div className="flex flex-col gap-8">
                         <div className="flex flex-col gap-1 w-min whitespace-nowrap">
-                            <div className="bg-yellow-400 animate__animated animate__fadeInUp z-[-1] w-72 text-[#1E1E1E] font-medium tracking-wide text-lg flex justify-between head relative py-1 pt-1.5 px-3">
+                            <div className={`${page == 1 ? 'animated fadeInUp' : ""} bg-yellow-400 z-[-1] w-72 text-[#1E1E1E] font-medium tracking-wide text-lg flex justify-between head relative py-1 pt-1.5 px-3`}>
                                 MELVIN CHIA
                                 <span>[DEV]</span>
                             </div>
-                            <div className="font-[Barlow] font-normal animate__animated animate__fadeInLeft border-2 z-[2] relative border-yellow-500 text-2xl tracking-wide w-[32rem] flex justify-between items-center">
+                            <div className={`font-[Barlow] font-normal ${page == 1 ? "animated fadeInLeft" : ""} border-2 z-[2] relative border-yellow-500 text-2xl tracking-wide w-[32rem] flex justify-between items-center`}>
                                 <div className="p-4">WEB DEVELOPER & UI DESIGNER</div>
                                 <div className="h-full w-1 bg-yellow-500"></div>
                             </div>
                         </div>
-                        <h1 className="text-7xl leading-none tracking-wide animate__animated animate__fadeInUp">
+                        <h1 className={`${page == 1 ? 'animated fadeInUp' : ""} text-7xl leading-none tracking-wide`}>
                             WITH THE VISION OF
                             <br/>
-                            <div className="text-[10rem] text-yellow-400 font-semibold neon animate__animated animate__fadeInLeft">CREATIVITY</div>
+                            <div className={`text-[10rem] text-yellow-400 font-semibold neon ${page == 1 ? 'animated fadeInLeft' : ""}`}>CREATIVITY</div>
                         </h1>
-                        <p className="font-[Barlow] font-light animate__animated animate__fadeInUp text-2xl tracking-widest leading-10 -mt-8 ml-1"><span className="text-6xl font-medium">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <div className="relative animate__animated animate__fadeInRight mb-2 mt-6 m-1 cursor-pointer flex items-center bg-yellow-500 whitespace-nowrap w-96" style={{ clipPath: "polygon(100% 0px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0px 100%, 0px 0px)", border: "2px solid rgb(254 206 60)", height: "90px", minWidth: "128px", opacity: 1}}>
+                        <p className={`font-[Barlow] font-light ${page == 1 ? 'animated fadeInUp' : ""} text-2xl tracking-widest leading-10 -mt-8 ml-1`}><span className="text-6xl font-medium">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div className={`relative ${page == 1 ? 'animated fadeInRight' : ""} mb-2 mt-6 m-1 cursor-pointer flex items-center bg-yellow-500 whitespace-nowrap w-96`} style={{ clipPath: "polygon(100% 0px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0px 100%, 0px 0px)", border: "2px solid rgb(254 206 60)", height: "90px", minWidth: "128px", opacity: 1}}>
                             <div className="absolute top-0 left-0 right-0 bottom-0 " style={{backgroundColor: "rgb(30, 30, 30)", clipPath: "polygon(100% 0px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0px 100%, 0px 0px)"}}></div>
                             <div className="flex-1 z-10 h-full" style={{clipPath: "polygon(100% 0px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0px 100%, 0px 0px)"}}>
                                 <a className="display-font uppercase text-3xl font-semibold w-full h-full flex flex-row justify-start items-center relative" style={{color: "rgb(254 206 60)"}}>
@@ -62,46 +63,45 @@ const Landing = (): JSX.Element => {
                             </div>
                         </div>
                     </div>
-                    <div className="relative animate__animated animate__fadeIn img h-full w-[34rem] flex-shrink-0 pr-6"><img className="h-full w-full filter grayscale object-cover" src={Avatar} /></div>
-                    <div className="absolute animate__animated animate__slideInUp top-0 right-64 w-56 h-full flex items-center justify-center border-l-2 border-r-2 border-yellow-500 z-[-1] px-4">
-                        <div className="w-full animate__animated animate__fadeIn h-screen border-l-2 border-r-2 border-white" />
+                    <div className={`relative ${page == 1 ? 'animated fadeInRight' : ""} img h-full w-[34rem] flex-shrink-0 pr-6`}><img className="h-full w-full filter grayscale object-cover" src={Avatar} /></div>
+                    <div className={`absolute ${page == 1 ? 'animated slideInUp' : ""} top-0 right-44 w-56 h-full flex items-center justify-center border-l-2 border-r-2 border-yellow-500 z-[-1] px-4`}>
+                        <div className={`w-full ${page == 1 ? 'animated fadeIn' : ""} h-screen border-l-2 border-r-2 border-white`} />
                     </div>
                 </div>
             </div>
             <div className="section relative h-[100vh] bg-[#1E1E1E]">
                 <div className="flex flex-col w-[calc(100vw-5rem)] text-white overflow-hidden  h-[100vh]">
-                    <div className="w-full  p-8
-                     border-b-2 border-white text-white flex gap-8 py-6">
+                    <div className="w-full p-8 text-white flex gap-8 py-6">
                         <div className="w-full text-3xl gap-8 flex flex-col justify-between text-white tracking-wide pt-2">
-                            <div>
+                            <div className={page == 2 ? "animated animate fadeInLeft" : ""}>
                                 <span className="text-yellow-400">EST. 2020</span><br/>
                                 FULL STACK DEVELOPER
                             </div>
-                            <div>
+                            <div className={page == 2 ? "animated fadeInLeft" : ""}>
                                 <span className="text-yellow-400">EST. 2021</span><br/>
                                 UI DESIGNER
                             </div>
                         </div>
-                        <div className="w-full border-l-2 border-r-2 justify-between flex-col items-center flex px-8 border-white text-2xl font-[Rajdhani]">
+                        <div className={`${page == 2 ? "animated fadeInDown" : ""} w-full border-l-2 border-r-2 justify-between flex-col items-center flex px-8 border-white text-2xl font-[Rajdhani]`}>
                             <a>HOME</a>
                             <a>BLOG</a>
                             <a>WORKS</a>
                             <a>CONTACT</a>
                         </div>
-                        <div className="w-full text-4xl flex items-center text-center justify-center text-white tracking-wide pt-2 font-medium">
+                        <div className={`${page == 2 ? "animated fadeInRight" : ""} w-full text-4xl flex items-center text-center justify-center text-white tracking-wide pt-2 font-medium`}>
                             <p><span className="text-yellow-500">CREATIVITY.</span> SIMPLICITY.<br/>
                             VISIONARY.</p>
                         </div>
                     </div>
-                    <div className="w-full h-full realtive pl-8 border-b-2 border-white text-white flex gap-8">
+                    <div className={`${page == 2 ? "animated fadeInRight" : ""} w-full h-full border-t-2 border-white realtive pl-8 text-white flex gap-8`}>
                         <div className="flex flex-col justify-between py-8">
                             <div>
-                                <h2 className="text-8xl tracking-wide font-semibold text-yellow-400 neon">ABOUT ME</h2>
-                                <p className="font-[Rajdhani] text-2xl tracking-wider mt-4 leading-10"><span className="text-6xl font-normal">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit aliquam etiam erat velit. Pharetra massa massa ultricies mi quis hendrerit dolor. </p>
+                                <h2 className={`${page == 2 ? "animated fadeInLeft" : ""} text-8xl tracking-wide font-semibold text-yellow-400 neon`}>ABOUT ME</h2>
+                                <p className={`${page == 2 ? "animated fadeInUp" : ""} font-[Rajdhani] text-2xl tracking-wider mt-4 leading-10`}><span className="text-6xl font-normal">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit aliquam etiam erat velit. Pharetra massa massa ultricies mi quis hendrerit dolor. </p>
                             </div>
                             <div className="self-end">
-                                <h2 className="text-[8rem] leading-none tracking-wide -mb-4 font-semibold neon">MELVIN CHIA</h2>
-                                <p className="font-[Rajdhani] text-3xl text-yellow-400 tracking-wide leading-none text-right">FULL STACK DEVELOPER & UI DESIGNER</p>
+                                <h2 className={`${page == 2 ? "animated fadeInRight" : ""} text-[8rem] leading-none tracking-wide -mb-4 font-semibold neon`}>MELVIN CHIA</h2>
+                                <p className={`${page == 2 ? "animated fadeInUp" : ""} font-[Rajdhani] text-3xl text-yellow-400 tracking-wide leading-none text-right`}>FULL STACK DEVELOPER & UI DESIGNER</p>
                             </div>
                         </div>
                         <div className="h-full border-l-2 w-[80rem] border-white flex flex-col">
@@ -156,7 +156,7 @@ const Landing = (): JSX.Element => {
             <div className="section relative h-[100vh] bg-[#1E1E1E] flex">
                 <div className="flex justify-between w-[calc(100vw-5rem)] text-white overflow-hidden h-[100vh]">
                     <div className={`flex flex-col justify-between h-full ${projectOpen === -1 ? "w-[99%] px-8" : "w-0 p-0"} overflow-hidden py-8 transition-all duration-500`}>
-                        <h1 className="text-[9rem] leading-none tracking-wide whitespace-nowrap font-medium text-yellow-500 neon">
+                        <h1 className="text-[9rem] leading-none tracking-wide whitespace-nowrap font-semibold text-yellow-500 neon">
                             FEATURED
                             <br/>WORK
                         </h1>
@@ -174,7 +174,7 @@ const Landing = (): JSX.Element => {
                                         <span className="px-4 pt-0.5 text-center w-full" style={{letterSpacing: "1.1px"}}>DATA ARCHIVE</span>
                                     </a>
                                     <h2 className="text-8xl tracking-wide font-semibold">CRUISEGATOR</h2>
-                                    <p className="font-[Rajdhani] text-center text-2xl tracking-wide">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                                    <p className="font-[Barlow] font-normal text-center text-2xl tracking-wide">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
                                     <div className="relative mt-8 m-1 cursor-pointer flex items-center bg-yellow-500 whitespace-nowrap w-full" style={{ clipPath: "polygon(calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px),0 0)", border: "2px solid rgb(254 206 60)", height: "90px", minWidth: "128px", opacity: 1}}>
                                         <div className="absolute top-0 left-0 right-0 bottom-0 " style={{backgroundColor: "rgb(30, 30, 30)", clipPath: "polygon(calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px),0 0)"}}></div>
                                         <div className="flex-1 z-10 h-full" style={{clipPath: "polygon(calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px),0 0)"}}>
